@@ -1,0 +1,10 @@
+OLD
+PATH_JSON=CORE/paths.json
+DOMAIN_JSON=CORE/domains.json
+
+NEW
+LANGUAGE_PATHS=core_app/language_paths.json
+LANGUAGE_DOMAINS=core_app/language_domains.json
+
+
+DEFAULT_DATABASE_NAME=bhashanet_v2_db

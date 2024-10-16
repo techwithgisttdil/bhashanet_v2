@@ -1,0 +1,24 @@
+# Ignore Python bytecode and caches
+*.pyc
+__pycache__/
+
+# Ignore virtual environment
+venv/
+env/
+bhashanet_v2_env/
+
+# Ignore Django-specific files
+db.sqlite3
+media/
+staticfiles/
+
+# Ignore environment variables
+.env
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+
+# Ignore logs and backups
+*.log
+*.bak
