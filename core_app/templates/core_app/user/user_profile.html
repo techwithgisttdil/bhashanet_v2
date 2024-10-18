@@ -1,0 +1,97 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block user_profile %}
+
+<div class="">
+  <div class="card-box ua-card-header--bg-blk" id="main-content">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-12">
+             <div class="ua-small-info-box">
+                <div class="horizontal-rule">
+                   <h1 class=" h2 heading4">User Profile</h1>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-12 col-12">
+            <div class="breadcrumb-list">
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item" aria-current="page">User Profile</li>
+                  </ol>
+                </nav>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-100 mt-60">
+    <div class="">
+      <div class="row justify-content-md-center">
+        <div>
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.extra_tags }}">
+                <strong>{{ message }}</strong>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+              <strong>{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+    </div>
+
+    <form method='POST' enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-lg-6 mb-3">
+          <label for="exampleInputName" class="form-label">Full Name <span class="text-danger">*</span><i class="bi bi-exclamation-circle" aria-hidden="true" title="Name field must contain only alphabets and space"></i></label>
+          {{form.UserProfile_name}}
+        </div>
+        <div class="col-lg-6 mb-3">
+          <label for="exampleInputEmail1" class="form-label">Designation <span class="text-danger">*</span></label>
+          {{form.UserProfile_designation}}
+        </div>
+        <div class="col-lg-6 mb-3">
+          <label for="exampleInputEmail1" class="form-label">Organization Name <span class="text-danger">*</span></label>
+          {{form.UserProfile_organization}}
+        </div>
+        <div class="col-lg-12 mb-3">
+          <label for="exampleInputEmail1" class="form-label">Profile Bio <span class="text-danger">*</span></label>
+          {{form.UserProfile_Bio}}
+        </div>
+      </div>
+      <div class="col-lg-6 mb-3">
+        <label for="exampleInputEmail1" class="form-label">Upload Profile Image <span>( JPEG, JPG, and PNG are allowed ) </span><span class="text-danger">*</span></label>
+        {{form.UserProfile_organization_logo}}
+        <span class="m-0 p-0 text-danger">{{form.UserProfile_organization_logo.errors}}</span>
+        <span class="ms-2 text-primary m-0 p-0 fw-bold btn" id="clear">Clear image</span>
+      </div>
+      <button type="submit" class="btn btn-primary mb-4 custom-button1">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.getElementById("clear").addEventListener("click", function () {
+      document.getElementById("profile_image").value = "";
+  }, false);
+  </script>
+
+{% endblock %}

@@ -1,0 +1,236 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+
+{% block success_stories %}
+
+ <div class="card-box ua-card-header--bg-blk">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-12">
+             <div class="ua-small-info-box">
+                <div class="horizontal-rule">
+                   <h1 class=" h2 heading4">IDN Ready Websites</h1>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <section>
+    <div class="container mt-2">
+       <div class="row">
+          <div class="col-lg-12">
+             <div class="breadcrumb-bar ">
+                <div class="container">
+                   <div class="row">
+                      <div class="col-md-12 col-12 d-flex justify-content-between">
+                         <div class="breadcrumb-list">
+                            <nav aria-label="breadcrumb" class="page-breadcrumb">
+                               <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                  <li class="breadcrumb-item">Resources</li>
+                                  <li class="breadcrumb-item">IDN Ready Websites</li>
+                               </ol>
+                            </nav>
+                         </div>
+                         <p class="text-end text-success fw-blod">Total Results: 22</p>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <div class="page-content" id="main-content">
+    <div class="container">
+       <div class="row d-flex justify-content-end">
+          <div class="col-lg-12">
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-lg-3">
+             <div class="card search-filter">
+                <div class="card-body">
+                   <div class="filter-widget mb-0">
+                      <div class="categories-head d-flex align-items-center">
+                         <h2 class="h5">Categories</h2>
+                         <i class="fas fa-angle-down"></i>
+                      </div>
+                      <form method="POST">
+                         <input type="hidden" name="csrfmiddlewaretoken" value="Inml5F0yiWAyuW3fDyZrdA84v7r7eFbS3xcxYCQRX89IRvaMIhQA9Rfj8TGMekjw">
+                         <div id="id_select_category">
+                            <div>
+                               <label for="id_select_category_0"><input type="checkbox" name="select_category" value="1" id="id_select_category_0">
+                               Government</label>
+                            </div>
+                            <div>
+                               <label for="id_select_category_1"><input type="checkbox" name="select_category" value="2" id="id_select_category_1">
+                               Private</label>
+                            </div>
+                         </div>
+                         <div class="filter-widget mb-0">
+                            <div class="categories-head d-flex align-items-center">
+                               <h2 class="h5">Languages</h2>
+                            </div>
+                            <div id="id_select_language">
+                               <div>
+                                  <div class="dropdown my-3">
+                                     <button class="btn btn-light border dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                     Select Languages
+                                     </button>
+                                     <div class="dropdown-menu w-100" aria-labelledby="languageDropdown">
+                      <form>
+                      <div class="dropdown-item">
+                      <input class="form-check-input" type="checkbox" id="englishCheckbox">
+                      <label class="form-check-label" for="englishCheckbox">English</label>
+                      </div>
+                      <div class="dropdown-item">
+                      <input class="form-check-input" type="checkbox" id="hindiCheckbox">
+                      <label class="form-check-label" for="hindiCheckbox">Hindi</label>
+                      </div>
+                      <div class="dropdown-item">
+                      <input class="form-check-input" type="checkbox" id="marathiCheckbox">
+                      <label class="form-check-label" for="marathiCheckbox">Marathi</label>
+                      </div>
+                      <div class="dropdown-item">
+                      <input class="form-check-input" type="checkbox" id="MalayalamCheckbox">
+                      <label class="form-check-label" for="MalayalamCheckbox">Malayalam</label>
+                      </div>
+                      <div class="dropdown-item">
+                      <input class="form-check-input" type="checkbox" id=" TamilCheckbox">
+                      <label class="form-check-label" for=" TamilCheckbox"> Tamil</label>
+                      </div>
+                      <div class="dropdown-item">
+                      <input class="form-check-input" type="checkbox" id=" TamilCheckbox">
+                      <label class="form-check-label" for=" TamilCheckbox"> Tamil</label>
+                      </div>
+                      <!-- Add more language options as needed -->
+                      </form>
+                      </div>
+                      </div>
+                      </div>
+                      </div>
+                      </div> 
+                      <div class="d-flex justify-content-center">
+                         <button class="btn btn-primary mb-3 me-3" type="submit" name="filter" value="filter">Filter</button>
+                         <button class="btn btn-primary mb-3" type="submit" name="filter" value="reset">Reset</button>
+                      </div>
+                      </form>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <!--modifed by rahulb on date 11/07/23-->
+          <div class="col-lg-9">
+             <div class="col-lg-12 col-md-6 col-sm-12 col-12 box-shadow-card p-3 mb-3">
+                <div class="row">
+                   <div class="col-md-3">
+                      <div class="ua-card-header--img">
+                         <a href="https://bhashanet.in/idn_websites/1#">
+                         <img class="img-fluid w-100" alt="Iconic image of document" src="/media/core_app/Idn_websites/bhashanet_logo.png">
+                         </a>
+                      </div>
+                      <div class="ua-card-header--badge">
+                         <span class="web-badge">Category : Government</span>
+                      </div>
+                   </div>
+                   <div class="col-md-9">
+                      <div class="">
+                         <h3 class="stpi-heading">Bhashanet</h3>
+                         {% comment %} <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit laboriosam, dicta tenetur perferendis excepturi blanditiis laborum magni est modi magnam aperiam.</p> {% endcomment %}
+                         <hr class="horizontal-rule">
+                         <div class="ua-card-header--info">
+                            <div class="date-img d-flex align-items-center">
+                               <img src="https://bhashanet.in/idn_websites/assets/img/icon/icon-01.svg" class="me-1" alt="">
+                            </div>
+                         </div>
+                         <div class="d-flex flex-wrap justify-content-start">
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >English: datamail.in</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Marathi: डेटामेल.भारत</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Hindi: डाटामेल.भारत</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Gujarati: ડાટામેલ.ભારત</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Tamil: இந.இந்தியா</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Punjabi: ਡਾਟਾਮੇਲ.ਭਾਰਤ</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Telugu: డేటామెయిల్.భారత్</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Urdu: ڈاٹامیل.بھارت</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Bengali: ডাটামেল্.ভারত</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Kannada: ಡೇಟಾಮೇಲ್.ಭಾರತ</span>
+                            <!-- Add more tags as needed -->
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-12 col-md-6 col-sm-12 col-12 box-shadow-card p-3 my-3">
+                <div class="row">
+                   <div class="col-md-3">
+                      <div class="ua-card-header--img">
+                         <a href="https://bhashanet.in/idn_websites/1#">
+                         <img class="img-fluid w-100" alt="Iconic image of document" src="/media/core_app/Idn_websites/stpi.png">
+                         </a>
+                      </div>
+                      <div class="ua-card-header--badge">
+                         <span class="web-badge">Category : Government</span>
+                      </div>
+                   </div>
+                   <div class="col-md-9">
+                      <div class="">
+                         <h3 class="stpi-heading">STPI</h3>
+                         {% comment %} <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit laboriosam, dicta tenetur perferendis excepturi blanditiis laborum magni est modi magnam aperiam.</p> {% endcomment %}
+                         <hr class="horizontal-rule">
+                         <div class="ua-card-header--info">
+                            <div class="date-img d-flex align-items-center">
+                               <img src="https://bhashanet.in/idn_websites/assets/img/icon/icon-01.svg" class="me-1" alt="">
+                            </div>
+                         </div>
+                         <div class="d-flex flex-wrap justify-content-start">
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >English: datamail.in</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Marathi: डेटामेल.भारत</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Hindi: डाटामेल.भारत</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Gujarati: ડાટામેલ.ભારત</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Tamil: இந.இந்தியா</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Punjabi: ਡਾਟਾਮੇਲ.ਭਾਰਤ</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Telugu: డేటామెయిల్.భారత్</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Urdu: ڈاٹامیل.بھارت</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Bengali: ডাটামেল্.ভারত</span>
+                            <span class="badge me-2 badge-lg badge-english mb-2 badge-width" >Kannada: ಡೇಟಾಮೇಲ್.ಭಾರತ</span>
+                            <!-- Add more tags as needed -->
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <ul class="pagination lms-page lms-pagination">
+                <li class="page-item">
+                   <a href="https://bhashanet.in/idn_websites/1" class="current page-link">
+                   1
+                   </a>
+                </li>
+                <li class="page-item">
+                   <a href="https://bhashanet.in/idn_websites/2" class=" page-link">
+                   2
+                   </a>
+                </li>
+                <li class="page-item">
+                   <a href="https://bhashanet.in/idn_websites/3" class=" page-link">
+                   3
+                   </a>
+                </li>
+                <li class="page-item">
+                   <a href="https://bhashanet.in/idn_websites/4" class=" page-link">
+                   4
+                   </a>
+                </li>
+                <li class="page-item">
+                   <a href="https://bhashanet.in/idn_websites/5" class=" page-link">
+                   5
+                   </a>
+                </li>
+             </ul>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock %}

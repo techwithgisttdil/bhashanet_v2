@@ -1,0 +1,463 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block dashboard_content %}
+  <div class="container-fluid mt-3">
+    <div class="row">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="col-lg-12">
+            <div class="alert alert-primary">{{ message }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <!-- DOMAIN STATISTICS STARTS -->
+
+    <div class="row">
+      <div class="col-3">
+        <div class="card card-widget">
+          <div class="card-body gradient-3">
+            <div class="media">
+              <span class="card-widget__icon"><i class="icon-home"></i></span>
+              <div class="media-body">
+                <h2 class="card-widget__title">{{ English_Domain_total_records }}</h2>
+                <h5 class="card-widget__subtitle">Total English Domains</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card card-widget">
+          <div class="card-body gradient-4">
+            <div class="media">
+              <span class="card-widget__icon"><i class="icon-tag"></i></span>
+              <div class="media-body">
+                <h2 class="card-widget__title">{{ URL_dashboard_total_records }}</h2>
+                <h5 class="card-widget__subtitle">Total IDN Domains</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card card-widget">
+          <div class="card-body gradient-4">
+            <div class="media">
+              <span class="card-widget__icon"><i class="icon-emotsmile"></i></span>
+              <div class="media-body">
+                <h2 class="card-widget__title">{{ URL_dashboard_total_records_governmnet }}</h2>
+                <h5 class="card-widget__subtitle">Domains in Government Category</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card card-widget">
+          <div class="card-body gradient-9">
+            <div class="media">
+              <span class="card-widget__icon"><i class="icon-ghost"></i></span>
+              <div class="media-body">
+                <h2 class="card-widget__title">{{ URL_dashboard_total_records_private }}</h2>
+                <h5 class="card-widget__subtitle">Domains in Private Category</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOMAIN STATISTICS ENDS -->
+
+    <!-- OTHERS STATISTICS STARTS -->
+
+    <div class="row">
+      <div class="col-3">
+        <div class="card card-widget">
+          <div class="card-body gradient-3">
+            <div class="media">
+              <span class="card-widget__icon"><i class="icon-home"></i></span>
+              <div class="media-body">
+                <h2 class="card-widget__title">{{ English_Domain_total_records }}</h2>
+                <h5 class="card-widget__subtitle">Total Tools</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card card-widget">
+          <div class="card-body gradient-4">
+            <div class="media">
+              <span class="card-widget__icon"><i class="icon-tag"></i></span>
+              <div class="media-body">
+                <h2 class="card-widget__title">{{ URL_dashboard_total_records }}</h2>
+                <h5 class="card-widget__subtitle">Total SOPS</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card card-widget">
+          <div class="card-body gradient-4">
+            <div class="media">
+              <span class="card-widget__icon"><i class="icon-emotsmile"></i></span>
+              <div class="media-body">
+                <h2 class="card-widget__title">{{ URL_dashboard_total_records_governmnet }}</h2>
+                <h5 class="card-widget__subtitle">TOTAL SOPS Download</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card card-widget">
+          <div class="card-body gradient-9">
+            <div class="media">
+              <span class="card-widget__icon"><i class="icon-ghost"></i></span>
+              <div class="media-body">
+                <h2 class="card-widget__title">{{ URL_dashboard_total_records_private }}</h2>
+                <h5 class="card-widget__subtitle">Total Hits</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OTHERS STATISTICS ENDS -->
+
+    <!-- NOTE Starts -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <ul>
+              <h6 class="text-left">Note :</h6>
+              <li style="font-size:16px">
+                <span style="background-color: #0093ae9c;"></span>
+                <span class="badge badge-secondary" style="background-color:#c3faf2">Domain Functionality</span> - A website domain is functional when it is operational and accessible on the internet, allowing users to access its content and services without encountering significant issues.
+              </li>
+              <li style="font-size:16px">
+                <span style="background-color: #0093ae9c;"></span>
+                <span class="badge badge-secondary" style="background-color:#ced2f9">SSL Status</span> - A website SSL is configured check ensures that Secure Sockets Layer (SSL) encryption is properly implemented, providing a secure connection between the user's browser and the website's server.
+              </li>
+              <li style="font-size:16px">
+                <span style="background-color: #c2d6ff;"></span>
+                <span class="badge badge-secondary" style="background-color:#f9e8bb">Homepage Content Language</span>
+                - A webiste content localization is checked, detecting the language of the Homepage content
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Note Ends -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">List of Registered IDN Domains Status</h4>
+            <div class="table-responsive">
+              <table id="example" class="table header-border table-hover verticle-middle table-bordered display" style="color:black;padding:0x 1px !important">
+                <thead>
+                  <tr>
+                    <th>
+                      S.<br />No.
+                    </th>
+                    <th>
+                      English Domain<br />IDN Domain
+                    </th>
+                    <th>
+                      IDN Domain <br />Language
+                    </th>
+                    <th>
+                      SSL<br />Status
+                    </th>
+                    <th>
+                      Domain<br />Functionality
+                    </th>
+                    <th>
+                      Home Page<br /> Language
+                    </th>
+                    <th>
+                      Created On<br />Last Updated On
+                    </th>
+                    <th>Action</th>
+                    <th>Remark</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for data in URL_dashboard_obj %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td style="font-size:22px;padding:0px !important">
+                        <table>
+                          <tr>
+                            <td>{{ data.English_domain }}</td>
+                          </tr>
+                          <tr>
+                            <td>{{ data.IDN_domain }}</td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td>{{ data.Language }}</td>
+                      <td>
+                        <table>
+                          <tr>
+                            <td>{{ data.ssl_configuration_status }}</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              {% with remark_data=data.Remark|safe|json_loads %}
+                                {{ remark_data.SSL }}
+                              {% endwith %}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td>
+                        <table>
+                          <tr>
+                            <td>{{ data.idn_domain_running_status }}</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              {% with remark_data=data.Remark|safe|json_loads %}
+                                {{ remark_data.Domain }}
+                              {% endwith %}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td>
+                        <table>
+                          <tr>
+                            <td>{{ data.content_language }}</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              {% with remark_data=data.Remark|safe|json_loads %}
+                                {{ remark_data.Content }}
+                              {% endwith %}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td>
+                        <table>
+                          <tr>
+                            <td>{{ data.updated_On }}</td>
+                          </tr>
+                          <tr>
+                            <td>{{ data.Last_Updated_On }}</td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td>
+                        <span>
+                          <a href="{% url 'dashboard:edit_idn_domain_forms' data.id %}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i></a>
+                          <a href="{% url 'dashboard:refresh_domain_parameters' data.id %}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+                        </span>
+                      </td>
+                      <td>
+                        {% with remark_data=data.Remark|safe|json_loads %}
+                          {{ remark_data.General }}
+                        {% endwith %}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bar Chart Starts -->
+    <div class="row">
+      <div class="col-3">
+        <div class="card justify-content-center align-items-center">
+          <div class="card-body text-center">
+            <h4 class="card-title">IDN Domain Running Statistics</h4>
+            <canvas id="sslPieChart" style="width: 100%; height: 400;"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Number of Domains In Indian Languages</h4>
+            <canvas id="languageChart" style="width: 100%; height:350px"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card justify-content-center align-items-center">
+          <div class="card-body text-center">
+            <h4 class="card-title">IDN Domain SSL Running Statistics</h4>
+            <canvas id="DomainPieChart" style="width: 100%; height: 400"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bar Chart Ends -->
+
+    <!-- Category Distribution Chart Starts -->
+    <div class="row">
+      <div class="col-3">
+        <div class="card">
+          <div class="card-body text-center">
+            <h4 class="card-title">Total Number of English Domain Per Category</h4>
+            <canvas id="categoryChart" style="width: 100%;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Category Distribution Chart Ends -->
+  </div>
+
+  <!-- SCRIPT FOR BAR CHART STARTS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    var ctx_barchart = document.getElementById('languageChart').getContext('2d');
+    var colors = ['#AF1733', '#FFC300', '#DAF7A6', '#C70039', '#900C3F']; // Define array of colors
+   
+    var myBarChart = new Chart(ctx_barchart, {
+        type: 'bar',
+        data: {
+            labels: {{ languages|safe }},
+            datasets: [{
+                label: 'Number of Records',
+                data: {{ counts|safe }},
+                backgroundColor: colors,
+                borderColor: colors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+  
+    /*Script for Pie chart for ssl */
+    var ctx_piechart = document.getElementById('sslPieChart').getContext('2d');
+    var sslPieChart = new Chart(ctx_piechart, {
+      type: 'pie',
+      data: {
+          labels: {{ labels_ssl|safe }},
+          datasets: [{
+              data: {{ data_ssl|safe }},
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          responsive: false,
+      }
+  });
+
+  /* script for pie chart for domain */
+  var ctx_piechart_domain = document.getElementById('DomainPieChart').getContext('2d');
+  var DomainPieChart = new Chart(ctx_piechart_domain, {
+      type: 'pie',
+      data: {
+          labels: {{ labels_domain|safe }},
+          datasets: [{
+              data: {{ data_domain|safe }},
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          responsive: false,
+      }
+  });
+
+  /* Distribution chart */
+  var ctx_category = document.getElementById('categoryChart').getContext('2d');
+    var myChart = new Chart(ctx_category, {
+        type: 'bar',
+        data: {
+            labels: {{ distribution_categories|safe }},
+            datasets: [{
+                label: 'Number of Records',
+                data: {{ distribution_counts|safe }},
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        },
+         
+    });
+
+  </script>
+  <!-- SCRIPT FOR BAR CHART ENDS -->
+
+  <!-- SCRIPT FOR PIE CHART STARTS -->
+
+  <!-- SCRIPT FOR PIE CHART ENDS -->
+
+  <!-- CSS FOR DATATABLE STARTS -->
+  <style>
+  /* Apply CSS to input[type="search"] */
+  input[type="search"] {
+      /* Your CSS styles here */
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      padding: 8px;
+      font-size: 16px;
+      width: 200px;
+  }
+  </style>
+  <!-- CSS FOR DATATABLE ENDS -->
+{% endblock %}

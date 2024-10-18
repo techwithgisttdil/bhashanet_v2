@@ -1,0 +1,40 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+
+{% block barchart_content %}
+  <div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-6"><canvas id="languageChart" width="900" height="400"></canvas></div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('languageChart').getContext('2d');
+        var colors = ['#AF1733', '#FFC300', '#DAF7A6', '#C70039', '#900C3F']; // Define array of colors
+       
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ languages|safe }},
+                datasets: [{
+                    label: 'Number of Records',
+                    data: {{ counts|safe }},
+                    backgroundColor: colors,
+                    borderColor: colors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+{% endblock %}

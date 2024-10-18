@@ -1,0 +1,404 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block dashboard %}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script> 
+<style>
+    .Green{
+        color: green;
+    }
+    .table-striped{
+         font-size: 13px;
+         /* width: auto; */
+    }
+    .card{
+        height: auto   !important;
+        border-top-right-radius: 10px !important;
+        border-top-left-radius: 10px !important;
+    }
+    .Dsh_Heading{
+        text-align: center;
+        color: #6a5007;
+        margin-top: 10px;
+        
+    }
+</style>
+
+<!-- <script>
+    let counts = setInterval(updated);
+    let upto = 0;
+    function updated() {
+        let count = document.getElementById("counter");
+        count.innerHTML = ++upto;
+        
+        if (upto === {{ Total_IDN_Ready_Websited }} ) {
+            clearInterval(counts);
+        }
+    }
+
+</script> -->
+
+
+
+<div  class="card-box ua-card-header--bg-blk" id="main-content">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-12">
+             <div class="ua-small-info-box">
+                <div class="horizontal-rule">
+                   <h1 class=" h2 heading4"> IDN Dashboard </h1>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+ 
+ <div  class="container my-5" style="padding-left:0;padding-right:0">
+        
+
+        <div class="row" style="padding: 10px">
+
+           
+            
+            <div class="col-sm-12 col-lg-3">
+                <div class="card" style="background-color: #f0c494;">
+                    <h3 class="Dsh_Heading mb-3" style="font-size:1.3rem !important;font-weight:600">Total IDN Ready Websites</h3>
+                        <div class="card-body" style="background-color: #f8dbd5;">
+                            <h3 id="counter" class="Dsh_Heading" style="color:rgb(0, 6, 87);font-size: 32px;">
+                                {{ Total_IDN_Ready_Websited }}
+                            </h3>
+                        </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-3">
+                <div class="card" style="background-color: #f0c494;">
+                <h3 class="Dsh_Heading mb-3" style="font-size:1.3rem !important;font-weight:600"> Total SOP's</h3>
+                <div class="card-body" style="background-color: #f8dbd5;">
+                    <h3  id="counter1" class="Dsh_Heading" style="color:rgb(0, 6, 87);font-size: 32px;">
+                    {{ Total_SOPs }}
+                    </h3>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-3">
+                <div class="card" style="background-color: #f0c494;">
+                <h3 class="Dsh_Heading mb-3" style="font-size:1.3rem !important;font-weight:600"> Total Tools Available</h3>
+                <div class="card-body" style="background-color: #f8dbd5;">
+                    <h3 class="Dsh_Heading" style="color:rgb(0, 6, 87);font-size: 32px;">
+                    {{Total_Tools}}
+                    </h3>
+                </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-12 col-lg-3">
+                <div class="card" style="background-color: #f0c494;">
+                    <h3 class="Dsh_Heading mb-3" style="font-size:1.3rem !important;font-weight:600"> Total Resources</h3>
+                    <div class="card-body" style="background-color: #f8dbd5;">
+                        <h3 class="Dsh_Heading" style="color:rgb(0, 6, 87);font-size: 32px;">
+                        {{ Total_Resources }}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            
+        
+            <div class="col-2"></div>
+        
+
+
+        </div>
+       
+
+    <div class="container my-5 shadow m-3 p-3 bg-white rounded" style="background-color: #fdfdfd !important;">
+        
+        <form action="{% url 'dashboard' %}" method="post">
+            {% csrf_token %}
+            <div class="row">
+                
+                <div class="col-3"></div>
+                
+                <div class="col-5">
+                     <h2 class="mb-2 text-center" style="font-size:22px;margin-left: -8px; font-weight: 700;">Check Website Availability in Indian Languages</h2>
+                </div>
+                
+                <div class="col-4"></div>
+            </div>
+           
+            <div class="row mb-3 ">
+                <div class="col-3"></div>
+                <div class="col-5">
+                   
+                    <select  class="form-select" name="select_data" >
+                        <option value="1,English" >Select Language</option>
+                        {% for data in Languages %}
+                        <p>{{data.IDNReadyWebsites_Language_Name}}</p>
+                        <p><option value="{{data.id}},{{data.IDNReadyWebsites_Language_Name}}" {% if data.IDNReadyWebsites_Language_Name == Selected_Language %} selected {% endif %}>{{ data.IDNReadyWebsites_Language_Name }}</option></p>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary" type='submit'>Submit </button>
+                </div>
+            </div>
+            
+        
+        </form>
+        <div class="row p-2 d-flex justify-content-center" style="position:relative">
+            
+            <div class="col-sm-12 col-md-5 col-lg-3 shadow m-1 bg-white p-3 rounded" style="background-color: #f6f6f6 !important;">
+                <h3 class="text-center" style="font-size:20px;font-weight: 700;">  IDN Ready Websites Language Availability </h3>
+                <canvas id="pie-chart-nameserver"></canvas>
+                <!-- <div class="text-center" id="no-data" style="display:none;position:absolute;top:200px;left:70px;font-size:26px">Select a Language</div> -->
+            </div>
+            <div class="col-sm-12 col-md-5 col-lg-3  shadow m-1 bg-white p-3 rounded" style="background-color: #f6f6f6 !important;">
+                <h3 class="text-center" style="font-size:20px;font-weight: 700;"> IDN Ready Websites TLD's Distribution </h3>
+                <canvas id="pie-chart-nameserver-1"></canvas>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 shadow m-1 bg-white p-3 rounded" style="background-color: #f6f6f6 !important;">
+                
+                    <h3 class="text-center" style="font-size:20px;font-weight: 700;">IDN Ready Websites Language Availability Graph</h3>
+                    <canvas id="myChart"></canvas>
+                
+            </div>
+        </div>  
+      
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h3 class="text-center" style="font-size:20px;font-weight: 700;"> Language Wise portal count </h3>
+                <canvas id="LanguageChart"></canvas>
+            </div>
+            <div class="col-2"></div>
+            <p style="font-size: 12px" class="mt-3"><strong>*NOTE : </strong>This Statistics are based on <a style="color: blue; text-decoration: underline;" href="#" onclick="renderPathForBlogCategoryFunction('idn_websites','1'); return false;" target="_blank">IDN Ready Websites</a> Data</p>
+            <hr class="shadow"/>
+        </div>
+
+       
+
+        {% comment %} <div class="container">
+            <div class="row my-3"  style="background:aliceblue">
+                <div class="col-12">
+                    <ul class="Legend p-2">
+                        <h6 class="text-left">Status Legend</h6>
+                        <li class="Legend-item" style="font-size:12px">
+                            <span class="Legend-colorBox" style="background-color: #0093ae9c;">
+                            </span>
+                            <span class="badge badge-secondary" style="background-color:#21c2ac">Level 0</span> - IDN Domain is registered but not configured in DNS.
+                          </li>
+                        <li class="Legend-item" style="font-size:12px">
+                          <span class="Legend-colorBox" style="background-color: #0093ae9c;">
+                          </span>
+                          <span class="badge badge-secondary" style="background-color:#4f5696">Level 1</span> - IDN Domain is registered and configured in DNS.
+                        </li>
+                        <li class="Legend-item" style="font-size:12px">
+                          <span class="Legend-colorBox" style="background-color: #c2d6ff;">
+                          </span>
+                          <span class="badge badge-secondary" style="background-color:#c29721">
+                                Level 2
+                          </span>
+                             - IDN Domain is registered and configured in DNS along with IDN Content rendering.
+                        
+                        </li>
+                        <li class="Legend-item" style="font-size:12px">
+                          <span class="Legend-colorBox" style="background-color: #0093ae9c;">
+                          </span>
+                          <span class="badge badge-secondary" style="background-color:#c22139">
+                            Level 3
+                            </span>
+                          
+                             - IDN Domain is registered and configured in DNS along with language Switcher and IDN path implementation.
+                        </li>
+                    </ul>
+                    <ul>
+                    
+                        <!-- <span class="badge badge-secondary" style="background:#0a2c5f">Last Updated on : 13/12/2023</span>  -->
+                  
+                    </ul>
+                    
+                </div>
+            </div> {% endcomment %}
+            <div class="container"  style="overflow-x: auto">
+                <h3 class="text-center" style="font-size:26px;font-weight: 700;"> List of registered सरकार.भारत IDN Domains</h3>
+                {{ Registry_IDN_API_Data|safe }}
+    
+                <p style="font-size: 12px" class="mt-3">
+                    <strong>*SOURCE :</strong>
+                    This Statistics are based on 
+                    <a style="color: blue; text-decoration: underline;" href="https://registry.gov.in/idn_domain_info.php" target="_blank">registry.gov.in</a>  
+                    IDN Domain List Data 
+                    <br>  
+                    <span class="badge badge-secondary" style="background:#0a2c5f"> Last Updated on : 18/04/2024</span> 
+                </p>
+    
+            </div>
+           
+        </div>
+       
+    </div>  
+  </div>   
+   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+  
+<script>
+
+    let ctx = document.getElementById('pie-chart-nameserver').getContext('2d')
+    let chart = new Chart(ctx,{
+        type:"pie",
+        data:{
+            datasets: [
+                {
+                    data: [ {{ ResultCount }} , {{ Remaining_Websites }} ],
+                    backgroundColor: ['rgb(252, 223, 92)', '#88c79a', '#ef7765', 'yellow', 'green'],
+                    label: 'Label'
+                }
+            ],
+            labels: ["{{ Selected_Language }} websites ","Website not available in {{ Selected_Language }}"] 
+        },
+    })
+
+
+</script>
+  
+<script>
+    console.log("Hurray",{{TLD_VAL}})
+    let ctxTLD = document.getElementById('pie-chart-nameserver-1').getContext('2d')
+    let chartTLD = new Chart(ctxTLD,{
+        type:"pie",
+        data:{
+            datasets: [
+                {
+                    data: {{TLD_VAL|safe}},
+                    backgroundColor: ['rgb(252, 223, 92)', '#88c79a', '#ef7765', 'yellow', 'green'],
+                    label: 'Label'
+                }
+            ],
+            labels: {{TLD_KEY|safe}}
+        },
+    })
+
+
+</script>
+
+<script>
+    let ctx1 = document.getElementById("myChart").getContext("2d");
+
+    let chart1 = new Chart(ctx1, {
+    type: "bar",
+    data: {
+        labels: ["Websites in {{ Selected_Language }}", "Websites not Available in {{ Selected_Language }} ", "Overall Websites"],
+        datasets: [
+            {
+            label:'Webistes',
+            backgroundColor: ['#36a2eb', '#ff6384d6', '#4bc0c0d9', '#ff9f40d9', 'blue'],
+            borderColor: "#417690",
+            data: [{{ ResultCount }} , {{ Remaining_Websites }}, {{Total_IDN_Ready_Websited}} ]
+            }
+        ]
+    },
+    options: {
+        scales: {
+          y: {
+            display:true,
+            title: {
+                display: true,
+                text: 'Number Of Web Portals',
+                color: '#191',
+            }
+            // beginAtZero: true,
+            
+          }
+        }
+      }
+    });
+</script>
+
+<script>
+    let ctx4 = document.getElementById("LanguageChart").getContext("2d");
+    console.log("Helllooo")
+    console.log("dATA : "+ {{LGData}})
+    let chart4 = new Chart(ctx4, {
+    type: "bar",
+    data: {
+        // ,
+        labels:[{% for obj in Languages %} '{{ obj.IDNReadyWebsites_Language_Name }}', {% endfor %}],
+        datasets: [
+            {
+            label:'Languages',
+            backgroundColor: ['#36a2eb', '#7978D2', '#9260BA','#265E58','#F8786F','#CC658F','#879B22','#00715F','#4D5980','#7BE4B2','#9DEE9C','#324B4B','#95B1B0','#EAAC8F','#B0775D','#ff6384d6', '#4bc0c0d9', '#ff9f40d9','#ff9f40f9','#f49f40c9'],
+            borderColor: "#417690",
+            data: {{LGData}}
+            }
+        ]
+    },
+    options: {
+        scales: {
+            x: {
+            display:true,
+            title: {
+                display: true,
+                text: 'Languages',
+                color: '#191',
+            }
+            // beginAtZero: true,
+            
+          },
+          y: {
+            display:true,
+            title: {
+                display: true,
+                text: 'Number Of Web Portals',
+                color: '#191',
+            },
+            ticks: {
+                stepSize:2
+            },
+            
+            // beginAtZero: true,
+            
+          }
+        }
+      }
+    });
+
+</script>
+
+<script>
+    let ctx3 = document.getElementById("myChartTech").getContext("2d");
+
+    let chart3 = new Chart(ctx3, {
+    type: "bar",
+    data: {
+        labels: ["{% for obj in graph_data %} '{{ obj.Url }}' {% endfor %}"],
+        datasets: [
+            {
+            label:'Technologies',
+            backgroundColor: ['#36a2eb', '#ff6384d6', '#4bc0c0d9', '#ff9f40d9'],
+            borderColor: "#417690",
+            data: [1,2,3,5,6,7,8,9]
+            }
+        ]
+    },
+    options: {
+        scales: {
+          y: {
+            display:true,
+            title: {
+                display: true,
+                text: 'Number Of Web Portals',
+                color: '#191',
+            }
+            // beginAtZero: true,
+            
+          }
+        }
+      }
+    });
+    graph_data
+</script>
+{% endblock %}

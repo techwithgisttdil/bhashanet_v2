@@ -1,0 +1,147 @@
+{% extends 'core_app/base.html' %} {% load static %} {% block script_detection %}
+
+<div>
+    <div class="card-box ua-card-header--bg-blk">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-12">
+                    <div class="ua-small-info-box">
+                        <div class="horizontal-rule">
+                            <h1 class="h2 heading4">Script Detection</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-bar">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    <div class="breadcrumb-list">
+                                        <nav aria-label="breadcrumb" class="page-breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item">
+                                                    <a href="{% url 'home' %}">Home</a>
+                                                </li>
+                                                <li class="breadcrumb-item">
+                                                    <a href="{% url 'tools' %}">Tools</a>
+                                                </li>
+                                                <li class="breadcrumb-item">Script Detection</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-content ua-sec" id="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-sub-section-sec shadow">
+                        {% comment %} <div class="mx-4 mt-2">
+                            <div class="float-end">
+                                <div class="d-inline">
+                                    <span class="fw-bold text-primary" style="font-size:14px;">Keyboard language : </span>
+                                    <select id="language" class="form-select-sm px-0 py-0" onchange="selectAnyLanguage()" data-bs-toggle="tooltip" data-bs-original-title="Select language for keyboard">
+                                        <option value="hindi" selected="selected">Hindi</option>               
+                                        <option value="assamese">Assamese</option>               
+                                        <option value="bengali">Bengali</option>               
+                                        <option value="bodo">Bodo</option>               
+                                        <option value="dogri">Dogri</option>               
+                                        <option value="gujarati">Gujarati</option>           
+                                        <option value="kannada">Kannada</option>
+                                        <option value="kashmiripa">Kashmiri</option>               
+                                        <option value="konkani">Konkani</option>
+                                        <option value="maithili">Maithili</option>
+                                        <option value="malayalam">Malayalam</option>               
+                                        <option value="manipuri">Manipuri</option> 
+                                        <option value="marathi">Marathi</option> 
+                                        <option value="nepali">Nepali</option>                               
+                                        <option value="oriya">Oriya</option>
+                                        <option value="punjabi">Punjabi</option>               
+                                        <option value="sanskrit">Sanskrit</option>               
+                                        <option value="santhali">Santali</option>
+                                        <option value="sindhiDev">SindhiDev</option>
+                                        <option value="sindhipa">SindhiPa</option>
+                                        <option value="tamil">Tamil</option>               
+                                        <option value="telugu">Telugu</option>               
+                                        <option value="urdu">Urdu</option>
+                                    </select>
+                                </div>
+                                <div class='d-inline'>
+                                    <img id="keyboardClicked" src="{% static 'core_app/assets/img/keyboard.png' %}" data-bs-toggle="tooltip" data-bs-original-title="Open keyboard for inscript typing" height="17" width="35" onclick="openKeyboard(document.getElementById('language').value)"></img>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mx-4 mt-1"> {% endcomment %}
+                        <div class="card-body pb-5">
+                            <div class="container">
+                                <div class="row mt-0">
+                                    <div class="mb-4 ps-3" style="font-weight:500;">
+                                        This tool is identifying the language or script used in input strings.
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <label for="inputText" class="form-label fs-6 mb-0"> Enter String in Indian Languages:</label>
+                                            </div>
+                                            <div class="col-4 float-end">
+                                                <div class="float-end">
+                                                  <div class='d-inline'>
+                                                    <img id="keyboardClicked" src="{% static 'core_app/assets/img/KbdIcon.ico' %}" data-bs-toggle="tooltip" data-bs-original-title="Open keyboard for inscript typing" height="17" width="35" onclick="openKeyboard('Hindi');"></img>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        </div>
+                                        <input id="inputText" type="text" class="form-control"
+                                               placeholder="Enter Your String"/></div>
+                                    <div class="col-md-6">
+                                         <label for="outputText" class="form-label fs-6 mb-0"> This text seems to be :</label>
+                                         <input id="outputText" type="text" class="form-control" placeholder="Detected Script" readonly/></div>
+                                </div>
+                                <div class="row mt-4 ">
+                                    <div class="col-md-12 justify-content-center" style="text-align:center">
+                                        <button type="submit" class="btn btn-primary btn" onclick="Submit();">
+                                            Identify Script
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        function Submit() {
+            var text = "";
+            text = document.getElementById('inputText').value;
+            var outtext = "";
+            outtext = detectLanguage(text);
+            document.getElementById('outputText').value = outtext;
+        }
+        selectAnyLanguage = () => {
+            console.log("language changed")
+            if(document.getElementById("gistFK_kbdBox")!=null)
+            document.getElementById("keyboardClicked").click()
+         }
+    </script>
+</div>
+
+{% endblock %}

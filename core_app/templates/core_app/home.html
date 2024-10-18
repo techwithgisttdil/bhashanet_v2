@@ -1,0 +1,1278 @@
+{% extends 'core_app/base.html' %}
+
+{% load static %}
+{% block home %}
+
+
+<!--Hero Section starts-->
+
+<section class="home-slide" id="main-content">
+   
+  
+  
+  
+  
+  
+   <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+         <div class="col-md-7 col-sm-12 h-100">
+            <div class="testimonial-section">
+               <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner height-slide">
+                     <div class="carousel-item active" data-bs-interval="7000">
+                        <div class="testimonial-block">
+                           <div class="row d-flex justify-content-center align-items-center">
+                              <div class="col-md-12 my-1">
+                                 <h1 class="heading1" style="font-size:2.6rem">BhashaNet</h1>
+                                 <h2 class="heading11" style="font-size:2.0rem">A Multilingual Internet and Universal Acceptance Initiative<br></h2>
+                                 <p class="subheading" style="font-size:1.2rem">Provides an eco system to enable citizen to easily create, communicate, transact, process and retrieve information with ease in digital medium without language barrier.
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     {% for data in obj_testimonialsMessages %}
+                     <div class="carousel-item" data-bs-interval="7000">
+                        <div class="testimonial-block">
+                           <div class="row d-flex justify-content-center align-items-start mb-5">
+                              <div class="col-md-3 col-sm-12 col-12">
+                                 <div class="testimonial-block_user d-flex align-items-start">
+                                    <div class="testimonial-block_user_image">
+                                       <img class="img-fluid w-100 img-thumbnail rounded-circle"
+                                          src=" /media/{{data.TestimonialsMessages_Image}}"
+                                          alt="{{data.TestimonialsMessages_PersonName}}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-9 col-sm-12 col-12 d-flex align-items-start">
+                                 <div class="testimonial-block_content">
+                                    <h2 class="fw-bold h5 mt-2">{{data.TestimonialsMessages_PersonName}}</h2>
+                                    <h3 class="h6">{{data.TestimonialsMessages_PersonDesignation}}</h3>
+                                    {{data.TestimonialsMessages_Description | slice:":180"}}
+                                    {% if data.TestimonialsMessages_Description|length > 180 %}
+                                    <a class="" data-bs-toggle="modal" data-bs-target="#testimonialModal{{forloop.counter}}">
+                                    ... <span class="text-primary" style="cursor:pointer;">Read More</span>
+                                    </a>
+                                    {% endif %}
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     {% endfor %}
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                     <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                     <span class="visually-hidden">Next</span>
+                  </button>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-5 h-100">
+            <div class="hero-slide-img aos aos-init aos-animate" data-aos="fade-up">
+               <div class="hero section-padding section1">
+                  <div class="content1">
+                     <div class="col-lg-12">
+                        <div class="img main-img2 mx-auto d-flex align-items-top">
+                           <img class="img-fluid w-100"
+                              src="{% static 'core_app/assets/img/hero-section/img1.png' %}" alt="">
+                           <img class="img-fluid img-body w-100"
+                              src="{% static 'core_app/assets/img/hero-section/img3.png' %}" alt="">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+  
+</section>
+<section>
+   
+</section>
+
+<!-- Hero Section ends-->
+
+<!-- ====== Stackholder section Starts ====== -->
+{% comment %} <section class="section stackholders pt-3 mt-2" style="background-color: #faeaeb;">
+   <div class="container">
+      <div class="ua-support aos" data-aos="fade-up">
+         <div class="ua-support-slider owl-carousel owl-theme">
+            {% for sop in SOPTechnologyDocumentData %}
+            <div class="item">
+               <div class="lead-img">
+                     <h4><a href="{% url 'sop_document_page' %}" >{{sop.SOPTechnologyDocument_Name}}</a></h4>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+   
+</section> {% endcomment %}
+<!-- ====== Stackholder Section Ends ====== -->
+
+
+
+<!-- ====== start features ====== -->
+<section class="features section-padding style-5 bg-gray5 my-5">
+   <div class="container">
+       <div class="row">
+           <div class="col-lg-4 col-sm-6">
+               <a href="{% url 'IDNCCTLD' %}" class="features-card mb-30 style-5">
+                   <div class="icon">
+                       <img src="{% static 'core_app/assets/img/idn-domain.png' %}" alt="IDN icon" style="width: 100%;">
+                   </div>
+                   <div class="info">
+                       <h2 class="card-title">
+                           Internationalized Domain Names (IDN)
+                       </h2>
+                       <p>
+                           Website address in local language
+                       </p>
+                       <p>
+                           (निक्सी.भारत)
+                       </p>
+                   </div>
+               </a>
+           </div>
+           <div class="col-lg-4 col-sm-6">
+               <a href="{% url 'EAI' %}" class="features-card mb-30 style-5">
+                   <div class="icon">
+                       <img src="{% static 'core_app/assets/img/email.png' %}" alt="EAI icon" style="width: 100%;">
+                   </div>
+                   <div class="info">
+                       <h2 class="card-title">
+                           Email Address Internationalization (EAI)
+                       </h2>
+                       <p>
+                           E-mail ID in local language
+                       </p>
+                       <p>
+                           (मेरानाम@निक्सी.भारत)
+                       </p>
+                   </div>
+               </a>
+           </div>
+           <div class="col-lg-4 col-sm-6">
+               <a href="{% url 'UA' %}" class="features-card mb-30 style-5">
+                   <div class="icon">
+                       <i class="fa fa-globe text-info fa-4x mb-1" aria-hidden="true"></i>
+                   </div>
+                   <div class="info">
+                       <h2 class="card-title mt-4">
+                           Universal Acceptance (UA)
+                       </h2>
+                       <p>
+                           All web applications, devices should support the local language website name and email address.
+                       </p><br/>
+                   </div>
+               </a>
+           </div>
+       </div>
+   </div>
+</section>
+
+<!-- ====== end features ====== -->
+<!--Three Column Section ends-->
+<!--Bhasha  Initiative section Starts-->
+<section class="section py-5" style="background: #eef2fb;">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12">
+            <div class="row my-2">
+               <div class="section-sub-head feature-head text-center mb-0">
+                  <h2 class="heading4 text-center">
+                     <!-- <img class="img-fluid me-1"
+                        src="{% static 'core_app/assets/img/line_l.png' %}"
+                        alt="line graphcis left"/> -->
+                     BhashaNet Initiative
+                     <!-- <img
+                        class="img-fluid ms-1" src="{% static 'core_app/assets/img/line_r.png' %}"
+                        alt="line graphcis left"/> -->
+                  </h2>
+                  <div class="divider-custom" style="margin-top:-25px;">
+                     <div class="divider-custom-line"></div>
+                     <div class="divider-custom-icon"><i class="fas fa-star me-2"></i></div>
+                     <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- <div class="section-text aos" data-aos="fade-up">
+                     <p class="mb-0">A calendar of UA Day events will be provided in the coming months.  These events could be done at different levels</p>
+                     </div> -->
+               </div>
+            </div>
+            <div class="vision-objective__tab">
+               <div class="vision-objective__tab-box tabs-box">
+                  <div class="row">
+                     <div class="col-xl-3 col-lg-3">
+                        <div class="vision-objective__tab-btn-box">
+                           <ul class="tab-buttons clearfix list-unstyled">
+                              <!--                                        <li data-tab="#mission" class="tab-btn active-btn "><span><i-->
+                              <!--                                                class="fa fa-arrow-circle-right" aria-hidden="true"></i> Vision</span>-->
+                              <!--                                        </li>-->
+                              <!--                                        <li data-tab="#values" class="tab-btn"><span><i class="fa fa-arrow-circle-right"-->
+                              <!--                                                                                        aria-hidden="true"></i> Objective</span>-->
+                              <!--                                        </li>-->
+                              <!--                                        <li data-tab="#goals" class="tab-btn"><span><i class="fa fa-arrow-circle-right"-->
+                              <!--                                                                                       aria-hidden="true"></i> Mission</span>-->
+                              <!--                                        </li>-->
+                              {% for data in obj_Objectives %}
+                              <li data-tab="#{{forloop.counter}}"
+                                 class="tab-btn {% if forloop.counter == 1 %}active-btn{% endif %}"><span><i
+                                 class="fa fa-arrow-circle-right fa-1x me-3"
+                                 aria-hidden="true"></i>{{data.Objectives_Name}}</span>
+                                 {% endfor %}
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-xl-9 col-lg-9">
+                        <div class="vision-objective__tab-main-content">
+                           <div class="tabs-content">
+                              {% for data in obj_Objectives %}
+                              <div class="tab {% if forloop.counter == 1 %}active-tab{% endif %}"
+                                 id="{{forloop.counter}}">
+                                 <div class="vision-objective__tab-main-content-inner">
+                                    <div class="vision-objective-shape-1">
+                                       <img src="{% static 'core_app/assets/img/we-provide-shape-1.png' %}" alt="this is background image of globe for vision-objective-mission section ">
+                                    </div>
+                                    <div class="vision-objective__tab-main-content-left d-flex align-items-center">
+                                       <!-- <h3 class="vision-objective__tab-main-content-title"><img class="img-fluid me-1" src="assets/img/line_l.png" alt="line graphcis left"></img>Objective<img class="img-fluid ms-1" src="assets/img/line_r.png" alt="line graphcis right"></img></h3> -->
+                                       <div class="vision-objective__tab-main-content-text h5 lh-base">
+                                          {{data.Objectives_Description | safe}}
+                                       </div>
+                                    </div>
+                                    <div class="vision-objective__tab-main-content-right d-flex align-items-center justify-content-center">
+                                       <div class="vision-objective__tab-main-content-right-img">
+                                          <img class="img-fluid w-100"
+                                             src="/media/{{data.Objectives_Thumbnail}}" alt="Infographics of {{data.Objectives_Name}}">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              {% endfor %}
+                              <!--tab-->
+                              <!--                                        <div class="tab" id="values">-->
+                              <!--                                            <div class="vision-objective__tab-main-content-inner">-->
+                              <!--                                                <div class="vision-objective-shape-1">-->
+                              <!--                                                    <img src="assets/img/we-provide-shape-1.png" alt="">-->
+                              <!--                                                </div>-->
+                              <!--                                                <div class="vision-objective__tab-main-content-left d-flex align-items-center">-->
+                              <!--                                                    &lt;!&ndash; <h3 class="vision-objective__tab-main-content-title"><img class="img-fluid me-1" src="assets/img/line_l.png" alt="line graphcis left"></img>Objective<img class="img-fluid ms-1" src="assets/img/line_r.png" alt="line graphcis right"></img></h3> &ndash;&gt;-->
+                              <!--                                                    <p class="vision-objective__tab-main-content-text h5 lh-base">-->
+                              <!--                                                        <strong>Main objective </strong> of Bhashanet initiative is to-->
+                              <!--                                                        connect with users in their own languages. This initiative is-->
+                              <!--                                                        working towards enabling people from remote locations and-->
+                              <!--                                                        different-->
+                              <!--                                                        socioeconomic backgrounds to access the multilingual Internet in-->
+                              <!--                                                        India, a nation with many unique languages and communities.-->
+                              <!--                                                    </p>-->
+                              <!--                                                </div>-->
+                              <!--                                                <div class="vision-objective__tab-main-content-right">-->
+                              <!--                                                    <div class="vision-objective__tab-main-content-right-img">-->
+                              <!--                                                        <img class="img-fluid w-100" src="{% static 'core_app/assets/img/vision.png' %}" alt="">-->
+                              <!--                                                    </div>-->
+                              <!--                                                </div>-->
+                              <!--                                            </div>-->
+                              <!--                                        </div>-->
+                              <!--                                        &lt;!&ndash;tab&ndash;&gt;-->
+                              <!--                                        <div class="tab active-tab" id="mission">-->
+                              <!--                                            <div class="vision-objective__tab-main-content-inner">-->
+                              <!--                                                <div class="vision-objective-shape-1">-->
+                              <!--                                                    <img src="{% static 'core_app/assets/img/we-provide-shape-1.png' %}" alt="">-->
+                              <!--                                                </div>-->
+                              <!--                                                <div class="vision-objective__tab-main-content-left d-flex align-items-center">-->
+                              <!--                                                    &lt;!&ndash; <h3 class="vision-objective__tab-main-content-title"><img class="img-fluid me-1" src="assets/img/line_l.png" alt="line graphcis left"></img>Vision<img class="img-fluid ms-1" src="assets/img/line_r.png" alt="line graphcis right"></img></h3> &ndash;&gt;-->
+                              <!--                                                    <p class="vision-objective__tab-main-content-text h5 lh-base">-->
+                              <!--                                                        To provide a truly <span-->
+                              <!--                                                            class="fw-bold">multilingual internet</span>, where local-->
+                              <!--                                                        language website name and local language email id, work-->
+                              <!--                                                        everywhere in the digital world.-->
+                              <!--                                                    </p>-->
+                              <!--                                                </div>-->
+                              <!--                                                <div class="vision-objective__tab-main-content-right">-->
+                              <!--                                                    <div class="vision-objective__tab-main-content-right-img">-->
+                              <!--                                                        <img class="img-fluid h-75"src="{% static 'core_app/assets/img/objective.png' %}"-->
+                              <!--                                                             alt="">-->
+                              <!--                                                    </div>-->
+                              <!--                                                </div>-->
+                              <!--                                            </div>-->
+                              <!--                                        </div>-->
+                              <!--                                        &lt;!&ndash;tab&ndash;&gt;-->
+                              <!--                                        <div class="tab" id="goals">-->
+                              <!--                                            <div class="vision-objective__tab-main-content-inner">-->
+                              <!--                                                <div class="vision-objective-shape-1">-->
+                              <!--                                                    <img src="{% static 'core_app/assets/img/we-provide-shape-1.png' %}" alt="">-->
+                              <!--                                                </div>-->
+                              <!--                                                <div class="vision-objective__tab-main-content-left d-flex align-items-center">-->
+                              <!--                                                    &lt;!&ndash; <h3 class="vision-objective__tab-main-content-title"><img class="img-fluid me-1" src="assets/img/line_l.png" alt="line graphcis left"></img>Mission<img class="img-fluid ms-1" src="assets/img/line_r.png" alt="line graphcis right"></img></h3> &ndash;&gt;-->
+                              <!--                                                    <ul class="ua-list py-1 listitems text-indent h5 lh-base">-->
+                              <!--                                                        <li><i class="fa-solid fa-circle-check"></i> Encouraging local-->
+                              <!--                                                            language website name and email id.-->
+                              <!--                                                        </li>-->
+                              <!--                                                        <li><i class="fa-solid fa-circle-check"></i> Promoting awareness-->
+                              <!--                                                            of local language url and email id .-->
+                              <!--                                                        </li>-->
+                              <!--                                                        <li><i class="fa-solid fa-circle-check"></i> Developing policies-->
+                              <!--                                                            and regulations .-->
+                              <!--                                                        </li>-->
+                              <!--                                                        <li><i class="fa-solid fa-circle-check"></i> Supporting-->
+                              <!--                                                            technical collaboration.-->
+                              <!--                                                        </li>-->
+                              <!--                                                        <li><i class="fa-solid fa-circle-check"></i> Engagement of-->
+                              <!--                                                            Website owners,Web-Developer Community, Web Security-->
+                              <!--                                                            experts.-->
+                              <!--                                                        </li>-->
+                              <!--                                                    </ul>-->
+                              <!--                                                </div>-->
+                              <!--                                                <div class="vision-objective__tab-main-content-right">-->
+                              <!--                                                    <div class="vision-objective__tab-main-content-right-img">-->
+                              <!--                                                        <img class="img-fluid w-100" src="{% static 'core_app/assets/img/mission.png' %}"-->
+                              <!--                                                             alt="">-->
+                              <!--                                                    </div>-->
+                              <!--                                                </div>-->
+                              <!--                                            </div>-->
+                              <!--                                        </div>-->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Bhasha Initiate section Ends"> -->
+<!--UA Ready section starts-->
+<section class="section py-3">
+   <div class="container">
+      <div class="row my-3">
+         <div class="col-md-12">
+            <div class="knowledge-img aos aos-init aos-animate d-flex align-items-center py-2" data-aos="fade-up">
+               <!-- {{request.META.HTTP_HOST}} -->
+               <!-- for hindi -->
+               {% if request.META.HTTP_HOST == 'xn--c2bro4b8ab8d.xn--h2brj9c' %}
+               <img src="{% static 'core_app/assets/img/UA-hindi.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-75 mx-auto">
+               <!-- for marathi -->
+               {% elif request.META.HTTP_HOST == 'xn--d2b1ag0dl.xn--c2bro4b8ab8d.xn--h2brj9c' %}
+               <img src="{% static 'core_app/assets/img/UA-marathi.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-75 mx-auto">
+               <!-- for manipuri -->
+               {% elif request.META.HTTP_HOST == 'xn--35bokk7eif.xn--z5bro4b8ab8d.xn--45brj9c' %}
+               <img src="{% static 'core_app/assets/img/UA-manipuri.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-75 mx-auto">
+               <!-- for kannada -->
+               {% elif request.META.HTTP_HOST == 'xn--xscro4b8ab1dzc.xn--2scrj9c' %}
+               <img src="{% static 'core_app/assets/img/UA-kannada.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-75 mx-auto">
+               <!-- for Bengali  -->
+               {% elif request.META.HTTP_HOST == 'xn--z5bro4b8ab8d.xn--45brj9c' %}
+               <img src="{% static 'core_app/assets/img/UA-bengali.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-75 mx-auto">
+               <!-- for Malayalam  -->
+               {% elif request.META.HTTP_HOST == 'xn--uwcjna1a5bb9d4cb.xn--rvc1e0am3e' %}
+               <img src="{% static 'core_app/assets/img/UA-malayalam.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-75 mx-auto">
+               <!-- for others and English by default -->
+               {% else %}
+               <img src="{% static 'core_app/assets/img/ua3.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-75 mx-auto">
+               {% endif %}
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!--end-->
+<!-- ======Annauncement Section Starts ====== -->
+<section class="section ua-section-container py-5">
+   <div class="container">
+      <div class="section-header aos" data-aos="fade-up">
+         <div class="section-sub-head feature-head text-center mb-0">
+            <h2 class="heading4 text-center">
+               <!-- <img class="img-fluid me-1"
+                  src="{% static 'core_app/assets/img/line_l.png' %}"
+                  alt="line graphcis left"/> -->
+               Announcements
+               <!-- <img
+                  class="img-fluid ms-1" src="{% static 'core_app/assets/img/line_r.png' %}"
+                  alt="line graphcis left"/> -->
+            </h2>
+            <div class="divider-custom" style="margin-top:-25px;">
+               <div class="divider-custom-line"></div>
+               <div class="divider-custom-icon"><i class="fas fa-star me-2"></i></div>
+               <div class="divider-custom-line"></div>
+            </div>
+            <!-- <div class="section-text aos" data-aos="fade-up">
+               <p class="mb-0">A calendar of UA Day events will be provided in the coming months.  These events could be done at different levels</p>
+               </div> -->
+         </div>
+      </div>
+      <div class="owl-carousel event-slide owl-theme aos" data-aos="fade-up">
+         {% for data in obj_announcements %}
+         <div class="card2 card shadow-sm" style="max-width: 100%;margin-top:0">
+            <div class="row g-3 align-items-center">
+               <div class="col-sm-12 col-lg-3 p-5 ">
+                  <img src="/media/{{data.Announcement_Image}}" class="img-fluid w-100  "
+                     alt="{{data.Announcement_Title}}">
+               </div>
+               <div class="col-sm-12 col-lg-9 ">
+                  <div class="card-body">
+                     <h3 class="card-title">{{data.Announcement_Title}}</h3>
+                     <p class="card-text">
+                        {{data.Announcement_Description|safe}}
+                     </p>
+                     <a href="{{data.Announcement_ExternalURL}}" onclick="return myFunction();" class="btn btn-primary my-2" target="_blank">Read More</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+<!-- ====== Annauncement Section Ends ====== -->
+<!-- ======Single Event Section Starts ====== -->
+
+
+
+<div id="testimonialModal21" class="modal fade rounded" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered modal-lg ">
+      <div class="modal-content">
+         <div class="modal-body ">
+            <div class="modal-header" style="padding: 0 0 5px 0;">
+               <button type="button" class="btn-close btn-sm pb-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="text-center">
+               <div class="">
+                  <img class="img-fluid mt-3"
+                     src="{% static 'core_app/assets/images/Event3.jpg' %}"
+                     alt="{{data.TestimonialsMessages_PersonName}}">
+               </div>
+               
+            </div>
+            <p class="p-3 shadow-sm">{{data.TestimonialsMessages_Description | safe}}</p>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!--
+<section id="event" class="py-5">
+   <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+      <h2 class="mb-4 pb-0">
+         <span>
+            FICCI ILIA' %}  
+         </span>
+         and Local India UA Chapter Future Skilling Session' %}
+
+      </h2>
+      <div class="divider-custom" style="margin-top:-25px;">
+         <div class="divider-custom-line"></div>
+         <div class="divider-custom-icon"><i class="fas fa-star me-2"></i></div>
+         <div class="divider-custom-line"></div>
+      </div>
+      <p class="mb-2 pb-0">"Universal Acceptance: A Key to Unlocking Growth Opportunities for Startups and MSMEs" </p>
+      <p class="mb-4 pb-0"> <i class="fa fa-calendar" aria-hidden="true"></i>  09 May 2023 ' %} |<i class="fa fa-clock px-2"> <small>03:00 PM - 04:10 PM</small></i> | <i class="fa fa-laptop px-2" aria-hidden="true"></i> Mode : Virtual
+      </p>
+      <div class="d-flex justify-content-center align-items-center flex-wrap">
+         {% comment %} <a href="https://globaluaday.in/ua-day-event-agenda/" class="about-btn scrollto" target="_blank"  >Agenda' %}</a> {% endcomment %}
+         <a class="about-btn scrollto" data-bs-toggle="modal" data-bs-target="#testimonialModal21">
+           Details
+         </a>
+         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHOOkuqXyabM6C_MTabRcR1tPVeZcyqvxPoHy0AR-RUJJZ6w/viewform" class="about-btn scrollto" target="_blank" onclick="return myFunction();" >Register' %}</a>
+      </div>
+   </div>
+</section> -->
+
+<!-- ======Single Event Section Ends ====== -->
+<!-- ====== Websites in IDN Ready section Starts ====== -->
+  <section id="event" class="py-5">
+   <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+      <h2 class="mb-4 pb-0">
+         <span>
+         </span>
+         Websites In IDN
+      </h2>
+      <div class="divider-custom" style="margin-top:-25px;">
+         <div class="divider-custom-line"></div>
+         <div class="divider-custom-icon"><i class="fas fa-star me-2"></i></div>
+         <div class="divider-custom-line"></div>
+      </div>
+      <p>Universal Acceptance Websites compliance with Internationalized Domain Names (IDNs) list</p>
+      <div class="d-flex justify-content-center align-items-center flex-wrap">
+         <a href="{% url 'idn_websites' 1 %}" class="about-btn scrollto" >View List</a>
+      </div>
+   </div>
+</section>  
+<!-- ====== Websites in IDN Ready Section Ends ====== -->
+<!-- ====== gallery section Starts ====== -->
+<section class="section">
+   <div class="container py-5">
+      <div class="section-sub-head feature-head text-center mb-0">
+         <h2 class="heading4 text-center">
+            <!-- <img class="img-fluid me-1"
+               src="{% static 'core_app/assets/img/line_l.png' %}"
+               alt="line graphcis left"/> -->
+            Gallery
+            <!-- <img
+               class="img-fluid ms-1" src="{% static 'core_app/assets/img/line_r.png' %}"
+               alt="line graphcis left"/> -->
+         </h2>
+         <div class="divider-custom" style="margin-top:-25px;">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star me-2"></i></div>
+            <div class="divider-custom-line"></div>
+         </div>
+         <!-- <div class="section-text aos" data-aos="fade-up">
+            <p class="mb-0">A calendar of UA Day events will be provided in the coming months.  These events could be done at different levels</p>
+            </div> -->
+      </div>
+      <div class="section-header aos" data-aos="fade-up">
+         <div class="all-btn all-category d-flex align-items-center">
+            <a href="{% url 'gallery' %}" class="btn btn-primary">View Gallery</a>
+         </div>
+      </div>
+      <!-- <div class="section-text aos" data-aos="fade-up">
+         <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget aenean accumsan bibendum gravida maecenas augue elementum et neque. Suspendisse imperdiet.</p>
+         </div> -->
+      <div class="ua-feature">
+         <div id="thumbnails" class="list small-up-1 medium-up-2 large-up-3">
+         <div class="row">
+            <div class="col-lg-4 col-md-6 g-3">
+               <div class="ua-box d-flex aos" data-aos="fade-up">
+                  <div class="gallery-item">
+                     <div class="gallery-item-img">
+                        <div class="embed-responsive embed-responsive-16by9">
+                           <iframe class="embed-responsive-item video-width w-100" src="https://www.youtube.com/embed/zwyKaqBIG1E" allowfullscreen></iframe>
+                        </div>
+                     </div>
+                     <div class="gallery-item-content d-flex align-items-center bg-light py-4 border" style="height: 50px;">
+                        <p class="title ua-card--text text-center fw-blod video-text-width gallery-caption" style="width:auto;">Making your website Universal Acceptance ready: Way Forward</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6 g-3">
+               <div class="ua-box d-flex aos" data-aos="fade-up">
+                  <div class="gallery-item">
+                     <div class="gallery-item-img">
+                        <div class="embed-responsive embed-responsive-16by9">
+                           <iframe class="embed-responsive-item video-width w-100" src="https://www.youtube.com/embed/GXUkk1lNsDQ" allowfullscreen></iframe>
+                        </div>
+                     </div>
+                     <div class="gallery-item-content d-flex align-items-center bg-light py-4 border" style="height: 50px;">
+                        <p class="title ua-card--text text-center fw-blod video-text-width gallery-caption " style="width:auto;">Workshop on Making Your email platform UA Ready</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6 g-3">
+               <div class="ua-box d-flex aos" data-aos="fade-up">
+                  <div class="gallery-item">
+                     <div class="gallery-item-img">
+                        <div class="embed-responsive embed-responsive-16by9">
+                           <iframe class="embed-responsive-item video-width w-100" src="https://www.youtube.com/embed/bpuGM7Z5M1U" allowfullscreen></iframe>
+                        </div>
+                     </div>
+                     <div class="gallery-item-content d-flex align-items-center bg-light py-4  border" style="height: 50px;">
+                        <p class="title ua-card--text text-center fw-bold  video-text-width gallery-caption" style="width:auto;">Curtain Raiser</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ====== gallery section Ends ====== -->
+<!-- ======Testimonial Section Starts ====== -->
+<section class="py-3" style="background: #eef1f7;">
+   <!------------Design By testimonials----------->
+   <div>
+      <div class="container my-5">
+         <div class="section-sub-head feature-head text-center mb-0">
+            <h2 class="heading4 text-center">
+               <!-- <img class="img-fluid me-1"
+                  src="{% static 'core_app/assets/img/line_l.png' %}"
+                  alt="line graphcis left"/> -->
+               Frequently asked Questions
+               <!-- <img
+                  class="img-fluid ms-1" src="{% static 'core_app/assets/img/line_r.png' %}"
+                  alt="line graphcis left"/> -->
+            </h2>
+            <!-- <div class="section-text aos" data-aos="fade-up">
+               <p class="mb-0">A calendar of UA Day events will be provided in the coming months.  These events could be done at different levels</p>
+               </div> -->
+         </div>
+         <div class="divider-custom" style="margin-top:-25px;">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star me-2"></i></div>
+            <div class="divider-custom-line"></div>
+         </div>
+         <!-- Nav tabs -->
+         <!-- Tab panes -->
+         <div class="tab-content">
+            <div id="Faqs1" class="container tab-pane active">
+               <br>
+               <div class="row">
+                  {% for data in faq_data %}
+                  <div class="col-lg-12">
+                     <div class="faq-card">
+                        <h2 class="faq-title">
+                           <a class="collapsed" data-bs-toggle="collapse" href="#faq{{forloop.counter}}"
+                              aria-expanded="false">{{data.Faqs_Ques | safe}}</a>
+                        </h2>
+                        <div id="faq{{forloop.counter}}" class="collapse">
+                           <div class="faq-detail">
+                              <p>{{data.Faqs_Ans | safe}}</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ======Testimonial Section Ends ====== -->
+<!-- ====== Stackholder section Starts ====== -->
+<section class="section stackholders pt-3">
+   <div class="container">
+      <!-- <div class="section-header aos" data-aos="fade-up">
+         <div class="section-sub-head feature-head text-center">
+            <span>Technical Collabration</span>
+            <h2 class="heading1">Working with different Stakeholders</h2>
+         </div>
+         </div> -->
+      <div class="ua-support aos" data-aos="fade-up">
+         <div class="ua-support-slider owl-carousel owl-theme">
+            {% for logo in obj_Stackholder %}
+            <div class="item">
+               <div class="lead-img">
+                  <a href="{{logo.Stackholder_url}}" target="_blank" onclick="return myFunction();"><img class="img-fluid w-50" alt="Logo of {{logo.Stackholder_image_title}}"
+                     src="/media/{{logo.Stackholder_image}}"></a>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ====== Stackholder Section Ends ====== -->
+<!--- =====Support Section starts=========-->
+<section id="support" class="py-3 ua-section-container mt-5">
+   <!-- Design By testimonials -->
+   <div class="container">
+      <div class="col-lg-12">
+      </div>
+      <div class="row">
+         <div class="section-header aos" data-aos="fade-up">
+            <div class="section-sub-head feature-head text-center mb-0">
+               <h2 class="heading4 mt-5"> Help Desk</h2>
+               <div class="divider-custom" style="margin-top:-25px;">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-star me-2"></i></div>
+                  <div class="divider-custom-line"></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-12">
+            <div class="row my-3">
+               <div class="col-md-6">
+                  <div class="address-block-two text-center mb-40 p-2 shadow height-contact p-5" style="min-height:385px">
+                     <div class="icon d-flex align-items-center justify-content-center m-auto mb-2">
+                        <img src="{% static 'core_app/assets/img/icon/icon_18.svg' %}" alt="icon for contact us"/>
+                     </div>
+                     <h2 class="h4">
+                        For Registering Domain Names Under सरकार.भारत (or equivalent)
+                     </h2>
+                     <div class="mt-3 text-center">
+                        <!-- <img src="{% static 'core_app/assets/img/icon/icon-21.svg' %}" alt="icon for phone"
+                           class="img-fluid" aria-hidden="true"/> -->
+                        <strong>Toll Free Number :</strong>  1800111555, 011-24305000  
+                        </p>
+                        <p>
+                           <!-- <img src="{% static 'core_app/assets/img/icon/icon-19.svg' %}" alt="icon for phone"
+                              class="img-fluid" aria-hidden="true"/> -->
+                           <strong>Website :</strong><a href="https://servicedesk.nic.in/"
+                              target="_blank" onclick="return myFunction();">https://servicedesk.nic.in</a>
+                     </div>
+                     <br/>  
+                  </div>
+                  <!-- /.address-block-two -->
+               </div>
+               <div class="col-md-6">
+                  <div class="address-block-two text-start  p-5 shadow height-contact"  style="min-height:385px">
+                     <div class="icon d-flex align-items-center justify-content-center m-auto mb-2">
+                        <img src="{% static 'core_app/assets/img/icon/icon_19.svg' %}" alt=".bharaticon"/>
+                     </div>
+                     <h2 class="h4 text-center">For Registering Domain Names Under .भारत (or equivalent )</h2>
+                     <div class="mt-3 text-center">
+                        <!-- <img src="{% static 'core_app/assets/img/icon/icon-21.svg' %}" alt="icon for phone "
+                           class="img-fluid" aria-hidden="true"/> -->
+                        <strong>Contact</strong> : +91-11-48202040, +91-11-48202011,<br/> +91-11-48202002 <br/>
+                        <!-- <img src="{% static 'core_app/assets/img/icon/icon-19.svg' %}" alt="icon for email"
+                           class="img-fluid" aria-hidden="true"/> -->
+                        <strong>Email</strong> : uasupport@nixi.in, rishab@nixi.in, rajiv@nixi.in, support@bhashanet.in
+                     </div>
+                  </div>
+                  <!-- /.address-block-two -->
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!--- =====Support Section ends=========-->
+<!--&lt;!&ndash;launch PM modal modal start&ndash;&gt;-->
+<!-- <div id="myModal" class="modal fade rounded" tabindex="-1">-->
+<!--    <div class="modal-dialog modal-dialog-centered modal-lg ">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-body event-bg">-->
+<!--                <div class="modal-header" style="padding: 0 0 5px 0;">-->
+<!--                    <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                </div>-->
+<!--             -->
+<!--                <div class="d-flex justify-content-between p-3 ua-bg-container shadow-lg">-->
+<!--                    <div><img class="img-fluid w-100" src="{% static 'core_app/assets/img/globe.gif' %}" alt="Globe with indian domain name gif animation"></div>-->
+<!--                    -->
+<!--                    <div class="text-center">-->
+<!--                        <img class="img-fluid w-75" src="{% static 'core_app/assets/img/narendra-modiji.png' %}" alt="Photo of Prime Minister Of India - Shri Narendra Modi">-->
+<!--                       <h2 class="h5 py-1 fw-bold">Shri Narendra Modi</h2>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                    <div class="uaday-event py-2 ">-->
+<!--                       -->
+<!--                        <h2 class="fw-bolder heading2 text text-center">-->
+<!--                            Welcome to Bhashnet Portal' %}-->
+<!--                        </h2>-->
+<!--                        <p class="fw-bold text-center">Empowering Multilingual Internet' %}</p>-->
+<!--                        &lt;!&ndash; <div class="d-flex justify-items-center justify-content-center my-2">-->
+<!--                           <a href="https://uasg.tech/ua-day/" class="btn btn-primary me-4 btn-block" target="_blank" aria-label="this button redirect to uasg.tech website">-->
+<!--                                About the Event' %}</a>-->
+<!--                                <p class="fw-bold text-center">Empowering Multilingual Internet' %}</p>-->
+<!--                        </div> &ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--          -->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>  -->
+<!--Launch PM modal ends-->
+<!-- ====== Modal single UA event starts here ====== -->
+<!-- <div id="myModal" class="modal fade rounded" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered modal-lg ">
+       <div class="modal-content">
+   
+           <div class="modal-body event-bg">
+               <div class="modal-header" style="padding: 0 0 5px 0;">
+   
+                   <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+            
+               <div class="d-flex justify-content-center flex-wrap p-3 ua-bg-container shadow-lg">
+                   <img class="img-fluid w-50" src="{% static 'core_app/assets/img/globe.gif' %}" alt="Globe with indian domain name gif animation">
+                    <img class="img-fluid w-50" src="{% static 'core_app/assets/img/narendra-modiji.png' %}" alt="Photo of Prime Minister Of India - Shri Narendra Modi"> 
+                   <div class="uaday-event py-2 mt-3">
+                      
+                       <h2 class="fw-bolder heading2 text">
+                           UA DAY India Event' %}
+                       </h2>
+                       <p class="fw-bold">28 March 2023, New Delhi' %}</p>
+                       <div class="d-flex justify-items-between my-2">
+                           <a href="https://uasg.tech/ua-day/" class="btn btn-primary me-4 btn-block" target="_blank" aria-label="this button redirect to uasg.tech website">
+                               About the Event' %}</a>
+                          
+                       </div>
+                   </div>
+               </div>
+           </div>
+   
+       </div>
+   </div>
+   </div>  -->
+<!-- ====== Modal single UA event ends here ====== -->
+<!-- ====== Modal two events starts here ====== -->
+<!-- <div id="myModal" class="modal fade rounded" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered modal-lg ">
+       <div class="modal-content">
+   
+           <div class="modal-body event-bg">
+               <div class="modal-header" style="padding: 0 0 5px 0;">
+   
+                   <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+            <div class="d-flex justify-content-center">
+               <img class="img-fluid w-25" src="{% static 'core_app/assets/img/globe.gif' %}" alt="Globe with indian domain name gif animation">
+            </div>
+               <div class="d-flex justify-content-between flex-wrap p-3 ">
+                  
+                   <div class="uaday-event py-2 mt-3">
+                      
+                       <h2 class="fw-bolder heading2 text-white">
+                           UA DAY India Event' %}
+                       </h2>
+                       <p class="fw-bold">28 March 2023, Pune' %}</p>
+                       <div class="d-flex justify-items-between my-2">
+                           <a href="https://uasg.tech/ua-day/" class="btn btn-primary me-4 btn-block" target="_blank" aria-label="this button redirect to uasg.tech website">
+                               About the Event' %}</a>
+                          
+                       </div>
+                   </div>
+                   <div class="uaday-event py-2 mt-3">
+                      
+                       <h2 class="fw-bolder heading2 text">
+                           UA DAY India Event' %}
+                       </h2>
+                       <p class="fw-bold">28 March 2023, New Delhi' %}</p>
+                       <div class="d-flex justify-items-between my-2">
+                           <a href="https://uasg.tech/ua-day/" class="btn btn-primary me-4 btn-block" target="_blank" aria-label="this button redirect to uasg.tech website">
+                               About the Event' %}</a>
+                           
+                       </div>
+                   </div>
+               </div>
+           </div>
+   
+       </div>
+   </div>
+   </div> -->
+<!-- ====== Modal two events ends here ====== -->
+<!-- ====== Testimonial read more modal starts ====== -->
+{% for data in obj_testimonialsMessages %}
+<div id="testimonialModal{{forloop.counter}}" class="modal fade rounded" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered modal-lg ">
+      <div class="modal-content">
+         <div class="modal-body ">
+            <div class="modal-header" style="padding: 0 0 5px 0;">
+               <button type="button" class="btn-close btn-sm pb-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="text-center">
+               <div class="">
+                  <img class="img-fluid rounded-circle mt-3"
+                     style="width:150px"
+                     src=" /media/{{data.TestimonialsMessages_Image}}"
+                     alt="{{data.TestimonialsMessages_PersonName}}">
+               </div>
+               <h2 class="fw-bold h5 pt-3">{{data.TestimonialsMessages_PersonName}}</h2>
+               <h3 class="h6">{{data.TestimonialsMessages_PersonDesignation}}</h3>
+            </div>
+            <p class="p-3 shadow-sm">{{data.TestimonialsMessages_Description | safe}}</p>
+         </div>
+      </div>
+   </div>
+</div>
+{% endfor %}
+<!-- ====== Testimonial read more modal ends ====== -->
+<!-- ====== Agenda  modal starts ====== -->
+<div id="agendaModal" class="modal fade rounded" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable">
+      <div class="modal-content">
+         <div class="modal-body">
+            <div class="modal-header" style="padding: 0 0 5px 0;">
+               <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="d-flex justify-content-center">
+               <img class="img-fluid w-25" src="{% static 'core_app/assets/img/globe.gif' %}" alt="Globe with indian domain name gif animation">
+            </div>
+            <div class="d-flex justify-content-center">
+               <div class="uaday-event py-2 mt-3">
+                  <div class="table-reponsive" style="white-space: normal; line-break: auto;">
+                     <div class="text-center">
+                        <h2 class="fw-bolder heading2 text-white">Pre-Global UA Day event</h2>
+                        <p><strong>27</strong><sup><strong>th</strong></sup><strong> March, 2023 (FICCI Auditorium)</strong></p>
+                        <p><strong>Technical Session </strong></p>
+                     </div>
+                     <table class="table table-bordered table-striped">
+                        <thead>
+                           <tr class="table-primary">
+                              <th scope="col" style="width:30%">Timings</th>
+                              <th scope="col" style="width:70%">Agenda Items</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td colspan="2">
+                                 <p><strong>Making your website Universal Acceptance ready: Way Forward </strong></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>10:00 AM &ndash; 10:15 AM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Welcome address by Sh. T Santhosh (Scientist &lsquo;E&rsquo;, Internet Governance Division, Ministry of Electronics &amp; Information Technology) </strong></p>
+                                 <p><strong>Introduction to Universal Acceptance by Dr. Ajay Data, UASG Chair </strong></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>10:15 AM &ndash; 12:00 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Making your website Universal Acceptance ready: Way Forward </strong></p>
+                                 <p><strong>Session Chair</strong> &ndash; Mr. Edmon Chung, ICANN Board Member</p>
+                                 <p><strong>Session Moderator</strong> &ndash; Dr. Ajay Data, UASG Chair</p>
+                                 <p><strong>Session Details</strong> &ndash; Presentation and discussion on incorporating elements of universal acceptance in websites</p>
+                                 <p><strong>Participants</strong> &ndash; Students, Developers, Researchers, Media &amp; Content Creators</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p><strong>Live Workshop Session</strong></p>
+                     <table class="table table-bordered table-striped">
+                        <tbody>
+                           <tr>
+                              <td colspan="2">
+                                 <p>Workshopon Making Your email platform UA Ready</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>12:15 PM - 01:45 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Live Workshop </strong>on Making Your email platform UA Ready</p>
+                                 <p><strong>Session Chair</strong> &ndash; Ms. Theresa Swinehart, Senior Vice-President &ndash; ICANN</p>
+                                 <p><strong>Workshop Coaches &ndash; </strong></p>
+                                 <ol>
+                                    <li>
+                                       <p>Sh. Mahesh Kulkarni (ex-Senior Director (Corporate R&amp;D) &amp; HoD GIST at CDAC)</p>
+                                    </li>
+                                    <li>
+                                       <p>Sh. Nitin Walia (Director, XgenPlus)</p>
+                                    </li>
+                                 </ol>
+                                 <p><strong>Session Details &ndash;</strong> This will be a live demonstration of EAI ready platform and understanding future compatibility thereof</p>
+                                 <p><strong>Participants &ndash;</strong> Students, Developers, Researchers, Media &amp; Content Creators</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p class="text-center"><strong>Curtain Raiser </strong></p>
+                     <table class="table table-bordered table-striped" >
+                        <tbody>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>03:00 PM &ndash; 03:30 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Welcome</strong> by Sh. Anil Kumar Jain, CEO (NIXI)</p>
+                                 <p><strong>Universal Acceptance work in India</strong> by Dr. Ajay Data, UASG Chair</p>
+                                 <p><strong>Concept</strong><strong>and significance of Universal Acceptance</strong> by Mr. Jia-Rong Low, Vice-President &amp; MD, APAC, ICANN</p>
+                                 <p><strong>Importance of UA for multi-cultural society in India</strong> by Sh. Bhuvnesh Kumar, IAS &ndash; Additional Secretary, Ministry of Electronics &amp; Information Technology, Government of India</p>
+                                 <p><strong>Chief Guest Address</strong> by Sh. Rajeev Chandrasekhar, Hon&rsquo;ble Minister of State,</p>
+                                 <p>Ministry of Electronics &amp; Information Technology &amp; Skill Development &amp; Entrepreneurship, Government of India</p>
+                                 <p><strong>Vote of Thanks</strong> by Smt. Asha Nangia, Scientist &lsquo;G&rsquo; and Group Coordinator, Ministry of Electronics &amp; Information Technology</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>03:30 PM &ndash; 03:45 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Media Interaction Session </strong></p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <table class="table table-bordered table-striped">
+                        <tbody>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>03:45 PM &ndash; 04:00 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Networking &amp; Tea/Coffee Break </strong></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>07:00 PM &ndash; 10:00 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>GALA Dinner with Cultural Programme </strong></p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="text-center">
+                        <p><strong>28</strong><sup><strong>th</strong></sup><strong> March, 2023 (Manekshaw Center) </strong></p>
+                        <p><strong>Inaugural </strong></p>
+                     </div>
+                     <table class="table table-bordered table-striped">
+                        <tbody>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>10:30 AM &ndash; 10:33 AM</strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Welcome</strong> by Sh. Anil Kumar Jain, CEO- NIXI</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th style="width:30%">
+                                 <p><strong>10:33 AM &ndash; 10:35 AM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Bouquet to Dignitaries</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>10:35 AM &ndash; 10:40 AM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>UA concept by Dr. Ajay Data, UASG Chair</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>10:40 AM &ndash; 10:45 AM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Work on UA by ICANN by Ms. Sally Costerton, CEO, ICANN.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>10:45 AM &ndash; 10:50 AM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Special Address by Ms. Tripti Sinha, Chair- ICANN</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>10:50 AM &ndash; 11:20 AM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>&ldquo;Socio-Economic aspects of UA and Multilingual Internet and its impact on public policy&rdquo;</p>
+                                 <ol>
+                                    <li>
+                                       <p>Sh. Abhishek Singh, President &amp; CEO- NeGD, Ministry of Electronics &amp; Information Technology,</p>
+                                    </li>
+                                 </ol>
+                                 <p>Government of India</p>
+                                 <ol start="2">
+                                    <li>
+                                       <p>Prof. Uday Narayan Singh- Dean, Faculty of Arts &amp;</p>
+                                    </li>
+                                 </ol>
+                                 <p>Chair- Professor of Linguistics at AMITY University,</p>
+                                 <p>Gurugram</p>
+                                 <ol start="3">
+                                    <li>
+                                       <p>Sh. Venki Nishthala- CTO, Rediff.com</p>
+                                    </li>
+                                 </ol>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>11.20 AM &ndash; 11.25 AM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Address by Shri Alkesh Kumar Sharma, Secretary, Ministry of Electronics and IT, Government of India</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>11:25 AM &ndash; 11:45 AM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Chief Guest Address by Sh. Rajeev Chandrasekhar,</p>
+                                 <p>Hon&rsquo;ble Minister of State, Ministry of Electronics &amp; Information Technology &amp; Skill Development &amp; Entrepreneurship</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>11:45 AM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Vote of Thanks by Mr. Jia-Rong Low, Vice-President &amp; MD, APAC, ICANN</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>12:00 Noon &ndash; 01: 00 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Panel Discussion Session on &ldquo;Technology enablement for universal acceptance - challenges and mitigation&rdquo;</p>
+                                 <p>Session Chair &ndash; Ms. Sally Costerton, CEO- ICANN</p>
+                                 <p>Session Moderator- Sh. T. Santhosh, Scientist &lsquo;E&rsquo;, Ministry of Electronics &amp; Information Technology.</p>
+                                 <p>Panelists -</p>
+                                 <ol>
+                                    <li>
+                                       <p>Ms. Sarika Guliyani, Director, and Head-ICT, FICCI-ILIA Division, FICCI</p>
+                                    </li>
+                                    <li>
+                                       <p>Sh. Balendu Sharma Dadhich, Director, Local Languages, Microsoft</p>
+                                    </li>
+                                 </ol>
+                                 <p>Mr. Edmon Chung, ICANN Board Member</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>01:00 PM &ndash; 02:00 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Case Studies Presentation</p>
+                                 <p>Session Chair &ndash; Sh. Bhuvnesh Kumar, IAS &ndash; Additional Secretary, Ministry of Electronics &amp;</p>
+                                 <p>Information Technology, Government of India</p>
+                                 <ol>
+                                    <li>
+                                       <p>Rajasthan Government Case Study by Sh. Ashish Gupta (IAS) Commissioner and Secretary, Department of Information Technology &amp; Communications, Government of Rajasthan</p>
+                                    </li>
+                                 </ol>
+                                 <p>Global Case Study by Mr. Edmon Chung, ICANN Board Member</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td colspan="2">
+                                 <p><strong>Bhashini and Multilingual Internet </strong></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>03:00 PM- 04:00 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Session Chair: Sh. Amit Agarwal, Additional Secretary,</p>
+                                 <p>Ministry of Electronics &amp; Information</p>
+                                 <p>Technology, Government of India</p>
+                                 <ul>
+                                    <li>
+                                       <p>Sh. Amitabh Nag, CEO, Bhashini</p>
+                                    </li>
+                                    <li>
+                                       <p>Dr. Saurabh Garg, CEO- UIDAI</p>
+                                    </li>
+                                    <li>
+                                       <p>Sh. Imtaiyazur Rehman, MD &amp; CEO- UTI</p>
+                                    </li>
+                                    <li>
+                                       <p>Sh. Sanjay Kumar Rakesh, CEO, CSC</p>
+                                    </li>
+                                    <li>
+                                       <p>Sh. Nitin Wali, Sr. Director, South-Asia, Global Stakeholder Engagement (ICANN)</p>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>04:00 PM &ndash; 04:03 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Welcome Address by </strong>Sh. Bhuvnesh Kumar, IAS &ndash; Additional Secretary, Ministry of Electronics &amp; Information Technology, Government of India</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>04:03 PM &ndash; 04:06 PM</strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Opening Address by Dr Ajay Data, UASG Chair </strong></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>04:06 PM &ndash; 04:11 PM</strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Audio Visual on UA in India </strong></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>04:11 PM &ndash; 04:16 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Special Address by </strong>Dr. Vinton G. Cerf, Vice president and Chief Internet Evangelist for Google (Live on Web)</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>04:16 PM &ndash; 04:21 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Keynote Address by </strong>Ms. Tripti Sinha, Chair ICANN</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>04:21 PM &ndash; 04:26 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Keynote Address by</strong> Sh. Alkesh Kumar Sharma, IAS, Secretary, Ministry of Electronics &amp; Information Technology, Government of India</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>04:26 PM &ndash; 04:31 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Interaction of Hon&rsquo;ble Minister Shri Ashwani Vaishnaw, Ministry of Electronics &amp; Information Technology, Railways and Communications with Beneficiaries</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>04:31 PM &ndash; 04:41 PM</strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p>Chief Guest Address by Hon&rsquo;ble Minister Shri Ashwini Vaishnaw, Ministry of Electronics &amp; Information Technology, Railways and Communications, Government of India</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>04.41 PM &ndash; 04.43 PM </strong></p>
+                              </th>
+                              <td style="width:70%">
+                                 <p><strong>Vote of Thanks by Shri Anil Kumar Jain, CEO, NIXI </strong></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row" style="width:30%">
+                                 <p><strong>04:43 PM </strong></p>
+                              </th>
+                              <td style="width:30%">
+                                 <p>High Tea</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Onload Modal -->
+<div class="modal fade" id="Modalonload" tabindex="-1" aria-labelledby="ModalonloadLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="ModalonloadLabel">UA Day-2024</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body text-center">
+         <!-- Centered image -->
+         <img class="img-fluid" src="{% static 'core_app/assets/img/ua-day-24.png' %}" alt="Ua day 24 website screenshot" style="width: 100%;">
+ 
+      
+            
+         <!-- Link -->
+         <a class="h5" href="https://uaday.in/" target="_blank">Visit website for UA Day-2024 registration </a>
+       </div>
+     </div>
+   </div>
+ </div>
+<!-- ====== Agenda modal ends ====== -->
+{% endblock %}

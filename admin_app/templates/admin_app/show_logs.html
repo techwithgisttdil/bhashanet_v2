@@ -1,0 +1,29 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block log_content %}
+  <div class="container-fluid mt-3">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Logs</h4>
+            <div class="row">
+              <div class="col-md-12">
+                <div style="max-height: 600px; overflow: auto;">
+                  <ul class="list-unstyled">
+                    {% for line in file_content %}
+                      <li>
+                        <p style="font-size: 14px !important; color: black; line-height: 1;">{{ line }}</p>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

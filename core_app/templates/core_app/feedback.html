@@ -1,0 +1,184 @@
+{% extends 'core_app/base.html' %} {% load static %} 
+<!-- Feedback -->
+{% block feedback %}
+{% comment %} <script src="{% static 'core_app/assets/js/jquery-3.6.0.min.js' %}"></script> {% endcomment %}
+<!-- ====== header section ends ====== -->
+<!-- ====== breadcrumb starts ====== -->
+<div class="card-box ua-card-header--bg-blk">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-12">
+        <div class="ua-small-info-box">
+          <div class="horizontal-rule">
+            <h1 class="h2 heading4">Feedback</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section>
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-bar">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-12">
+                <div class="breadcrumb-list">
+                  <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="{% url 'home' %}">Home</a>
+                      </li>
+                      <li class="breadcrumb-item">Feeback</li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="page-content ua-sec" id="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="container d-flex justify-content-center">
+        <div>
+          {% if messages %} 
+          {% for message in messages %}
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <h5> {% if message.tags %}{{message}}{% endif %}</h5>
+          </div>
+          {% endfor %} {% endif %}
+        </div>
+
+        <div style="color: red">
+          {% if feedback_form_obj.non_field_errors %} 
+          {% for error in feedback_form_obj.non_field_errors %}
+          <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+          </div>
+          {% endfor %} {% endif %}
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-8 mx-auto">
+        {% comment %} <div class="col-4">
+          <img src="https://gisttransserver.in/js/images/KbdIcon.ico" data-bs-toggle="tooltip" data-bs-original-title="Open keyboard for inscript typing" height="25pt" width="40pt" onclick="openKeyboard('hindi')"></img>
+        </div> {% endcomment %}
+        <div class="row my-3">
+          {% comment %} <div class="col-3"> {% endcomment %}
+             {% comment %} <select id="language" class="form-select" onchange="selectAnyLanguage()" data-bs-toggle="tooltip" data-bs-original-title="Select language for keyboard">
+              <option value="hindi" selected="selected">Hindi</option>               
+                  <option value="assamese">Assamese</option>               
+                  <option value="bengali">Bengali</option>               
+                  <option value="bodo">Bodo</option>               
+                  <option value="dogri">Dogri</option>               
+                  <option value="gujarati">Gujarati</option>           
+                  <option value="kannada">Kannada</option>
+                  {% comment %} <option value="kashmiriPa">Kashmiri</option>
+                  <option value="konkani">Konkani</option>
+                  <option value="maithili">Maithili</option>
+                  <option value="malayalam">Malayalam</option>               
+                  <option value="manipuri">Manipuri</option> 
+                  <option value="marathi">Marathi</option> 
+                  <option value="nepali">Nepali</option>                               
+                  <option value="oriya">Oriya</option>
+                  <option value="punjabi">Punjabi</option>               
+                  <option value="sanskrit">Sanskrit</option>               
+                  <option value="santali">Santali</option>
+                  <option value="sindhiDev">SindhiDev</option>
+                  <option value="sindhipa">SindhiPa</option>
+                  <option value="tamil">Tamil</option>               
+                  <option value="telugu">Telugu</option>               
+                  <option value="urdu">Urdu</option>
+             </select> {% endcomment %}
+          {% comment %} </div> {% endcomment %}
+          <div class="col-4 fw-bold">
+            Use Multilingual keyboard
+          </div>
+          <div class="col-3">
+             <img id="keyboardClicked" src="{% static 'core_app/assets/img/KbdIcon.ico' %}" data-bs-toggle="tooltip" data-bs-original-title="Open keyboard for inscript typing" height="25pt" width="40pt" onclick="openKeyboard('Hindi');"></img>
+          </div>
+    </div>
+        <div class="support-wrap shadow-sm bg-white px-3 py-5">
+          <form method="POST" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="Feedback_FirstName" class="form-label">Name</label>
+              {{feedback_form_obj.Feedback_FirstName}}
+            </div>
+            <div class="form-group">
+              <label for="Feedback_Email" class="form-label">Email</label>
+              {{feedback_form_obj.Feedback_Email}}
+            </div>
+            <div class="form-group">
+              <label for="Feedback_Category" class="form-label">Category</label>
+              {{feedback_form_obj.Feedback_Related_To}}
+            </div>
+            <div class="form-group">
+              <label for="Feedback_Message" class="form-label">Description</label>
+              {{feedback_form_obj.Feedback_Message}}
+            </div>
+
+            <!-- Captcha input -->
+            <div class="form-outline mb-4 mt-2">
+               <div class="row">
+                 <div class="col-sm-12 col-lg-5">
+                   <label class="mb-1 fs-5 fw-semibold px-1" for="inputCaptcha">Captcha</label>
+                   {{feedback_form_obj.captcha_input}}
+                   {{feedback_form_obj.captcha_hidden}}
+                 </div>
+                 <div class="col-sm-12 col-lg-5 mt-2">
+                   <img class="img-fluid" src='/media/captcha_images/CAPTCHA.png' alt="Captcha" id="captcha-img" width="220">
+                   <i class="fa fa-refresh fa-lg m-2" aria-hidden="true" id="refresh_button"></i>
+                   <!-- <i class="fa-solid fa-volume-high" name="speaker" onclick="readaudio()"></i> -->
+                 </div>
+             </div>
+
+            <div class="d-flex justify-content-center mt-3">
+              <button class="btn btn-primary btn-lg">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<script>
+	$('#captcha-img').attr('src', '/media/captcha_images/CAPTCHA.png' + "?t="+new Date().getTime())
+
+   $('#refresh_button').click(function () {
+      console.log("refresh button clicked")
+      $.ajax({
+            type: "GET",
+            url: '/captcha_refresh/'
+      }).done(function (result){
+            let image = result.captcha_url
+            $('#captcha-img').attr('src', '/media'+image+"?t="+new Date().getTime())
+            //$('#captcha-img').attr('src', '/static'+image)
+            $('#id_captcha_hidden').val(result.captcha_value)
+      })
+      return false;
+   })
+
+
+   function readaudio(){
+    console.log("inside read audio")
+    let audio = new Audio('media/captcha_audio/CAPTCHA.wav?t='+new Date().getTime())
+    audio.play()
+   }
+
+   selectAnyLanguage = () => {
+    console.log("language changed")
+    if(document.getElementById("gistFK_kbdBox")!=null)
+    document.getElementById("keyboardClicked").click()
+ }
+</script>
+
+{% endblock %}

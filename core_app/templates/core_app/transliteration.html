@@ -1,0 +1,170 @@
+{% extends 'core_app/base.html' %} {% load static %}
+
+<!--TRANSLITERATION PAGE -->
+{% block transliteration %}
+
+<script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/gisttransserverJquery.min.js'%}"></script>
+<script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/gisttransserverCdacTyping.js' %}"></script>
+<script>
+  $(document).ready(function () {
+    var locale = null;
+    var cookies = document.cookie.split(";");
+    $(cookies).each(function (i, cookie) {
+      if (cookie.indexOf("LanguageLocale=") != -1) {
+        locale = cookie.split("=")[1];
+        setLanguage(locale);
+        $("#language").val(locale);
+      }
+    });
+    if (locale == null) {
+      locale = $("#language").find("option:selected").val();
+      setLanguage(locale);
+      setCookie(locale);
+    }
+    $("#language").on("change", function () {
+      locale = this.value;
+      setLanguage(locale);
+      setCookie(locale);
+    });
+
+    $("#kbdIcon").on("click", function () {
+      openKeyboard($("#language").find("option:selected").text().toLowerCase());
+    });
+
+    function setCookie(langLocale) {
+      /*Setting Cookie*/
+      var today = new Date();
+      var expire = new Date();
+      expire.setTime(today.getTime() + 3600000 * 24 * 7);
+      document.cookie =
+        "LanguageLocale=" + langLocale + "; expires=" + expire.toUTCString();
+      /*Setting Cookie*/
+    }
+    enableTyping(
+      new Array("nameSource"),
+      new Array("nameTarget"),
+      "NAME",
+      locale,
+      false
+    );
+  });
+
+  window.onload = function () {
+    document.getElementById("nameInput").focus();
+  };
+</script>
+
+<div class="card-box ua-card-header--bg-blk">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-12">
+        <div class="ua-small-info-box">
+          <div class="horizontal-rule">
+            <h1 class="h2 heading4">Transliteration</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-bar">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-12">
+                <div class="breadcrumb-list">
+                  <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="{% url 'home' %}">Home</a>
+                      </li>
+                      <li class="breadcrumb-item">
+                        <a href="{% url 'tools' %}">Tools</a>
+                      </li>
+                      <li class="breadcrumb-item">Transliteration</li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="page-content ua-sec" id="main-content">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-12">
+             <div class="card card-sub-section-sec">
+                <div class="card-body">
+                  <div class="mb-4" style="font-weight: 500;">
+                  Transliteration is a phonetic transliteration mechanism that transliterates English data to Indian Language.
+                </div>
+                <div class="row card py-3 px-2">
+                  <div
+                    class="col col-lg-6 pb-2"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Select Language for Transliteration"
+                  >
+                    <label for="language" class="form-label">Target Language</label>
+                    <select id="language" class="form-select">
+                      <option value="en_in">English</option>
+                      <option value="hi_in" selected="selected">Hindi</option>
+                      <option value="pn_in">Punjabi</option>
+                      <option value="gj_in">Gujarati</option>
+                      <option value="mr_in">Marathi</option>
+                      <option value="as_in">Assamese</option>
+                      <option value="bn_in">Bengali</option>
+                      <option value="ml_in">Malayalam</option>
+                      <option value="tm_in">Tamil</option>
+                      <option value="tl_in">Telugu</option>
+                      <option value="kn_in">Kannada</option>
+                      <option value="or_in">Odia</option>
+                      <option value="ur_in">Urdu</option>
+                    </select>
+                  </div>
+                  <div class="row mb-5 mt-5">
+                    <div class="col-12 col-lg-6">
+                      <label for="nameSource" class="form-label">Enter English Text</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nameSource"
+                        placeholder="Enter English Text"
+                      />
+                      <span class="fs-6 ms-2">(On Tab)</span>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                      <label for="nameTarget" class="form-label">Transliterated Text</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nameTarget"
+                        placeholder="Transliterated Text"
+                      />
+                      <span class="fs-6 ms-2">(Double-click for suggestions)</span>
+                    </div>
+                  </div>
+
+                  <div class="mb-4 ps-3" style="font-size: 12px">
+                    <strong>*NOTE : </strong>The service may not give 100% accuracy. Transliteration accuracy depends upon model accuracy and other factors.
+                  </div>
+                  
+                </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+
+  {% endblock %}
+

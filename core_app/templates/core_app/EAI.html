@@ -1,0 +1,55 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block EAI %}
+        <div class="card-box ua-card-header--bg-blk" id="main-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="ua-small-info-box">
+                            <div class="horizontal-rule">
+                                <h1 class=" h2 heading4">Email address Internationalization (EAI)</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="breadcrumb-list">
+                            <nav aria-label="breadcrumb" class="page-breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                    <li class="breadcrumb-item" aria-current="page">Email address Internationalization (EAI)</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ <section class="page-content ua-sec aos" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-sub-section-sec">
+                            <div class="row">
+                                <div class="col-md-4 d-flex align-items-start"><div class="card-body"><img class="img-fluid mt-5" src="/media/{{obj_data.EmailAddressInternationalization_image1}}" alt="this infographics shows how indian languages use for email Internationalization. In this inforgraphics there are indian langauges letters that moving aroung laptop"/></div></div>
+                                <div class="col-md-8"> <div class="card-body">
+                                    <h2 class="h4">{{obj_data.EmailAddressInternationalization_title_desc}}</h2>
+                                <p class="mt-3">{{obj_data.EmailAddressInternationalization_desc1}}</p>
+                                <div>
+                                   <p>{{obj_data.EmailAddressInternationalization_desc2}}</p>
+                                   <p>{{obj_data.EmailAddressInternationalization_desc3}}</p>
+                                </div>
+                            </div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block blog_datatable %}
+
+<div class="card-box ua-card-header--bg-blk">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="ua-small-info-box">
+                    <div class="horizontal-rule">
+                        <h1 class="h2 heading4">Blog List Table</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'blogs' %}">Blogs</a></li>
+                            <li class="breadcrumb-item">Blog List Table</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="page-content" id="main-content">
+    <div class="container-fluid h-custom">
+    <div class="row mb-4">
+        <div class="col-6">
+          <!-- <h5 class="text-start mb-4">
+            <a class="btn btn-primary rounded-3" href="{% url 'blogs' %}">Blog List</a>
+          </h5> -->
+        </div>
+        <div class="col-6">
+          <h5 class="text-end mb-4">
+            <a class="btn btn-primary rounded-3" href="{% url 'add_blog' %}">Add New Blog</a>
+          </h5>
+        </div>
+      </div>
+   
+
+    <div style="color:red">{% if messages %}
+        {% for message in messages %}
+        <small {% if message.tags %} class="{{message.tags}}">{{message}}{% endif %}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="row d-flex justify-content-center align-items-center">
+        <table class="table table-striped " id="mytable" style="width:100%;">
+            <thead class="custom-datatable-thead">
+            <tr>
+                <th>S.No.</th>
+                <th>Blog Title</th>
+                <th>Category Type</th>
+                <th>Creation Date</th>
+                <th>Last Updated Date</th>
+                <th>Author</th>
+                <th>Publish Status</th>
+                <th>View Details</th>
+                <th>Edit</th>
+                {% comment %} <th>Delete</th> {% endcomment %}
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for data in blog_data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{data.Blog_Title}}</td>
+                <td>{{data.Blog_CategoryType}}</td>
+                <td>{{data.Blog_CreationDate}}</td>
+                <td>{{data.Blog_LastUpdatedDate}}</td>
+                <td>{{data.Blog_Author}}</td>
+                <td>{{data.Blog_PublishedStatus}}</td>
+                <td><a class="btn btn-primary rounded-3" href="#" onclick="renderPathForBlogCategoryFunction('blog','{{ data.id }}'); return false;">View Details</a></td>
+                <td><a class="btn btn-primary rounded-3" href="#" onclick="renderPathForBlogCategoryFunction('edit_blog','{{ data.id }}'); return false;">Edit</a></td>
+                {% comment %} <td><a class="btn btn-primary rounded-3 confirm-delete" href="{% url 'delete_blog' data.id %}">Delete</a></td> {% endcomment %}
+            </tr>
+            {% endfor %} 
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</section>
+
+<script>
+        $(document).ready(function() {
+       $('#mytable').dataTable( {
+           buttons: [
+           'copy', 'csv', 'excel', 'pdf', 'print'
+           ],
+          "info":           true,
+          "paging":         true,
+
+      } );
+    } );
+
+
+</script>
+
+
+
+<script>
+    $(document).on("click",".confirm-delete",function(){
+        return confirm("Are you sure you want to delete this blog..?");
+    })
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,129 @@
+
+         :root {
+           /* --visions-resource-font: 'DM Sans', sans-serif; */
+           --visions-resource-reey-font: "reeyregular";
+           --visions-resource-gray: rgb(34, 16, 13)
+           --visions-resource-gray-rgb: 105, 110, 119;
+           --visions-resource-white: #ffffff;
+           --visions-resource-white-rgb: 255, 255, 255;
+           --visions-resource-base: #015fc9;
+           --visions-resource-base-rgb: 1, 95, 201;
+           --visions-resource-black: #244a7b;
+           --visions-resource-black-rgb: 8, 58, 122;
+           --visions-resource-primary: #f44336;
+           --visions-resource-primary-rgb: 12, 224, 255;
+           --visions-resource-extra: #f2f5f9;
+           --visions-resource-extra-rgb: 242, 245, 249;
+           --visions-resource-bdr-color: #e0e4e8;
+           --visions-resource-bdr-color-rgb: 224, 228, 232;
+           --visions-resource-bdr-radius: 10px;
+           --visions-resource-letter-spacing: -0.02em;
+         
+         }
+         
+         .row {
+           --bs-gutter-x: 30px;
+         }
+         
+         .gutter-y-30 {
+           --bs-gutter-y: 30px;
+         }
+         
+         .listitems {
+           font-family: var(--visions-resource-font);
+           color: var(--visions-resource-gray);
+           
+           line-height: 26px;
+           font-weight: 400;
+           direction: ltr;
+         }
+         
+         body.locked {
+           overflow: hidden;
+         }
+         
+         a {
+           color: var(--visions-resource-gray);
+         }
+         
+         a,
+         a:hover,
+         a:focus,
+         a:visited {
+           text-decoration: none;
+         }
+         
+         ::-webkit-input-placeholder {
+           color: inherit;
+           opacity: 1;
+         }
+         
+         :-ms-input-placeholder {
+           color: inherit;
+           opacity: 1;
+         }
+         
+         ::-ms-input-placeholder {
+           color: inherit;
+           opacity: 1;
+         }
+         
+         ::placeholder {
+           color: inherit;
+           opacity: 1;
+         }
+         
+         h1,
+         h2,
+         h3,
+         h4,
+         h5,
+         h6 {
+           color: var(--visions-resource-black);
+           margin: 0;
+         }
+         
+         p {
+           margin: 0;
+         }
+         
+         dl,
+         ol,
+         ul {
+           margin-top: 0;
+           margin-bottom: 0;
+         }
+         
+         .list-unstyled {
+           padding-left: 0;
+         }
+         
+         ::-webkit-input-placeholder {
+           color: inherit;
+           opacity: 1;
+         }
+         
+         :-ms-input-placeholder {
+           color: inherit;
+           opacity: 1;
+         }
+         
+         ::-ms-input-placeholder {
+           color: inherit;
+           opacity: 1;
+         }
+         
+         ::placeholder {
+           color: inherit;
+           opacity: 1;
+         }
+         
+         .page-wrapper {
+           position: relative;
+           margin: 0 auto;
+           width: 100%;
+           min-width: 300px;
+           overflow: hidden;
+         }
+         
+  

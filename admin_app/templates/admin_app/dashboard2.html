@@ -1,0 +1,582 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block dashboard2_content %}
+  <!-- SCRIPT FOR BAR CHART STARTS -->
+
+  <div class="container-fluid mt-3">
+    <!-- Error Block Starts -->
+    <div class="row">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="col-lg-12">
+            <div class="alert alert-primary">{{ message }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <!-- Error Block Ends -->
+
+   <!-- IDN Statistics Block Starts -->
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-widget">
+      <div class="card-body gradient-1 text-center">
+        <div class="card-widget__icon mb-3"><i class="fa fa-globe"></i></div>
+        <h2 class="card-widget__title">{{ English_Domain_total_records }}</h2>
+        <h3 class="card-widget__subtitle">Total English Domains</h3>
+        <!-- <p class="text-white mb-0">Jan - March 2019</p> -->
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-widget">
+      <div class="card-body gradient-3 text-center">
+        <div class="card-widget__icon mb-3"><i class="fa fa-language"></i></div>
+        <h2 class="card-widget__title">{{ URL_dashboard_total_records }}</h2>
+        <h3 class="card-widget__subtitle">Total IDN Domains</h3>
+       <!-- <p class="text-white mb-0">Jan - March 2019</p> -->
+      </div>
+    </div>
+    
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-widget">
+      <div class="card-body gradient-2 text-center">
+        <div class="card-widget__icon mb-3"><i class="fa fa-globe"></i></div>
+        <h2 class="card-widget__title">{{ URL_dashboard_total_records_governmnet }}</h2>
+        <h3 class="card-widget__subtitle">Domains in Government Category</h3>
+       <!-- <p class="text-white mb-0">Jan - March 2019</p> -->
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-widget">
+      <div class="card-body gradient-4 text-center">
+        <div class="card-widget__icon mb-3"><i class="fa fa-briefcase"></i></div>
+        <h2 class="card-widget__title">{{ URL_dashboard_total_records_private }}</h2>
+        <h3 class="card-widget__subtitle">Domains in Private Category</h3>
+       <!-- <p class="text-white mb-0">Jan - March 2019</p> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- IDN Statistics Block Ends -->
+
+<!-- Tools , SOPs, Download , Hits Statistics Block Starts -->
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-widget">
+      <div class="card-body gradient-8 text-center">
+        <div class="card-widget__icon mb-3"><i class="fa fa-wrench"></i></div>
+        <h2 class="card-widget__title">{{ English_Domain_total_records }}</h2>
+        <h3 class="card-widget__subtitle">Total Tools</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-widget">
+      <div class="card-body gradient-6 text-center">
+        <div class="card-widget__icon mb-3"><i class="fa fa-file"></i></div>
+        <h2 class="card-widget__title">{{ URL_dashboard_total_records }}</h2>
+        <h3 class="card-widget__subtitle">Total SOPS</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-widget">
+      <div class="card-body gradient-7 text-center">
+        <div class="card-widget__icon mb-3"><i class="fa fa-download"></i></div>
+        <h2 class="card-widget__title">{{ URL_dashboard_total_records_governmnet }}</h2>
+        <h3 class="card-widget__subtitle">TOTAL SOPS Download</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-widget">
+      <div class="card-body gradient-5 text-center">
+        <div class="card-widget__icon mb-3"><i class="fa fa-check"></i></div>
+        <h2 class="card-widget__title">{{ URL_dashboard_total_records_governmnet }}</h2>
+        <h3 class="card-widget__subtitle">Total Hits</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Tools , SOPs, Download , Hits Statistics Block Ends -->
+
+    
+<!-- Tools , SOPs, Download , Hits Statistics Block Ends -->
+
+
+    <!-- IDN Domain Running, SSL, Total Number of English Domain Per Category (Pie Charts , Bar Charts ) Block Starts -->
+    <div class="container-fluid mt-1" style="padding: 0px !important;">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="card justify-content-center align-items-center">
+            <div class="card-body text-center">
+              <h4 class="card-title">IDN Domain Running Statistics</h4>
+              <div class="chart-container">
+                <canvas id="domainBarChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <div class="card justify-content-center align-items-center">
+            <div class="card-body text-center">
+              <h4 class="card-title">IDN Domain SSL Running Statistics</h4>
+              <div class="chart-container">
+                <canvas id="sslBarChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-lg-12">
+          <div class="card justify-content-center align-items-center">
+            <div class="card-body text-center">
+              <h4 class="card-title">Proportion of Content Languages</h4>
+              <div class="chart-container">
+                <canvas id="contentLanguageBarChart" class="w-100"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IDN Domain Running, SSL, Total Number of English Domain Per Category (Pie Charts , Bar Charts ) Block Ends -->
+
+    <!-- Total Number of English Domain Per Category ( Bar Charts ) Block Starts -->
+    <div class="container-fluid mt-1" style="padding: 0px !important;">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body text-center">
+              <h4 class="card-title">Total Number of English Domain Per Category</h4>
+              <canvas id="categoryChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-4">
+          <div class="card card-widget">
+            <div class="card-body">
+              <h5 class="text-muted">Support Ticket Management Statistics</h5>
+              <h3 class="mt-2">5680</h3>
+              <span>Total Tickets</span>
+              <div class="mt-3">
+                <h4>30</h4>
+                <h5>Resolved Tickets<span class="pull-right">30%</span></h5>
+                <div class="progress mb-3" style="height: 7px">
+                  <div class="progress-bar bg-primary" style="width: 30%;" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="30% Complete">
+                    <span class="sr-only">30% Complete</span>
+                </div>
+                </div>
+              </div>
+              <div class="mt-3">
+                <h4>50</h4>
+                <h5 class="m-t-10 text-muted">Open Tickets <span class="pull-right">50%</span></h5>
+                <div class="progress mb-3" style="height: 7px">
+                  <div class="progress-bar bg-success" style="width: 50%;" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="50% Complete">
+                    <span class="sr-only">50% Complete</span>
+                </div>
+                
+                </div>
+              </div>
+              <div class="mt-3">
+                <h4>20</h4>
+                <h5 class="m-t-10 text-muted">In Progress Tickets<span class="pull-right">20%</span></h5>
+                <div class="progress mb-3" style="height: 7px">
+                  <div class="progress-bar bg-warning" style="width: 20%;" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" aria-label="20% Complete">
+                    <span class="sr-only">20% Complete</span>
+                </div>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Total Number of English Domain Per Category () Bar Charts ) Block Ends -->
+
+    <!-- Languages Detection Service, Website Home Page Languages ( Bar Charts ) Block Starts -->
+    <div class="container-fluid mt-1" style="padding: 0px !important;">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Languages Detection Service Status</h4>
+              <canvas id="RemarklanguageChart" style="max-width: 100%; height: 350px;"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Website Home Page Languages</h4>
+              <canvas id="Website_HomePagelanguageChart" style="max-width: 100%; height: 350px;"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Languages Detection Service, Website Home Page Languages ( Bar Charts ) Block Starts -->
+
+    <!-- Number of IDN Domains In Indian Languages Block Bar Chart Starts -->
+    <div class="container-fluid mt-1" style="padding: 0px !important;">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Number of IDN Domains In Indian Languages</h4>
+              <canvas id="languageChart" style="max-width: 100%; " height="100"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Number of IDN Domains In Indian Languages Block Bar Chart Ends -->
+  </div>
+  <!-- Number of Registered English Domains Block Ends -->
+
+  <!-- Number of IDN Domains In Indian Languages Bar Chart Script Block -->
+  <script>
+    var ctx_barchart = document.getElementById('languageChart').getContext('2d');
+    var colors = ['skyblue', '#F5B041', '#DAF7A6', '#89A258', '#900C3F','#993353','skyblue','#6C3399','#E47369','skyblue', '#F5B041', '#DAF7A6', '#89A258', '#900C3F','#993353','skyblue','#6C3399','#E47369',]; // Define array of colors
+    var myBarChart = new Chart(ctx_barchart, {
+    type: 'bar',
+    data: 
+        {
+            labels:
+                {{languages|safe}},
+                datasets: 
+                    [{
+                        label: 'Number of Records',
+                        data: {{ counts|safe }},
+                        backgroundColor: colors,
+                        borderColor: colors,
+                        borderWidth: 1
+                    }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        },
+    });
+  </script>
+
+  <!-- Languages Detection Service Status Bar Chart Script Block -->
+  <script>
+    var ctx_barchart_remark = document.getElementById('RemarklanguageChart').getContext('2d');
+    var colors = ['skyblue', '#FFC300', '#DAF7A6', '#C70039', '#900C3F']; // Define array of colors
+    console.log({{Remark_languages|safe}})
+    var myBarChartRemark = new Chart(ctx_barchart_remark, {
+        type: 'bar',
+        data: {
+            labels: {{ Remark_languages|safe }},
+            datasets: [{
+                label: 'Number of Records',
+                data: {{ Remark_counts|safe }},
+                backgroundColor: colors,
+                borderColor: colors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontSize: 12, // Adjust the font size
+                        maxRotation: 70, // Rotate labels at 45 degrees
+                        minRotation: 0, // Minimum rotation angle
+                        maxTicksLimit: 5 // Limit the number of labels
+                    }
+                }]
+            }
+        }
+    });
+  </script>
+
+  <!-- Website Home Page Languages Bar Chart Script Block -->
+  <script>
+    var ctx_barchart_contentlanguage = document.getElementById('Website_HomePagelanguageChart').getContext('2d');
+    var colors = ['skyblue', '#FFC300', '#DAF7A6', '#C70039', '#900C3F']; // Define array of colors
+    
+    var myBarChartcontentlanguage = new Chart(ctx_barchart_contentlanguage, {
+        type: 'bar',
+        data: {
+            labels: {{ content_languages|safe }},
+            datasets: [{
+                label: 'Number of Records',
+                data: {{ content_counts|safe }},
+                backgroundColor: colors,
+                borderColor: colors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+  </script>
+
+  <!-- IDN Domain SSL Running Statistics Pie Chart Script Block -->
+  <script>
+    // Data passed from the Django view
+    const labels_ssl = {{ labels_ssl|safe }};
+    const data_ssl = {{ data_ssl|safe }};
+
+    const sslBarChart_ctx = document.getElementById('sslBarChart').getContext('2d');
+    const sslBarChart = new Chart(sslBarChart_ctx, {
+        type: 'bar',
+        data: {
+            labels: labels_ssl,
+            datasets: [{
+                label: 'SSL Configuration Status',
+                data: data_ssl,
+                backgroundColor: [
+                    'rgba(82, 190, 128, 0.8)',
+                    'rgba(241, 148, 138, 0.8)',
+                ],
+                borderColor: [
+                    'rgba(82, 190, 128, 1)',
+                    'rgba(241, 148, 138, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                }
+            }
+        }
+    });
+
+    // Repeat similar initialization for other charts (DomainBarChart and contentLanguageBarChart)
+</script>
+  <!-- IDN Domain Running Statistics Pie Chart Script Block -->
+  {% comment %} <script>
+    var ctx_piechart_domain = document.getElementById('DomainPieChart').getContext('2d');
+    var DomainPieChart = new Chart(ctx_piechart_domain, {
+        type: 'pie',
+        data: {
+            labels: {{ labels_domain|safe }},
+            datasets: [{
+                data: {{ data_domain|safe }},
+                backgroundColor: [
+                    '#52BE80',
+                    '#F1948A',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+        }
+    });
+  </script> {% endcomment %}
+  <script>
+    // Data passed from the Django view
+    const labels_domain = {{ labels_domain|safe }};
+    const data_domain = {{ data_domain|safe }};
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const domainBarChart_ctx = document.getElementById('domainBarChart').getContext('2d');
+        const domainBarChart = new Chart(domainBarChart_ctx, {
+            type: 'bar',
+            data: {
+                labels: labels_domain,
+                datasets: [{
+                    label: 'Domain Configuration Status',
+                    data: data_domain,
+                    backgroundColor: [
+                        'rgba(82, 190, 128, 0.8)',
+                        'rgba(241, 148, 138, 0.8)',
+                    ],
+                    borderColor: [
+                        'rgba(82, 190, 128, 1)',
+                        'rgba(241, 148, 138, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            /*
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 5 // Adjust the step size as needed
+                        }
+                    }
+                }
+            }
+            */
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 15
+                        }
+                    }]
+                }
+            },
+        });
+
+        console.log(domainBarChart);
+    });
+</script>
+
+  <!-- Total Number of English Domain Per Category Bar Chart Script Block -->
+  <script>
+    var ctx_category = document.getElementById('categoryChart').getContext('2d');
+      var myChart = new Chart(ctx_category, {
+          type: 'bar',
+          data: {
+              labels: {{ distribution_categories|safe }},
+              datasets: [{
+                  label: 'Number of Records',
+                  data: {{ distribution_counts|safe }},
+                  backgroundColor: [
+                      '#F5B041',
+                      'rgba(54, 162, 235, 0.8)',
+                      'rgba(255, 206, 86, 0.8)',
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+          },
+           
+      });
+  
+  </script>
+
+  <!-- ######################################### -->
+  <script>
+    // Data passed from the Django view
+    const labels = {{ content_language_proportions_labels|safe }};
+    const data = {{ content_language_proportions_data|safe }};
+
+    const contentLanguageBarChart_ctx = document.getElementById('contentLanguageBarChart').getContext('2d');
+    const contentLanguageBarChart = new Chart(contentLanguageBarChart_ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Proportion of Content Languages',
+                data: data,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.8)',
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.8)',
+                    'rgba(75, 192, 192, 0.8)',
+                    'rgba(153, 102, 255, 0.8)',
+                    'rgba(255, 159, 64, 0.8)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%'; // Add percentage sign to ticks
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            label += context.raw.toFixed(2) + '%';
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Repeat the above initialization for other charts (sslBarChart and DomainBarChart)
+</script>
+
+  <style>
+  .chart-container {
+      position: relative;
+      margin: auto;
+      height: 400px; /* Adjust height as needed */
+      width: 100%;
+  }
+  #contentLanguageBarChart {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+  }
+</style>
+  <!-- ############################################### -->
+{% endblock %}

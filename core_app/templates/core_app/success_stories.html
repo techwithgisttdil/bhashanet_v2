@@ -1,0 +1,346 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+
+{% block success_stories %}
+<style>
+    .carousel-item {
+      min-height: 280px;
+    }
+  </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var element = document.getElementById("myCarousel");
+      var myCarousel = new bootstrap.Carousel(element);
+    });
+  </script>
+<div class="card-box ua-card-header--bg-blk">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-12">
+          <div class="ua-small-info-box">
+            <div class="horizontal-rule">
+              <h1 class="h2 heading4">Websites in IDN</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container my-3">
+    <div class="row">
+      <div class="col d-flex justify-content-left">
+        <div class="fw-bold h5 py-4">Government IDN Ready Websites : <span class="text-primary">20</span></div>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <div class="fw-bold h5 py-4">Private IDN Ready Websites : <span class="text-primary">2</span></div>
+      </div>
+    </div>
+    <div class="table-responsive">
+    <table id="example" class="table table-striped" data-order="[[ 0, &quot;asc&quot; ]]" style="width: 100%">
+      <thead>
+        <tr>
+          <!-- <th>Readiness Level</th> -->
+          <th>Website Title</th>
+          <th>Languages</th>
+          <th>Website Url</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+        <tr>
+          <!-- <td class="text-center"><img class="img-fluid" src="{% static '/core_app/assets/img/tick.png' %}" alt="readiness level" width='30' /></td> -->
+          <td>MEITY (Ministry of Electronics and Information Technology)</td>
+          <td>English,<br/>Hindi</td>
+          <td><a href="https://www.meity.gov.in/" target="_blank">meity.gov.in</a><br>
+          <a href="https://एमईआईटीवाई.सरकार.भारत/" target="_blank">एमईआईटीवाई.सरकार.भारत</a></td>
+        </tr>
+            
+       
+            
+        <tr>
+          <td>ERNET (Education and Research Network of India)</td>
+          <td>English,<br/>Hindi</td>
+          <td>
+            <a href="https://ernet.in/" target="_blank">ernet.in</a><br/>
+            <a href="https://ईआरनेट.भारत/" target="_blank">ईआरनेट.भारत</a>
+          </td>
+        </tr>
+            
+        <tr>
+          <td>India.gov (National portal of India)</td>
+          <td>English,<br/>Hindi</td>
+          <td>
+            <a href="https://www.india.gov.in/" target="_blank">india.gov.in</a><br/>
+            <a href="https://www.इंडिया.सरकार.भारत/" target="_blank">इंडिया.सरकार.भारत</a>
+          </td>
+        </tr>
+            
+        <tr>
+          <td>IRINN (Indian registry for Internet Names and Numbers)</td>
+          <td>English,<br/>Hindi,<br>Gujarati</td>
+          <td>
+            <a href="https://irinn.in/" target="_blank">irinn.in</a><br/>
+            <a href="https://आईरिन.भारत/" target="_blank">आईरिन.भारत</a><br>
+            <a href="https://આઈરીન.ભારત/" target="_blank">આઈરીન.ભારત</a>
+          </td>
+        </tr>
+            
+        <tr>
+          <td>STPI (Software Technology parks of India)</td>
+          <td>English,<br/>Hindi</td>
+          <td>
+            <a href="https://stpi.in/en" target="_blank">stpi.in</a><br/>
+            <a href="https://एसटीपीआई.भारत/hi" target="_blank">एसटीपीआई.भारत</a>
+          </td>
+        </tr>
+            
+        <tr>
+          <td>Vikaspedia</td>
+          <td>
+            English,<br/>
+            Hindi,<br>
+            Marathi,<br>
+            Malayalam,<br>
+            Tamil,<br>
+            Assamese,<br>
+            Gujrati,<br>
+            Bengali,<br>
+            Bodo,<br>
+            dongri,<br>
+            Kannada,<br>
+            Kashmiri,<br>
+            Konkani,<br>
+            Maithili,<br>
+            Manipuri,<br>
+            Nepali,<br>
+            Odia,<br>
+            Punjabi,<br>
+            Sanskrit,<br>
+            Santali,<br>
+            Sindhi,<br>
+            Telugu,<br>
+            Urdu
+          </td>
+          <td>
+            
+            <a href="https://vikaspedia.in/InDG" target="_blank">vikaspedia.in</a><br/>
+            <a href="https://हिन्दी.विकासपीडिया.भारत/" target="_blank">हिन्दी.विकासपीडिया.भारत</a><br>
+            <a href="https://मराठी.विकासपीडिया.भारत/" target="_blank">मराठी.विकासपीडिया.भारत</a><br>
+            <a href="https://വികാസ്-പീഡിയ.ഭാരതം/" target="_blank">വികാസ്-പീഡിയ.ഭാരതം</a><br>
+            <a href="https://விகாஸ்பீடியா.இந்தியா/" target="_blank">விகாஸ்பீடியா.இந்தியா</a><br>
+            <a href="https://বিকাশপেডিয়া.ভাৰত/" target="_blank">বিকাশপেডিয়া.ভাৰত</a><br>
+            <a href="https://વિકાસપીડિયા.ભારત/" target="_blank">વિકાસપીડિયા.ભારત</a><br>
+            <a href="https://বিকাশপিডিয়া.ভারত/" target="_blank">বিকাশপিডিয়া.ভারত</a><br>
+            <a href="https://बिकासपेदिया.भारत/" target="_blank">बिकासपेदिया.भारत</a><br>
+            <a href="https://डोगरी.विकासपीडिया.भारत/" target="_blank">डोगरी.विकासपीडिया.भारत</a><br>
+            <a href="https://ವಿಕಾಸ್ಪೀಡಿಯ.ಭಾರತ/" target="_blank">ವಿಕಾಸ್ಪೀಡಿಯ.ಭಾರತ</a><br>
+            <a href="https://ks.vikaspedia.in/" target="_blank">ks.vikaspedia.in</a><br>
+            <a href="https://कोंकणी.विकासपीडिया.भारत/" target="_blank">कोंकणी.विकासपीडिया.भारत</a><br>
+            <a href="https://मैथिली.विकासपीडिया.भारत/" target="_blank">मैथिली.विकासपीडिया.भारत</a><br>
+            <a href="https://বিকাসপিদিয়া.ভারত/" target="_blank">বিকাসপিদিয়া.ভারত</a><br>
+            <a href="https://नेपाली.विकासपीडिया.भारत/" target="_blank">नेपाली.विकासपीडिया.भारत</a><br>
+            <a href="https://ବିକାଶପିଡ଼ିଆ.ଭାରତ/" target="_blank">ବିକାଶପିଡ଼ିଆ.ଭାରତ</a><br>
+            <a href="https://ਵਿਕਾਸਪੀਡੀਆ.ਭਾਰਤ/" target="_blank">ਵਿਕਾਸਪੀਡੀਆ.ਭਾਰਤ</a><br>
+            <a href="https://विकासपीडिया.भारतम्/" target="_blank">विकासपीडिया.भारतम्</a><br>
+            <a href="https://विकासपीडिया.भारोत/" target="_blank">विकासपीडिया.भारोत</a><br>
+            <a href="https://सिंधी.विकासपीडिया.भारत/" target="_blank">सिंधी.विकासपीडिया.भारत</a><br>
+            <a href="https://వికాస్పీడియా.భారత్/" target="_blank">వికాస్పీడియా.భారత్</a><br>
+            <a href="https://وکاس-پیڈیا.بھارت/" target="_blank">وکاس-پیڈیا.بھارت</a><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td>C-DAC (Center of Development and Advance Computing) </td>
+          <td>English,<br/>Hindi</td>
+          <td>
+            <a href="https://cdac.in/" target="_blank">cdac.in</a><br/>
+            <a href="https://सीडैक.भारत/index.aspx" target="_blank">सीडैक.भारत</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Department of Telecommunications, Ministry of Communication </td>
+          <td>English,<br/>Hindi</td>
+          <td>
+            <a href="https://dot.gov.in/" target="_blank">dot.gov.in</a><br/>
+            <a href="https://डीओटी.सरकार.भारत/hi" target="_blank">डीओटी.सरकार.भारत</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Department of Administrative Reforms & Public Grievances, MoPP&P</td>
+          <td>English,<br/>Hindi</td>
+          <td>
+            <a href="https://darpg.gov.in/" target="_blank">darpg.gov.in</a><br/>
+            <a href="https://डीएआरपीजी.सरकार.भारत/" target="_blank">डीएआरपीजी.सरकार.भारत</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>IIREF (Indian Internet Research & Engineering Forum)</td>
+          <td>English,<br/> Hindi,<br/>Tamil,<br/>Sanskrit,<br/>Urdu</td>
+          <td>
+            <a href="https://iiref.in/" target="_blank">iiref.in</a><br/>
+            <a href="https://आईआईआरईएफ.भारत/" target="_blank">आईआईआरईएफ.भारत</a><br/>
+            <a href="https://ஐஐஆர்இஎப்.இந்தியா/" target="_blank">ஐஐஆர்இஎப்.இந்தியா</a><br/>
+            <a href="https://आईआईआरईएफ.भारतम्/" target="_blank">आईआईआरईएफ.भारतम्</a><br/>
+            <a href="https://ااراف.بھارت/" target="_blank">ااراف.بھارت</a>
+          </td>
+        </tr>
+
+       
+
+        <tr>
+          <td>Department of Personnel & Training, MoPP&P</td>
+          <td>English,<br/> Hindi</td>
+          <td>
+            <a href="https://dopt.gov.in/" target="_blank">dopt.gov.in</a><br/>
+            <a href="https://कार्मिकएवंप्रशिक्षणविभाग.सरकार.भारत/" target="_blank">कार्मिकएवंप्रशिक्षणविभाग.सरकार.भारत</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>MHA (Ministry of Home Affairs)</td>
+          <td>English,<br/> Hindi</td>
+          <td>
+            <a href="https://www.mha.gov.in/en" target="_blank">mha.gov.in</a><br/>
+            <a href="https://गृहमंत्रालय.सरकार.भारत/" target="_blank">गृहमंत्रालय.सरकार.भारत</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Bhashanet</td>
+          <td>English,<br/> Hindi, <br/>Marathi, <br/>Kannada, <br>Malayalam, <br/>Bengali</td>
+          <td>
+            <a href="https://bhashanet.in" target="_blank">bhashanet.in</a><br/>
+            <a href="https://भाषानेट.भारत/" target="_blank">भाषानेट.भारत</a><br/>
+            <a href="https://मराठी.भाषानेट.भारत/" target="_blank">मराठी.भाषानेट.भारत</a><br/>
+            <a href="https://ಭಾಷಾನೆಟ್.ಭಾರತ/" target="_blank">ಭಾಷಾನೆಟ್.ಭಾರತ</a><br/>
+            <a href="https://ഭാഷാനെറ്റ്.ഭാരതം/" target="_blank">ഭാഷാനെറ്റ്.ഭാരതം</a><br/>
+            <a href="https://ভাষানেট.ভারত/" target="_blank">ভাষানেট.ভারত</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>NIXI (National Internet Exchange of India)</td>
+          <td>English,<br> Hindi, <br>Marathi, <br>Kannada, <br>Malayalam, <br>Bengali, <br>Gujarati, <br>Punjabi, <br>Sindi, <br>Tamil, <br>Telugu, <br>Urdu</td>
+          <td>
+            <a href="https://nixi.in" target="_blank">nixi.in</a><br/>
+            <a href="https://निक्सी.भारत/" target="_blank">निक्सी.भारत</a><br/>
+            <a href="https://निक्सि.भारत/" target="_blank">निक्सि.भारत</a><br/>
+            <a href="https://ನಿಕ್ಸಿ.ಭಾರತ/" target="_blank">ನಿಕ್ಸಿ.ಭಾರತ</a><br/>
+            <a href="https://നിക്സി.ഭാരതം/" target="_blank">നിക്സി.ഭാരതം</a><br/>
+            <a href="https://নিক্সি.ভারত/" target="_blank">নিক্সি.ভারত</a><br/>
+            <a href="https://નીક્સી.ભારત/" target="_blank">નીક્સી.ભારત</a><br/>
+            <a href="https://ਨਿਕਸੀ.ਭਾਰਤ/" target="_blank">ਨਿਕਸੀ.ਭਾਰਤ</a><br/>
+            <a href="https://نڪسي.ڀارت/" target="_blank">نڪسي.ڀارت</a><br/>
+            <a href="https://நிக்சி.இந்தியா/" target="_blank">நிக்சி.இந்தியா</a><br/>
+            <a href="https://నిక్సి.భారత్/" target="_blank">నిక్సి.భారత్</a><br/>
+            <a href="https://نکسی.بھارت/" target="_blank">نکسی.بھارت</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>NIC (National Informatics Centre)</td>
+          <td>English,<br/>Hindi</td>
+          <td>
+            <a href="https://www.nic.in/en" target="_blank">nic.in</a><br/>
+            <a href="https://एनआईसी.भारत/" target="_blank">एनआईसी.भारत</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>NICSI (National Informatics Centre Services Inc.)</td>
+          <td>English,<br/>Hindi</td>
+          <td>
+            <a href="https://nicsi.com/" target="_blank">nicsi.com</a><br/>
+            <a href="https://एनआईसीएसआई.भारत/" target="_blank">एनआईसीएसआई.भारत</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Global UA Day 2023</td>
+          <td>English,<br/>Hindi,<br>Gujarati,<br>Kannada,<br>Malayalam,<br>Tamil,<br>Telugu,<br>Urdu</td>
+          <td>
+            <a href="https://globaluaday.in/" target="_blank">globaluaday.in</a><br/>
+            <a href="https://वैश्विकयूएडे.भारत/" target="_blank">वैश्विकयूएडे.भारत</a><br/>
+            <a href="https://ગ્લોબલયુએદિવસ.ભારત/" target="_blank">ગ્લોબલયુએદિવસ.ભારત</a><br/>
+            <a href="https://ಜಾಗತಿಕಯುಎಡೇ.ಭಾರತ/" target="_blank">ಜಾಗತಿಕಯುಎಡೇ.ಭಾರತ</a><br/>
+            <a href="https://ആഗോളയുഎഡേ.ഭാരതം/" target="_blank">ആഗോളയുഎഡേ.ഭാരതം</a><br/>
+            <a href="https://யுஏடே.இந்தியா/" target="_blank">யுஏடே.இந்தியா</a><br/>
+            <a href="https://ప్రపంచయూఏడే.భారత్/" target="_blank">ప్రపంచయూఏడే.భారత్</a><br/>
+            <a href="https://عالمییواے-ڈے.بھارت/" target="_blank">عالمییواے-ڈے.بھارت</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>IIGF (India Internet Governance Forum)</td>
+          <td>English,<br/>Hindi,<br>Gujarati,<br>Bengali, <br>Malayalam,<br>Sindhi,<br>Telugu,<br>Tamil, <br>Marathi, <br>Urdu, <br>Punjabi, <br>Kannada</td>
+          <td>
+            <a href="https://indiaigf.in/" target="_blank">indiaigf.in</a><br/>
+            <a href="https://आईआईजीएफ.भारत/" target="_blank">आईआईजीएफ.भारत</a><br/>
+            <a href="https://આઈઆઈજીએફ.ભારત/" target="_blank">આઈઆઈજીએફ.ભારત</a><br/>
+            <a href="https://আইআইজিএফ.ভারত/" target="_blank">আইআইজিএফ.ভারত</a><br/>
+            <a href="https://ഐഐജിഎഫ്.ഭാരതം/" target="_blank">ഐഐജിഎഫ്.ഭാരതം</a><br/>
+            <a href="https://آئي-آئي-جي-ايف.ڀارت/" target="_blank">آئي-آئي-جي-ايف.ڀارت</a><br/>
+            <a href="https://ఐఐజిఎఫ్.భారత్/" target="_blank">ఐఐజిఎఫ్.భారత్</a><br/>
+            <a href="https://ஐஐஜிஎஃப்.இந்தியா/" target="_blank">ஐஐஜிஎஃப்.இந்தியா</a><br/>
+            <a href="https://आयआयजीएफ.भारत/" target="_blank">आयआयजीएफ.भारत</a><br/>
+            <a href="https://آئی-آئی-جی-ایف.بھارت/" target="_blank">آئی-آئی-جی-ایف.بھارت</a><br/>
+            <a href="https://ਆਈਆਈਜੀਐਫ.ਭਾਰਤ/" target="_blank">ਆਈਆਈਜੀਐਫ.ਭਾਰਤ</a><br/>
+            <a href="https://ಐಐಜಿಎಫ್.ಭಾರತ/" target="_blank">ಐಐಜಿಎಫ್.ಭಾರತ</a>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>Evaris Systems LLP – Evolutionary AI</td>
+          <td>English,<br/>Hindi,</td>
+          <td>
+            <a href="https://evarissystems.com/" target="_blank">evarissystems.com</a><br/>
+            <a href="https://evarissystems.com/evaris-wp/hi/मुखपृष्ठ/" target="_blank">http://एवरिस.भारत/</a><br/>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Datamail</td>
+          <td>English, <br>Marathi ,<br/>Hindi,<br>Gujarati,<br>Tamil,<br>Punjabi,<br>Telgu,<br>Urdu,<br>Bengali,<br>Kannada</td>
+          <td>
+            <a href="https://www.datamail.in/" target="_blank">www.datamail.in</a><br/>
+            <a href="https://डेटामेल.भारत/" target="_blank">डेटामेल.भारत</a><br/>
+            <a href="https://डाटामेल.भारत/" target="_blank">डाटामेल.भारत</a><br/>
+            <a href="https://ડાટામેલ.ભારત/" target="_blank">ડાટામેલ.ભારત</a><br/>
+            <a href="https://இந.இந்தியா/" target="_blank">இந.இந்தியா</a><br/>
+            <a href="https://ਡਾਟਾਮੇਲ.ਭਾਰਤ/" target="_blank">ਡਾਟਾਮੇਲ.ਭਾਰਤ</a><br/>
+            <a href="https://డేటామెయిల్.భారత్/" target="_blank">డేటామెయిల్.భారత్</a><br/>
+            <a href="https://ڈاٹامیل.بھارت/" target="_blank">ڈاٹامیل.بھارت</a><br/>
+            <a href="https://ডাটামেল্.ভারত/" target="_blank">ডাটামেল্.ভারত</a><br/>
+            <a href="https://ಡೇಟಾಮೇಲ್.ಭಾರತ/" target="_blank">ಡೇಟಾಮೇಲ್.ಭಾರತ</a><br/>
+            </td>
+        </tr>
+        <tr>
+          <td>MNRE(Ministry of New and Renewable Energy)</td>
+          <td>English, <br/>Hindi</td>
+          <td>
+            <a href="https://www.mnre.gov.in/" target="_blank">www.mnre.gov.in</a><br/>
+            <a href="https://एमएनआरई.सरकार.भारत/" target="_blank">डेटामेल.भारत</a><br/>  
+            </td>
+        </tr>
+        <tr>
+          <td>Ministry of Youth Affairs & Sports</td>
+          <td>English, <br/>Hindi</td>
+          <td>
+            <a href="https://yas.nic.in/" target="_blank">yas.nic.in</a><br/>
+            <a href="https://xn--v1ba8gxas6a.xn--11b7cb3a6a.xn--h2brj9c/hi" target="_blank">वायएएस.सरकार.भारत/hi</a><br/>  
+            </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+{% endblock %}

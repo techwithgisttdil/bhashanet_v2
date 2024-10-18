@@ -1,0 +1,408 @@
+{% load static %}
+
+{% load my_custom_tags %}
+{% comment %} {% load my_custom_tags_en %}
+{% load my_custom_tags_hi %}
+{% load my_custom_tags_mr %} {% endcomment %}
+
+
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+    <head>
+
+
+
+
+       <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L38F67NH9F"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-L38F67NH9F');
+        </script>
+
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Permissions-Policy" content="ch-ua-form-factor">
+        <!-- Title  -->
+        <title> Bhashanet : Empowering Multilingual Internet</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'core_app/assets/img/favicon.ico' %}">
+        <!-- ====== bootstrap css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/bootstrap.min.css' %}">
+        <!-- ====== datatable css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/bootstrap-datatable.min.css' %}">
+        <!-- ====== fontawesome css ====== -->
+        <!-- <link rel="stylesheet" href="{% static 'core_app/assets/plugins/fontawesome/css/fontawesome.min.css' %}"> -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/plugins/fontawesome/css/all.min.css' %}">
+        <!-- ====== feather css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/feather.css' %}">
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/admin.css' %}">
+        <!-- ====== owl carousel css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/owl.theme.default.min.css' %}">
+        <!-- ====== slick css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/plugins/slick/slick.css' %}">
+        <link rel="stylesheet" href="{% static 'core_app/assets/plugins/slick/slick-theme.css' %}">
+        <!-- ====== select2 css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/plugins/select2/css/select2.min.css' %}">
+        <!-- ====== aos css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/plugins/aos/aos.css' %}">
+        <!-- ====== main styles css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/style.min.css' %}">
+
+         <!-- ====== malayalam  css ====== -->
+         <!-- <link rel="stylesheet" href="{% static 'core_app/assets/css/malayalam.css' %}"> -->
+        <!-- ====== Tabs css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/tabs.css' %}">
+        <!-- ====== Search css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/search-style.css' %}">
+        <!-- ====== Custom-style css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/custom_styles.css' %}">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+         <!-- ====== Success-style css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/success.css' %}">
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/control.css' %}">
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css'>
+        <link rel='stylesheet' href='https://codepen.io/fancyapps/pen/Kxdwjj.css'>       
+       
+        <link rel="stylesheet" type="text/css" href="{% static 'core_app/assets/css/jquery-ui.min.css'%}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'core_app/assets/css/custom.css'%}" />
+
+        <script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/jquery.min.js'%}"></script>
+
+        <script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/jquery-ui.min.js'%}"></script>
+        <script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/LanguagesArray.js'%}"></script>
+        <script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/KeyboardScript2.js'%}"></script>
+        <link rel="stylesheet"  href="{% static 'core_app/assets/css/idn_websites.css'%}"></link>
+        <link rel='stylesheet' href="{% static 'core_app/assets/css/blog_details.css' %}"> 
+
+                
+        <!--DATA Tables Scripts and css-->
+        {% comment %} <script src="https://code.jquery.com/jquery-3.5.1.js"></script>  {% endcomment %}
+        <script src=" https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src=" https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+        <link
+            rel="stylesheet"
+            href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"
+        /> 
+      {% comment %} {% get_current_language as LANGUAGE_CODE %}
+        {{ LANGUAGE_CODE }}  {% endcomment %}
+        
+        {% if urdu_domain %}<link rel="stylesheet" href="{% static 'core_app/assets/css/urdu-style.css'%}" type="text/css" />{% endif %}
+        
+        <!-- <script>
+           
+            window.addEventListener("load",updateDB())
+            function updateDB(){
+            console.log("Inside Php")
+            $(document).ready(function(){
+                console.log("Inside Php")
+                $.ajax({
+                            type: "POST",
+                            contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                            url: "https://registry.gov.in/getidndomaininfo_public_process.php",
+                            data:"region=&filterform=filterform&current_page=",
+                            success: function(result) {
+                                console.log("Data: " + result)
+                                alert('Post Success');
+                            
+                            },
+                            error: function(err) {
+                                alert(err);
+                            }
+                        });
+                    });
+                }
+        </script> -->
+
+    </head>
+
+<body>
+<div class="main-wrapper" id="section1">
+    <!-- ====== header starts ====== -->
+    <header class="header">
+        <div>
+            <div style="background-color: #ebf7ff;margin:0px;">
+                <div style="background-color: #ebf7ff;margin:0px;">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-2 d-flex align-items-center">
+                                <div class="fs-5 heading3 "><a href="#main-content">Skip to main Content</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 d-flex justify-content-start align-items-center flex-wrap gap-5">
+                                
+                           
+                                <div class="d-flex">
+                                    <a href="https://www.facebook.com/nixiindia" target="_blank"> <img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/facebook.svg' %}"  alt="facebook icon"></a>
+                                    <a href="https://twitter.com/#!/inregistry" target="_blank"><img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/twitter.svg' %}"  alt="twitter icon"></a>
+                                     <a href="https://www.instagram.com/in_registry/" target="_blank"><img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/instagram.svg' %}"  alt="instargam icon"></a>
+                                     <a href="https://www.linkedin.com/company/nixiindia/" target="_blank"><img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/linkedin.svg' %}"  alt="linkedin icon"></a>
+                                    <a href="https://www.youtube.com/channel/UCCsQAxh6c80NDEVAp0c-vGg" target="_blank"><img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/youtube.svg' %}"  alt="youtube icon"></a>
+                                    <a href="https://www.kooapp.com/profile/nixi" target="_blank"><img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/koo.svg' %}"  alt="koo icon"></a>
+                                 </div>
+                                 <div>
+                                    <img class="img-fluid animate__animated animate__pulse animate__infinite infinite "  data-toggle="tooltip" data-placement="bottom" title="This is beta version of the Bhashanet Portal" style="height: 35px;width:auto;"
+                                        src="{% static 'core_app/assets/img/beta3.png' %}"
+                                        alt="support icon">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-7">
+                                <div class="d-flex justify-content-evenly align-items-center flex-wrap me-1">
+                                   
+                                    <div  style="font-size:16px">
+                                        <img class="img-fluid logo-width"
+                                            src="{% static 'core_app/assets/img/contact-us.png' %}"
+                                            alt="support icon">
+                                            <a  href="{% url 'support' %}">
+                                                Assistance
+                                            </a>
+                                    </div>
+                                    <div>
+                                        <a class="btn btn-outline-primary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Select languages
+                                          </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                           {% comment %} {% get_current_language as LANGUAGE_CODE %}
+                                            {% get_available_languages as LANGUAGES %} 
+                                            {% get_language_info_list for LANGUAGES as languages %} 
+                                            {% for lang in LANGUAGES %}
+                                                {{ lang }}
+                                            {% endfor %} TEST TEST {% endcomment %}
+            
+                                          {% comment %}  <li class="has-submenu fs-6">
+                                               {% trans "Select Language" %} <i class="fas fa-chevron-down"></i>
+                                               <ul class="submenu">
+                                                <li><a href="{% translate_url en %}" hreflang="en">English</a></li>
+                                                <li><a href="{% translate_url hi %}" hreflang="hi">हिंदी (Hindi)</a></li>
+                                                <li><a href="{% translate_url mr %}" hreflang="mr">मराठी (Marathi)</a></li> 
+                                                <li><a href="{% translate_url ml %}" hreflang="ml">മലയാളം (Malayalam)</a></li>
+                                                <li><a href="{% translate_url kn %}" hreflang="kn">ಕನ್ನಡ (Kannada)</a></li>
+                                                <li><a href="{% translate_url gu %}" hreflang="gu">ગુજરાતી (Gujarati)</a></li> 
+                                                <li><a href="{% translate_url bn %}" hreflang="bn">বাংলা (Bengali)</a></li>
+                                               </ul>
+                                            </li> {% endcomment %}
+                                            
+                                                <li><a class="dropdown-item" href="{% translate_url en %}" hreflang="en">English</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url hi %}" hreflang="hi">Hindi-हिंदी</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url mr %}" hreflang="mr">Marathi-मराठी</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url kn %}" hreflang="kn">Kannada-ಕನ್ನಡ</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url ml %}" hreflang="ml">Malayalam-മലയാളം</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url bn %}" hreflang="bn">Bengali-বাংলা</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url mni %}" hreflang="mni">Manipuri-মণিপুরী</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url ur %}" hreflang="ur">Urdu- اردو</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url gu %}" hreflang="gu">Gujarati-ગુજરાતી</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url pa %}" hreflang="pa">Punjabi-ਪੰਜਾਬੀ</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url ta %}" hreflang="ta">Tamil-தமிழ்</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url te %}" hreflang="te">Telugu-తెలుగు</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url as %}" hreflang="as">Assamese-অসমীয়া</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url kok %}" hreflang="kok">Konkani-कोंकणी</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url or %}" hreflang="or">Odia-ଓଡିଆ</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url sat %}" hreflang="sat">Santali-संथाली</a></li>
+                                               </ul>
+                                            
+                                            {% comment %} <li class="has-submenu fs-6">
+                                                {% trans "Select Language" %} <i class="fas fa-chevron-down"></i>
+                                                <ul class="submenu">
+                                                    <li><form action="{% url 'setlang' %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" id="lang" name="lang" value="en">
+                                                        <input type="hidden" id="reqpath" name="reqpath" value="{{ request.path }}">
+                                                        <button>English</button>
+                                                        </form>
+                                                    </li>
+                                                    <li><form action="{% url 'setlang' %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" id="lang" name="lang" value="hi">
+                                                        <input type="hidden" id="reqpath" name="reqpath" value="{{ request.path }}">
+                                                        <button>Hindi</button>
+                                                        </form>
+                                                    </li>
+                                                    <li><form action="{% url 'setlang' %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" id="lang" name="lang" value="mr">
+                                                        <input type="hidden" id="reqpath" name="reqpath" value="{{ request.path }}">
+                                                        <button>Marathi</button>
+                                                        </form>
+                                                    </li>
+                                        </ul>
+                                    </li> {% endcomment %}
+                                        </ul>
+                                    </div>
+                                    <div class="search-form my-1">
+                                        <div class="input-group w-100 me-2">
+                                            <input type="text" placeholder="Search..." class="form-control btn-sm"
+                                                   aria-label="site search" id="searchTerm1">
+                                            <button type="submit" class="btn btn-warning btn-sm" aria-label="search button"
+                                                    onclick="elasticSearch1()">Go
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="profilemenu">
+                                        <ul class="main-nav">
+                                            {% if user.is_authenticated %}
+                                            <li class="has-submenu" id="resource">
+                                                {% comment %} <a href="#"><i class="fa-solid fa-user" style="font-size: 16px;"></i> {{request.user.username}} <i {% endcomment %}
+                                                <a href="#" class="text-primary">
+                                                    <img src="{% static 'core_app/assets/img/profile-blue.png' %}" alt="profile-icon" width='31' height='33' /> 
+                                                    <span class=' py-1 text-danger'>
+                                                        {{request.user.username|slice:":7"}}... 
+                                                    <i class="fas fa-chevron-down"></i></span></a>
+                                                <ul class="submenu first-submenu">
+                                                    <li class="my-2 text-danger fw-bold ps-3">{{request.user.username}} 
+                                                       <!-- <br><span class="text-secondary">Role : </span> --> 
+                                                    </li>
+                                                    <li><a href="{% url 'admin_blog_datatable' %}"><i class="fa fa-angle-right" aria-hidden="true"></i> My Blogs</a></li>
+                                                    <li><a href="{% url 'admindashboard' %}"><i class="fa fa-angle-right" aria-hidden="true"></i> Admin Dashboard</a></li>
+                                                    <li><a href="{% url 'topic_list' %}"><i class="fa fa-angle-right" aria-hidden="true"></i> Discussion Forum</a></li>
+                                                    <li><a href="{% url 'change_password' %}"><i class="fa fa-angle-right" aria-hidden="true"></i> Change Password</a></li>
+                                                    <li><a href="{% url 'logout_view' %}"><i class="fa fa-angle-right" aria-hidden="true"></i><span class='text-danger fw-bold'> Logout</span></a></li>
+                                                </ul>
+                                            </li>
+                
+                                            {% else %}
+                                            {% comment %} <div class="search-form my-1">
+                                                <a href="{% url 'login_view' %}" class='btn btn-danger'>Login</a>
+                                            </div> {% endcomment %}
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="d-flex justify-content-between mx-auto align-items-center flex-wrap">
+                            <div class="py-3"> <a href="https://bhashanet.in"><img src="{% static 'core_app/assets/img/logo.png' %}" class="img-fluid"
+                                alt="Universal Acceptance Logo" style="max-width: 220px;text-align: center;"></a></div>
+                                <!-- <div class="py-3"> <a href="https://nixi.in" target="_blank"><img src="{% static 'core_app/assets/img/nixi.png' %}" class="img-fluid"
+                                    alt="National Internet Exchange of India logo" style="max-width: 120px;text-align: center;"></a></div> -->
+                            <div class="py-3"> <a href="https://www.meity.gov.in/" target="_blank"><img src="{% static 'core_app/assets/img/meity1.png' %}" class="img-fluid"
+                                alt="Ministry of Electronics and Information Technology Logo" style="max-width: 220px;text-align: center;"></a></div>
+                            <div class="py-3"> <a href="https://www.g20.org/en/" target="_blank"><img src="{% static 'core_app/assets/img/G20_India_Logo.png' %}" class="img-fluid "
+                                alt="G20 India Logo" style="max-width: 150px;text-align: center;"></a></div>
+                          </div>
+                     
+                    </div>
+
+                </div>
+               
+            </div>
+            <nav class="navbar navbar-expand-lg header-nav scroll-sticky bg-top-bar">
+                <div class="container d-flex justify-content-center">
+                    <div class="navbar-header">
+                        <a id="mobile_btn" href="javascript:void(0);" aria-label="this is mobile button">
+                                <span class="bar-icon">
+                     <span></span>
+                                <span></span>
+                                <span></span>
+                                </span>
+                        </a>
+                        <!-- <a href="{% url 'home' %}" class="navbar-brand logo">
+                            <img src="{% static 'core_app/assets/img/logo.png' %}" class="img-fluid"
+                                 alt=" Universal Acceptance Logo">
+                        </a> -->
+                    </div>
+                    <div class="main-menu-wrapper  flex-grow-1">
+                        <div class="menu-header">
+                            <a href="{% url 'home' %}" class="menu-logo">
+                                <img src="{% static 'core_app/assets/img/logo.png' %}" class="img-fluid"
+                                     alt=" Universal Acceptance Logo for mobile view">
+                            </a>
+                            <a id="menu_close" class="menu-close" href="javascript:void(0);"
+                               title="this is button to close menu in mobile view">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </div>
+                        <ul class="main-nav flex-grow-1">
+                            <li id="home">
+                                <a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                            </li>
+                            <li class="has-submenu" id="about">
+                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> About <i
+                                        class="fas fa-chevron-down"></i></a>
+                                <ul class="submenu">
+                                    <li><a href="{% url 'uaindiaprogramme' %}"><i class="fa fa-angle-right" aria-hidden="true"></i> UA India Programme</a></li>
+                                    <li><a href="{% url 'IDNCCTLD' %}"><i class="fa fa-angle-right" aria-hidden="true"></i> .bharat IDN-ccTLDs</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu" id="resource">
+                                <a href="#"><i class="fa fa-file" aria-hidden="true"></i> Resources <i
+                                        class="fas fa-chevron-down"></i></a>
+                                <ul class="submenu first-submenu">
+                                    <li><a href="{% static 'core_app/assets/documents/UA_multilingial_internet_report.pdf' %}" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i> UA & Multilingual Internet Report</a></li>
+                                    <li><a href="{% url 'documentPage' %}"><i class="fa fa-angle-right" aria-hidden="true"></i> UA Documents</a></li>
+                                    <li><a href="{% url 'bestpractices' %}"><i class="fa fa-angle-right" aria-hidden="true"></i> Best Practices</a></li>
+                                    <li><a href="https://github.com/icann/ua-code-samples" target="_blank" onclick="return myFunction()"><i class="fa fa-angle-right" aria-hidden="true"></i> UA Sample Code</a></li>
+                                </ul>
+                            </li>
+                            <li id="tools">
+                                <a href="{% url 'tools' %}"><i class="fa fa-gears" aria-hidden="true"></i> Tools </a>
+                            </li>
+                            {% comment %} <li id="faqs">
+                                <a href="{% url 'FAQs' %}"><i class="fa fa-info-circle" aria-hidden="true"></i> FAQs' %} </a>
+                            </li> {% endcomment %}
+                            <li id="feedback">
+                                <a href="{% url 'event' %}"><i class="fa fa-newspaper"  aria-hidden="true"></i>
+                                    Events </a>
+                            </li>
+                            <li id="gallery">
+                                <a href="{% url 'gallery' %}"><i class="fa fa-camera-retro"  aria-hidden="true"></i>
+                                    Gallery </a>
+                            </li>
+                            <li id="feedback">
+                                <a href="{% url 'feedback' %}"><i class="fa fa-newspaper"  aria-hidden="true"></i>
+                                    Feedback </a>
+                            </li>
+                          
+                            
+                            
+                            <!-- <li>
+                                <a href="{% url 'becomeuaready' %}"> <span class="btn btn-light text-black">Become UA Ready' %}</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'idn_websites' 1 %}"> <span class="btn btn-light text-black">IDN Websites' %}</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'sop_tech_page' %}"> <span class="btn btn-light text-black">Technical Corner' %}</span></a>
+                            </li> -->
+                            
+                        </ul>
+                    </div>
+                   <div class="dropdown"> 
+                        <button class="btn btn-warning dropdown-toggle blinking-button" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Other Important
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <li class="dropdown-item"><a href="{% static 'core_app/assets/documents/UA_multilingial_internet_report.pdf' %}" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i> Become a UA Ready</a></li>
+                                    <li class="dropdown-item"><a href="{% url 'documentPage' %}"><i class="fa fa-angle-right" aria-hidden="true"></i> IDN Website</a></li>
+                                    <li class="dropdown-item"><a href="{% url 'bestpractices' %}"><i class="fa fa-angle-right" aria-hidden="true"></i> Technical Corners</a></li>
+                        </ul>
+                    </div> 
+                   
+                </div>
+            </nav>
+        </div>
+    </header>

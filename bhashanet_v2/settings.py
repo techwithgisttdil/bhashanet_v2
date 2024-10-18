@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+# Added By Sanjayb
+import environ
+
+# Initialize environment variables
+env = environ.Env()
+
+# Reading .env file
+environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -59,12 +68,12 @@ SYSTEM_APPS = [
 
 APPLICATION_APPS = [
     'core_app',
-    'blog_app',
     'admin_app', 
     'discussion_forum_app'
     ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = ['ckeditor']
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 INSTALLED_APPS = SYSTEM_APPS + APPLICATION_APPS + THIRD_PARTY_APPS
 
@@ -99,6 +108,29 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bhashanet_v2.wsgi.application'
 
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DEFAULT_DATABASE_NAME'),
+        'USER': env('DEFAULT_DATABASE_USER'),
+        'PASSWORD': env('DEFAULT_DATABASE_PASSWORD'),
+        'HOST': env('DEFAULT_DATABASE_HOST'),
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"',
+            'charset': 'utf8mb4'
+        }
+    },
+    'osticket': { 
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('OSTICKET_DATABASE_NAME'),
+        'USER': env('OSTICKET_DATABASE_USER'),
+        'PASSWORD': env('OSTICKET_DATABASE_PASSWORD'),
+        'HOST': env('OSTICKET_DATABASE_HOST'),
+        'PORT': '3306',
+    },
+}
 
 
 # Password validation

@@ -1,0 +1,230 @@
+{% extends 'core_app/base.html' %} {% load static %}  {% block tld_validator %}
+
+
+
+
+<script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/tld_checker.js' %}"></script>
+<script>
+    function fetch_data() {
+        var arr1 = []
+        let text = document.getElementById("inputdata").value
+        let d = text.split(".").slice(-1)[0];
+
+
+        const tldParts = d.split('.');
+        const punycodeTLD = tldParts.map(part => {
+            return /^xn--[0-9a-zA-Z-]+$/.test(part) ? part : punycode.toASCII(part);
+        }).join('.');
+
+
+
+        if (punycodeTLD != "None") {
+            fetch('https://data.iana.org/TLD/tlds-alpha-by-domain.txt')
+                .then(response => response.text())
+                .then(data => {
+                    // Handle the data
+                    arr1.push(data.split("\n"))
+                    arr1[0].pop()
+
+                    let flag = false
+                    for (var i = 0; i < arr1[0].length; i++) {
+
+                        if (arr1[0][i] === punycodeTLD.toUpperCase()) {
+                            document.getElementById("output").innerHTML = "This Top-Level Domain exists in TLD's list"
+                            flag = true
+                        }
+                    }
+                    if (!flag) {
+                        document.getElementById("output").innerHTML = "This Top-Level Domain" +'<b> does not </b>'+ "exists in TLD's list"
+                    }
+                })
+                .catch(error => {
+                    // Handle any errors
+                    console.log('An error occurred:', error);
+                });
+
+
+        } else {
+            fetch('https://data.iana.org/TLD/tlds-alpha-by-domain.txt')
+                .then(response => response.text())
+                .then(data => {
+                    // Handle the data
+                    arr1.push(data.split("\n"))
+                    arr1[0].pop()
+
+                    let flag = false
+                    for (var i = 0; i < arr1[0].length; i++) {
+                        if (arr1[0][i] === d.toUpperCase()) {
+
+                            document.getElementById("output").innerHTML = "This Top-Level Domain exists in TLD's list"
+                            flag = true
+                        }
+                    }
+                    if (!flag) {
+                        document.getElementById("output").innerHTML = "This Top-Level Domain" +'<b> does not </b>'+ "exists in TLD's list"
+                    }
+                })
+                .catch(error => {
+                    // Handle any errors
+                    console.log('An error occurred:', error);
+                });
+
+        }
+    }
+</script>
+
+
+
+<div class="card-box ua-card-header--bg-blk">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="ua-small-info-box">
+                    <div class="horizontal-rule">
+                        <h1 class="h2 heading4">TLD Existence Checker</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-12">
+                                <div class="breadcrumb-list">
+                                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="{% url 'home' %}">Home</a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="{% url 'tools' %}">Tools</a>
+                                            </li>
+                                            <li class="breadcrumb-item">TLD Existence Checker</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-content ua-sec" id="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-sub-section-sec">
+                    <div class="mx-4 mt-2">
+                        <div class="float-end">
+                            <div class="d-inline">
+                                {% comment %} <span class="fw-bold text-primary" style="font-size:14px;">Keyboard language' %} : </span> {% endcomment %}
+                                {% comment %} <select id="language" class="form-select-sm px-0 py-0" onchange="selectAnyLanguage()" data-bs-toggle="tooltip" data-bs-original-title="Select language for keyboard">
+                                    <option value="hindi" selected="selected">Hindi</option>               
+                                    <option value="assamese">Assamese</option>               
+                                    <option value="bengali">Bengali</option>               
+                                    <option value="bodo">Bodo</option>               
+                                    <option value="dogri">Dogri</option>               
+                                    <option value="gujarati">Gujarati</option>           
+                                    <option value="kannada">Kannada</option>
+                                    {% comment %} <option value="kashmiridev">Kashmiri</option> 
+                                    <option value="konkani">Konkani</option>
+                                    <option value="maithili">Maithili</option>
+                                    <option value="malayalam">Malayalam</option>               
+                                    <option value="manipuri">Manipuri</option> 
+                                    <option value="marathi">Marathi</option> 
+                                    <option value="nepali">Nepali</option>                               
+                                    <option value="oriya">Oriya</option>
+                                    <option value="punjabi">Punjabi</option>               
+                                    <option value="sanskrit">Sanskrit</option>               
+                                    <option value="santali">Santali</option>
+                                    <option value="sindhiDev">SindhiDev</option>
+                                    <option value="sindhipa">SindhiPa</option>
+                                    <option value="tamil">Tamil</option>               
+                                    <option value="telugu">Telugu</option>               
+                                    <option value="urdu">Urdu</option>
+                                </select> {% endcomment %}
+                            </div>
+                            <div class='d-inline'>
+                                <img id="keyboardClicked" src="{% static 'core_app/assets/img/KbdIcon.ico' %}" data-bs-toggle="tooltip" data-bs-original-title="Open keyboard for inscript typing" height="17" width="35" onclick="openKeyboard('Hindi');"></img>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mx-4 mt-1">
+                    <div class="card-body">
+                        <div class="mb-2" style="font-weight: 500;">
+                            This service uses IANA Top-Level Domain(TLD) list to detect TLD exists or not from the provided input. This tool supports all languages TLD's and its punycode. For more details may visit the website:<a href="https://data.iana.org/TLD/tlds-alpha-by-domain.txt" target="_blank">https://data.iana.org/TLD/tlds-alpha-by-domain.txt</a>
+                          
+                        </div>
+                        
+                        <div>
+                            
+                            <div class="mt-2" style="font-weight: 500;">
+                                Please visit this link for TLD's and its type:<a href="https://www.iana.org/domains/root/db" target="_blank">https://www.iana.org/domains/root/db</a>
+                                <div style="font-size: 13px"><strong>*NOTE :</strong>The domains of type 'unassigned' are treated as 'does not exist'</div>
+                               
+                            </div>
+
+
+                        </div>
+                        <div class="row mb-3 mt-3">
+                            <div class="col-md-12 col-lg-12">
+                                <label for="nameSource" class="form-label">Enter Domain/TLD</label>
+                                <input type="text" class="form-control" id="inputdata" placeholder="Enter TLD/Domain for eg: example.android" autocomplete="off" />
+
+                            </div>
+                            <div class="col-md-12 col-lg-12 text-center">
+                                <button class="btn btn-primary mt-4" onclick="fetch_data()">Check</button>
+                            </div>
+
+                            
+
+
+                        </div>
+
+
+
+                        </strong><label mb-5  style="font-size: 18px"><strong>Output :</strong><span style="font-size: 16px" id="output"> </span></label>
+                        <div style="font-size: 16px">
+                            <b>Input TLD's Example:</b>
+                        <div style="font-size: 13px">
+                        android - valid<br/>
+                            .android - valid<br/>
+                            example.android - valid<br/>
+                           example.androids - invalid<br/>
+                            https://amrut.android - valid<br/>
+                            https://amrut.android/demo.html - invalid
+
+                            
+                            
+                            
+                            
+                        </div>
+                        </div>
+
+                        <p style="font-size: 13px" class="mt-3"><strong>*NOTE :</strong>This utility is using the list of TLD published <a style="color: blue; text-decoration: underline;" href="https://data.iana.org/TLD/tlds-alpha-by-domain.txt" target="_blank">here</a></p>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

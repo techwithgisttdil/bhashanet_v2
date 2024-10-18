@@ -1,0 +1,259 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block sopdocuemntpage %}
+
+
+
+
+<div class="card-box ua-card-header--bg-blk" id="main-content">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-12">
+             <div class="ua-small-info-box">
+                <div class="horizontal-rule">
+                   <h1 class=" h2 heading4">IDN SOP Documents</h1>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="breadcrumb-bar">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-12">
+             <div class="breadcrumb-list">
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                      <li class="breadcrumb-item" aria-current="page"><a href="{% url 'sop_tech_page' %}">Technical Corner</a></li>
+                      <li class="breadcrumb-item" aria-current="page">IDN SOP Documents</li>
+                   </ol>
+                </nav>
+             </div>
+          </div>
+       </div>
+       <div class="float-end mt-2"><strong>Note</strong>: SOP download statistics are from April 18,2024 onwards.</div>
+    </div>
+ </div>
+
+<!-- ====== body content section starts ====== -->
+<div class="page-content" id="main-content">
+   <div class="container">
+      <div class="row d-flex justify-content-end">
+      </div>
+      <div class="row">
+         <div class="col-lg-3 col-12">
+            <div class="filter-clear">
+               <div class="card search-filter">
+                  <div class="card-body">
+                     <div class="filter-widget mb-0">
+                        <div class="categories-head d-flex align-items-center">
+                           <h2 class="h5">Technologies</h2>
+                           <i class="fas fa-angle-down"></i>
+                        </div>
+                        <form method="POST" enctype="multipart/form-data">
+                           {% csrf_token %}
+                           {% if status_All_Checked == 'True' %}
+                           {% for category in SOPTechnologyCategoryData %}
+                           <div>
+                              <label class="custom_check">
+                                 <input type="checkbox" name="select_specialist"
+                                    value="{{ category.SOPTechnologyCategory_Name }}">
+                                 <span class="checkmark"></span>{{ category.SOPTechnologyCategory_Name }}
+                              </label>
+                           </div>
+                           {% endfor %}
+                           {% else %}
+                           {% for category in SOPTechnologyCategoryData %}
+                           {% if category.SOPTechnologyCategory_Status %}
+                           <div>
+                              <label class="custom_check">
+                                 <input type="checkbox" name="select_specialist"
+                                    value="{{ category.SOPTechnologyCategory_Name }}" checked>
+                                 <span class="checkmark"></span>{{ category.SOPTechnologyCategory_Name }}
+                              </label>
+                           </div>
+                           {% else %}
+                           <div>
+                              <label class="custom_check">
+                                 <input type="checkbox" name="select_specialist"
+                                    value="{{ category.SOPTechnologyCategory_Name }}">
+                                 <span class="checkmark"></span>{{ category.SOPTechnologyCategory_Name }}
+                              </label>
+                           </div>
+                           {% endif %}
+                           {% endfor %}
+                           {% endif %}
+                           <div class="d-flex justify-content-center">
+                              <button class="btn btn-primary mb-3 me-3" name="filter-button" type="submit"
+                                 value="Fetch">Filter</button>
+                              <button class="btn btn-primary mb-3" name="reset-button" type="submit" 
+                              value="Fetch">Reset</button>
+                            </form>
+                        {% comment %} <form action="{% url 'sop_document_page' %}" method="POST" enctype="multipart/form-data">
+                           {% csrf_token %}
+                           <button class="btn btn-primary mb-3" type="submit" value="Fetch">Reset</button>
+                        </form> {% endcomment %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-9">
+
+         <div class="row">
+            {% for document in page.object_list %}
+
+            {% if document.SOPTechnologyDocument_PublishedStatus == 'Published' %}
+            <div class="col-lg-12 col-md-6 col-sm-12 col-12 d-flex">
+               <div class="ua-card-header--list flex-fill">
+                  <div class="ua-card-header--img">
+                     <a href="#">
+                        <img class="img-fluid" alt="Iconic image of document {{document.SOPTechnologyDocument_Name}} "
+                        src="{% static 'core_app/assets/img/icon/sopdoc.PNG' %}">
+                     </a>
+                  </div>
+                  <div class="ua-card-header--content">
+                     {% if document.SOPTechnologyDocument_url %}
+                     <p class="fs-4 fw-bold text-secondory" style="color:#3598db;"><a href="{{ document.SOPTechnologyDocument_url }}"
+                           target="_blank">{{ document.SOPTechnologyDocument_Name }}</a></p>
+                     {% else %}
+                     <p class="fs-4 fw-bold text-secondory" style="color:#3598db;"><a href="/media/{{ document.SOPTechnologyDocument_DocumentFile }}"
+                        download>{{ document.SOPTechnologyDocument_Name }}</a></p>
+                        {% comment %} <button class="btn btn-bg-primary" onclick="location.href='{% url 'SopDownloadCounter' document.id %}' ">
+                           <a type="submit" style="text-decoration: none;color:white" href="/media/{{ document.SOPTechnologyDocument_DocumentFile }}" download>
+                              Download</a>
+                        </button> {% endcomment %}
+                     {% endif %}
+
+                     {% comment %} <div class="ua-card-header--info">
+                        <div class="date-img d-flex align-items-center">
+                           <img src="assets/img/icon/icon-01.svg" class="me-1" alt="">
+                           
+                        </div>
+                     </div> {% endcomment %}
+                     <div class="ua-card-header--badge mt-2">
+                        <table>
+                           <tr>
+                              <td ><p class="fs-6 fw-bold text-secondory ">Created on :</p></td>
+                              <td ><p class="fs-6 fw-bold text-secondory px-3">{{ document.SOPTechnologyDocument_CreationDate|date:'d-m-Y' }}</p></td>
+                           </tr>
+                           <tr>
+                              <td ><p class="fs-6 fw-bold text-secondory ">Last updated on :</p></td>
+                              <td ><p class="fs-6 fw-bold text-secondory px-3">{{ document.SOPTechnologyDocument_LastUpdatedSOPDate|date:'d-m-Y' }}</p></td>
+                           </tr>
+                           <tr>
+                              <td ><p class="fs-6 fw-bold text-secondory ">Technology :</p></td>
+                              <td ><p class="fs-6 fw-bold text-secondory px-3"> {{ document.SOPTechnologyDocument_CategoryType }} {% if document.SOPTechnologyDocument_Type %} {{ document.SOPTechnologyDocument_Type }} {% endif %}</p></td>
+                           </tr>
+                           <tr>
+                              <td ><p class="fs-6 fw-bold text-secondory ">Total Downloads :</p></td>
+                              {% for download_obj in document.sopdownloadcounter_set.all %}
+                              {% if download_obj.DownloadCounter %}
+                                    <td ><p class="fs-6 fw-bold text-secondory px-3"> {{ download_obj.DownloadCounter }}</p></td>
+                              {% endif %}
+                              {% endfor %}
+                              
+                           </tr>
+                        </table>
+                     </div>
+                     {% if document.SOPTechnologyDocument_url %}
+                     <a class="btn btn-primary px-3 mt-4"  href="{{ document.SOPTechnologyDocument_url }}"
+                           target="_blank">{{ document.SOPTechnologyDocument_Name }}</a>
+                     {% else %}
+                     {% comment %} <a class="btn btn-primary px-3 mt-4"  href="/media/{{ document.SOPTechnologyDocument_DocumentFile }}"
+                        download>Download</a> {% endcomment %}
+
+                        <button class="btn btn-primary px-3 mt-4" onclick="location.href='{% url 'SopDownloadCounter' document.id %}' ">
+                           <a type="submit" style="text-decoration: none;color:white" href="/media/{{ document.SOPTechnologyDocument_DocumentFile }}" download>
+                              Download</a>
+                        </button>
+                     {% endif %}
+
+                  </div>
+               </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+         </div>
+
+
+
+
+
+         <div class="row">
+            {% if Pagination_Type == 'All_Data' %}
+            <div class="col-md-12">
+               <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+               <ul class="pagination lms-page lms-pagination">
+                  <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
+                        href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                     {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
+                  <li class="page-item active"> <a class="page-link"
+                        href="?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% else %}
+                  <li class="page-item"> <a class="page-link"
+                        href="?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
+                  <li class="page-item next"> {% if page.has_next %} <a class="page-link"
+                        href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+               </ul>
+            </div>
+            {% elif Pagination_Type == 'Category_Data' %}
+
+            <div class="col-md-12">
+               <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+               <ul class="pagination lms-page lms-pagination">
+                  <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
+                        href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                     {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
+                  <li class="page-item active"> <a class="page-link"
+                        href="?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% else %}
+                  <li class="page-item"> <a class="page-link"
+                        href="?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
+                  <li class="page-item next"> {% if page.has_next %} <a class="page-link"
+                        href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+               </ul>
+            </div>
+            {% elif Pagination_Type == 'Lang_Data' %}
+            {% elif Pagination_Type == 'Searched_Data' %}
+            {% else %}
+
+            {% endif %}
+
+         </div>
+      </div>
+      
+      
+      
+      
+      <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded-3 mb-4 p-3">
+         <div style="text-align: justify">
+            <strong>&nbsp Disclaimer : </strong><small>These documents may not cover all possible scenarios or considerations that could arise. Users are responsible for assessing the applicability and suitability of these documents to their specific situation, and they should adapt or seek additional guidance before implementaion. By using these documents, you acknowledge and agree that the organization, authors, and contributors are not liable for any losses, damages, or liabilities that may arise from the use or implementation of the procedures outlined in these documents. Ultimately, the responsibility for decision-making and actions taken based on these documents lies with the individual users.</small>
+         </div>
+      </div>
+   </div>
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {% endblock %}

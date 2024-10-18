@@ -1,0 +1,119 @@
+{% extends 'core_app/base.html' %} {% load static %}
+{% block search_results %}
+
+<div id="search-head-div">
+  <div class="card-box ua-card-header--bg-blk">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-12">
+          <div class="ua-small-info-box">
+            <div class="horizontal-rule">
+              <h1 class="h2 heading4">Search Results</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container mt-2">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="breadcrumb-bar">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-12">
+                  <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                          <a href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">Search</li>
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="row">
+      {% comment %} <div class="col-3"> {% endcomment %}
+         {% comment %} <select id="language" class="form-select" onchange="selectAnyLanguage()" data-bs-toggle="tooltip" data-bs-original-title="Select language for keyboard">
+          <option value="hindi" selected="selected">Hindi</option>               
+                  <option value="assamese">Assamese</option>               
+                  <option value="bengali">Bengali</option>               
+                  <option value="bodo">Bodo</option>               
+                  <option value="dogri">Dogri</option>               
+                  <option value="gujarati">Gujarati</option>           
+                  <option value="kannada">Kannada</option>
+                  {% comment %} <option value="kashmiridev">Kashmiri</option>
+                  <option value="konkani">Konkani</option>
+                  <option value="maithili">Maithili</option>
+                  <option value="malayalam">Malayalam</option>               
+                  <option value="manipuri">Manipuri</option> 
+                  <option value="marathi">Marathi</option> 
+                  <option value="nepali">Nepali</option>                               
+                  <option value="oriya">Oriya</option>
+                  <option value="punjabi">Punjabi</option>               
+                  <option value="sanskrit">Sanskrit</option>               
+                  <option value="santali">Santali</option>
+                  <option value="sindhiDev">SindhiDev</option>
+                  <option value="sindhipa">SindhiPa</option>
+                  <option value="tamil">Tamil</option>               
+                  <option value="telugu">Telugu</option>               
+                  <option value="urdu">Urdu</option>
+         </select> {% endcomment %}
+      {% comment %} </div> {% endcomment %}
+      <!-- <div class="col-3">
+         <img id="keyboardClicked" src="{% static 'core_app/assets/img/KbdIcon.ico' %}" data-bs-toggle="tooltip" data-bs-original-title="Open keyboard for inscript typing" height="25pt" width="40pt" onclick="openKeyboard('Hindi',null,'kbdDiv');"></img>
+      </div> -->
+    </div>
+    <div class="row">
+      <div class="col-lg-7 col-md-8 col-sm-12 mt-2">
+        <input type="text" class="form-control" placeholder="Search" name="search_term" id="searchTerm" />
+      </div>
+      <!-- <div id="kbdDiv"></div> -->
+      <div class="col my-2">
+        <button type="button" class="btn btn-primary px-4" id="search_button" onclick="elasticSearch(0)">Search</button>
+      </div>
+    </div>
+    <div class="row box-shadow">
+        <div id="searchresultsarea" class="container" style="color:grey;">
+          <p id="Totalsearchresult" class="my-3"></p>
+          <div class="searchresult" style="min-height: 200px;"></div>
+          <div id="myPagination" style="text-align:center;"></div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'core_app/assets/js/jquery-3.6.0.min.js' %}"></script>
+<script>
+  var wage = document.getElementById("searchTerm");
+  wage.addEventListener("keydown", function (e) {
+      if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+      elasticSearch();
+      }
+  });
+
+  function elasticSearch() {
+      let inputstring = document.getElementById('searchTerm').value
+      console.log(window.location.origin + window.location.pathname)
+      window.location.href = window.location.origin + window.location.pathname + "?id=search&search=" + inputstring + "&pageNo=0";
+  }
+  
+  selectAnyLanguage = () => {
+    console.log("language changed")
+    if(document.getElementById("gistFK_kbdBox")!=null)
+    document.getElementById("keyboardClicked").click()
+ }
+</script>
+
+{% endblock%}

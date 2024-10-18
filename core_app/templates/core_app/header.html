@@ -1,0 +1,485 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+    <head>
+       <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L38F67NH9F"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-L38F67NH9F');
+        </script>
+
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Permissions-Policy" content="ch-ua-form-factor">
+        <!-- Title  -->
+        <title>Bhashanet : Empowering Multilingual Internet</title>
+        <!-- Favicon -->
+        <!-- <style>
+            .sticky-button{ 
+                overflow: hidden;
+                position: fixed;
+                top: 30%;
+                right: 0;
+                margin-right: -170px;
+                transition: all .5s ease;
+                height: 58px ;      
+                z-index:1;
+            } 
+
+            .sticky-button:hover {
+                margin-right: 0px;
+            }
+        </style> -->
+        <style>
+            .menu{
+                overflow: hidden;
+                height: unset;
+                position: absolute;
+                inset: 0px 0px auto auto;
+                margin: 0px;
+                transform: translate3d(65px, 40px, 0px) !important;
+            }
+        </style>
+        {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> ## because of keyboard was not working finely {% endcomment %} 
+        <script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/jquery.min.js'%}"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'core_app/assets/img/favicon.ico' %}">
+        <!-- ====== bootstrap css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/bootstrap.min.css' %}">
+        <!-- ====== datatable css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/bootstrap-datatable.min.css' %}">
+        <!-- ====== fontawesome css ====== -->
+        <!-- <link rel="stylesheet" href="{% static 'core_app/assets/plugins/fontawesome/css/fontawesome.min.css' %}"> -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/plugins/fontawesome/css/all.min.css' %}">
+        <!-- ====== feather css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/feather.css' %}">
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/admin.css' %}">
+        <!-- ====== owl carousel css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/owl.theme.default.min.css' %}">
+        <!-- ====== slick css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/plugins/slick/slick.css' %}">
+        <link rel="stylesheet" href="{% static 'core_app/assets/plugins/slick/slick-theme.css' %}">
+        <!-- ====== select2 css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/plugins/select2/css/select2.min.css' %}">
+        <!-- ====== aos css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/plugins/aos/aos.css' %}">
+        <!-- ====== main styles css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/style.min.css' %}">
+
+         <!-- ====== malayalam  css ====== -->
+         <!-- <link rel="stylesheet" href="{% static 'core_app/assets/css/malayalam.css' %}"> -->
+        <!-- ====== Tabs css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/tabs.css' %}">
+        <!-- ====== Search css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/search-style.css' %}">
+        <!-- ====== Custom-style css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/custom_styles.css' %}">
+        <!-- ====== registration css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/registration.css' %}">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+         <!-- ====== Success-style css ====== -->
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/success.css' %}">
+        <link rel="stylesheet" href="{% static 'core_app/assets/css/control.css' %}">
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css'>
+        <link rel='stylesheet' href='https://codepen.io/fancyapps/pen/Kxdwjj.css'>       
+        
+        {% comment %} <script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/jquery-ui.min.js'%}"></script> {% endcomment %}
+        <script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/LanguagesArray.js'%}"></script>
+        <script type="TEXT/JAVASCRIPT" src="{% static 'core_app/assets/js/KeyboardScript2.js'%}"></script>
+        <link rel="stylesheet"  href="{% static 'core_app/assets/css/idn_websites.css'%}"></link>
+        <link rel='stylesheet' href="{% static 'core_app/assets/css/blog_details.css' %}"> 
+        <link rel="stylesheet" type="text/css" href="{% static 'core_app/assets/css/jquery-ui.min.css'%}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'core_app/assets/css/custom.css'%}" />
+
+                
+        <!--DATA Tables Scripts and css-->
+        
+        <script src=" https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src=" https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+        <link
+            rel="stylesheet"
+            href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"
+        /> 
+
+        
+      {% comment %} {% get_current_language as LANGUAGE_CODE %}
+        {{ LANGUAGE_CODE }}  {% endcomment %}
+        
+        {% if urdu_domain %}<link rel="stylesheet" href="{% static 'core_app/assets/css/urdu-style.css'%}" type="text/css" />{% endif %}
+        {% comment %} {% if malayalam_domain %}<link rel="stylesheet" href="{% static 'core_app/assets/css/malayalam.css'%}" type="text/css" />{% endif %} {% endcomment %}
+        
+        <!-- <script>
+           
+            window.addEventListener("load",updateDB())
+            function updateDB(){
+            console.log("Inside Php")
+            $(document).ready(function(){
+                console.log("Inside Php")
+                $.ajax({
+                            type: "POST",
+                            contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                            url: "https://registry.gov.in/getidndomaininfo_public_process.php",
+                            data:"region=&filterform=filterform&current_page=",
+                            success: function(result) {
+                                console.log("Data: " + result)
+                                alert('Post Success');
+                            
+                            },
+                            error: function(err) {
+                                alert(err);
+                            }
+                        });
+                    });
+                }
+        </script> -->
+
+    </head>
+
+<body>
+<div class="main-wrapper" id="section1">
+    <!-- ====== header starts ====== -->
+    <header class="header">
+        <div>
+            <div style="background-color: #ebf7ff;margin:0px;">
+                <div style="background-color: #ebf7ff;margin:0px;">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-2 d-flex align-items-center">
+                                <div class="fs-5 heading3 "><a href="#main-content">Skip to main Content</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 d-flex justify-content-start align-items-center flex-wrap gap-5">
+                                
+                           
+                                <div class="d-flex">
+                                    <a href="https://www.facebook.com/nixiindia" target="_blank"> <img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/facebook.svg' %}"  alt="facebook icon"></a>
+                                    <a href="https://twitter.com/#!/inregistry" target="_blank"><img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/twitter.svg' %}"  alt="twitter icon"></a>
+                                     <a href="https://www.instagram.com/in_registry/" target="_blank"><img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/instagram.svg' %}"  alt="instargam icon"></a>
+                                     <a href="https://www.linkedin.com/company/nixiindia/" target="_blank"><img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/linkedin.svg' %}"  alt="linkedin icon"></a>
+                                    <a href="https://www.youtube.com/channel/UCCsQAxh6c80NDEVAp0c-vGg" target="_blank"><img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/youtube.svg' %}"  alt="youtube icon"></a>
+                                    <a href="https://www.kooapp.com/profile/nixi" target="_blank"><img class="img-fluid logo-width" src="{% static 'core_app/assets/img/icon/koo.svg' %}"  alt="koo icon"></a>
+                                 </div>
+                                 {% comment %} <div>
+                                    <img class="img-fluid animate__animated animate__pulse animate__infinite infinite "  data-toggle="tooltip" data-placement="bottom" title="This is beta version of the Bhashanet Portal" style="height: 35px;width:auto;"
+                                        src="{% static 'core_app/assets/img/beta3.png' %}"
+                                        alt="support icon">
+                                </div> {% endcomment %}
+                            </div>
+
+                            <div class="col-lg-7">
+                                <div class="d-flex justify-content-evenly align-items-center flex-wrap me-1">
+                                   
+                                    <div  style="font-size:16px">
+                                        <img class="img-fluid logo-width"
+                                            src="{% static 'core_app/assets/img/contact-us.png' %}"
+                                            alt="support icon">
+                                            <a  class="mx-2" href="{% url 'support' %}">
+                                               Assistance
+                                            </a>
+                                             <!-- Feedback -->
+                                       
+                                            <a href="{% url 'feedback' %}"><i class="fa fa-comment"  aria-hidden="true"></i>
+                                                Feedback </a>
+                                       
+                                    </div>
+                                    <div>
+                                        <a class="btn btn-outline-primary btn-sm dropdown-toggle NALOC" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Select language
+                                        </a>
+                                        <ul class="dropdown-menu NALOC" aria-labelledby="dropdownMenuLink">
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('English');">English</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Hindi');">Hindi-हिंदी</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Assamese');">Assamese-অসমীয়া</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Bengali');">Bengali-বাংলা</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Boro');">Bodo-बरʼ</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Dogri');">Dogri-डोगरी</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Gujarati');">Gujarati-ગુજરાતી</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Kannada');">Kannada-ಕನ್ನಡ</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Kashmiri');">Kashmiri-کٲشُر</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Konkani');">Konkani-कोंकणी</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Maithili');">Maithili-मैथिली</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Malayalam');">Malayalam-മലയാളം</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Manipuri');">Manipuri-মণিপুরী</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Marathi');">Marathi-मराठी</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Nepali');">Nepali-नेपाली</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Oriya');">Odia-ଓଡିଆ</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Punjabi');">Punjabi-ਪੰਜਾਬੀ</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Sanskrit');">Sanskrit-संस्कृत</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Santali');">Santali-संथाली</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Sindhi');">Sindhi-सिंधी</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Tamil');">Tamil-தமிழ்</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Telugu');">Telugu-తెలుగు</a></li>
+                                                <li><a class="NALOC dropdown-item btn" onclick="renderDomainFunction('Urdu');">Urdu- اردو</a></li>
+                                        </ul>
+                                            
+                                            {% comment %} <li class="has-submenu fs-6">
+                                                {% trans "Select Language" %} <i class="fas fa-chevron-down"></i>
+                                                <ul class="submenu">
+                                                    <li><form action="{% url 'setlang' %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" id="lang" name="lang" value="en">
+                                                        <input type="hidden" id="reqpath" name="reqpath" value="{{ request.path }}">
+                                                        <button>English</button>
+                                                        </form>
+                                                    </li>
+                                                    <li><form action="{% url 'setlang' %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" id="lang" name="lang" value="hi">
+                                                        <input type="hidden" id="reqpath" name="reqpath" value="{{ request.path }}">
+                                                        <button>Hindi</button>
+                                                        </form>
+                                                    </li>
+                                                    <li><form action="{% url 'setlang' %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" id="lang" name="lang" value="mr">
+                                                        <input type="hidden" id="reqpath" name="reqpath" value="{{ request.path }}">
+                                                        <button>Marathi</button>
+                                                        </form>
+                                                    </li>
+                                        </ul>
+                                    </li> 
+                                        </ul>{% endcomment %}
+                                    </div> 
+                                    <div class="search-form my-1">
+                                        <div class="input-group w-100 me-2">
+                                            <input type="text" placeholder="Search..." class="form-control btn-sm"
+                                                   aria-label="site search" id="searchTerm1">
+                                            <button type="submit" class="btn btn-warning btn-sm" aria-label="search button"
+                                                    onclick="elasticSearch1()">Go
+                                            </button>
+                                        </div>
+                                    </div>
+                                    {% comment %} <div class="profilemenu">
+                                        <ul class="main-nav">
+                                            {% if user.is_authenticated %}
+                                            <li class="has-submenu" id="resource1">
+                                                <a href="#"><i class="fa-solid fa-user" style="font-size: 16px;"></i> {{request.user.username}}
+                                                <a href="#" class="text-primary">
+                                                    <img src="{% static 'core_app/assets/img/profile-blue.png' %}" alt="profile-icon" width='31' height='33' /> 
+                                                    <span class=' py-1 text-danger'>
+                                                        {{request.user.username|slice:":7"}}... 
+                                                    <i class="fas fa-chevron-down"></i></span></a>
+                                                <ul class="submenu first-submenu">
+                                                    <li class="my-2 text-danger fw-bold ps-3">{{request.user.username}} 
+                                                       <!-- <br><span class="text-secondary">Role : </span> --> 
+                                                    </li>
+                                                    <li><a href="{% url 'user_profile' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Profile</a></li>
+                                                    {% if request.user.is_superuser %}
+                                                    <li><a href="{% url 'register_view' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Registration</a></li>
+                                                    {% endif %}
+                                                    <li><a href="{% url 'admin_blog_datatable' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>My Blogs</a></li>
+                                                    {% if request.user.is_superuser %}
+                                                        <li><a href="{% url 'admindashboard' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Admin Dashboard</a></li>
+                                                    {% endif %}
+                                                    <li><a href="{% url 'topic_list' %}" ><i class="fa fa-angle-right" aria-hidden="true"></i>Discussion Forum</a></li>
+                                                    <li><a href="{% url 'change_password' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Change Password</a></li>
+                                                    <li><a href="{% url 'logout_view' %}"><i class="fa fa-angle-right" aria-hidden="true"></i><span class='text-danger fw-bold'>Logout</span></a></li>
+                                                </ul>
+                                            </li>
+                
+                                            {% else %}
+                                            <div class="search-form my-1">
+                                                <a href="{% url 'login_view' %}" class='btn btn-danger'>Login</a>
+                                            </div>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                   
+                                </div>
+                            </div> {% endcomment %}
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="d-flex justify-content-between mx-auto align-items-center flex-wrap">
+                            <div class="py-3"> <a href="{% url 'home' %}"><img src="{% static 'core_app/assets/img/logo.png' %}" class="img-fluid"
+                                alt="Universal Acceptance Logo" style="max-width: 220px;text-align: center;"></a></div>
+                                <!-- <div class="py-3"> <a href="https://nixi.in" target="_blank"><img src="{% static 'core_app/assets/img/nixi.png' %}" class="img-fluid"
+                                    alt="National Internet Exchange of India logo" style="max-width: 120px;text-align: center;"></a></div> -->
+                            <div class="py-3"> <a href="https://www.meity.gov.in/" target="_blank"><img src="{% static 'core_app/assets/img/meity1.png' %}" class="img-fluid"
+                                alt="Ministry of Electronics and Information Technology Logo" style="max-width: 220px;text-align: center;"></a></div>
+                            <div class="py-3"> <a href="https://nixi.in/" target="_blank"><img src="{% static 'core_app/assets/img/nixi.jpg' %}" class="img-fluid "
+                                alt="NIXI Logo" style="max-width: 150px;text-align: center;"></a></div>
+                          </div>
+                     
+                    </div>
+
+                </div>
+               
+            </div>
+            <div class="container-fluid bg-top-bar">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class=" d-flex justify-content-center align-items-center" style="width: 100%; margin: auto;">
+                            <!-- Mobile menu button -->
+                            <nav class="navbar navbar-expand-lg header-nav">
+                                <div class="navbar-header">
+                                    <a id="mobile_btn" href="" aria-label="this is mobile button">
+                                        <span class="bar-icon">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </span>
+                                    </a>
+                                </div>
+                                {% comment %} <div class="main-menu-wrapper">
+                                    <div class="menu-header">
+                                        <!-- Logo for mobile view -->
+                                        <a href="{% url 'home' %}" class="menu-logo">
+                                            <img src="{% static 'core_app/assets/img/logo.png' %}" class="img-fluid" alt=" Universal Acceptance Logo for mobile view">
+                                        </a>
+                                        <!-- Close menu button -->
+                                        <a id="menu_close" class="menu-close" href="javascript:void(0);" title="this is button to close menu in mobile view">
+                                            <i class="fas fa-times"></i>
+                                        </a>
+                                    </div>
+                                    <!-- Main navigation menu -->
+                                    <ul class="main-nav d-flex justify-content-start">
+                                        <!-- Home -->
+                                        <li id="home">
+                                            <a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                                        </li>
+                                        <!-- About -->
+                                        <li class="has-submenu" id="about">
+                                            <a href="#"><i class="fa fa-user" aria-hidden="true"></i>About<i class="fas fa-chevron-down"></i></a>
+                                            <ul class="submenu">
+                                                <!-- UA India Programme -->
+                                                <li><a onclick="renderPathFunction('uaindiaprogramme'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>UA India Programme</a></li>
+                                                <!-- IDN-ccTLDs -->
+                                                <li><a onclick="renderPathFunction('IDNCCTLD'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>.bharat IDN-ccTLDs</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Resources -->
+                                        <li class="has-submenu" id="resource2">
+                                            <a href="#"><i class="fa fa-file" aria-hidden="true"></i>Resources<i class="fas fa-chevron-down"></i></a>
+                                            <ul class="submenu first-submenu">
+                                                <!-- Tools -->
+                                        <li id="tools">
+                                            <a onclick="renderPathFunction('tools'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Tools</a>
+                                        </li>
+                                                <!-- UA & Multilingual Internet Report -->
+                                                <li><a href="{% static 'core_app/assets/documents/UA_multilingial_internet_report.pdf' %}" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i>UA & Multilingual<br/> Internet Report</a></li>
+                                                <!-- UA Documents -->
+                                                <li><a onclick="renderPathFunction('documentPage'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>UA Documents</a></li>
+                                                <!-- Best Practices -->
+                                                <li><a onclick="renderPathFunction('bestpractices'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Best Practices</a></li>
+                                                <!-- UA Sample Code -->
+                                                <li><a  href="https://github.com/icann/ua-code-samples" target="_blank" onclick="return myFunction()"><i class="fa fa-angle-right" aria-hidden="true"></i>UA Sample Code</a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <!-- Events -->
+                                        <li id="feedback">
+                                            <a onclick="renderPathFunction('event'); return false;"><i class="fa fa-newspaper"  aria-hidden="true"></i>
+                                                Events</a>
+                                        </li>
+                                       
+                                       
+                                        <!-- Three inline buttons for mobile -->
+                                        <li class="d-grid gap-1 d-flex justify-content-center align-items-center flex-wrap">
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="renderPathFunction('becomeuaready'); return false;">Become UA Ready</button>
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="renderPathFunction('idn_websites'); return false;">IDN Websites</button>
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="renderPathFunction('sop_tech_page'); return false;">Technical Corner</button>
+                                        </li>
+                                        <!-- End of three inline buttons -->
+                                    </ul>
+                                </div> {% endcomment %}
+                                <div class="main-menu-wrapper">
+                                    <div class="menu-header">
+                                        <!-- Logo for mobile view -->
+                                        <a href="{% url 'home' %}" class="menu-logo">
+                                            <img src="{% static 'core_app/assets/img/logo.png' %}" class="img-fluid" alt=" Universal Acceptance Logo for mobile view">
+                                        </a>
+                                        <!-- Close menu button -->
+                                        <a id="menu_close" class="menu-close" href="javascript:void(0);" title="this is button to close menu in mobile view">
+                                            <i class="fas fa-times"></i>
+                                        </a>
+                                    </div>
+                                    <!-- Main navigation menu -->
+                                    <ul class="main-nav d-flex justify-content-start">
+                                        <!-- Home -->
+                                        <li id="home">
+                                            <a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                                        </li>
+                                        <!-- About -->
+                                        <li class="has-submenu" id="about">
+                                            <a href=""><i class="fa fa-user" aria-hidden="true"></i>About<i class="fas fa-chevron-down"></i></a>
+                                            <ul class="submenu">
+                                                <!-- UA India Programme -->
+                                                {% comment %} <li><a href="#" onclick="renderPathFunction('uaindiaprogramme'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>UA India Programme</a></li> {% endcomment %}
+                                                <li><a href="{% url 'uaindiaprogramme' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>UA India Programme</a></li>
+                                                <!-- IDN-ccTLDs -->
+                                                {% comment %} <li><a href="#" onclick="renderPathFunction('IDNCCTLD'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>.bharat IDN-ccTLDs</a></li> {% endcomment %}
+                                                <li><a href="{% url 'IDNCCTLD' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>.bharat IDN-ccTLDs</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Resources -->
+                                        <li class="has-submenu" id="resource2">
+                                            <a href=""><i class="fa fa-file" aria-hidden="true"></i>Resources<i class="fas fa-chevron-down"></i></a>
+                                            <ul class="submenu first-submenu">
+                                                <!-- Tools -->
+                                                <li id="tools"><a href="{% url 'tools' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Tools</a></li>
+                                                <!-- UA & Multilingual Internet Report -->
+                                                <li><a href="{% static 'core_app/assets/documents/UA_multilingial_internet_report.pdf' %}" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i>UA & Multilingual<br/> Internet Report</a></li>
+                                                <!-- UA Documents -->
+                                                <li><a href="{% url 'documentData' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>UA Documents</a></li>
+                                                <!-- Best Practices -->
+                                                <li><a href="{% url 'bestpractices' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Best Practices</a></li>
+                                                <!-- UA Sample Code -->
+                                                <li><a href="https://github.com/icann/ua-code-samples" target="_blank" onclick="return myFunction()"><i class="fa fa-angle-right" aria-hidden="true"></i>UA Sample Code</a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <!-- Events -->
+                                        <li id="feedback">
+                                            <a href="{% url 'event' %}"><i class="fa fa-newspaper"  aria-hidden="true"></i>
+                                                Events</a>
+                                        </li>
+                                       
+                                       
+                                        <!-- Three inline buttons for mobile -->
+                                        <li class="d-grid gap-1 d-flex justify-content-center align-items-center flex-wrap">
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="location.href='{% url 'becomeuaready' %}';">Become UA Ready</button>
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="location.href='{% url 'idn_websites' 1  %}';">IDN Websites</button>
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="location.href='{% url 'sop_tech_page' %}';">Technical Corner</button>
+                                        </li>
+                                        <!-- End of three inline buttons -->
+                                    </ul>
+                                </div>
+                            </nav>
+                            
+                            
+       
+        </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+<!-- 
+        <a target="_blank" href="#"><img src="{% static 'core_app/assets/img/UAReady.png' %}" alt="..." class="sticky-button animate__animated animate__pulse animate__infinite  infinite" /></a>  -->
+
+
+        
+<script src="{% static 'core_app/assets/js/serviceforlpmfintegration.js'%}"></script>
+ 
+</header>

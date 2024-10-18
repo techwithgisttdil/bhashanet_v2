@@ -1,0 +1,189 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block idn_domain_list_content %}
+  <!-- SCRIPT FOR BAR CHART STARTS -->
+
+  <div class="container-fluid mt-3">
+    <!-- Error Block Starts -->
+    <div class="row">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="col-lg-12">
+            <div class="alert alert-primary">{{ message }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <!-- Error Block Ends -->
+
+    <!-- Registered IDN Domains Status Block Starts -->
+    <div class="container-fluid mt-3">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title" style="font-size:18px"><i class="fa fa-chevron-right"></i> List of Registered IDN Domains Status</h4>
+              <div class="table-responsive">
+                <table id="example" class="table header-border table-hover verticle-middle table-bordered display" style="color: black; padding: 0 1px !important;width: 100% !important;">
+                  <thead>
+                      <tr>
+                          <th>S. No.</th>
+                          <th>English Domain</th>
+                          <th>IDN Domain Language</th>
+                          <th>SSL Status</th>
+                          <th>Domain Functionality</th>
+                          <th>Home Page Language</th>
+                          <th>Created On / Last Updated On</th>
+                          <th>Action</th>
+                          {% comment %} <th>Remark</th> {% endcomment %}
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for data in URL_dashboard_obj %}
+                      <tr>
+                          <td>{{ forloop.counter }}</td>
+                          <td>
+                              {{ data.English_domain }}<br />{{ data.IDN_domain }}
+                          </td>
+                          <td>{{ data.Language }}</td>
+                          <td>
+                              {{ data.ssl_configuration_status }}<br />
+                              {% with remark_data=data.Remark|safe|json_loads %}
+                              {{ remark_data.SSL }}
+                              {% endwith %}
+                          </td>
+                          <td>
+                              {{ data.idn_domain_running_status }}<br />
+                              {% with remark_data=data.Remark|safe|json_loads %}
+                              {{ remark_data.Domain }}
+                              {% endwith %}
+                          </td>
+                          <td>
+                              {{ data.content_language }}<br />
+                              {% with remark_data=data.Remark|safe|json_loads %}
+                              {{ remark_data.Content }}
+                              {% endwith %}
+                          </td>
+                          <td>
+                              {{ data.updated_On }}<br />{{ data.Last_Updated_On }}
+                          </td>
+                          <td>
+                              <span>
+                                  <a href="{% url 'dashboard:edit_idn_domain_forms' data.id %}" aria-label="Edit IDN domain form" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i></a>
+                                  <a href="{% url 'dashboard:refresh_domain_parameters' data.id %}" aria-label="Refresh domain parameters" data-toggle="tooltip" data-placement="top" title="Refresh"><i class="fa fa-refresh"></i></a>
+                              </span>
+                          </td>
+                          {% comment %} <td>
+                              {% with remark_data=data.Remark|safe|json_loads %}
+                              {{ remark_data.General }}
+                              {% endwith %}
+                          </td> {% endcomment %}
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+              </table>
+              
+              </div>
+              <div>
+                <ul>
+                  <h6 class="text-left">Note :</h6>
+                  <li style="font-size:16px">
+                    <span style="background-color: #0093ae9c;"></span>
+                    <span class="badge badge-secondary" style="background-color:#cafbf5;padding: 5px;">Domain Functionality</span> - A website domain is functional when it is operational and accessible on the internet, allowing users to access its content and services without encountering significant issues.
+                  </li>
+                  <li style="font-size:16px">
+                    <span style="background-color: #0093ae9c;"></span>
+                    <span class="badge badge-secondary" style="background-color:#e4e7fd;padding: 5px;">SSL Status</span> - A website SSL is configured check ensures that Secure Sockets Layer (SSL) encryption is properly implemented, providing a secure connection between the user's browser and the website's server.
+                  </li>
+                  <li style="font-size:16px">
+                    <span style="background-color: #c2d6ff;"></span>
+                    <span class="badge badge-secondary" style="background-color:#f0e4c2;padding: 5px;">Homepage Language</span>
+                    - A webiste content localization is checked, detecting the language of the Homepage content
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Registered IDN Domains Status Block Ends -->
+  </div>
+
+  <!-- Datatable Buttons Script Block For #example Table -->
+  <script>
+    new DataTable('#example', {
+      layout: {
+        topStart: {
+          buttons: ['copy', 'csv', 'excel', 'print']
+        }
+      }
+    })
+  </script>
+
+  <!-- Datatable CSS Properties Block For both the Table -->
+  <style>
+    /* Remove padding and margin from all table elements */
+    table,
+    th,
+    td {
+      margin: 5;
+      padding: 5 !important;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    
+    /* Specific styles for the example table */
+    #example th,
+    #example td {
+      text-align: left;
+    }
+    #example th,
+    #example td {
+      text-align: left;
+    }
+    
+    #example tr:nth-child(even) {
+      background-color: rgb(217, 229, 245);
+    }
+    #example th {
+      background-color: rgb(207, 235, 247);
+      text-align: left;
+    
+    /* Remove padding and margin from nested tables */
+    table table {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    
+    table table td {
+      padding: 0 !important;
+    }
+    
+    /* Set font size and other styles as needed */
+    td {
+      font-size: 14px;
+    }
+    
+    /* Ensure tooltip icons have no margin */
+    .fa {
+      margin: 0 !important;
+    }
+    
+    /* Apply CSS to input[type="search"] */
+    input[type='search'] {
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      padding: 8px;
+      font-size: 16px;
+      width: 200px;
+    }
+    
+    #example th,
+    #example td {
+      text-align: left;
+    }
+  </style>
+{% endblock %}

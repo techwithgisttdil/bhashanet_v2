@@ -1,0 +1,378 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block uadocument %}
+
+
+
+
+
+<div class="card-box ua-card-header--bg-blk">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 col-12">
+            <div class="ua-small-info-box">
+               <div class="horizontal-rule">
+                  <h1 class=" h2 heading4">UA Documents</h1>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<section>
+   <div class="container mt-2">
+      <div class="row">
+         <div class="col-lg-12">
+            <div class="breadcrumb-bar ">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12 col-12">
+                        <div class="breadcrumb-list">
+                           <nav aria-label="breadcrumb" class="page-breadcrumb">
+                              <ol class="breadcrumb">
+                                 <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+
+                                 {% comment %} <li class="breadcrumb-item">Resources' %}</li> {% endcomment %}
+                                 <li class="breadcrumb-item">UA Documents</li>
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ====== breadcrumb ends ====== -->
+<!-- ====== body content section starts ====== -->
+<div class="page-content" id="main-content">
+   <div class="container">
+      <div class="row d-flex justify-content-end">
+         <div class="col-lg-12">
+
+            <!-- 
+          <form action="#" class="d-flex justify-content-end">
+             <label for="search1" class="screenReaderOnly">Search: </label>
+             
+                <div class="input-group w-50 me-2 my-3">
+                   <input type="text" placeholder="Search..." class="form-control" aria-label="site search">
+                   <button type="submit" class="btn btn-warning" aria-label="search button"><i class="fa fa-search"></i></button>
+                </div>
+            
+          </form> -->
+
+         </div>
+
+      </div>
+      <div class="row">
+         <div class="col-lg-3 col-12">
+            <div class="filter-clear">
+
+               <div class="card search-filter">
+                  <div class="card-body">
+                     <div class="filter-widget mb-0">
+                        <div class="categories-head d-flex align-items-center">
+                           <h2 class="h5">Categories</h2>
+                           <!-- <i class="fas fa-angle-down"></i> -->
+                        </div>
+
+                        <form method="POST" enctype="multipart/form-data">
+                           {% csrf_token %}
+                           {% if status_All_Cat_Checked == 'True' %}
+                           {% for category in categoryData %}
+                           <div>
+                              <label class="custom_check">
+                                 <input type="checkbox" name="select_specialist"
+                                    value="{{ category.DocumentCategory_Name }}">
+                                 <span class="checkmark"></span>{{ category.DocumentCategory_Name }}
+                              </label>
+                           </div>
+                           {% endfor %}
+                           {% else %}
+                           {% for category in categoryData %}
+                           {% if category.DocumentCategory_Status %}
+                           <div>
+                              <label class="custom_check">
+                                 <input type="checkbox" name="select_specialist"
+                                    value="{{ category.DocumentCategory_Name }}" checked>
+                                 <span class="checkmark"></span>{{ category.DocumentCategory_Name }}
+                              </label>
+                           </div>
+                           {% else %}
+                           <div>
+                              <label class="custom_check">
+                                 <input type="checkbox" name="select_specialist"
+                                    value="{{ category.DocumentCategory_Name }}">
+                                 <span class="checkmark"></span>{{ category.DocumentCategory_Name }}
+                              </label>
+                           </div>
+                           {% endif %}
+                           {% endfor %}
+                           {% endif %}
+                           <div class="d-flex justify-content-center flex-wrap">
+                              <button class="btn btn-primary mb-3 me-3" name="filter-button" type="submit"
+                                 value="Fetch">Filter</button>
+                              <button class="btn btn-primary mb-3" name="reset-button" type="submit" 
+                              value="Fetch">Reset</button>
+                        </form>
+                        {% comment %} <form action="{% url 'documentPage' %}" method="POST" enctype="multipart/form-data">
+                           {% csrf_token %}
+                           <!-- <button class="btn btn-primary mb-3" type="submit" value="Fetch"><i class="fa fa-refresh" aria-hidden="true"></i> Reset</button> -->
+                           <button class="btn btn-primary mb-3" type="submit" value="Fetch">Reset</button>
+                        </form> {% endcomment %}
+                     </div>
+
+
+                  </div>
+               </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div class="card search-filter">
+                   <div class="card-body">
+                      <div class="filter-widget mb-0">
+                         <div class="categories-head d-flex align-items-center">
+                            <h2 class="h5">Languages</h2>
+                            <i class="fas fa-angle-down"></i>
+                         </div>
+                         <div>
+                            <label class="custom_check">
+                            <input type="checkbox" name="select_specialist">
+                            <span class="checkmark"></span>  Hindi
+                            </label>
+                         </div>
+                         <div>
+                            <label class="custom_check">
+                            <input type="checkbox" name="select_specialist">
+                            <span class="checkmark"></span> Marathi
+                            </label>
+                         </div>
+                         <div>
+                            <label class="custom_check">
+                            <input type="checkbox" name="select_specialist">
+                            <span class="checkmark"></span> Gujarati
+                            </label>
+                         </div>
+                         <div>
+                            <label class="custom_check mb-0">
+                               <input type="checkbox" name="select_specialist" checked>
+                               <span class="checkmark"></span> Tamil
+                         </div>
+                         <div>
+                         <label class="custom_check mb-0">
+                         <input type="checkbox" name="select_specialist" checked>
+                         <span class="checkmark"></span>  Telugu 
+                         </label>
+                         </div>
+                      </div>
+                   </div>
+                </div> -->
+
+         </div>
+      </div>
+      <div class="col-lg-9">
+
+         <div class="row">
+            {% for document in page.object_list %}
+            {% if document.Document_PublishedStatus == 'Published' %}
+            <div class="col-lg-12 col-md-6 col-sm-12 col-12 d-flex">
+               <div class="ua-card-header--list flex-fill">
+                  <div class="ua-card-header--img">
+                     <a href="#">
+                        <img class="img-fluid" alt="Iconic image of document {{document.Document_Name}} "
+                           src="{% static 'core_app/assets/img/documents/document-img.jpg' %}">
+                     </a>
+                  </div>
+                  <div class="ua-card-header--content">
+                     {% comment %} <h3 class="h2" data-bs-toggle="modal"
+                        data-bs-target="#Carasol4_{{ forloop.counter }}"><a href="#">{{ document.Document_Name }}</a>
+                     </h3> {% endcomment %}
+
+                     {% comment %} {{ document.master_id }} {% endcomment %}
+                     {% if document.DocumentUASG_url %}
+                     <h3 class="h2"><a href="{{ document.DocumentUASG_url }}"
+                           target="_blank">{{ document.Document_Name }}</a></h3>
+                     {% else %}
+                     <h3 class="h2"><a href="/media/{{ document.Document_DocumentFile }}"
+                        target="_blank" download>{{ document.Document_Name }}</a></h3>
+                     {% endif %}
+
+                     <div class="ua-card-header--info">
+                        <div class="date-img d-flex align-items-center">
+                           <img src="assets/img/icon/icon-01.svg" class="me-1" alt="">
+                           <p>{{ document.Document_CreationDate  }}</p>
+
+                           {% comment %} {% if document.Document_DocumentFile != '' %}
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                              href="{{ document.Document_DocumentFile.url }}">View</a>
+                           {% endif %} {% endcomment %}
+                        </div>
+                     </div>
+                     <div class="ua-card-header--badge">
+
+                        <span class="web-badge">Category : {{ document.Document_CategoryType  }}</span>
+                        {% comment %} <span class="web-badge">Download : {{ document.Document_Count }}</span>
+                        <span class="web-badge">File Size : {{ document.Document_FileSize  }}</span>{% endcomment %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+
+
+         </div>
+
+         {% for document in page.object_list %}
+         <!-- Modal -->
+         <div class="modal fade" id="Carasol4_{{ forloop.counter }}" tabindex="-1"
+            aria-labelledby="exampleModalLabel{{forloop.counter}}" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title" id="exampleModalLabel{{forloop.counter}}">File Details</h4>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <ul class="list-group">
+                        <li class="list-group-item">Download : {{ document.Document_Count }}</li>
+                        <li class="list-group-item">File Size : {{ document.Document_FileSize  }}</li>
+                        <li class="list-group-item">Create Date : {{ document.Document_CreationDate  }}</li>
+                        <li class="list-group-item">Last Updated : {{ document.Document_LastUpdatedDate  }}</li>
+                     </ul>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+
+
+
+         <div class="row">
+            {% if Pagination_Type == 'All_Data' %}
+            <div class="col-md-12">
+               <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+               <ul class="pagination lms-page lms-pagination">
+                  <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
+                        href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                     {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
+                  <li class="page-item active"> <a class="page-link"
+                        href="?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% else %}
+                  <li class="page-item"> <a class="page-link"
+                        href="?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
+                  <li class="page-item next"> {% if page.has_next %} <a class="page-link"
+                        href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+               </ul>
+            </div>
+            {% elif Pagination_Type == 'Category_Data' %}
+
+            <div class="col-md-12">
+               <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+               <ul class="pagination lms-page lms-pagination">
+                  <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
+                        href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                     {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
+                  <li class="page-item active"> <a class="page-link"
+                        href="?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% else %}
+                  <li class="page-item"> <a class="page-link"
+                        href="?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
+                  <li class="page-item next"> {% if page.has_next %} <a class="page-link"
+                        href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+               </ul>
+            </div>
+            {% elif Pagination_Type == 'Lang_Data' %}
+
+            {% comment %} <div class="col-md-12">
+               <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+               <ul class="pagination lms-page lms-pagination">
+                  <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
+                        href="{% url 'UA_document_filter_language' %}?page={{page.previous_page_number}}"
+                        tabindex="-1">Prev</a> {% endif %} </li> {% for num_page in page.paginator.page_range %}
+                  {% if page.number == num_page %}
+                  <li class="page-item active"> <a class="page-link"
+                        href="{% url 'UA_document_filter_language' %}?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% else %}
+                  <li class="page-item"> <a class="page-link"
+                        href="{% url 'UA_document_filter_language' %}?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
+                  <li class="page-item next"> {% if page.has_next %} <a class="page-link"
+                        href="{% url 'UA_document_filter_language' %}?page={{page.next_page_number}}">Next</a>
+                     {% endif %} </li>
+               </ul>
+            </div> {% endcomment %}
+
+            {% elif Pagination_Type == 'Searched_Data' %}
+
+            {% comment %} <div class="col-md-12">
+               <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+               <ul class="pagination lms-page lms-pagination">
+                  <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
+                        href="{% url 'DocumentSearch' %}?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                     {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
+                  <li class="page-item active"> <a class="page-link"
+                        href="{% url 'DocumentSearch' %}?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% else %}
+                  <li class="page-item"> <a class="page-link"
+                        href="{% url 'DocumentSearch' %}?page={{num_page}}">{{num_page}}<span
+                           class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
+                  <li class="page-item next"> {% if page.has_next %} <a class="page-link"
+                        href="{% url 'DocumentSearch' %}?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+               </ul>
+            </div> {% endcomment %}
+
+            {% else %}
+
+            {% endif %}
+
+         </div>
+
+      </div>
+
+      <div class="shadow-lg p-3  bg-body-tertiary rounded-3p-3">
+         <div style="text-align: justify">
+            <strong>&nbsp Disclaimer : </strong><small>These documents may not cover all possible scenarios or considerations that could arise. Users are responsible for assessing the applicability and suitability of these documents to their specific situation, and they should adapt or seek additional guidance before implementaion. By using these documents, you acknowledge and agree that the organization, authors, and contributors are not liable for any losses, damages, or liabilities that may arise from the use or implementation of the procedures outlined in these documents. Ultimately, the responsibility for decision-making and actions taken based on these documents lies with the individual users.</small>
+         </div>
+      </div>
+
+
+   </div>
+</div>
+
+
+
+</div>
+<!-- ====== body content section starts ====== -->
+
+
+
+
+
+
+{% endblock %}

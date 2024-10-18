@@ -1,0 +1,15 @@
+
+
+.link-button {
+    background: none; /* No background */
+    color: blue; /* Link color */
+    text-decoration: underline; /* Underline to mimic links */
+    border: none; /* No border */
+    padding: 0; /* No padding */
+    font: inherit; /* Inherit font styles */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.link-button:hover {
+    color: darkblue; /* Change color on hover for feedback */
+}

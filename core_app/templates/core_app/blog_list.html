@@ -1,0 +1,189 @@
+
+{% extends 'core_app/base.html' %}
+
+{% load static %}
+
+{% block blog_list %}
+
+<div class="card-box ua-card-header--bg-blk">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="ua-small-info-box">
+                    <div class="horizontal-rule">
+                        <h1 class="h2 heading4">Blogs</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            {% if request.user.is_authenticated %}
+                            <li class="breadcrumb-item"><a href="{% url 'admin_blog_datatable' %}">Blog List Table</a></li>
+                            {% endif %}
+                            <li class="breadcrumb-item">Blogs</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<section class="page-content" id="main-content">
+
+
+<div class="container">
+    <form method="POST"> 
+        {% csrf_token %}
+        <div class="row p-3">
+            <div class="col-6">
+                {% if blog_title == 'none' %}
+                <input class="form-control me-2 enter-words" type="text" name="blogname" placeholder="Enter Words" aria-label="Enter Words" />
+                {% else %}
+                <input class="form-control me-2" type="text" name="blogname" placeholder="Search" aria-label="Search" value="{{ blog_title }}" />
+                {% endif %} 
+            </div>
+            <div class="col-6">
+                <button class="btn mb-3 me-3" style="background-color:#3598db ;border-color:#219EBC;color:white;" name="Search-button" type="submit"
+                                 value="Fetch">Search</button>
+                {% if blog_title != 'none' %}
+                <a class="btn mb-3 me-3" style="background-color:#3598db ;border-color:#219EBC; color:white;" href="{% url 'blogs' %}">Clear</a>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+   
+    <div class="nav tag-cloud mt-4">
+        <b>Category : </b>&nbsp;&nbsp;
+        {% for blogcat in BlogCategory_data %}
+        {%if blogcat.BlogCategory_Status %}
+       <a style="background: #eb6120" href="#" onclick="renderPathForBlogCategoryFunction('blogs','{{ blogcat.id }}'); return false;">{{blogcat.BlogCategory_Name}}</a>
+       {% else %}
+       <a href="#" onclick="renderPathForBlogCategoryFunction('blogs','{{ blogcat.id }}'); return false;">{{blogcat.BlogCategory_Name}}</a>
+       {% endif %}
+        {% endfor %}
+        
+        {% if Status %}
+        <a style="background:Black; color:white;" href="{% url 'blogs' %}"><i class="fa fa-times" aria-hidden="true"></i></a>
+        {% endif %}
+       
+    </div>
+    
+    {% for blog in page.object_list %}
+    {% if blog.Blog_PublishedStatus != 'Unpublished' %}
+    {% if blog.Blog_Title %}
+    <div class="row mt-2 section ua-section-container">
+       <div class="col-8">
+        <!-- <h4 class="mt-2" style="font-weight: bold;">{{blog.Blog_Title}}</h4>  <span>&#8226;</span> &nbsp;&nbsp; -->
+       <p class="fs-4 fw-bold text-secondory mt-3" style="color:#3598db;">
+        <a href="" onclick="renderPathForBlogCategoryFunction('blog','{{ blog.id }}'); return false;"> {{blog.Blog_Title}}</a></p>
+        {% comment %} <form action="{% url 'blog' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ blog.id  }}" id="blog_id" name="blog_id"  />
+            <button style="border:none;" type="submit"><a> {{blog.Blog_Title}} </a></button>
+        </form> {% endcomment %}
+       <br/>
+        <p>&nbsp;&nbsp;{{blog.Blog_Description}}</p>
+        <hr/>
+        <p>{{blog.Blog_CreationDate}}</p>
+       </div>
+     
+       <div class="col-4"> <img style="border-radius: 25px;" class="ua-ready-image img-fluid px-3"
+            src="/media/{{blog.Blog_Thumbnail}}" alt="this image show step of how to become ua ready"
+             width="100%">
+
+       </div>
+        
+    </div>
+    {% else %}
+    <h4>No data</h4>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
+
+{% if all_data == 'all_data' %}
+    <div class="row">
+        <div class="col-md-12">
+           <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+           <ul class="pagination lms-page lms-pagination">
+              <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
+                    href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                 {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
+              <li class="page-item active"> <a class="page-link"
+                    href="?page={{num_page}}">{{num_page}}<span
+                       class="sr-only">(current)</span></a> </li> {% else %}
+              <li class="page-item"> <a class="page-link"
+                    href="?page={{num_page}}">{{num_page}}<span
+                       class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
+              <li class="page-item next"> {% if page.has_next %} <a class="page-link"
+                    href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+           </ul>
+        </div>
+{% elif all_data == 'cat_data' %}
+<div class="row">
+    <div class="col-md-12">
+       <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+       <ul class="pagination lms-page lms-pagination">
+          <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
+                href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+             {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
+          <li class="page-item active"> <a class="page-link"
+                href="?page={{num_page}}">{{num_page}}<span
+                   class="sr-only">(current)</span></a> </li> {% else %}
+          <li class="page-item"> <a class="page-link"
+                href="?page={{num_page}}">{{num_page}}<span
+                   class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
+          <li class="page-item next"> {% if page.has_next %} <a class="page-link"
+                href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+       </ul>
+    </div>
+
+
+    {% elif all_data == 'Search' %}
+    <div class="row">
+        <div class="col-md-12">
+           <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+           <ul class="pagination lms-page lms-pagination">
+              <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
+                    href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                 {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
+              <li class="page-item active"> <a class="page-link"
+                    href="?page={{num_page}}">{{num_page}}<span
+                       class="sr-only">(current)</span></a> </li> {% else %}
+              <li class="page-item"> <a class="page-link"
+                    href="?page={{num_page}}">{{num_page}}<span
+                       class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
+              <li class="page-item next"> {% if page.has_next %} <a class="page-link"
+                    href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+           </ul>
+        </div>
+
+
+
+
+
+{% endif %}
+
+   
+
+
+</div>
+
+
+</section>
+
+
+{% endblock %}

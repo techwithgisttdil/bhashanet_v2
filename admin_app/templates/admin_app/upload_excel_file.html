@@ -1,0 +1,38 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block upload_excel_file_content %}
+  <div class="container-fluid mt-3">
+    <!-- Error Block Starts -->
+    <div class="row">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="col-lg-12">
+            <div class="alert alert-primary">{{ message }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <!-- Error Block Ends -->
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Add Bulk IDN Record</h4>
+            <div class="basic-form">
+              <form method="POST" enctype="multipart/form-data" action="" novalidate>
+                {% csrf_token %}
+                
+                <div class="form-group">{{ ExcelUploadForm_obj.as_p }}</div>
+
+                <div class="outline-button">
+                  <button type="submit" class="btn mb-1 btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

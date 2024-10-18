@@ -1,0 +1,67 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block soptechnologypage %}
+
+
+
+<div class="card-box ua-card-header--bg-blk" id="main-content">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-12">
+             <div class="ua-small-info-box">
+                <div class="horizontal-rule">
+                   <h1 class=" h2 heading4">Technical Corner</h1>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="breadcrumb-bar">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-12">
+             <div class="breadcrumb-list">
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                      <li class="breadcrumb-item" aria-current="page">Technical Corner</li>
+                   </ol>
+                </nav>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <section class="page-content ua-sec">
+   <div class="container">
+       <div class="row">
+           <div class="col-lg-12">
+               <div class="card card-sub-section-sec">
+                  <div class="card-body">
+                     <p class="custom-justify">{{ SOPArticle.Article_Title_Description }} </p>
+                     <strong> {{ SOPArticle.Article_Subtitle1 }}</strong>
+                     <p class="custom-justify"> {{ SOPArticle.Article_Description1 }} </p>
+                     <strong> {{ SOPArticle.Article_Subtitle2 }}</strong>
+                     <p class="custom-justify">{{ SOPArticle.Article_Description2 }}</p>
+                     <strong>{{ SOPArticle.Article_Subtitle3 }}</strong>
+                     <p class="custom-justify">{{ SOPArticle.Article_Description3 }}</p>
+                     <strong>{{ SOPArticle.Article_Subtitle4|safe }}</strong>
+                     <p class="custom-justify"> {{ SOPArticle.Article_Description4 }}</p>
+                  </div>
+                  <a class="btn btn-primary fs-5" href="{% url 'sop_document' %}">Click here for SOPs</a>
+               </div>
+               
+            </div>
+            
+         </div>
+      </div>
+</section>
+
+
+
+ 
+  {% endblock %}
+
+

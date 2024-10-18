@@ -1,6 +1,6 @@
 OLD
-PATH_JSON=CORE/paths.json
-DOMAIN_JSON=CORE/domains.json
+PATH_JSON=core_app/paths.json
+DOMAIN_JSON=core_app/domains.json
 
 NEW
 LANGUAGE_PATHS=core_app/language_paths.json
@@ -8,3 +8,22 @@ LANGUAGE_DOMAINS=core_app/language_domains.json
 
 
 DEFAULT_DATABASE_NAME=bhashanet_v2_db
+
+
+copy the models.py file from core app to core_app 
+copy the validate file from core app to core_app
+Changed the upload_to path : core has been changed to core_app 
+media folder has been copied and core folder has been renamed to core_app 
+
+
+copy models.py file from dashboard to admin_app
+remove line from tinymce.models import HTMLField
+
+copy admin.py from core to core_app 
+Need to ask why there is osme model registered having name AdminDocumentWithoutTrans
+
+copy admin.py from dashboard to admin_app 
+
+copy models.py file from discussion_forum to discussion_forum_app
+copy admin.py files from discussion_forum to discussion_forum_app
+

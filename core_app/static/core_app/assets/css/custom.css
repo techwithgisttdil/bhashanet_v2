@@ -1,0 +1,48 @@
+input#fxkbd {
+    color: #000;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    padding: 5px 0px;
+    position: relative;
+    left: 148px;
+}
+
+input#Go{
+	    color: #000;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    padding: 5px 0px;
+    position: relative;
+    left: 144px;
+}
+
+input#BigBox {
+    /* display: block; */
+    /* width: 100%; */
+    padding: 0.4rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+input#BigBox {
+	color: #212529;
+	position: absolute;
+    left: 20px;
+	top:10px;
+	width:100%;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+	
+}

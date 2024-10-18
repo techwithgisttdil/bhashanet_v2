@@ -1,0 +1,134 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block add_blog %}
+
+
+<div class="card-box ua-card-header--bg-blk">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-12">
+          <div class="ua-small-info-box">
+            <div class="horizontal-rule">
+              {% if flag_blog == 'Add' %}
+              <h1 class="h2 heading4">Add Blog</h1>
+              {% else %}
+              <h1 class="h2 heading4">Update Blog</h1>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="container mt-2">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="breadcrumb-bar">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-12">
+                  <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                          <a href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                          <a href="{% url 'blogs' %}">Blogs</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                          <a href="{% url 'admin_blog_datatable' %}">Blog Data Table</a>
+                        </li>
+                        {% if flag_blog == 'Add' %}
+                        <li class="breadcrumb-item">Add Blog</li>
+                        {% else %}
+                        <li class="breadcrumb-item">Update Blog</li>
+                        {% endif %}
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="page-content ua-sec" id="main-content">
+    <div class="container">
+      <div class="row">
+        <div class="container d-flex justify-content-center">
+          <div>
+            {% if messages %} 
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <h5> {% if message.tags %}{{message}}{% endif %}</h5>
+            </div>
+            {% endfor %} {% endif %}<br/>
+          </div>
+          <br/>
+  
+          <div style="color: red">
+            {% if Blog_form_obj.non_field_errors %} 
+            {% for error in Blog_form_obj.non_field_errors %}
+            <div class="alert alert-danger">
+              <strong>{{ error|escape }}</strong>
+            </div>
+            {% endfor %} {% endif %}
+          </div>
+        </div>
+  
+        <div class="col-lg-8 col-md-8 mx-auto">
+          <div class="row">
+      </div>
+          <div class="support-wrap shadow-sm bg-white px-3 py-5">
+            <form enctype="multipart/form-data" method="POST" >
+              {% csrf_token %}
+              {{Blog_form_obj.media}}
+              <div class="form-group">
+                <label for="Blog_Title" class="form-label">Blog Title</label>
+                {{Blog_form_obj.Blog_Title}}
+              </div>
+              <div class="form-group">
+                <label for="Blog_Description" class="form-label">Blog Description</label>
+                {{Blog_form_obj.Blog_Description}}
+              </div>
+              <div class="form-group">
+                <label for="Blog_CategoryType" class="form-label">Blog Category</label>
+                {{Blog_form_obj.Blog_CategoryType}}
+              </div> 
+              <div class="form-group">
+                <label for="Blog_PublishedStatus" class="form-label">Blog Published Status</label>
+                {{Blog_form_obj.Blog_PublishedStatus}}
+              </div>
+              <div class="form-group">
+                <label for="Blog_Body" class="form-label">Blog Body</label>
+                {{Blog_form_obj.Blog_Body}}
+              </div>
+
+              <div class="form-group">
+                <label for="Blog_Thumbnail" class="form-label">Blog Thumbnail</label>
+                {{Blog_form_obj.Blog_Thumbnail}}
+              </div>
+
+              <div class="form-group">
+                <label for="Blog_DocumentFile" class="form-label">Blog Document File</label>
+                {{Blog_form_obj.Blog_DocumentFile}}
+              </div> 
+
+              
+              <div class="d-flex justify-content-center mt-3">
+                <button class="btn btn-primary btn-lg">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+
+{% endblock %}

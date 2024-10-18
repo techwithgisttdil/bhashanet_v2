@@ -1,0 +1,111 @@
+{% load static %}
+<!--                                                                                                                   **********************************
+            Sidebar start
+        ***********************************                                                                                                                   -->
+{% if request.user.is_authenticated %}
+<div class="nk-sidebar">
+  <div class="nk-nav-scroll">
+    <ul class="metismenu" id="menu">
+      <li>
+        <a href="{% url 'dashboard:dashboard2' %}" aria-expanded="false">
+          <i class="fa fa-tachometer menu-icon"></i>
+          <span class="nav-text">Dashboard</span>
+        </a>
+      </li>
+     
+      <li>
+        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+          <i class="fa fa-plus-circle menu-icon"></i>
+          <span class="nav-text">Add IDN Record</span>
+        </a>
+        <ul aria-expanded="false">
+          <li>
+            <a href="{% url 'dashboard:idn_domain_forms' %}" aria-expanded="false">Add English/IDN Domain Record</a>
+          </li>
+          <li>
+            <a href="{% url 'dashboard:upload_excel' %}" aria-expanded="false">Upload Excel</a>
+          </li>
+          <li>
+            <a href="{% url 'dashboard:idn_domain_list' %}" aria-expanded="false">List of IDN Domains</a>
+          </li>
+          <li>
+            <a href="{% url 'dashboard:english_domain_list' %}" aria-expanded="false">List of English Domains</a>
+          </li>
+        </ul>
+      </li>
+      {% if user.is_authenticated %}
+
+      <li>
+        <a href="{% url 'admin_blog_datatable' %}" aria-expanded="false">
+          <i class="fas fa-blog"></i>
+          <span class="nav-text">My Blogs</span>
+        </a>
+      </li>
+      {% comment %} {% if request.user.is_superuser %}
+      <li>
+        <a href="{% url 'admindashboard' %}" aria-expanded="false">
+          <i class="fa fa-angle-right"></i>
+          <span class="nav-text">Admin Dashboard</span>
+        </a>
+      </li>
+      {% endif %} {% endcomment %}
+
+      <li>
+        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+          <i class="fa fa-comments-o menu-icon"></i>
+          <span class="nav-text">Discussion Forum</span>
+        </a>
+        <ul>
+          <li>
+            <a href="{% url 'topic_list' %}" aria-expanded="false">All Topics</a>
+          </li>
+          <li>
+            <a href="{% url 'user_topic_list' %}" aria-expanded="false">My Topics</a>
+          </li>
+          <li>
+            <a href="{% url 'add_topic' %}" aria-expanded="false">Add New Topic</a>
+          </li>
+        </ul>
+      </li>
+    {% endif %}
+  
+
+      <li>
+        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+          <i class="fa fa-envelope menu-icon"></i>
+          <span class="nav-text">Email</span>
+        </a>
+        <ul aria-expanded="false">
+          <li>
+            <a href="{% url 'dashboard:sent_email_view' %}">Check Sent Emails</a>
+          </li>
+          <li>
+            <a href="{% url 'dashboard:email_compose' %}">Compose New Emails</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+          <i class="fa fa-file-alt menu-icon"></i>
+          <span class="nav-text">Show Logs</span>
+        </a>
+        <ul aria-expanded="false">
+          <li>
+            <a href="{% url 'dashboard:clear_logs' %}">Clear Logs</a>
+          </li>
+          <li>
+            <a href="{% url 'dashboard:show_logs' %}">Refresh Logs</a>
+          </li>
+          <li>
+            <a href="{% url 'dashboard:show_logs_last' %}">Last 50 Lines Logs</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+{% endif %}
+<!-- ********************************** Sidebar end *********************************** -->

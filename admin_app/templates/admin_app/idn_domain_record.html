@@ -1,0 +1,185 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block idn_domain_record_content %}
+<link rel="stylesheet" href='https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css'/>
+<link rel="stylesheet" href='https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css'/>
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+
+
+
+  <div class="container-fluid mt-3">
+    <div class="row">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="col-lg-12">
+            <div class="alert alert-primary">{{ message }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <!-- NOTE Starts -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <ul>
+              <h6 class="text-left">Note :</h6>
+              <li style="font-size:16px">
+                <span style="background-color: #0093ae9c;"></span>
+                <span class="badge badge-secondary" style="background-color:#c3faf2">Domain Functionality</span> - A website domain is functional when it is operational and accessible on the internet, allowing users to access its content and services without encountering significant issues.
+              </li>
+              <li style="font-size:16px">
+                <span style="background-color: #0093ae9c;"></span>
+                <span class="badge badge-secondary" style="background-color:#4f5696">SSL Status</span> - A website SSL is configured check ensures that Secure Sockets Layer (SSL) encryption is properly implemented, providing a secure connection between the user's browser and the website's server.
+              </li>
+              <li style="font-size:16px">
+                <span style="background-color: #c2d6ff;"></span>
+                <span class="badge badge-secondary" style="background-color:#c29721">Homepage Content Language</span>
+                - A webiste content localization is checked, detecting the language of the Homepage content
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Note Ends -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">List of Registered IDN Domains Status</h4>
+            <div class="table-responsive">
+              <table id="example" class=" table header-border table-hover verticle-middle  table-bordered display" style="color:black;padding:0x 1px !important">
+                <thead>
+                  <tr>
+                    <th>S.<br>No.</th>
+                    <th>
+                        English Domain<br>IDN Domain
+                    </th>
+                    <th>IDN Domain <br>Language</th>
+                    <th>SSL<br/>Status</th>
+                    <th>Domain<br/>Functionality</th>
+                    <th>Home Page<br/> Language</th>
+                    <th>
+                        Created On<br>Last Updated On 
+                    </th>
+                    <th>Action</th>
+                    <th>Remark</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for data in URL_dashboard_obj %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td style="font-size:22px;padding:0px !important"><table>
+                        <tr>
+                            <td>{{ data.English_domain }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ data.IDN_domain }}</td>
+                        </tr>
+                      </table></td>
+                      <td>{{ data.Language }}</td>
+                      <td>
+                        <table>
+                            <tr>
+                                <td>{{ data.ssl_configuration_status }}</td>
+                            </tr>
+                            <tr>
+                                <td> 
+                                    {% with remark_data=data.Remark|safe|json_loads %}
+                                    {{ remark_data.SSL }}
+                                    {% endwith %}
+                                </td>
+                            </tr>
+                      </table>
+                      </td>
+                      <td>
+                        <table>
+                            <tr>
+                                <td>{{ data.idn_domain_running_status }}</td>
+                            </tr>
+                            <tr>
+                                <td> 
+                                    {% with remark_data=data.Remark|safe|json_loads %}
+                                    {{ remark_data.Domain }}
+                                    {% endwith %}
+                                </td>
+                            </tr>
+                      </table>
+                      </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>{{ data.content_language }}</td>
+                            </tr>
+                            <tr>
+                                <td> 
+                                    {% with remark_data=data.Remark|safe|json_loads %}
+                                    {{ remark_data.Content }}
+                                    {% endwith %}
+                                </td>
+                            </tr>
+                      </table>
+                      </td>
+                      <td>
+                        <table>
+                            <tr>
+                                <td>{{ data.updated_On }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ data.Last_Updated_On }}</td>
+                            </tr>
+                          </table>
+                      </td> 
+                      <td>
+                        <span>
+                            <a href="{% url 'dashboard:edit_idn_domain_forms' data.id %}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a>
+                            <a href="{% url 'dashboard:refresh_domain_parameters' data.id %}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a>
+                        </span>
+                      </td>
+                      <td>
+                        {% with remark_data=data.Remark|safe|json_loads %}
+                           {{ remark_data.General }} 
+                        {% endwith %}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    /* Apply CSS to input[type="search"] */
+    input[type="search"] {
+        /* Your CSS styles here */
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding: 8px;
+        font-size: 16px;
+        width: 200px;
+    }
+    
+    /* Additional CSS styles if needed */
+    </style>
+    <script>
+      new DataTable('#example', {
+        layout: {
+            topStart: {
+                buttons: ['copy', 'csv', 'excel', 'print']
+            }
+        }
+      });
+    </script>
+{% endblock %}

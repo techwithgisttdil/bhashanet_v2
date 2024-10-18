@@ -1,0 +1,104 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block Support %}
+
+<div class="card-box ua-card-header--bg-blk" id="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="ua-small-info-box">
+                    <div class="horizontal-rule">
+                        <h1 class=" h2 heading4">Help Desk</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item" aria-current>Help Desk</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--- =====Support Section starts=========-->
+<section id="support" class="py-3  mt-5">
+    <!-- Design By testimonials -->
+    <div class="container">
+        <div class="col-lg-12">
+            
+        </div>
+        <div class="row">
+          
+            <div class="col-lg-12">
+                <div class="row my-3">
+                    <div class="col-md-6">
+                        <div class="address-block-two text-center mb-40 p-2 shadow height-contact p-5" style="min-height:385px">
+                            <div class="icon d-flex align-items-center justify-content-center m-auto mb-2">
+                                <img src="{% static 'core_app/assets/img/icon/icon_18.svg' %}" alt="icon for contact us"/>
+                            </div>
+                            <h2 class="h4">
+                                For Registering Domain Names Under<br/> सरकार.भारत (or equivalent)
+                            </h2>
+                            <div class="mt-3 text-center">
+                               
+                                    <!-- <img src="{% static 'core_app/assets/img/icon/icon-21.svg' %}" alt="icon for phone"
+                                         class="img-fluid" aria-hidden="true"/> -->
+                                   <strong>Toll Free Number :</strong>  1800111555, 011-24305000  
+                                        </p>
+                                        <p>
+                                     <!-- <img src="{% static 'core_app/assets/img/icon/icon-19.svg' %}" alt="icon for phone"
+                                         class="img-fluid" aria-hidden="true"/> -->
+                                         <strong>Website:</strong><a href="https://servicedesk.nic.in/"
+                                                 target="_blank" onclick="myFunction();">https://servicedesk.nic.in</a>
+                                
+                            </div>
+                           
+                        <br/>  
+                        </div>
+                        <!-- /.address-block-two -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="address-block-two text-start  p-5 shadow height-contact" style="min-height:385px">
+                            <div class="icon d-flex align-items-center justify-content-center m-auto mb-2">
+                                <img src="{% static 'core_app/assets/img/icon/icon_19.svg' %}" alt=""/>
+                            </div>
+                            <h2 class="h4 text-center">For Registering Domain Names Under<br/> .भारत (or equivalent )</h2>
+                           
+                            <div class="mt-3 text-center">
+                               
+                             
+                                   <strong>Contact</strong> : +91-11-48202040, +91-11-48202011,<br/> +91-11-48202002<br/>
+                                   
+                                    <strong>Email</strong> : uasupport@nixi.in, rishab@nixi.in, rajiv@nixi.in, support@bhashanet.in
+                               
+                            </div>
+                            
+                        </div>
+                        <!-- /.address-block-two -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+       <script>
+    function myFunction() {
+   alert("You are being redirected to an external website. Please note that Bhashanet is not responsible for external websites content & privacy policies. ");
+}
+</script>
+<!--- =====Support Section ends=========-->
+
+{% endblock %}

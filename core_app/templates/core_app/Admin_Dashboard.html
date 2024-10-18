@@ -1,0 +1,425 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block AdminDashboard %}
+
+<style>
+    table {
+      border-collapse: collapse;
+      font-size:18px;
+      font-family:Arial;
+    }
+    
+    th, td {
+      padding: 2px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #055586;
+        color: white;
+      }
+    
+    </style>
+    
+
+<div class="card-box ua-card-header--bg-blk" id="main-content">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-12">
+             <div class="ua-small-info-box">
+                <div class="horizontal-rule">
+                   <h1 class=" h2 heading4"> Admin Dashboard </h1>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+<div class="container">
+    <!-- <div class="admin_menu_container">
+        <div class="admin_menu_tab">Blogs</div>
+        <div class="admin_menu_tab">Bulk Mailer</div>
+       
+    </div> -->
+    <div class="admin_section_divider"></div>
+        
+    <div class="admin_dash_header">
+        <span><img
+        src="{% static 'core_app/assets/img/hand.png' %}"
+        style="width: auto;height:40px"
+        />
+        Welcome Admin</span>
+        <span style="display: flex;gap:0.75rem">
+            <a href="{% url 'mass_mail' %} ">
+            <div class="admin_export_button">
+                
+                <svg width="20" height="20"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="email"><path fill="#fff" d="M53.42 53.32H10.58a8.51 8.51 0 0 1-8.5-8.5V19.18a8.51 8.51 0 0 1 8.5-8.5h42.84a8.51 8.51 0 0 1 8.5 8.5v25.64a8.51 8.51 0 0 1-8.5 8.5ZM10.58 13.68a5.5 5.5 0 0 0-5.5 5.5v25.64a5.5 5.5 0 0 0 5.5 5.5h42.84a5.5 5.5 0 0 0 5.5-5.5V19.18a5.5 5.5 0 0 0-5.5-5.5Z"></path><path fill="#fff" d="M32 38.08a8.51 8.51 0 0 1-5.13-1.71L3.52 18.71a1.5 1.5 0 1 1 1.81-2.39L28.68 34a5.55 5.55 0 0 0 6.64 0l23.35-17.68a1.5 1.5 0 1 1 1.81 2.39L37.13 36.37A8.51 8.51 0 0 1 32 38.08Z"></path><path fill="#fff" d="M4.17 49.14a1.5 1.5 0 0 1-1-2.62l18.4-16.41a1.5 1.5 0 0 1 2 2.24L5.17 48.76a1.46 1.46 0 0 1-1 .38zm55.66 0a1.46 1.46 0 0 1-1-.38l-18.4-16.41a1.5 1.5 0 1 1 2-2.24l18.39 16.41a1.5 1.5 0 0 1-1 2.62z"></path></svg>
+                
+                    Bulk Mail
+            </div>
+        </a>
+        </span>
+        
+    </div>
+    
+       
+
+<div class="admin_section_divider"></div>
+    <div class="admin_cards_container mb-5">
+        <div class="admin_card">
+            <div class="admin_card_header">Total Tickets</div>
+            <div class="admin_card_count">4
+                <div class="admin_count_Badge ">
+                    <img
+                src="{% static 'core_app/assets/img/Ticket.png' %}"
+                style="width: auto;height:40px"
+                />
+                </div> 
+            </div>
+        </div>
+        <div class="admin_card">
+            <div class="admin_card_header">Open Tickets</div>
+            <div class="admin_card_count">{{ Open_Ticket_count }}
+                <div class="admin_count_Badge ">
+                    <img
+                src="{% static 'core_app/assets/img/Ticket.png' %}"
+                style="width: auto;height:40px"
+                />
+                </div> 
+            </div>
+        </div>
+        <div class="admin_card">
+            <div class="admin_card_header">Resolved Tickets</div>
+            <div class="admin_card_count">{{ Resolved_Ticket_count }}
+                <div class="admin_count_Badge ">
+                    <img
+                src="{% static 'core_app/assets/img/Ticket.png' %}"
+                style="width: auto;height:40px"
+                />
+                </div> 
+            </div>
+        </div>
+        <div class="admin_card">
+            <div class="admin_card_header">Closed Tickets</div>
+            <div class="admin_card_count">{{ Closed_Ticket_count }}
+                <div class="admin_count_Badge ">
+                    <img
+                src="{% static 'core_app/assets/img/Ticket.png' %}"
+                style="width: auto;height:40px"
+                />
+                </div> 
+            </div>
+        </div>
+    </div>
+
+ </div>
+
+ <div>
+
+    {% comment %} {{ticket_data}} {% endcomment %}
+ </div>
+
+<div class="container mb-3">
+    <div class="row">
+        <div class="col-1">
+
+        </div>
+        <div class="col-lg-3 admin_table_ticket p-3">
+            <h3 class="text-center" style="font-size:20px;font-weight: 700;">Ticket Data</h3>
+            <canvas id="pie-chart-nameserver-new"></canvas>
+        </div>
+        <div class="col-1">
+
+        </div>
+        <div class="col-lg-6 admin_table_ticket  p-3">
+            <h3 class="text-center" style="font-size:20px;font-weight: 700;">Monthly Ticket Activity Graph</h3> 
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="col-1">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container admin_table_ticket mb-4 p-3">
+    <table id="example" class="table table-striped display responsive wrap mb-5" style="width:100%">
+        <thead>
+            <tr>
+                <th>Ticket Number</th>
+                <th>Ticket Status</th>
+                <th>Ticket Created</th>
+                <th>Ticket Owner</th>
+                <th>Ticket Last Updated Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in ticket_data %}
+            <tr>
+                <td>{{data.4}}</td>
+                <td>{{data.0}}</td>
+                <td>{{data.3}}</td>
+                <td>{{data.2}}</td>
+                <td>{{data.1}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+  
+</div>
+{% comment %} <div class="container">
+    <div class="row my-3"  style="background:aliceblue">
+        <div class="col-12">
+            <ul class="Legend p-2">
+                <h6 class="text-left">Status Legend</h6>
+                <li class="Legend-item" style="font-size:12px">
+                    <span class="Legend-colorBox" style="background-color: #0093ae9c;">
+                    </span>
+                    <span class="badge badge-secondary" style="background-color:#21c2ac">Level 0</span> - IDN Domain is registered but not configured in DNS.
+                  </li>
+                <li class="Legend-item" style="font-size:12px">
+                  <span class="Legend-colorBox" style="background-color: #0093ae9c;">
+                  </span>
+                  <span class="badge badge-secondary" style="background-color:#4f5696">Level 1</span> - IDN Domain is registered and configured in DNS.
+                </li>
+                <li class="Legend-item" style="font-size:12px">
+                  <span class="Legend-colorBox" style="background-color: #c2d6ff;">
+                  </span>
+                  <span class="badge badge-secondary" style="background-color:#c29721">
+                        Level 2
+                  </span>
+                     - IDN Domain is registered and configured in DNS along with IDN Content rendering.
+                
+                </li>
+                <li class="Legend-item" style="font-size:12px">
+                  <span class="Legend-colorBox" style="background-color: #0093ae9c;">
+                  </span>
+                  <span class="badge badge-secondary" style="background-color:#c22139">
+                    Level 3
+                    </span>
+                  
+                     - IDN Domain is registered and configured in DNS along with language Switcher and IDN path implementation.
+                </li>
+            </ul>
+            <ul>
+            
+                <span class="badge badge-secondary" style="background:#0a2c5f">Last Updated on : 13/12/2023</span> 
+          
+            </ul>
+            
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="text-center" style="font-size:26px;font-weight: 700;"> List of registered सरकार.भारत IDN Domains</h3>
+        {{ Registry_IDN_API_Data|safe }}
+        <p style="font-size: 12px" class="mt-3"><strong>{% trans '*SOURCE :' %} </strong>This Statistics are based on <a style="color: blue; text-decoration: underline;" href="https://registry.gov.in/idn_domain_info.php" target="_blank">registry.gov.in</a>  IDN Domain List Data <br>  <span class="badge badge-secondary" style="background:#0a2c5f">Last Updated on : 13/12/2023</span> </p>
+    </div>
+
+</div> {% endcomment %}
+
+
+<!-- IDN Readiness Index List -->
+
+
+<div class="container p-3 mb-5 bg-body-tertiary rounded" style="-webkit-box-shadow: 0px 0px 6px 1px rgba(209,209,209,1);
+-moz-box-shadow: 0px 0px 6px 1px rgba(209,209,209,1);
+box-shadow: 0px 0px 6px 1px rgba(209,209,209,1);" >
+    {% comment %} action="{% url 'core:update_json' %} {% endcomment %}
+    <h3 class="text-center" style="font-size:20px;font-weight: 700;"> Add URL in IDN Ready Website List  </h3>
+    <form method="post" action="{% url 'update_json' %}" >
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6">
+                <label class="form-label" for="url">URL:</label>
+                <input  class="form-control"  placeholder="https://example.com" type="text" id="url" name="url" required>
+            </div>
+            <div class="col-4">
+                <label class="form-label" for="language">Language:</label>
+                <input class="form-control"  placeholder="English" type="text" id="language" name="language" required><br><br>
+            </div>
+            <div class="col-2 d-flex justify-content-center" style="margin:auto">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            
+        </div>
+    
+        
+    </form>
+
+</div>
+
+<!--Legend -->
+<div class="container">
+<div class="row my-3"  style="background:aliceblue">
+    <div class="col-12">
+        <ul class="Legend p-2">
+            <h6 class="text-left">Note : </h6>
+            <li class="Legend-item" style="font-size:12px">
+                <span class="Legend-colorBox" style="background-color: #0093ae9c;">
+                </span>
+                <span class="badge badge-secondary" style="background-color:#21c2ac">Domain Functional</span> - 
+                A website domain is functional when it is operational and accessible on the internet, allowing users to access its content and services without encountering significant issues.
+              </li>
+            <li class="Legend-item" style="font-size:12px">
+              <span class="Legend-colorBox" style="background-color: #0093ae9c;">
+              </span>
+              <span class="badge badge-secondary" style="background-color:#4f5696">SSL Valid</span> -
+              A website SSL is configured check ensures that Secure Sockets Layer (SSL) encryption is properly implemented, providing a secure connection between the user's browser and the website's server.
+            </li>
+            <li class="Legend-item" style="font-size:12px">
+              <span class="Legend-colorBox" style="background-color: #c2d6ff;">
+              </span>
+              <span class="badge badge-secondary" style="background-color:#c29721">
+                   Content Localized
+              </span>
+              - A webiste content localization is checked, detecting the language of the Homepage content
+            
+            </li>
+        </ul>
+        <ul>
+        
+            <span class="badge badge-secondary" style="background:#0a2c5f">Last Updated on : 13/12/2023</span> 
+      
+        </ul>
+        
+    </div>
+</div>
+</div>
+<!-- End Legend -->
+<div class="container">
+    {% if messages %}
+    <div class="alert alert-primary my-5" role="alert" >
+        {% for message in messages %}
+            <strong>{{ message }}</strong>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="container d-flex justify-content-center my-3">
+   
+
+
+ 
+    <table id="data-table" border="1" class="p-5">
+        <thead>
+            <tr>
+                <th>Language</th>
+                <th>URL</th>
+                <th>Domain Functional</th>
+                <th>SSL Valid</th>
+                <th>Content Localized</th>
+                <th>Visit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for url, info in Tabledata.items %}
+                <tr>
+                    <td>{{ info.Language }}</td>
+                    <td>{{ url }}</td>
+                    <td style="color: {% if info.domain_token %}green{% else %}red{% endif %};">{{ info.domain_token }}</td> 
+                    <td style="color: {% if info.ssl_token %}green{% else %}red{% endif %};">{{ info.ssl_token }}</td>
+                    <td style="color: {% if info.content_token %}green{% else %}red{% endif %};">{{ info.content_token }}</td>
+                    <td><a href="{{url}}" target="_blank">Visit Website</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+
+<script>
+    $('#myTable').DataTable( {
+    responsive: true
+} );
+</script>
+
+<script>
+
+    let ctx = document.getElementById('pie-chart-nameserver-new').getContext('2d')
+    let chart = new Chart(ctx,{
+        type:"pie",
+        data:{
+            datasets: [
+                {
+                    data: [ {{ Open_Ticket_count }} ,{{ Closed_Ticket_count }}, {{ Resolved_Ticket_count }},4 ],
+                    backgroundColor: ['rgb(252, 223, 92)', '#88c79a', '#ef7765', '#BD98F3', 'green'],
+                    label: 'Label'
+                }
+            ],
+            //labels:  ['.in','.gov.in','state gov']
+            labels: ["Open Tickets","Closed Tickets","Pending Tickets","All Tickets"] 
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: false,
+                text: 'Overall Activity'
+              },
+              animation:{
+                onComplete: function(animation) {
+                    var firstSet = animation.chart.config.data.datasets[0].data,
+                            dataSum = firstSet.reduce((accumulator, currentValue) => accumulator + currentValue);
+                        
+                    if(typeof firstSet !== "object" || dataSum === 0){
+                      document.getElementById('no-data').style.display = 'block';
+                      document.getElementById('pie-chart-nameserver').style.display = 'none'
+                    }
+                }
+              }
+        },
+    })
+
+
+</script>
+
+<script>
+    let ctx1 = document.getElementById("myChart").getContext("2d");
+
+    let chart1 = new Chart(ctx1, {
+    type: "bar",
+    data: {
+    
+        datasets: [
+            {
+            label:'',
+            backgroundColor: ['#36a2eb', '#ff6384d6', '#4bc0c0d9', '#ff9f40d9', 'blue'],
+            borderColor: "#417690",
+            data: [0,0,0,0,0,2,4,4,0,0,3,0],
+         
+            }
+        ],
+        labels: ["Jan", "Feb", "Mar" , "Apr" , "May" , "Jun" , "July" , "Aug" , "Sep" , "Oct" , "Nov" , "Dec"],
+        
+    },
+    options: {
+        scales: {
+          y: {
+            display:true,
+            title: {
+                display: true,
+                text: 'Number Of Tickets',
+                color: '#191',
+            }
+            // beginAtZero: true,
+            
+          }
+        }
+      }
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#data-table').DataTable();
+    });
+</script>
+
+
+{% endblock %}

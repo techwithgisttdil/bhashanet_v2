@@ -1,0 +1,53 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block terms_and_condition %}
+<div class="card-box ua-card-header--bg-blk" id="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="ua-small-info-box">
+                    <div class="horizontal-rule">
+                        <h1 class=" h2 heading4">Terms & Conditions</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Terms & Conditions</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="page-content ua-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-sub-section-sec shadow">
+                    <div class="card-body" style="text-align: justify">
+                        <p>{{obj_data.TermsAndConditions_desc1}}</p>
+                        <p style="text-align: justify">{{obj_data.TermsAndConditions_desc2}}</p>
+                        <p style="text-align: justify">{{obj_data.TermsAndConditions_desc3}}</p>
+                        <p style="text-align: justify">{{obj_data.TermsAndConditions_desc4}}</p>
+                        <p style="text-align: justify">{{obj_data.TermsAndConditions_desc5}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

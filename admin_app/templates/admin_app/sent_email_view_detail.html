@@ -1,0 +1,74 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block sent_email_view_detail %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="read-content">
+              <div class="row pt-5">
+                <div class="col-md-4 mb-3">
+                  <h5 class="m-b-3">Recipient List</h5>
+                  <a class="btn btn-primary" href="/media/{{ BulkEmail_obj.email_receipient_list }}">Download</a>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <h5 class="m-b-3">Email Status</h5>
+                  <p class="btn btn-primary">{{ BulkEmail_obj.email_status }}</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <h5 class="m-b-3">Total Email Count</h5>
+                  <p class="btn btn-primary">{{ BulkEmail_obj.emails_sent_count }}</p>
+                </div>
+              </div>
+              <hr />
+              <div class="row mb-4 mt-1">
+                <div class="col-12">
+                  <span class="float-right">{{ BulkEmail_obj.email_sending_date }}</span>
+                  <h4 class="m-0 text-primary">{{ BulkEmail_obj.email_subject }}</h4>
+                </div>
+              </div>
+
+              <p>{{ BulkEmail_obj.email_message|safe }}</p>
+
+              <hr />
+              <h6 class="pt-3"><i class="fa fa-download mb-2"></i> Attachments</h6>
+              <div class="row mb-3">
+                {% if BulkEmail_obj.email_attachment_file1 %}
+                  <div class="col-md-6 col-lg-4 mb-2">
+                    <a href="/media/{{ BulkEmail_obj.email_attachment_file1 }}" class="text-muted">Download Attachment1</a>
+                  </div>
+                {% endif %}
+                {% if BulkEmail_obj.email_attachment_file2 %}
+                  <div class="col-md-6 col-lg-4 mb-2">
+                    <a href="/media/{{ BulkEmail_obj.email_attachment_file2 }}" class="text-muted">Download Attachment2</a>
+                  </div>
+                {% endif %}
+                {% if BulkEmail_obj.email_attachment_file3 %}
+                  <div class="col-md-6 col-lg-4 mb-2">
+                    <a href="/media/{{ BulkEmail_obj.email_attachment_file3 }}" class="text-muted">Download Attachment3</a>
+                  </div>
+                {% endif %}
+                {% if BulkEmail_obj.email_attachment_file4 %}
+                  <div class="col-md-6 col-lg-4 mb-2">
+                    <a href="/media/{{ BulkEmail_obj.email_attachment_file4 }}" class="text-muted">Download Attachment4</a>
+                  </div>
+                {% endif %}
+                {% if BulkEmail_obj.email_attachment_file5 %}
+                  <div class="col-md-6 col-lg-4 mb-2">
+                    <a href="/media/{{ BulkEmail_obj.email_attachment_file5 }}" class="text-muted">Download Attachment5</a>
+                  </div>
+                {% endif %}
+              </div>
+              <hr />
+            </div>
+            <div class="text-right">
+              <a class="btn btn-primary" href="{% url 'dashboard:sent_email_view' %}">Back to List</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

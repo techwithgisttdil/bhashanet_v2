@@ -1,0 +1,146 @@
+{% extends 'core_app/base.html' %} {% load static %}
+<!-- Feedback -->
+{% block language_detection %} 
+
+<div class="card-box ua-card-header--bg-blk">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-12">
+        <div class="ua-small-info-box">
+          <div class="horizontal-rule">
+            <h1 class="h2 heading4">Language Detection</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section>
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-bar">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-12">
+                <div class="breadcrumb-list">
+                  <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="{% url 'home' %}">Home</a>
+                      </li>
+                      <li class="breadcrumb-item">
+                        <a href="{% url 'tools' %}">Tools</a>
+                      </li>
+                      <li class="breadcrumb-item">
+                        Language Detection
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container my-4">
+  <div class="container d-flex justify-content-center">
+    <div class="card card-sub-section-sec">
+        <div class="card-body pb-5">
+            <div class="container">
+                <div class="row mt-0">
+                  <div class="row my-2">
+                    <div class="col-lg-8 col-sm-6"></div>
+                    <div class="col-lg-4 col-sm-6">
+                      <img class="img-fluid" src="{% static 'core_app/assets/img/bhashini-logo.png' %}" alt="bhashini powered by logo">
+                    </div>
+                  </div>
+                    <div class="mb-5 ps-3" style="font-weight:500;">
+                       This service uses Bhashini Textual Language Detection model(IIT-H Textual Language Detection v1.0) to detect language from the provided text. The model currently supports 16 languages Assamese, Bhojpuri, Bengali, English, Gujarati, Hindi, Kashmiri, Kannada, Malayalam, Manipuri, Marathi, Oriya, Punjabi, Tamil, Telugu and Urdu. For more details may visit the website:<span class="text-primary"> <a href="https://bhashini.gov.in/ulca/search-model/631736990154d6459973318e" target="_blank">https://bhashini.gov.in/ulca/search-model/631736990154d6459973318e</a></span>'  %}
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="inputText" class="form-label fs-6 mb-0"> Enter String in Indian Languages:</label>
+                            </div>
+                            <div class="col-4 float-end">
+                              <div class="float-end">
+                                <div class='d-inline'>
+                                  <img id="keyboardClicked" src="{% static 'core_app/assets/img/KbdIcon.ico' %}" data-bs-toggle="tooltip" data-bs-original-title="Open keyboard for inscript typing" height="17" width="35" onclick="openKeyboard('Hindi');"></img>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <input id="inputText" type="text" class="form-control"
+                            placeholder="Enter Your String"/></div>
+                    <div class="col-md-6 mt-2">
+                        <label for="outputText" class="form-label fs-6 mb-0"> Detected Languge :</label>
+                        <input id="outputText" type="text" class="form-control" placeholder="Detected Languge" readonly/></div>
+                </div>
+                <div class="row m-4 ">
+                    <div class="col-md-12 justify-content-center" style="text-align:center">
+                        <button type="submit" class="btn btn-primary btn" onclick="Submit();">
+                            Identify Language
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-4 ps-3" style="font-size: 12px">
+                  <strong>*NOTE : </strong>The service may not give 100% accuracy. Language detection accuracy depends upon model accuracy and other factors that affect like dialect, slang or other contextual factors.
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <br />
+
+</div>
+
+<script>
+    Submit = () => {
+        let input = $("#inputText").val();
+       /* $.post('https://meity-auth.ulcacontrib.org/ulca/apis/v0/model/compute',
+        JSON.stringify({"modelId":"631736990154d6459973318e","task":"txt-lang-detection","input":[{"source":input}],"userId":null}),
+        function(resp){
+            console.log("resp ", resp.output[0])
+        }
+        )*/
+
+        $.ajax({
+            type: "POST",
+            url: 'https://meity-auth.ulcacontrib.org/ulca/apis/v0/model/compute',
+            dataType: 'json',
+            contentType: "application/json",
+            data: JSON.stringify({"modelId":"631736990154d6459973318e","task":"txt-lang-detection","input":[{"source":input}],"userId":null}),
+            success: function (response) {
+                console.log(response)
+                let langCode = response.output[0].langPrediction[0].langCode;
+                if(langCode == 'as') $('#outputText').val("Assamese")
+                else if(langCode == 'bho') $('#outputText').val("Bhojpuri")
+                else if(langCode == 'bn') $('#outputText').val("Bengali")
+                else if(langCode == 'en') $('#outputText').val("English")
+                else if(langCode == 'gu') $('#outputText').val("Gujarati")
+                else if(langCode == 'hi') $('#outputText').val("Hindi")
+                else if(langCode == 'ka') $('#outputText').val("Kashmiri")
+                else if(langCode == 'kn') $('#outputText').val("Kannada")
+                else if(langCode == 'ml') $('#outputText').val("Malayalam")
+                else if(langCode == 'mni') $('#outputText').val("Manipuri")
+                else if(langCode == 'mr') $('#outputText').val("Marathi")
+                else if(langCode == 'or') $('#outputText').val("Oriya")
+                else if(langCode == 'pa') $('#outputText').val("Punjabi")
+                else if(langCode == 'ta') $('#outputText').val("Tamil")
+                else if(langCode == 'te') $('#outputText').val("Telugu")
+                else if(langCode == 'ur') $('#outputText').val("Urdu")
+                else $('#outputText').val("Unknown Language")
+                //if(langCode == as, bho, bn, en, gu, hi, ka, kn, ml, mni, mr, or, pa, ta, te, ur)
+             },
+             error: function (err) {
+                alert("Service is down please try again later")
+                console.log("err ",err);
+             },
+          });
+    }
+</script>
+{% endblock %}

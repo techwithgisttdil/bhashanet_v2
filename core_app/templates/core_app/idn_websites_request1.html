@@ -1,0 +1,259 @@
+{% extends 'core_app/base.html' %} 
+{% load static %} 
+ 
+{% block idn_websites_request1 %}
+
+<div>
+  <div class="card-box ua-card-header--bg-blk">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-12">
+          <div class="ua-small-info-box">
+            <div class="horizontal-rule">
+              <h1 class="h2 heading4">Submit Your IDN Website</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container mt-2">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="breadcrumb-bar">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-12">
+                  <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                          <a href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                          Submit Your IDN Website
+                        </li>
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-content ua-sec" id="main-content">
+    <div class="container">
+        <div>
+          {% if messages %} 
+          {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}" role="alert">
+            <strong> {% if message.tags %}{{message}}{% endif %}</strong>
+          </div>
+          {% endfor %} {% endif %}
+        </div>
+
+        <div style="color: red">
+          {% if form.non_field_errors %} 
+          {% for error in form.non_field_errors %}
+          <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+          </div>
+          {% endfor %} {% endif %}
+        </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card card-sub-section-sec shadow">
+            <div class="card-body pb-5">
+              <div class="container-fluid">
+                <div class="row mt-0">
+                  <div class="mb-4 ps-3" style="font-weight: 500">
+                    
+                  </div>
+                </div>
+                <form method="POST" novalidate>
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-lg-6 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address <span class="text-danger">*</span></label>
+                      {{form.IDN_Email}}
+                      <span class="text-danger">{{form.IDN_Email.errors}}</span>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Category <span class="text-danger">*</span></label>
+                      {{form.IDN_Category}}
+                      <span class="text-danger">{{form.IDN_Category.errors}}</span>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Website Domain (English) <span class="text-danger">*</span></label>
+                      {{form.IDN_English_Domain}}
+                      <span class="text-danger">{{form.IDN_English_Domain.errors}}</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <strong class="my-2">IDN URLS (Indian Language) :</strong>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Hindi URL</label>
+                      {{form.IDN_Hindi_Domain}}
+                      <span class="text-danger">{{form.IDN_Hindi_Domain.errors}}</span>
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Marathi URL</label>
+                      {{form.IDN_Marathi_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Malayalam URL</label>
+                      {{form.IDN_Malayalam_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Kannada URL</label>
+                      {{form.IDN_Kannada_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Gujarati URL</label>
+                      {{form.IDN_Gujarati_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Manipuri URL</label>
+                      {{form.IDN_Manipuri_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Urdu URL</label>
+                      {{form.IDN_Urdu_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Bengali URL</label>
+                      {{form.IDN_Bengali_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Punjabi URL</label>
+                      {{form.IDN_Panjabi_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Tamil URL</label>
+                      {{form.IDN_Tamil_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Telugu URL</label>
+                      {{form.IDN_Telugu_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Assamese URL</label>
+                      {{form.IDN_Assamese_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Konkani URL</label>
+                      {{form.IDN_Konkani_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Kashmiri URL</label>
+                      {{form.IDN_Kashmiri_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Sindhi URL</label>
+                      {{form.IDN_Sindhi_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Oriya URL</label>
+                      {{form.IDN_Oriya_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Sanskrit URL</label>
+                      {{form.IDN_Sanskrit_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Maithili URL</label>
+                      {{form.IDN_Maithili_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Santali URL</label>
+                      {{form.IDN_Santali_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Bodo URL</label>
+                      {{form.IDN_Bodo_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Dogri URL</label>
+                      {{form.IDN_Dogri_Domain}}
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Nepali URL</label>
+                      {{form.IDN_Nepali_Domain}}
+                    </div>
+                  </div>
+
+                  <!-- Captcha Input -->
+                  <div class="form-outline mb-4 mt-2">
+                    <div class="row">
+                      <div class="col-sm-12 col-lg-4">
+                        <label class="mb-1  fw-semibold px-1" for="inputCaptcha">Captcha</label>
+                        {{form.captcha_input}}
+                        {{form.captcha_hidden}}
+                      </div>
+                      <div class="col-sm-12 col-lg-5 mt-2">
+                        <img class="img-fluid" src='/media/captcha_images/CAPTCHA.png' alt="Captcha" id="captcha-img" width="220">
+                        <i class="fa fa-refresh fa-lg m-2" aria-hidden="true" id="refresh_button"></i>
+                        <!-- <i class="fa-solid fa-volume-high" name="speaker" onclick="readaudio()"></i> -->
+                      </div>
+                  </div>
+
+                  <button type="submit" name="otpsend" id="OTPsubmitcontainer" class="btn btn-primary">Submit</button>
+
+                  <!-- OTP Input -->
+                  <div class="row" id="OTPcontainer" >
+                    <div class="col-lg-4 mb-3">
+                      <label for="inputOTP">OTP</label>
+                      <input type="number" class="form-control" placeholder="Enter OTP">
+                    </div>
+                    <button type="submit" name="formsubmit" class="btn btn-primary">Submit OTP</button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+	$('#captcha-img').attr('src', '/media/captcha_images/CAPTCHA.png' + "?t="+new Date().getTime())
+
+   $('#refresh_button').click(function () {
+      console.log("refresh button clicked")
+      $.ajax({
+            type: "GET",
+            url: '/captcha_refresh/'
+      }).done(function (result){
+            let image = result.captcha_url
+            $('#captcha-img').attr('src', '/media'+image+"?t="+new Date().getTime())
+            //$('#captcha-img').attr('src', '/static'+image)
+            $('#id_captcha_hidden').val(result.captcha_value)
+      })
+      return false;
+   })
+
+
+   function readaudio(){
+    console.log("inside read audio")
+    let audio = new Audio('media/captcha_audio/CAPTCHA.wav?t='+new Date().getTime())
+    audio.play()
+   }
+
+   selectAnyLanguage = () => {
+    console.log("language changed")
+    if(document.getElementById("gistFK_kbdBox")!=null)
+    document.getElementById("keyboardClicked").click()
+ }
+</script>
+
+{% endblock %}

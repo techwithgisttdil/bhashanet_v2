@@ -1,0 +1,93 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block becomeuaready %}
+
+<div class="card-box ua-card-header--bg-blk">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+
+                <div class="ua-small-info-box">
+                    <div class="horizontal-rule">
+                        <h1 class=" h2 heading4">Become Universal Acceptance Ready</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Become Universal Acceptance Ready</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="page-content ua-sec" id="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-sub-section-sec">
+                    <div class="card-body">
+
+                            <div class="ua-ready-main-content">
+                                <div class="text-center py-3">
+                                    <img class="ua-ready-image img-fluid px-3"
+                                         src="/media/{{obj_data.Article_Title_Image1}}" alt="this image show step of how to become ua ready"
+                                         width="100%">
+                                </div>
+                                <div class="text-justify ua-ready-subsection">
+                                    <div>
+                                        <p>{{obj_data.Article_Title_Description | safe}}</p>
+
+                                    </div>
+                                    <div>
+                                        <strong class="ua-ready-subsection-heading">{{obj_data.Article_Subtitle1}}</strong>
+                                        <ul class="ua-list py-1 listitems text-indent">
+                                            <li>{{list_data.GenericList_Value1}}</li>
+                                            <li>{{list_data.GenericList_Value2}}</li>
+                                            <li>{{list_data.GenericList_Value3}}</li>
+                                            <li>{{list_data.GenericList_Value4}}</li>
+                                        </ul>
+                                    </div>
+
+
+                                    <div class="text-justify ua-ready-subsection">
+
+                                        <p style="text-align:justify">
+                                            {{obj_data.Article_Description2 | safe}}
+                                        </p>
+                                    </div>
+
+<!--  {% if obj_data.Article_Subtitle3 %}-->
+<!--                                    <div class="text-justify ua-ready-subsection">-->
+<!--                                        <p class="ua-ready-subheading">{{obj_data.Article_Subtitle3}}</p>-->
+<!--                                        <p style="text-align:justify">-->
+<!--                                            {{obj_data.Article_Description3 | safe}}-->
+<!--                                        </p>-->
+<!--                                        <p class="ua-ready-subheading">{{obj_data.Article_Subtitle4}}</p>-->
+<!--                                        <p style="text-align:justify">-->
+<!--                                            {{obj_data.Article_Description4 | safe}}-->
+<!--                                        </p>-->
+<!--                                    </div>-->
+<!--                                      {% endif %}-->
+                                </div>
+                            </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+{% endblock %}

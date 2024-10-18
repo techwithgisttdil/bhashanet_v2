@@ -1,0 +1,154 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block best_practices %}
+    <div class="card-box ua-card-header--bg-blk">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-12">
+                    <div class="ua-small-info-box">
+                        <div class="horizontal-rule">
+                            <h1 class="h2 heading4">Best Practices</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-12">
+                    <div class="breadcrumb-list">
+                        <nav aria-label="breadcrumb" class="page-breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                {% comment %} <li class="breadcrumb-item">Resources' %}</li> {% endcomment %}
+                                <li class="breadcrumb-item">Best Practices</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <section class="page-content" id="main-content">
+        <div class="container">
+            {% for data in obj_data %}
+            <div class="accordion" id="accordionPanelsStayOpenExample {{ forloop.counter }}">
+                <div class="accordion-item mb-3 rounded">
+                    <h2 class="accordion-header " id="panelsStayOpen-heading{{ forloop.counter }}">
+                        <div class="accordion-button {% if forloop.counter != 1 %}collapsed{% endif %}" style="width: 100%;" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapse{{ forloop.counter }}" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapse{{ forloop.counter }}" data-bs-parent="accordionPanelsStayOpenExample {{ forloop.counter }}">
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-2 text-center"><img style=" height:90px;"
+                                        alt="iconic image of {{data.BestPractices_title}}"
+                                        src="/media/{{data.BestPractices_title_image}}" /> </div>
+                                <div class="col-md-10 mt-2 fs-5">
+                                    <h3 class="h5 fw-bold ">{{data.BestPractices_title}}</h3>
+                                    <p class="mt-1 text-black">{{data.BestPractices_title_desc}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </h2>
+                    <div id="panelsStayOpen-collapse{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.counter == 1 %}show{% endif %}"
+                        aria-labelledby="panelsStayOpen-heading{{ forloop.counter }}">
+
+                        <div class="accordion-body ">
+                            <div class="row p-3">
+                                <div class="col-md-12">
+                                    <div>
+                                         {% if data.BestPractices_subtitle1 %}
+                                        <h3 class="h5"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> {{data.BestPractices_subtitle1}}</h3>
+                                        {% endif%}
+                                        <div class="mt-1" style="text-align: justify;">{{data.BestPractices_desc1}}
+                                        </div>
+                                        {% if data.BestPractices_externalURL1 %}
+                                        {% comment %} <div class=" d-flex justify-content-end">
+                                        <a class="btn btn btn-primary w-20 m-1"
+                                                href="{{data.BestPractices_externalURL1}}" target="_blank" onclick="myFunction();">Translate Your Domain' %}
+                                            </a>
+                                        </div> {% endcomment %}
+                                        {% endif %}
+
+                                    </div>
+
+                                    <div class="mt-3">
+                                         {% if data.BestPractices_subtitle2 %}
+                                        <h3 class="h5"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> {{data.BestPractices_subtitle2}}</h3>
+                                        {% endif %}
+                                        <div class="mt-1" style="text-align: justify;">{{data.BestPractices_desc2}}
+                                        </div>
+                                        {% if data.BestPractices_externalURL2 %}
+                                        {% comment %} <div class=" d-flex justify-content-end">
+                                        <a class="btn btn btn-primary w-20 m-1"
+                                                href="{{data.BestPractices_externalURL2}}"  target="_blank" onclick="myFunction();">Validate Your Domain' %}
+                                            </a>
+                                        </div> {% endcomment %}
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="mt-3">
+                                        {% if data.BestPractices_subtitle3 %}
+                                        <h3 class="h5"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> {{data.BestPractices_subtitle3}}</h3>
+                                         {% endif %}
+                                        <div class="mt-1" style="text-align: justify;">{{data.BestPractices_desc3}}
+                                        </div>
+                                        {% if data.BestPractices_externalURL3 %}
+                                        <div class=" d-flex justify-content-end">
+                                            <a class="btn btn btn-primary w-20 m-1"
+                                                target="_blank" onclick="showAlert('{{data.BestPractices_externalURL3}}');">Register .gov Domain
+                                            </a>
+                                            <a class="btn btn btn-primary w-20 m-1"
+                                                target="_blank" onclick="showAlert('{{data.BestPractices_externalURL4}}');">Register .in/.भारत Domain
+                                            </a>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="mt-3">
+                                        {% if data.BestPractices_subtitle4 %}
+                                        <h3 class="h5"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> {{data.BestPractices_subtitle4}}</h3>
+                                         {% endif %}
+                                        <div class="mt-1" style="text-align: justify;">{{data.BestPractices_desc4}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="row mt-3">
+                                {% if data.BestPractices_image1 %}
+                                <div class="col-md-6"><img src="/media/{{data.BestPractices_image1}}"
+                                        class="img-fluid" alt="banner-1"/></div>
+                                {% endif %}
+                                {% if data.BestPractices_image2 %}
+                                <div class="col-md-6"><img src="/media/{{data.BestPractices_image2}}"
+                                        class="img-fluid" alt="banner-2"/>
+                                </div>{% endif %}
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+</div>
+</section>
+<script>
+    function showAlert(url) {
+        var choice = confirm("You are being redirected to an external website. Please note that Bhashanet is not responsible for external websites content & privacy policies.");
+        
+        // Check the user's choice
+        if (choice == true) {
+            // Redirect to the specified URL in a new tab if the user clicks OK
+            window.open(url, '_blank');
+        }
+        //alert("You are being redirected to an external website. Please note that Bhashanet is not responsible for external websites content & privacy policies. ");
+    }
+</script>
+{% endblock %}

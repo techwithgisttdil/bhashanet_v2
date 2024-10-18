@@ -1,0 +1,130 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block english_domain_list_content %}
+  <!-- SCRIPT FOR BAR CHART STARTS -->
+
+  <div class="container-fluid mt-3">
+    <!-- Error Block Starts -->
+    <div class="row">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="col-lg-12">
+            <div class="alert alert-primary">{{ message }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <!-- Error Block Ends -->
+
+    <!-- Number of Registered English Domains Block Starts -->
+    <div class="container-fluid mt-3">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title" style="font-size:18px"><i class="fa fa-chevron-right"></i> List of Registered English Domains</h4>
+              <div class="table-responsive">
+                <table id="example2" class="table header-border table-hover verticle-middle table-bordered display" style="color: black; padding: 0 1px !important;width: 100% !important;">
+                  <thead >
+                    <tr >
+                      <th style="width: 7%">S.No.</th>
+                      <th>English Domain</th>
+                      <th>Category</th>
+                      <th>Department</th>
+                      <th>Created On</th>
+                      <th>Last Updated On</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for data in English_Domain_obj %}
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ data.domain_name }}</td>
+                        <td>{{ data.category }}</td>
+                        <td>{{ data.department_name }}</td>
+                        <td>{{ data.updated_On }}</td>
+                        <td>{{ data.Last_Updated_On }}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Number of Registered English Domains Block Ends -->
+
+  <!-- Datatable Buttons Script Block For #example2 Table -->
+  <script>
+    new DataTable('#example2', {
+      layout: {
+        topStart: {
+          buttons: ['copy', 'csv', 'excel', 'print']
+        }
+      }
+    })
+  </script>
+
+  <!-- Datatable CSS Properties Block For both the Table -->
+  <style>
+    /* Remove padding and margin from all table elements */
+    table,
+    th,
+    td {
+      margin: 5;
+      padding: 5 !important;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    
+    /* Remove padding and margin from nested tables */
+    table table {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    
+    table table td {
+      padding: 0 !important;
+    }
+    
+    /* Set font size and other styles as needed */
+    td {
+      font-size: 14px;
+    }
+    
+    /* Ensure tooltip icons have no margin */
+    .fa {
+      margin: 0 !important;
+    }
+    
+    /* Apply CSS to input[type="search"] */
+    input[type='search'] {
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      padding: 8px;
+      font-size: 16px;
+      width: 200px;
+    }
+    
+    #example2 th,
+    #example2 td {
+      text-align: left;
+    }
+    #example th,
+    #example td {
+      text-align: left;
+    }
+    
+    #example2 tr:nth-child(even) {
+      background-color: rgb(217, 229, 245);
+    }
+    #example2 th {
+      background-color: rgb(207, 235, 247);
+      text-align: left;
+  </style>
+{% endblock %}

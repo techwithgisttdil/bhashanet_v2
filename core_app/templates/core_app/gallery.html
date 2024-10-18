@@ -1,0 +1,68 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+{% block gallery %}
+<div class="card-box ua-card-header--bg-blk" id="main-content">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 col-12">
+            <div class="ua-small-info-box">
+               <div class="horizontal-rule">
+                  <h1 class=" h2 heading4">Gallery</h1>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="breadcrumb-bar">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 col-12">
+            <div class="breadcrumb-list">
+               <nav aria-label="breadcrumb" class="page-breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                     <li class="breadcrumb-item" aria-current="page">Gallery</li>
+                  </ol>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- ====== gallery section Starts ====== -->
+<section class="section">
+   <div class="container pb-5">
+      <hr>
+      {% for heading in gallery_video_headings %}
+      <h2 class=" h5 my-3">
+         {{heading}}
+      </h2>
+      <hr>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+         {% for video in gallery_videos %}
+         {% if video.Gallery_Heading == heading %}
+         <div class="col mb-4">
+            <div class="ua-box d-flex aos" data-aos="fade-up">
+               <div class="gallery-item">
+                  <div class="gallery-item-img">
+                     <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item w-100" src="{{ video.Gallery_Video_Link }}" allowfullscreen></iframe>
+                     </div>
+                  </div>
+                  <div class="gallery-item-content d-flex align-items-center bg-light py-4 border" style="height: 70px;">
+                     <p class="title ua-card--text text-center fw-blod video-text-width gallery-caption">{{ video.Gallery_Video_Label }}</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endif %}
+         {% endfor %}
+      </div>
+      {% endfor %}
+   </div>
+</section>
+
+
+{% endblock %}

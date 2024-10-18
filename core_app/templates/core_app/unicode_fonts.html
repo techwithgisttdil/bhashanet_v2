@@ -1,0 +1,575 @@
+
+{% extends 'core_app/base.html' %} {% load static %} {% block unicode_fonts %}
+
+<div>
+    <div class="card-box ua-card-header--bg-blk">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-12">
+                    <div class="ua-small-info-box">
+
+                        <div class="horizontal-rule">
+
+
+                                <h1 class=" h2 heading4">Unicode Fonts</h1>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-12">
+                                <div class="breadcrumb-list">
+                                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="{% url 'home' %}">Home</a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="{% url 'tools' %}">Tools</a>
+                                            </li>
+                                            <li class="breadcrumb-item">Unicode Fonts</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-content ua-sec" id="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-sub-section-sec shadow">
+                    <div class="card-body">
+                        <div id="maincontent" style="width:100%">
+                            <div id="downloadlink" class="h4">
+                                 <!-- <a href="http://www.cdac.in/index.aspx?id=gist" target="_blank"><img src="https://trans.tdil-dc.gov.in/js/images/gistlogo.png" style="height:40px; width:60px; float:left;"></a> -->
+                                 <h2 class="h4"> CDAC Gist Unicode Web Fonts And Css Fonts For Indian Languages</h2>
+                                <br/><p>Please click <a href="https://trans.tdil-dc.gov.in/Fonts/css/cdac-gist-fonts.css" target="_blank" style="color:#1e769d;" title="CSS download link">here</a> to download CDAC GIST Font CSS (Right click on the page then select save as)</h3>
+                                {% comment %} <p>Generate your own custom CSS using GIST Fonts: <a href="#customcss" style="color:#1e769d;">Click Here</a></h3> {% endcomment %}
+                            </div>
+
+                            <div id="gettingstarted">
+                                <p class="h4 mt-5">Getting Started</p>
+                                <p>This guide explains how to use the CDAC GIST Fonts to add fonts to your web pages. You don't need to do any programming all you have to do is add a special stylesheet link to your HTML document, then refer to the font in
+                                    a CSS style.</p>
+                            </div>
+
+                            <div >
+                                <h3 class="h4 mt-3">A quick example</h3>
+                                <pre class="prettyprint lang-html bg-light p-3"><span class="tag">&lt;html&gt;</span><span class="pln"><br>&nbsp; </span><span class="tag">&lt;head&gt;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://trans.tdil-dc.gov.in/Fonts/css/cdac-gist-fonts.css"</span><span class="tag">&gt;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="tag">&lt;style&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; body </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">font-family</span><span class="pun">:</span><span class="pln"> </span><span class="str">'gist_hindi_font'</span><span class="pun">,</span><span class="pln"> serif</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">font-size</span><span class="pun">:</span><span class="pln"> </span><span class="lit">48px</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="tag">&lt;/style&gt;</span><span class="pln"><br>&nbsp; </span><span class="tag">&lt;/head&gt;</span><span class="pln"><br>&nbsp; </span><span class="tag">&lt;body&gt;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="tag">&lt;div&gt;</span><span class="pln">सी-डैक जिस्ट हिंदी फ़ॉन्ट</span><span class="tag">&lt;/div&gt;</span><span class="pln"><br>&nbsp; </span><span class="tag">&lt;/body&gt;</span><span class="pln"><br></span><span class="tag">&lt;/html&gt;</span></pre>
+                            </div>
+
+                            <div id="overview" class="bg-light">
+                                <h3 class="h4">Overview</h3>
+                                <p>You can start using the CDAC GIST Fonts CSS in just two steps:</p>
+                                <ol>
+                                    <li>
+                                        Add a stylesheet link to request the desired web font(s):
+                                        <pre class="prettyprint lang-html"><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://trans.tdil-dc.gov.in/Fonts/css/cdac-gist-fonts.css"</span><span class="atv">"</span><span class="tag">&gt;</span></pre>
+                                    </li>
+                                    <li>
+                                        Style an element with the requested web font, either in a stylesheet:
+                                        <pre class="prettyprint lang-html"><var><span class="pln">CSS selector</span></var><span class="pln"> {<br>&nbsp; font-family: '</span><var><span class="pln">Font Name</span></var><span class="pln">', serif;<br>}</span></pre>                                        or with an inline style on the element itself:
+                                        <pre class="prettyprint lang-html"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">font-family</span><span class="pun">:</span><span class="pln"> </span><span class="str">'</span><var><span class="str">Font Name</span></var><span class="str">'</span><span class="pun">,</span><span class="pln"> serif</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;</span><var><span class="pln">Your text</span></var><span class="tag">&lt;/div&gt;</span></pre>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div id="note">
+                                <p>Note: When specifying a web font in a CSS style, always list at least one fallback web-safe font in order to avoid unexpected behaviors. In particular, add a CSS generic font name like serif or sans-serif to the end of
+                                    the list, so the browser can fall back to its default fonts if need be.</p>
+                            </div>
+
+                            <div id="fontnames">
+                                <h3 class="h4">Font Names</h3>
+                                  <div class="table-responsive">
+                                    <table class="table table-striped table-condensed table-bordered auto ">
+                                        <thead>
+                                            <tr class="table-primary">
+                                                <th scope="col">
+                                                    Language/Script
+                                                </th>
+                                                <th scope="col">
+                                                    FONT NAME
+                                                </th>
+                                               <th scope="col">
+                                                    CSS (cdac-gist-fonts.css styles)
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           
+                                            <tr>
+                                                <th scope="row">
+                                                    Bengali
+                                                </th>
+                                                <td>
+                                                    gist_bengali_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_bengali_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/fonts/bnotdurga_n_ship.eot?')format('embedded-opentype'),</div>
+                                                        <div>url('https://trans.tdil-dc.gov.in/fonts/bnotdurga_n_ship.ttf')format( 'truetype' );</div>
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Gujarati
+                                                </th>
+                                                <td>
+                                                    gist_gujarati_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                       <div>{</div>
+                                                       <div>font-family:'gist_gujarati_font';</div>
+                                                       <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/GJOTAvantika_N_Ship.eot?')format('embedded-opentype'),<div>
+                                                         <div>   url('https://trans.tdil-dc.gov.in/Fonts/GJOTAvantika_N_Ship.ttf')format( 'truetype' ); </div>
+                                                        <div>}</div>
+                                                    </pre>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Hindi
+                                                </th>
+                                                <td>
+                                                    gist_hindi_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_hindi_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/DVOTSUR0.eot?')format('embedded-opentype'),</div>
+                                                        <div>  url('https://trans.tdil-dc.gov.in/Fonts/DVOTSurekh_N_Ship.ttf')format( 'truetype' ); </div> 
+                                                        <div>}</div>
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Malayalam
+                                                </th>
+                                                <td>
+                                                    gist_malayalam_font
+                                                </td>
+                                                <td>
+                                                   <div> @font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_malayalam_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/MLOTKarthika_N_Ship.eot?')format('embedded-opentype'),</div>
+                                                         <div>   url('https://trans.tdil-dc.gov.in/Fonts/MLOT-Karthika_N_Ship.ttf')format( 'truetype' );  </div>
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Marathi
+                                                </th>
+                                                <td>
+                                                    gist_marathi_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_marathi_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALMA0.eot?')format('embedded-opentype'),</div>
+                                                         <div>   url('https://trans.tdil-dc.gov.in/Fonts/Sakal Marathi Normal_Ship.ttf')format( 'truetype' );</div>
+                                                        <div>}</div>
+                                                    </pre>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Punjabi
+                                                </th>
+                                                <td>
+                                                    gist_punjabi_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                       <div> {</div>
+                                                        <div>font-family:'gist_punjabi_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/PNOTAmar_N_Ship.eot?')format('embedded-opentype'),</div>
+                                                            <div>url('https://trans.tdil-dc.gov.in/Fonts/PNOTAmar_N_Ship.ttf')format( 'truetype' );</div>  
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Urdu
+                                                </th>
+                                                <td>
+                                                    gist_urdu_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                      <div>  {</div>
+                                                      <div>font-family:'gist_urdu_font';</div>
+                                                      <div>font-style:normal;</div>
+                                                      <div>font-weight:normal;</div>
+                                                      <div>src:url('https://trans.tdil-dc.gov.in/Fonts/UROT-Ghalib_N_Ship.eot?')format('embedded-opentype'),</div>
+                                                      <div>     url('https://trans.tdil-dc.gov.in/Fonts/UROT-Ghalib_N_Ship.ttf')format( 'truetype' ); </div> 
+                                                       <div> }</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Kannada
+                                                </th>
+                                                <td>
+                                                    gist_kannada_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_kannada_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                          <div>  url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );</div>
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Assamese
+                                                </th>
+                                                <td>
+                                                    gist_assamese_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_assamese_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                            <div>url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );</div>
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Bodo
+                                                </th>
+                                                <td>
+                                                    gist_bodo_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_bodo_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                            <div>url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  </div>
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Dogri
+                                                </th>
+                                                <td>
+                                                    gist_dogri_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_dogri_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                            <div>url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  </div>
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            {% comment %} <tr>
+                                                <th scope="row">
+                                                    Kashmiri Dev
+                                                </th>
+                                                <td>
+                                                    gist_kashmiridev_font
+                                                </td>
+                                                <td>
+                                                    <pre>@font-face
+                                                        {
+                                                        font-family:'gist_kashmiridev_font';
+                                                        font-style:normal;
+                                                        font-weight:normal;
+                                                        src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),
+                                                            url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  
+                                                        }
+                                                    </pre>
+                                                </td>
+                                            </tr> {% endcomment %}
+                                            <tr>
+                                                <th scope="row">
+                                                    Konkani
+                                                </th>
+                                                <td>
+                                                    gist_konkani_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_konkani_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                           <div> url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' ); </div> 
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Maithili
+                                                </th>
+                                                <td>
+                                                    gist_maithili_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_maithili_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        </div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                    </div>url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  </div>
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Manipuri
+                                                </th>
+                                                <td>
+                                                    gist_manipuri_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                       <div> {</div>
+                                                        <div>font-family:'gist_manipuri_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                           <div> url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  </div>
+                                                       <div> }</div>
+                                                </td>
+                                            </tr>
+                                            {% comment %} <tr>
+                                                <th scope="row">
+                                                    MeeteiMayek
+                                                </th>
+                                                <td>
+                                                    gist_meeteimayek_font
+                                                </td>
+                                                <td>
+                                                    <pre>@font-face
+                                                        {
+                                                        font-family:'gist_meeteimayek_font';
+                                                        font-style:normal;
+                                                        font-weight:normal;
+                                                        src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),
+                                                            url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  
+                                                        }
+                                                    </pre>
+                                                </td>
+                                            </tr> {% endcomment %}
+                                            <tr>
+                                                <th scope="row">
+                                                    Nepali
+                                                </th>
+                                                <td>
+                                                    gist_nepali_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_nepali_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                            <div>url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  </div>
+                                                       <div> }</div>
+                                                </td>
+                                            </tr>
+                                            {% comment %} <tr>
+                                                <th scope="row">
+                                                    OlChiki
+                                                </th>
+                                                <td>
+                                                    gist_olchiki_font
+                                                </td>
+                                                <td>
+                                                    <pre>@font-face
+                                                        {
+                                                        font-family:'gist_olchiki_font';
+                                                        font-style:normal;
+                                                        font-weight:normal;
+                                                        src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),
+                                                            url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  
+                                                        }
+                                                    </pre>
+                                                </td>
+                                            </tr> {% endcomment %}
+                                            <tr>
+                                                <th scope="row">
+                                                    Oriya
+                                                </th>
+                                                <td>
+                                                    gist_oriya_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_oriya_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                            <div>url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );</div>  
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Sanskrit
+                                                </th>
+                                                <td>
+                                                    gist_sanskrit_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_sanskrit_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                           <div> url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );</div>  
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    Santhali
+                                                </th>
+                                                <td>
+                                                    gist_santhali_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_santhali_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                            <div>url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  </div>
+                                                       <div> }</div>
+                                                </td>
+                                            </tr>
+                                            {% comment %} <tr>
+                                                <th scope="row">
+                                                    Sindhi Dev
+                                                </th>
+                                                <td>
+                                                    gist_sindhidev_font
+                                                </td>
+                                                <td>
+                                                    <pre>@font-face
+                                                        {
+                                                        font-family:'gist_sindhidev_font';
+                                                        font-style:normal;
+                                                        font-weight:normal;
+                                                        src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),
+                                                            url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  
+                                                        }
+                                                    </pre>
+                                                </td>
+                                            </tr> {% endcomment %}
+                                            <tr>
+                                                <th scope="row">
+                                                    Tamil
+                                                </th>
+                                                <td>
+                                                    gist_tamil_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                        <div>{</div>
+                                                        <div>font-family:'gist_tamil_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                            <div>url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' );  </div>
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    Telugu
+                                                </th>
+                                                <td>
+                                                    gist_telugu_font
+                                                </td>
+                                                <td>
+                                                    <div>@font-face</div>
+                                                       <div> {</div>
+                                                       <div>font-family:'gist_telugu_font';</div>
+                                                        <div>font-style:normal;</div>
+                                                        <div>font-weight:normal;</div>
+                                                        <div>src:url('https://trans.tdil-dc.gov.in/Fonts/SAKALBH.eot?')format('embedded-opentype'),</div>
+                                                            <div>url('https://trans.tdil-dc.gov.in/Fonts/SakalBharati_N_Ship.ttf')format( 'truetype' ); </div> 
+                                                        <div>}</div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

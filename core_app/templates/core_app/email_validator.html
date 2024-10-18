@@ -1,0 +1,198 @@
+{% extends 'core_app/base.html' %} {% load static %}
+<!-- Feedback -->
+{% block email_validator %} 
+
+<div class="card-box ua-card-header--bg-blk">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-12">
+        <div class="ua-small-info-box">
+          <div class="horizontal-rule">
+            <h1 class="h2 heading4">IDN Email Syntax Checker</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section>
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-bar">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-12">
+                <div class="breadcrumb-list">
+                  <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="{% url 'home' %}">Home</a>
+                      </li>
+                      <li class="breadcrumb-item">
+                        <a href="{% url 'tools' %}">Tools</a>
+                      </li>
+                      <li class="breadcrumb-item">
+                        IDN Email Syntax Checker
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container my-4">
+  <div class="container d-flex justify-content-center">
+    <div>
+      {% if messages %} {% for message in messages %}
+      <div
+        class="alert alert-{{message.extra_tags}} alert-dismissible"
+        role="alert"
+      >
+        <h5>{% if message.tags %}{{message}}{% endif %}</h5>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+
+    <div style="color: red">
+      {% if email_form_obj.non_field_errors %} 
+      {% for error in email_form_obj.non_field_errors %}
+      <div class="alert alert-danger">
+        <strong>{{ error|escape }}</strong>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+  </div>
+  <br />
+  <form
+    action="{% url 'email_validator' %}"
+    method="POST"
+    class="d-flex justify-content-center"
+    id="main-content"
+    novalidate
+  >
+    {% csrf_token %}
+    <div class="row bg-white box-shaodw-vision py-3 px-5">
+      <div class="mx-4 mt-2">
+        <div class="float-end">
+            {% comment %} <div class="d-inline">
+                <span class="fw-bold text-primary" style="font-size:14px;">Keyboard language' %} : </span>
+                <select id="language" class="form-select-sm px-0 py-0" onchange="selectAnyLanguage()" data-bs-toggle="tooltip" data-bs-original-title="Select language for keyboard">
+                    <option value="hindi" selected="selected">Hindi</option>               
+                    <option value="assamese">Assamese</option>               
+                    <option value="bengali">Bengali</option>               
+                    <option value="bodo">Bodo</option>               
+                    <option value="dogri">Dogri</option>               
+                    <option value="gujarati">Gujarati</option>           
+                    <option value="kannada">Kannada</option>
+                    {% comment %} <option value="kashmiridev">Kashmiri</option>              
+                    <option value="konkani">Konkani</option>
+                    <option value="maithili">Maithili</option>
+                    <option value="malayalam">Malayalam</option>               
+                    <option value="manipuri">Manipuri</option> 
+                    <option value="marathi">Marathi</option> 
+                    <option value="nepali">Nepali</option>                               
+                    <option value="oriya">Oriya</option>
+                    <option value="punjabi">Punjabi</option>               
+                    <option value="sanskrit">Sanskrit</option>               
+                    <option value="santali">Santali</option>
+                    <option value="sindhiDev">SindhiDev</option>
+                    <option value="sindhipa">SindhiPa</option>
+                    <option value="tamil">Tamil</option>               
+                    <option value="telugu">Telugu</option>               
+                    <option value="urdu">Urdu</option>
+                </select>
+            </div> {% endcomment %}
+            <div class='d-inline'>
+                <img id="keyboardClicked" src="{% static 'core_app/assets/img/KbdIcon.ico' %}" data-bs-toggle="tooltip" data-bs-original-title="Open keyboard for inscript typing" height="17" width="35" onclick="openKeyboard('Hindi');"></img>
+            </div>
+        </div>
+    </div>
+    <hr class="mx-3 mt-1">
+      <div class="col-lg-12">
+        <!-- Creating the parameter Username as type= "text"-->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-7">
+              <label for="emailText" class="form-label"
+                >Email Address : </label
+              >
+            </div>
+            {% comment %} <div class="col-5">
+              <div class="row">
+                <div class="col-10">
+                  <select
+                    id="language"
+                    class="form-select"
+                    onchange="selectAnyLanguage()"
+                    data-bs-toggle="tooltip"
+                    data-bs-original-title="Select language for keyboard"
+                  >
+                  <option value="hindi" selected="selected">Hindi</option>               
+                  <option value="assamese">Assamese</option>               
+                  <option value="bengali">Bengali</option>               
+                  <option value="bodo">Bodo</option>               
+                  <option value="dogri">Dogri</option>               
+                  <option value="gujarati">Gujarati</option>           
+                  <option value="kannada">Kannada</option>
+                  <option value="kashmiripa">Kashmiri</option>               
+                  <option value="konkani">Konkani</option>
+                  <option value="maithili">Maithili</option>
+                  <option value="malayalam">Malayalam</option>               
+                  <option value="manipuri">Manipuri</option> 
+                  <option value="marathi">Marathi</option> 
+                  <option value="nepali">Nepali</option>                               
+                  <option value="oriya">Oriya</option>
+                  <option value="punjabi">Punjabi</option>               
+                  <option value="sanskrit">Sanskrit</option>               
+                  <option value="santhali">Santali</option>
+                  <option value="sindhiDev">SindhiDev</option>
+                  <option value="sindhipa">SindhiPa</option>
+                  <option value="tamil">Tamil</option>               
+                  <option value="telugu">Telugu</option>               
+                  <option value="urdu">Urdu</option>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <img
+                    id="keyboardClicked"
+                    src="{% static 'core_app/assets/img/keyboard.png' %}"
+                    data-bs-toggle="tooltip"
+                    data-bs-original-title="Open keyboard for inscript typing"
+                    height="25pt"
+                    width="40pt"
+                    onclick="openKeyboard(document.getElementById('language').value)"
+                  />
+                </div>
+              </div>
+            </div> {% endcomment %}
+          </div>
+          {{email_form_obj.Email_Address}}
+          <div id="kbdDiv"></div>
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-center mb-5">
+        <!-- Creating the submit button -->
+        <button class="btn btn-primary btn-lg">Submit</button>
+      </div>
+      <div class="mb-4 ps-3" style="font-size: 12px">
+        <strong>*NOTE : </strong>The service may not give 100% accuracy. This tool uses library from uasg.&nbsp;<a href="https://uasg.tech/download/uasg-037-ua-readiness-of-some-programming-language-libraries-and-frameworks-en/" target="_blank" style="color: blue">Referenced Document</a>
+      </div>
+      
+      <div class="text-center" id="result"></div>
+    </div>
+  </form>
+</div>
+<script>
+  selectAnyLanguage = () => {
+    console.log("language changed");
+    if (document.getElementById("gistFK_kbdBox") != null)
+      document.getElementById("keyboardClicked").click();
+  };
+</script>
+{% endblock %}

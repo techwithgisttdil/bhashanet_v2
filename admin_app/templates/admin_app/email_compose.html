@@ -1,0 +1,133 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block email_compose %}
+  {{ BulkEmail_Form_obj.media }}
+  <div class="container-fluid mt-3">
+    <!-- Error Block Starts -->
+    <div class="row">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="col-lg-12">
+            <div class="alert alert-primary">{{ message }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      {% if BulkEmail_Form_obj.non_field_errors %}
+        {% for error in BulkEmail_Form_obj.non_field_errors %}
+          <div class="col-lg-12">
+            <div class="alert alert-primary">{{ error|escape }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <!-- Error Block Ends -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><i class="fa fa-chevron-right"></i> Send Bulk Email</h4>
+            <div class="compose-content mt-5">
+              <form method="POST" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="Receipient_list">Upload Receipient List</label>
+                  {{ BulkEmail_Form_obj.email_receipient_list }}
+                </div>
+                <div class="form-group">
+                  <label for="email_subject">Enter Subject</label>
+                  {{ BulkEmail_Form_obj.email_subject }}
+                </div>
+
+                
+                <!-- added by Tanvi Patil for multi file upload -->
+                <!-- <div class="form-group">
+                  <label for="Email_Attachement1">Email Attachement1</label>
+                  {{ BulkEmail_Form_obj.email_attachment_file1 }}
+                </div>
+                <div class="form-group">
+                  <label for="Email_Attachement2">Email Attachement2</label>
+                  {{ BulkEmail_Form_obj.email_attachment_file2 }}
+                </div>
+                <div class="form-group">
+                  <label for="Email_Attachement3">Email Attachement3</label>
+                  {{ BulkEmail_Form_obj.email_attachment_file3 }}
+                </div>
+                <div class="form-group">
+                  <label for="Email_Attachement4">Email Attachement4</label>
+                  {{ BulkEmail_Form_obj.email_attachment_file4 }}
+                </div> -->
+                <div class="form-group">
+                  <label for="Email_Attachement5">Email Attachement5</label>
+                  {{ BulkEmail_Form_obj.email_attachment_file5 }}
+                  <label>Multiple Email Attachement</label>
+                  <input type="file" name="email_attachment" style='border-radius:6px' class='form-control' id="id_email_attachment" multiple="True" onchange="appendFile(document.getElementsByName('email_attachment'))">
+                </div>
+                <div id="button"></div>
+
+
+                <div class="form-group">
+                  <label for="cke_1_contents">Enter Email Message</label>
+                </div>
+                <div class="form-group w-100" style="width: 100% !important;">{{ BulkEmail_Form_obj.email_message }}</div>
+                <div class="form-group">
+                  <button class="btn btn-primary m-b-30 m-t-15 f-s-14 p-l-20 p-r-20 m-r-10" type="submit"><i class="fa fa-paper-plane m-r-5"></i> Send</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const appendFile = (value) => {
+      console.log("inside appendfile ",value[0].files[0]['name'])
+      for (let i = 0; i<value[0].files.length; i++){
+        console.log("value[0].files[i] ",value[0].files[i])
+        let button = document.createElement("BUTTON")
+        let buttonText = document.createTextNode(value[0].files[i]['name'])
+        button.appendChild(buttonText)
+        button.setAttribute('id',`button${i}`)
+        button.setAttribute('type','button')
+        button.setAttribute('onclick','deleteFile('+ i +')')
+        button.className += 'btn btn-info m-1'
+        console.log("after fil name console")
+        let parentDiv = document.getElementById('button')
+        parentDiv.appendChild(button)
+      }
+     
+    }
+
+    const deleteFile = (index) => {
+      const dataTransfer = new DataTransfer()
+      let emailAttachmentsDiv = document.getElementsByName('email_attachment')
+      console.log("attached files ",emailAttachmentsDiv[0].files)
+      for (let i = 0; i<emailAttachmentsDiv[0].files.length; i++){
+        if(i !== index){
+          dataTransfer.items.add(emailAttachmentsDiv[0].files[i])
+        }
+      }
+
+      for(let i = 0; i<emailAttachmentsDiv[0].files.length; i++){
+        console.log("i==index ",i," ",index," ", i==index)
+        if (i == index){
+          //console.log("i==index ",i," ",index," ", i==index)
+          document.getElementById(`button${i}`).remove();
+          buttonDiv = document.getElementById('button')
+          console.log("buttonDiv.length ",buttonDiv.childNodes)
+          for (let i = 0; i<buttonDiv.childNodes.length; i++){
+            let button = buttonDiv.childNodes[i]
+            button.setAttribute('onclick','deleteFile('+ i +')')
+            button.setAttribute('id',`button${i}`)
+          }
+  
+        }
+      }
+      console.log("dataTransfer.files ",dataTransfer.files)
+      emailAttachmentsDiv[0].files = dataTransfer.files
+    }
+  </script> 
+{% endblock %}

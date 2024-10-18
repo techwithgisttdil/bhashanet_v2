@@ -1,0 +1,464 @@
+
+
+{% extends 'core_app/base.html' %}
+{% load static %}
+
+
+{% block success_stories %}
+<style>
+    .carousel-item {
+      min-height: 280px;
+    }
+  </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var element = document.getElementById("myCarousel");
+      var myCarousel = new bootstrap.Carousel(element);
+    });
+  </script>
+
+<div class="card-box ua-card-header--bg-blk">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-12">
+          <div class="ua-small-info-box">
+            <div class="horizontal-rule">
+              <h1 class="h2 heading4">UA Compliant Websites</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="text-center pt-3">Websites in Hindi language</h3>
+  {% comment %} src={% static 'core_app/assets/img/Meity.PNG' %}  {% endcomment %}
+<div class="container-fluid my-3 px-5">
+   
+    <div class="row">
+        <div class="col-lg-4 col-sm-12">
+            <div id="myCarousel" class="carousel slide">
+
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner success-story-card">
+                    
+                  <div class="website-name pb-3">
+                    Meity(Ministry of Electronics and Information Technology)
+                  </div>
+
+                  <div class="carousel-item active">
+                    <img src={% static 'core_app/assets/img/success-stories/meity-eng.png' %}  class="d-block w-100" alt="Slide 1" />
+                    <a href="https://meity.gov.in">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        Meity.gov.in
+                    </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src={% static 'core_app/assets/img/success-stories/meity-hin.png' %}  class="d-block w-100" alt="Slide 2" />
+                    <a href="https://एमईआईटीवाई.सरकार.भारत/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        एमईआईटीवाई.सरकार.भारत
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <a
+                class="carousel-control-prev1"
+                href="#myCarousel"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev1-icon"></span>
+              </a>
+              <a
+                class="carousel-control-next1"
+                href="#myCarousel"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next1-icon"></span>
+              </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+            <div id="myCarousel2" class="carousel slide">
+
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner success-story-card">
+                    
+                  <div class="website-name pb-3">
+                    Ernet (Education and Research Network of India)
+                  </div>
+
+                  <div class="carousel-item active">
+                    <img src={% static 'core_app/assets/img/success-stories/ernet-eng.png' %}  class="d-block w-100" alt="Slide 1" />
+                    <a href="https://ernet.in/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        ernet.in
+                    </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src={% static 'core_app/assets/img/success-stories/ernet-hin.png' %}  class="d-block w-100" alt="Slide 2" />
+                    <a href="https://ईआरनेट.भारत/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        ईआरनेट.भारत
+                    </div>
+                    </a>
+                  </div>
+               
+                </div>
+                <a
+                class="carousel-control-prev1"
+                href="#myCarousel2"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev1-icon"></span>
+              </a>
+              <a
+                class="carousel-control-next1"
+                href="#myCarousel2"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next1-icon"></span>
+              </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+            <div id="myCarousel3" class="carousel slide">
+
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner success-story-card">
+                    
+                  <div class="website-name pb-3">
+                    India.gov (National portal of India)
+                  </div>
+
+                  <div class="carousel-item active">
+                    <img src={% static 'core_app/assets/img/success-stories/india.gov-eng.png' %}  class="d-block w-100" alt="Slide 1" />
+                    <a href="https://www.india.gov.in/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                       india.gov.in
+                    </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src={% static 'core_app/assets/img/success-stories/india.gov-hin.png' %}  class="d-block w-100" alt="Slide 2" />
+                    <a href="https://www.xn--i1bj3fqcyde.xn--11b7cb3a6a.xn--h2brj9c/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        इंडिया.सरकार.भारत
+                    </div>
+                    </a>
+                  </div>
+                </div>
+
+                <a
+                class="carousel-control-prev1"
+                href="#myCarousel3"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev1-icon"></span>
+              </a>
+              <a
+                class="carousel-control-next1"
+                href="#myCarousel3"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next1-icon"></span>
+              </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-sm-12">
+            <div id="myCarousel4" class="carousel slide">
+
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner success-story-card">
+                    
+                  <div class="website-name pb-3">
+                    NIC(Nation Informatics Center)
+                  </div>
+
+                  <div class="carousel-item active">
+                    <img src={% static 'core_app/assets/img/success-stories/nic-eng.png' %}  class="d-block w-100" alt="Slide 1" />
+                    <a href="https://www.nic.in/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        nic.in
+                    </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src={% static 'core_app/assets/img/success-stories/nic-hin.png' %}  class="d-block w-100" alt="Slide 2" />
+                    <a href="https://xn--m1bet4hqd2b.xn--h2brj9c/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        एनआईसी.भारत
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <a
+                class="carousel-control-prev1"
+                href="#myCarousel4"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev1-icon"></span>
+              </a>
+              <a
+                class="carousel-control-next1"
+                href="#myCarousel4"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next1-icon"></span>
+              </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+            <div id="myCarousel5" class="carousel slide">
+
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner success-story-card">
+                    
+                  <div class="website-name pb-3">
+                    IRINN(Indian registry for Internet Names and Numbers)
+                  </div>
+
+                  <div class="carousel-item active">
+                    <img src={% static 'core_app/assets/img/success-stories/irinn-eng.png' %}  class="d-block w-100" alt="Slide 1" />
+                    <a href="https://irinn.in/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        irinn.in
+                    </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src={% static 'core_app/assets/img/success-stories/irinn-hin.png' %}  class="d-block w-100" alt="Slide 2" />
+                    <a href="https://xn--m1be0h5a5e.xn--h2brj9c/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        आइरिन.भारत
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <a
+                class="carousel-control-prev1"
+                href="#myCarousel5"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev1-icon"></span>
+              </a>
+              <a
+                class="carousel-control-next1"
+                href="#myCarousel5"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next1-icon"></span>
+              </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+            <div id="myCarousel6" class="carousel slide">
+
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner success-story-card">
+                    
+                  <div class="website-name pb-3">
+                    STPI(Software Technology parks of India)
+                  </div>
+
+                  <div class="carousel-item active">
+                    <img src={% static 'core_app/assets/img/success-stories/stpi-eng.png' %}  class="d-block w-100" alt="Slide 1" />
+                    <a href="https://stpi.in/en/home">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        stpi.in
+                    </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src={% static 'core_app/assets/img/success-stories/stpi-hin.png' %}  class="d-block w-100" alt="Slide 2" />
+                    <a href="https://xn--m1bet8dtc8dtcb.xn--h2brj9c/hi">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        एमईआईटीवाई.सरकार.भारत
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <a
+                class="carousel-control-prev1"
+                href="#myCarousel6"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev1-icon"></span>
+              </a>
+              <a
+                class="carousel-control-next1"
+                href="#myCarousel6"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next1-icon"></span>
+              </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-sm-12">
+            <div id="myCarousel7" class="carousel slide">
+
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner success-story-card">
+                    
+                  <div class="website-name pb-3">
+                    Vikaspedia
+                  </div>
+
+                  <div class="carousel-item active">
+                    <img src={% static 'core_app/assets/img/success-stories/vikaspedia-eng.png' %}  class="d-block w-100" alt="Slide 1" />
+                    <a href="https://vikaspedia.in/InDG">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                      vikaspedia.in
+                    </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src={% static 'core_app/assets/img/success-stories/vikaspedia-hin.png' %}  class="d-block w-100" alt="Slide 2" />
+                    <a href="https://हिन्दी.विकासपीडिया.भारत/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        हिन्दी.विकासपीडिया.भारत
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <a
+                class="carousel-control-prev1"
+                href="#myCarousel7"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev1-icon"></span>
+              </a>
+              <a
+                class="carousel-control-next1"
+                href="#myCarousel7"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next1-icon"></span>
+              </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+            <div id="myCarousel8" class="carousel slide">
+
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner success-story-card">
+                    
+                  <div class="website-name pb-3">
+                    CDAC (Center of Development and Advance Computing)
+                  </div>
+
+                  <div class="carousel-item active">
+                    <img src={% static 'core_app/assets/img/success-stories/cdac-eng.png' %}  class="d-block w-100" alt="Slide 1" />
+                    <a href="https://cdac.in/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        cdac.in
+                    </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src={% static 'core_app/assets/img/success-stories/cdac-hindi.png' %}  class="d-block w-100" alt="Slide 2" />
+                    <a href="https://xn--11bx2e6a3b.xn--h2brj9c/index.aspx">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        सीडैक.भारत
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <a
+                class="carousel-control-prev1"
+                href="#myCarousel8"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev1-icon"></span>
+              </a>
+              <a
+                class="carousel-control-next1"
+                href="#myCarousel8"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next1-icon"></span>
+              </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+            <div id="myCarousel9" class="carousel slide">
+
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner success-story-card">
+                    
+                  <div class="website-name pb-3">
+                    IIGF(India Internet Governance Forum)
+                  </div>
+
+                  <div class="carousel-item active">
+                    <img src={% static 'core_app/assets/img/success-stories/indiaigf-eng.png' %}  class="d-block w-100" alt="Slide 1" />
+                    <a href="https://indiaigf.in/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        Indiaigf.in
+                    </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src={% static 'core_app/assets/img/success-stories/indiaigf-hin.png' %}  class="d-block w-100" alt="Slide 2" />
+                    <a href="https://xn--m1bafb9a3e4e8g.xn--h2brj9c/">
+                    <div class="visit-link">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        आईआईजीएफ.भारत
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <a
+                class="carousel-control-prev1"
+                href="#myCarousel9"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev1-icon"></span>
+              </a>
+              <a
+                class="carousel-control-next1"
+                href="#myCarousel9"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next1-icon"></span>
+              </a>
+            </div>
+        </div>
+    </div>
+    
+      
+</div>
+
+{% endblock %}

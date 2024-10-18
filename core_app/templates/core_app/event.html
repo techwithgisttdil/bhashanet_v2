@@ -1,0 +1,203 @@
+{% extends 'core_app/base.html' %} 
+{% load static %}
+<!-- EVENT -->
+{% block event %} 
+
+<div class="card-box ua-card-header--bg-blk" id="main-content">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 col-12">
+            <div class="ua-small-info-box">
+               <div class="horizontal-rule">
+                  <h1 class=" h2 heading4">Events</h1>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="breadcrumb-bar">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 col-12">
+            <div class="breadcrumb-list">
+               <nav aria-label="breadcrumb" class="page-breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                     <li class="breadcrumb-item" aria-current="page">Event</li>
+                  </ol>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="help-sec" id="main-content">
+<div class="container mt-2">
+   <!-- Nav tabs -->
+   <ul class="nav nav-tabs" role="tablist" aria-label="frequenlty-asked-questions">
+      <li class="nav-item">
+         <a class="nav-link active h5 fw-bold" data-bs-toggle="tab" href="#event1"><i class="fa fa-suitcase" aria-hidden="true"></i> Upcoming Events</a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link h5 fw-bold" data-bs-toggle="tab" href="#event2"><i class="fa fa-suitcase" aria-hidden="true"></i> Past Event</a>
+      </li>
+   </ul>
+   <!-- Tab panes -->
+   <div class="tab-content">
+      <div id="event1" class="container tab-pane active">
+         <br>
+         <div class="row">
+             {% comment %} <div class="col-lg-12">
+               <h2 class="h4 p-4 mb-5">No upcoming event' %}</h2>
+            </div>  {% endcomment %}
+
+            <div class="card2 card shadow-lg" style="max-width: 100%;">
+               <div class="row g-3 align-items-center">
+                  <div class="col-sm-12 col-lg-3 text-center">
+                     <img src="{% static 'core_app/assets/img/ficci.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-50 mx-auto">
+                  </div>
+                  <div class="col-sm-12 col-lg-9">
+                     <div class="card-body">
+                   
+                           <h4 class="mb-2">Empowering Entrepreneurs: Navigating Success with Universal Acceptance and Email Address Internationalization FICCI</h4>
+                           <h6 class="mb-1"></h6>
+                       
+                        <p class="card-text mt-2">
+                           To be held on 12 April 2024, Jaipur (Rajasthan) India
+                           {% comment %} <span class="fw-bold">Event Date : </span> 12 April 2024 {% endcomment %}
+                        </p>
+                        {% comment %} <p>
+                           Mode : Virtual" %}  
+                        </p> {% endcomment %}
+                        <p>
+                           <a href="https://uasg.tech/ua-day/" onclick="return myFunction();" class="btn btn-primary my-2" target="_blank">Click Here For Details</a>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div> 
+
+         </div>
+      </div>
+      <div id="event2" class="container tab-pane fade">
+
+         <br>
+         <div class="card2 card shadow-lg" style="max-width: 100%;">
+            <div class="row g-3 align-items-center">
+               <div class="col-sm-12 col-lg-3 text-center">
+                  <img src="{% static 'core_app/assets/img/uasg-sticky-logo1.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-75 mx-auto">
+               </div>
+               <div class="col-sm-12 col-lg-9">
+                  <div class="card-body">
+                
+                        <h3 class="mb-2">UASG Announces Call for Proposals for UA Day 2024</h3>
+                        <h6 class="mb-1">"The Universal Acceptance Steering Group (UASG) is calling for event proposals for the second annual Universal Acceptance (UA) Day to be held on 28 March 2024."</h6>
+                    
+                     <p class="card-text mt-2">
+                        {% comment %} To be held on May 09, 2023" %}<span class=""> &emsp; Time - 03:00 PM - 04:10 PM" %} </span> {% endcomment %}
+                        <span class="fw-bold">Last Date To Submit Proposal : </span> 15 December 2023
+                     </p>
+                     {% comment %} <p>
+                        Mode : Virtual" %}  
+                     </p> {% endcomment %}
+                     <p>
+                        {% comment %} <a href="https://uasg.tech/2023/11/uasg-announces-call-for-proposals-for-ua-day-2024/" onclick="return myFunction();" class="btn btn-primary my-2" target="_blank">Click Here For Details' %}</a> {% endcomment %}
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div> 
+         <div class="card2 card shadow-lg" style="max-width: 100%;">
+            <div class="row g-3 align-items-center">
+               <div class="col-sm-12 col-lg-3 text-center">
+                  <img src="{% static 'core_app/assets/img/ficci.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-50 mx-auto">
+               </div>
+               <div class="col-sm-12 col-lg-9">
+                  <div class="card-body">
+                
+                        <h3 class="mb-2">FICCI ILIA and Local India UA Chapter Future Skilling Session </h3>
+                        <h6 class="mb-1">"Universal Acceptance: A Key to Unlocking Growth Opportunities for Startups and MSMEs"</h6>
+                    
+                     <p class="card-text">
+                        To be held on May 09, 2023<span class=""> &emsp; Time - 03:00 PM - 04:10 PM</span>
+                     </p>
+                     <p>
+                        Mode : Virtual  
+                     </p>
+                     {% comment %} <p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHOOkuqXyabM6C_MTabRcR1tPVeZcyqvxPoHy0AR-RUJJZ6w/viewform" onclick="return myFunction();" class="btn btn-primary my-2" target="_blank">Register Here' %}</a>
+                     </p> {% endcomment %}
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="card2 card shadow-lg" style="max-width: 100%;">
+            <div class="row g-3 align-items-center">
+               <div class="col-sm-12 col-lg-3 text-center">
+                  <img src="{% static 'core_app/assets/img/ficci.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-50 mx-auto">
+               </div>
+               <div class="col-sm-12 col-lg-9">
+                  <div class="card-body">
+                     {% comment %} <a href="https://globaluaday.in" target="_blank"> {% endcomment %}
+                        <h3 class="mb-2">Local India UA Chapter Technical Training Workshop</h3>
+                        <h6 class="mb-1">Bridging the Language Gap with Universal Acceptance and it's Capacity building</h6>
+                     {% comment %} </a> {% endcomment %}
+                     <p class="card-text">
+                        Held on April 25, 2023 <span class=""> &emsp; Time - 03:00 PM - 04:30 PM </span>
+                     </p>
+                     <p>
+                        Mode : Virtual
+                     </p>
+                     {% comment %} <p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScOpS9Oz_ucAIGpmZCAWvk-B3LQaHGIu6tO7h1m-3NJDhZbJA/viewform" onclick="return myFunction();" class="btn btn-primary my-2" target="_blank">Register Here' %}</a>
+                     </p> {% endcomment %}
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="card2 card shadow-lg" style="max-width: 100%;">
+            <div class="row g-3 align-items-center">
+               <div class="col-sm-12 col-lg-3 text-center">
+                  <img src="{% static 'core_app/assets/img/uasg-sticky-logo1.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-75 mx-auto">
+               </div>
+               <div class="col-sm-12 col-lg-9">
+                  <div class="card-body">
+                     <a href="https://forms.gle/EXFLNmofRNEXZTUn9" target="_blank">
+                        <h3 class="card-title">Universal Acceptance (UA) Day-23</h3>
+                     </a>
+                     <p class="card-text">
+                        Held on March 27-28, 2023
+                        <!-- The day will consist of UA training, awareness, and strategy 
+                           sessions held by the Universal Acceptance Steering Group (UASG), ICANN, global partners, and regional and local organizations. -->
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="card2 card shadow-lg" style="max-width: 100%;">
+            <div class="row g-3 align-items-center">
+               <div class="col-sm-12 col-lg-3 text-center">
+                  <img src="{% static 'core_app/assets/img/ficci.png' %}" alt="This Infographics shows how universal acceptance works" class="img-fluid py-2 w-50 mx-auto">
+               </div>
+               <div class="col-sm-12 col-lg-9">
+                  <div class="card-body">
+                     <a href="https://globaluaday.in" target="_blank">
+                        <h3 class="card-title">Multilingual Internet for Women in India</h3>
+                     </a>
+                     <p class="card-text">
+                        <h6 class="mb-1">FICCI's Indian Language internet Alliance (FICCI-ILIA) Session on Digital Inclusion (Multilingual Internet for Women in India) on 22nd November 2023, 03:00 PM - 04:00 PM. Join us and be a part of creating a more inclusive and connected digital enviornment in India.</h6>
+                        Held on 22nd November 2023, 03:00 PM - 04:00 PM
+                        <!-- The day will consist of UA training, awareness, and strategy 
+                           sessions held by the Universal Acceptance Steering Group (UASG), ICANN, global partners, and regional and local organizations. -->
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}
