@@ -451,7 +451,7 @@ def idn_websites(request, id):
             last_updated_date.append({"web": web.IDNReadyWebsites_Title, "date": max(temp_list), "urls": urls})
             
  
-
+    print("IDN Websites URL Mapping",page_object )
     return render(request, 'core_app/idn_ready_websites.html',{'success_stories': success_stories, 'form': form, 'idn_websites': idn_websites, 'page':page_object, 'paginator':paginator, 'selected_languages':selected_languages, 'selected_categories': selected_categories, 'last_updated_date':last_updated_date})
     # else:
     #     path=''

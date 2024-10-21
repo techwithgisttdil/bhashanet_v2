@@ -665,11 +665,11 @@ def dashboard(request):
 @login_required
 def dashboard2(request):
    
-    English_Domain_total_records = English_Domain.objects.using('dashboard').count()
-    URL_dashboard_total_records = URL_dashboard.objects.using('dashboard').count()
-    URL_dashboard_total_records_governmnet = English_Domain.objects.using('dashboard').filter(category__category_name="Government").count()
-    URL_dashboard_total_records_private = English_Domain.objects.using('dashboard').filter(category__category_name="Private").count()
-    URL_dashboard_obj = URL_dashboard.objects.using('dashboard').all().order_by('-id')
+    English_Domain_total_records = English_Domain.objects.all().count()
+    URL_dashboard_total_records = URL_dashboard.objects.all().count()
+    URL_dashboard_total_records_governmnet = English_Domain.objects.filter(category__category_name="Government").count()
+    URL_dashboard_total_records_private = English_Domain.objects.filter(category__category_name="Private").count()
+    URL_dashboard_obj = URL_dashboard.objects.all().order_by('-id')
 
     # Count occurrences of True and False in idn_domain_running_status
     running_counts_domain = URL_dashboard_obj.values_list('idn_domain_running_status', flat=True)
@@ -696,7 +696,7 @@ def dashboard2(request):
     # Define your predefined set of languages
     predefined_languages = ['Hindi', 'Marathi', 'Bengali', 'Malayalam','Tamil','Telugu','Odia','Sanskrit','Kannada','Punjabi','Gujarati','Manipuri','Assamese','Bodo','Santhali','Dogri','Kashmiri','Maithili','Nepali','Sindhi','Urdu']  # Add your predefined languages here
 
-    language_counts = URL_dashboard.objects.using('dashboard').values('Language__language_name').annotate(count=Count('Language'))
+    language_counts = URL_dashboard.objects.values('Language__language_name').annotate(count=Count('Language'))
     
     # Create a dictionary with predefined languages, initializing counts to zero
     language_dict = {language: 0 for language in predefined_languages}
@@ -727,7 +727,7 @@ def dashboard2(request):
     #Prepare data for category distribution chart
 
     # Count the number of English domains in each category
-    category_counts = English_Domain.objects.using('dashboard').values('category__category_name').annotate(count=Count('id'))
+    category_counts = English_Domain.objects.values('category__category_name').annotate(count=Count('id'))
 
     # Prepare data for the chart
     distribution_categories = []
@@ -739,7 +739,7 @@ def dashboard2(request):
 
     ## Remark Data Chart Starts
     # Retrieve all records from URL_dashboard
-    records = URL_dashboard.objects.using('dashboard').all()
+    records = URL_dashboard.objects.all()
 
     # Initialize a Counter to count occurrences of each language
     language_counter = Counter()
@@ -766,7 +766,7 @@ def dashboard2(request):
     
     ##Content Languages Chart Starts 
     # Retrieve all records from URL_dashboard
-    records = URL_dashboard.objects.using('dashboard').all()
+    records = URL_dashboard.objects.all()
 
     # Initialize a Counter to count occurrences of each language
     language_counter = Counter()
@@ -786,7 +786,7 @@ def dashboard2(request):
     
     ##########################################################33
     # Retrieve all records
-    records = URL_dashboard.objects.using('dashboard').all()
+    records = URL_dashboard.objects.all()
 
     # Extract the content language from each record
     content_languages_obj = records.values_list('content_language', flat=True)

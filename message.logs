@@ -40,3 +40,28 @@ views.py [ 1199 ] -->admin_login view called
 views.py [ 1204 ] -->POST Method Called
 views.py [ 1207 ] -->Form is Valid 
 views.py [ 1212 ] -->user is not None and user is_staff
+views.py [ 1199 ] -->admin_login view called 
+views.py [ 1224 ] -->GET Method Called
+views.py [ 1199 ] -->admin_login view called 
+views.py [ 1204 ] -->POST Method Called
+views.py [ 1207 ] -->Form is Valid 
+views.py [ 1212 ] -->user is not None and user is_staff
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 693 ] --> SSL Statistics are [0, 0]
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 693 ] --> SSL Statistics are [0, 0]
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 693 ] --> SSL Statistics are [0, 0]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 763 ] -->Records are --->[][]
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 693 ] --> SSL Statistics are [0, 0]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 763 ] -->Records are --->[][]
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 693 ] --> SSL Statistics are [0, 0]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 763 ] -->Records are --->[][]
