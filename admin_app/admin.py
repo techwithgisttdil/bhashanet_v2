@@ -8,16 +8,15 @@ admin.site.register(language_list)
 admin.site.register(URL_dashboard)
 admin.site.register(BulkEmail)
 admin.site.register(BulkEmailAttachments)
-    
+
+
+# Below Modules are for User and Blog related     
 admin.site.register(UserProfile)
 admin.site.register(UserRole)
 admin.site.register(UserRoleMapping)
 admin.site.register(CustomForgotPassword)
-
 admin.site.register(OTP_For_UserRegistration)
-
 admin.site.register(BlogCategory)
-
 
 @admin.register(Blog)
 class AdminDocumentWithoutTrans(admin.ModelAdmin):

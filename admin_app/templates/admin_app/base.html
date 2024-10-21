@@ -15,32 +15,32 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
 
     <!-- Include jQuery -->
-    <script src="{% static 'core_app/js/jquery.min.js' %}"></script>
+    <script src="{% static 'admin_app/js/jquery.min.js' %}"></script>
 
     <!-- Pignose Calender -->
-    <link href="{% static 'core_app/plugins/pg-calendar/css/pignose.calendar.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'admin_app/plugins/pg-calendar/css/pignose.calendar.min.css' %}" rel="stylesheet" />
 
     <!-- Chartist -->
-    <link rel="stylesheet" href="{% static 'core_app/plugins/chartist/css/chartist.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'core_app/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css' %}" />
+    <link rel="stylesheet" href="{% static 'admin_app/plugins/chartist/css/chartist.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'admin_app/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css' %}" />
 
     <!-- Custom Stylesheet -->
-    <link href="{% static 'core_app/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'admin_app/css/style.css' %}" rel="stylesheet" />
 
     <!-- Dashboard2 Datatable CSS Files -->
-    <link href="{% static 'core_app/css/datatable/dataTables.dataTables.css' %}" rel="stylesheet" />
-    <link href="{% static 'core_app/css/datatable/buttons.dataTables.css' %}" rel="stylesheet" />
+    <link href="{% static 'admin_app/css/datatable/dataTables.dataTables.css' %}" rel="stylesheet" />
+    <link href="{% static 'admin_app/css/datatable/buttons.dataTables.css' %}" rel="stylesheet" />
 
     <!-- Dashboard2 Datatable Buttons JS Files -->
-    <script src="{% static 'core_app/js/datatable/dataTables.js' %}"></script>
-    <script src="{% static 'core_app/js/datatable/dataTables.buttons.js' %}"></script>
-    <script src="{% static 'core_app/js/datatable/buttons.dataTables.js' %}"></script>
-    <script src="{% static 'core_app/js/datatable/jszip.min.js' %}"></script>
-    <script src="{% static 'core_app/js/datatable/buttons.html5.min.js' %}"></script>
-    <script src="{% static 'core_app/js/datatable/buttons.print.min.js' %}"></script>
+    <script src="{% static 'admin_app/js/datatable/dataTables.js' %}"></script>
+    <script src="{% static 'admin_app/js/datatable/dataTables.buttons.js' %}"></script>
+    <script src="{% static 'admin_app/js/datatable/buttons.dataTables.js' %}"></script>
+    <script src="{% static 'admin_app/js/datatable/jszip.min.js' %}"></script>
+    <script src="{% static 'admin_app/js/datatable/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'admin_app/js/datatable/buttons.print.min.js' %}"></script>
 
     <!-- Chartjs -->
-    <script src="{% static 'core_app/./plugins/chart.js/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'admin_app/plugins/chart.js/Chart.bundle.min.js' %}"></script>
   </head>
 
   <body>
@@ -56,11 +56,11 @@
 
     <!-- ***********Main wrapper Starts ************* -->
     <div id="main-wrapper">
-      {% include 'dashboard/navbar.html' %}
+      {% include 'admin_app/navbar.html' %}
 
-      {% include 'dashboard/topbar.html' %}
+      {% include 'admin_app/topbar.html' %}
 
-      {% include 'dashboard/sidebar.html' %}
+      {% include 'admin_app/sidebar.html' %}
 
       <!-- ***********Content body starts************* -->
       <div class="content-body">
@@ -141,10 +141,10 @@
       </div>
       <!-- ***********Content body end************* -->
 
-      {% include 'dashboard/footer.html' %}
+      {% include 'admin_app/footer.html' %}
     </div>
     <!-- ***********Main wrapper Ends ************* -->
 
-    {% include 'dashboard/footer_jsfiles.html' %}
+    {% include 'admin_app/footer_jsfiles.html' %}
   </body>
 </html>

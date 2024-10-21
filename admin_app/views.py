@@ -73,15 +73,15 @@ def login_view(request):
                            
                             if user_role_obj.Role_Id.Role_Name == 'nixi_admin':
                                 print("Nixi admin")
-                                return redirect('dashboard:dashboard2')
+                                return redirect('admin_app:dashboard2')
                             elif user_role_obj.Role_Id.Role_Name == 'ficci_admin':
                                 print("Ficci admin")
-                                return redirect('dashboard:dashboard2')
+                                return redirect('admin_app:dashboard2')
                             elif user_role_obj.Role_Id.Role_Name == 'main_admin':
                                 print("main admin")
-                                return redirect('dashboard:dashboard2')
+                                return redirect('admin_app:dashboard2')
                             elif user_role_obj.Role_Id.Role_Name == 'DjangoSuperAdmin':
-                                return redirect('dashboard:dashboard2')
+                                return redirect('admin_app:dashboard2')
                             else:
                                 return redirect('home')
                         except:
@@ -210,7 +210,7 @@ def verify_user_otp(request,email):
                 otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=email)
                 otp_user_obj.OTP_Status=True
                 messages.success(request, "OTP Verified, Now user can login ", extra_tags="success")
-                return redirect("dashboard:dashboard2")
+                return redirect("admin_app:dashboard2")
             else:
                 messages.error(request, "Failed OTP Verification", extra_tags='danger')
                 return render(request, "core_app/user/otp_form.html", {'form': otp_form})
@@ -386,7 +386,7 @@ def forgot_password_view(request):
 # Used for re creating new password after forgoting the password
 def password_creation_view(request, uid, token):
     if request.user.is_authenticated:
-        return redirect("dashboard:dashboard2")
+        return redirect("admin_app:dashboard2")
     form = PasswordCreationForm()
     print(uid, token,"============================================")
     # print(urlsafe_base64_decode(uid).decode())
@@ -484,7 +484,7 @@ def user_profile_view(request):
             form.instance.UserProfile_user = user_obj
             form.save()
             messages.success(request, "Profile Updated Successfully", extra_tags="success")
-            return redirect('dashboard:dashboard2')
+            return redirect('admin_app:dashboard2')
         else:
             print("Invalid User profile", form.errors)
         
@@ -497,7 +497,7 @@ def user_profile_view(request):
 # Create your views here.
 @login_required
 def home(request):
-    return redirect('dashboard:admin_login')
+    return redirect('admin_app:admin_login')
 
 # -----ADDED BY SANJAYB -------
 
@@ -553,16 +553,16 @@ def idn_domain_forms(request):
                         logs(f"Calling Celery Functions to Check and Update parameters")
                         update_domain_parameters.delay(unicode_domain)
                         #######################################################
-                        return redirect('dashboard:dashboard2')
+                        return redirect('admin_app:dashboard2')
                     else:
                         messages.info(request,"Entered IDN domain already exists !!")
-                        return redirect('dashboard:idn_domain_forms')
+                        return redirect('admin_app:idn_domain_forms')
                 else:
                     #log(request,f"Please enter valid details")
-                    return render(request,'dashboard/idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj,'English_Domain_Form_obj':English_Domain_Form_obj})
+                    return render(request,'admin_app/idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj,'English_Domain_Form_obj':English_Domain_Form_obj})
             except Exception as e:
                 messages.error(request, f"An error occurred: {e}")
-                return redirect('dashboard:idn_domain_forms')
+                return redirect('admin_app:idn_domain_forms')
                 
         elif form_type == 'ENGDOMAINFORM':
             logs(f"POST Request is coming from English Domain Form")
@@ -573,17 +573,17 @@ def idn_domain_forms(request):
                     English_Domain_Form_obj.save()
                     messages.success(request, 'Domain Added Successfully ')
                     logs(f"Domain Added Successfully")
-                    return redirect('dashboard:idn_domain_forms')
+                    return redirect('admin_app:idn_domain_forms')
                 else:
                     #log(request,f"Please enter valid details")
                     logs(f"English_Domain_Form_obj is not valid")
-                    return render(request,'dashboard/idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj,'English_Domain_Form_obj':English_Domain_Form_obj})
+                    return render(request,'admin_app/idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj,'English_Domain_Form_obj':English_Domain_Form_obj})
             except Exception as e:
                 messages.error(request, f"An error occurred: {e}")
                 logs(f"Exception : An error occurred:")
-                return redirect('dashboard:idn_domain_forms')
+                return redirect('admin_app:idn_domain_forms')
     else:
-        return render(request, 'dashboard/idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj,'English_Domain_Form_obj':English_Domain_Form_obj})
+        return render(request, 'admin_app/idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj,'English_Domain_Form_obj':English_Domain_Form_obj})
     
 #--------Added By Sanjayb-------
 @login_required
@@ -659,7 +659,7 @@ def dashboard(request):
         'distribution_counts': distribution_counts
 
         }
-    return render(request, 'dashboard/dashboard.html', context)    
+    return render(request, 'admin_app/dashboard.html', context)    
 
 #--------Added By Sanjayb-------
 @login_required
@@ -829,7 +829,7 @@ def dashboard2(request):
         'content_language_proportions_data':content_language_proportions_data
         
         }
-    return render(request, 'dashboard/dashboard2.html', context)  
+    return render(request, 'admin_app/dashboard2.html', context)  
 
 #--------Added By Sanjayb-------
 @login_required
@@ -858,14 +858,14 @@ def email_compose(request):
                         context = {
                         'BulkEmail_Form_obj':BulkEmail_Form_obj
                         }
-                        return render(request, 'dashboard/email_compose.html',context)
+                        return render(request, 'admin_app/email_compose.html',context)
             # Process Email Sending Function
             logs(f" Passing id in celery Function as {BulkEmail_instance.id}")
             Send_Bulk_Email.delay(BulkEmail_instance.id)
             
             messages.success(request,"Sending Email Process Initiated")
             logs(f" Sending Email Process Completed Successfully")
-            return redirect('dashboard:sent_email_view')
+            return redirect('admin_app:sent_email_view')
         else:
             logs(f"Bulk Email Form Data is not valid ")
             logs(f"{BulkEmail_Form_obj.errors}")
@@ -873,28 +873,28 @@ def email_compose(request):
             context = {
             'BulkEmail_Form_obj':BulkEmail_Form_obj
             }
-            return render(request, 'dashboard/email_compose.html',context)
+            return render(request, 'admin_app/email_compose.html',context)
     else:
         logs(f"Bulk Mail GET Method ")
         BulkEmail_Form_obj = BulkEmail_Form()
         context = {
             'BulkEmail_Form_obj':BulkEmail_Form_obj
             }
-        return render(request, 'dashboard/email_compose.html',context)
+        return render(request, 'admin_app/email_compose.html',context)
         
 #--------Added By Sanjayb-------
 @login_required  
 def sent_email_view(request):
     logs(f"Calling sent_email_view view")
     BulkEmail_obj = BulkEmail.objects.all()
-    return render(request,'dashboard/sent_email_view.html',{'BulkEmail_obj':BulkEmail_obj})
+    return render(request,'admin_app/sent_email_view.html',{'BulkEmail_obj':BulkEmail_obj})
    
 #--------Added By Sanjayb-------
 @login_required
 def sent_email_view_detail(request,id):
     logs(f"Calling sent_email_view_detail view")
     BulkEmail_obj = BulkEmail.objects.get(id=id)
-    return render(request,'dashboard/sent_email_view_detail.html',{"BulkEmail_obj":BulkEmail_obj})
+    return render(request,'admin_app/sent_email_view_detail.html',{"BulkEmail_obj":BulkEmail_obj})
 
 #--------Added By Sanjayb-------
 
@@ -918,7 +918,7 @@ def refresh_domain_parameters(request,id):
     logs(f" Calling Refresh Function For {unicode_domain}")
     update_domain_parameters.delay(unicode_domain)
     messages.success(request,"Parameters are being updated. Please wait and refresh after 60 seconds.")
-    return redirect('dashboard:dashboard2')
+    return redirect('admin_app:dashboard2')
 
 
 #-----Added By Sanjay Bhargava------
@@ -969,22 +969,22 @@ def edit_idn_domain_forms(request,id):
                 logs(f"Calling Celery Functions to Check and Update parameters")
                 update_domain_parameters.delay(unicode_domain)
                 #######################################################
-                return redirect('dashboard:dashboard2')
+                return redirect('admin_app:dashboard2')
             else:
                 logs("Please provide correct details.")
                 messages.error(request,"Please provide correct details.")
-                return render(request,'dashboard/edit_idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj})
+                return render(request,'admin_app/edit_idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj})
         else:
             logs("No changes Detected")
             messages.info(request,"No changes Detected.")
-            # return render(request,'dashboard/edit_idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj})
-            return render(request,'dashboard/edit_idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj})
+            # return render(request,'admin_app/edit_idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj})
+            return render(request,'admin_app/edit_idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj})
     else:
         logs("In views.py File -- > In else Request ")
         URL_dashboard_instance = URL_dashboard.objects.get(id=id)
         idn_dashboard_form_obj = idn_dashboard_form(instance=URL_dashboard_instance)
         logs(f"in views.py file -- Updating Details for id {id}")
-        return render(request,'dashboard/edit_idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj})
+        return render(request,'admin_app/edit_idn_domain_forms.html', {'idn_dashboard_form_obj': idn_dashboard_form_obj})
         
         
         #-----Added By Sanjay Bhargava------
@@ -1005,7 +1005,7 @@ def show_logs(request):
     file_content.reverse()
 
     # Render the template with the file content
-    return render(request, 'dashboard/show_logs.html', {'file_content': file_content}) 
+    return render(request, 'admin_app/show_logs.html', {'file_content': file_content}) 
 
 #-----Added By Sanjay Bhargava------
 @login_required 
@@ -1018,7 +1018,7 @@ def clear_logs(request):
         file.write('')  # Writing an empty string clears the file content
     
     # Redirect back to the page displaying the file content
-    return redirect('dashboard:show_logs')
+    return redirect('admin_app:show_logs')
 
 #-----Added By Sanjay Bhargava------
 
@@ -1037,7 +1037,7 @@ def show_logs_last(request):
             file_content.append(line.strip())
 
     # Render the template with the last 50 lines of the file content
-    return render(request, 'dashboard/show_logs.html', {'file_content': file_content}) 
+    return render(request, 'admin_app/show_logs.html', {'file_content': file_content}) 
 
 #-----Added By Sanjay Bhargava------
 @login_required 
@@ -1168,29 +1168,29 @@ def upload_excel(request):
 
             #########################################################################################################
             messages.success(request,"File Uploaded Successfully")
-            return render(request,'dashboard/upload_excel_file.html',{'ExcelUploadForm_obj' : ExcelUploadForm_obj})
+            return render(request,'admin_app/upload_excel_file.html',{'ExcelUploadForm_obj' : ExcelUploadForm_obj})
         else:
             messages.error(request,"Invalid File")
             logs(f"views.py file---> {ExcelUploadForm_obj.errors}")
-            return render(request,'dashboard/upload_excel_file.html',{'ExcelUploadForm_obj' : ExcelUploadForm_obj})
+            return render(request,'admin_app/upload_excel_file.html',{'ExcelUploadForm_obj' : ExcelUploadForm_obj})
             
     else:
         logs(f" upload_excel file GET method calling")
         ExcelUploadForm_obj = ExcelUploadForm()
-        return render(request,'dashboard/upload_excel_file.html',{'ExcelUploadForm_obj' : ExcelUploadForm_obj})
+        return render(request,'admin_app/upload_excel_file.html',{'ExcelUploadForm_obj' : ExcelUploadForm_obj})
         
 #-----Added By Sanjay Bhargava------
 @login_required 
 def idn_domain_list(request):
     URL_dashboard_obj = URL_dashboard.objects.all().order_by('-id')
-    return render(request,'dashboard/idn_domain_list.html',{'URL_dashboard_obj':URL_dashboard_obj})
+    return render(request,'admin_app/idn_domain_list.html',{'URL_dashboard_obj':URL_dashboard_obj})
 
 
 #-----Added By Sanjay Bhargava------
 @login_required 
 def english_domain_list(request):
     English_Domain_obj = English_Domain.objects.all().order_by('-id')
-    return render(request,'dashboard/english_domain_list.html',{'English_Domain_obj':English_Domain_obj})
+    return render(request,'admin_app/english_domain_list.html',{'English_Domain_obj':English_Domain_obj})
 
 #-----Added By Sanjay Bhargava------
 
@@ -1199,7 +1199,7 @@ def admin_login(request):
     logs("admin_login view called ")
     if request.user.is_authenticated and request.user.is_staff:
         logs("Admin is already login")
-        return redirect('dashboard:dashboard2')
+        return redirect('admin_app:dashboard2')
     if request.method == 'POST':
         logs("POST Method Called")
         form = AdminLoginForm(request.POST)
@@ -1211,29 +1211,29 @@ def admin_login(request):
             if user is not None and user.is_staff:
                 logs("user is not None and user is_staff")
                 login(request, user)
-                return redirect('dashboard:dashboard2')  # Change this to your admin dashboard URL
+                return redirect('admin_app:dashboard2')  # Change this to your admin dashboard URL
             else:
                 logs("user is  None and user is not staff")
                 messages.error(request, 'Invalid username or password.')
-                return render(request,'dashboard/admin_login.html', {'form': form})
+                return render(request,'admin_app/admin_login.html', {'form': form})
         else:
             logs("Form is Not Valid ")
             messages.error(request, 'Invalid username or password.')
-            return render(request,'dashboard/admin_login.html', {'form': form})
+            return render(request,'admin_app/admin_login.html', {'form': form})
     else:
         logs("GET Method Called")
         form = AdminLoginForm()
         print("page will render")
-    return render(request,'dashboard/admin_login.html', {'form': form})
+    return render(request,'admin_app/admin_login.html', {'form': form})
 
 #-----Added By Sanjay Bhargava------
 @login_required 
 def admin_logout(request):
     if request.user.is_authenticated and request.user.is_staff:
         logout(request)
-        return redirect('dashboard:admin_login')  # Redirect to the login page after logging out
+        return redirect('admin_app:admin_login')  # Redirect to the login page after logging out
     else:
-        return redirect('dashboard:admin_login')
+        return redirect('admin_app:admin_login')
         
 
 #-------- Added By Sanjay Bhargava--------

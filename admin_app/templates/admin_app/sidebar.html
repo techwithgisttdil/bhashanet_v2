@@ -7,7 +7,7 @@
   <div class="nk-nav-scroll">
     <ul class="metismenu" id="menu">
       <li>
-        <a href="{% url 'dashboard:dashboard2' %}" aria-expanded="false">
+        <a href="{% url 'admin_appdashboard2' %}" aria-expanded="false">
           <i class="fa fa-tachometer menu-icon"></i>
           <span class="nav-text">Dashboard</span>
         </a>
@@ -20,16 +20,16 @@
         </a>
         <ul aria-expanded="false">
           <li>
-            <a href="{% url 'dashboard:idn_domain_forms' %}" aria-expanded="false">Add English/IDN Domain Record</a>
+            <a href="{% url 'admin_app:idn_domain_forms' %}" aria-expanded="false">Add English/IDN Domain Record</a>
           </li>
           <li>
-            <a href="{% url 'dashboard:upload_excel' %}" aria-expanded="false">Upload Excel</a>
+            <a href="{% url 'admin_app:upload_excel' %}" aria-expanded="false">Upload Excel</a>
           </li>
           <li>
-            <a href="{% url 'dashboard:idn_domain_list' %}" aria-expanded="false">List of IDN Domains</a>
+            <a href="{% url 'admin_app:idn_domain_list' %}" aria-expanded="false">List of IDN Domains</a>
           </li>
           <li>
-            <a href="{% url 'dashboard:english_domain_list' %}" aria-expanded="false">List of English Domains</a>
+            <a href="{% url 'admin_app:english_domain_list' %}" aria-expanded="false">List of English Domains</a>
           </li>
         </ul>
       </li>
@@ -77,10 +77,10 @@
         </a>
         <ul aria-expanded="false">
           <li>
-            <a href="{% url 'dashboard:sent_email_view' %}">Check Sent Emails</a>
+            <a href="{% url 'admin_app:sent_email_view' %}">Check Sent Emails</a>
           </li>
           <li>
-            <a href="{% url 'dashboard:email_compose' %}">Compose New Emails</a>
+            <a href="{% url 'admin_app:email_compose' %}">Compose New Emails</a>
           </li>
         </ul>
       </li>
@@ -92,13 +92,13 @@
         </a>
         <ul aria-expanded="false">
           <li>
-            <a href="{% url 'dashboard:clear_logs' %}">Clear Logs</a>
+            <a href="{% url 'admin_app:clear_logs' %}">Clear Logs</a>
           </li>
           <li>
-            <a href="{% url 'dashboard:show_logs' %}">Refresh Logs</a>
+            <a href="{% url 'admin_app:show_logs' %}">Refresh Logs</a>
           </li>
           <li>
-            <a href="{% url 'dashboard:show_logs_last' %}">Last 50 Lines Logs</a>
+            <a href="{% url 'admin_app:show_logs_last' %}">Last 50 Lines Logs</a>
           </li>
         </ul>
       </li>

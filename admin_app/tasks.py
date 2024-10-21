@@ -1,10 +1,14 @@
 
 from celery import shared_task
 import requests
+from .models import *
+from bhashanet_v2.logger import *
+from .helper import *    
 import environ
+
 env = environ.Env()
 environ.Env.read_env()
-from .models import *
+
 
 @shared_task
 def User_Registration_With_OTP(email):
