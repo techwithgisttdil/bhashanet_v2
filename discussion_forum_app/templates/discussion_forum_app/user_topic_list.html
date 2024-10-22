@@ -1,0 +1,144 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block user_topic_list %}
+
+<div>
+  <div class="card-box ua-card-header--bg-blk" id="main-content">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-12">
+             <div class="ua-small-info-box">
+                <div class="horizontal-rule">
+                   <h1 class=" h2 heading4">My Topics</h1>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-12 col-12">
+            <div class="breadcrumb-list">
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item" aria-current="page">My Topics</li>
+                  </ol>
+                </nav>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <div class="">
+      {% comment %} <header class="section-header" style="margin-top: 90px !important;">
+        <h2 class="fs-4">Discussion Topics</h2>
+      </header> {% endcomment %}
+      
+
+      {% if request.user.is_authenticated %}
+        <div class="row mb-4">
+          <div class="col-6">
+            <h5 class="text-start mb-4">
+              <a
+                class="text-white btn btn-info"
+                href="{% url 'topic_list' %}"
+                style="background-color: #1D3461; border-radius: 10px"
+                >Back to All Topics</a
+              >
+            </h5>
+          </div>
+          <div class="col-6">
+            <h5 class="text-end mb-4">
+              <a
+                class="text-white btn btn-info"
+                href="{% url 'add_topic' %}"
+                style="background-color: #1D3461; border-radius: 10px"
+                >Add New Topic
+              </a>
+            </h5>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if messages %} 
+        {% for message in messages %}
+        <div
+          class="my-2 p-2 ps-3 fs-6 fw-semibold alert alert-{{message.extra_tags}}"
+        >
+          {{message}}
+        </div>
+        {% endfor %} 
+      {% endif %}
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 col-md-12 col-sm-12">
+        <form method="get">
+          <div class="input-group ">
+            <input type="text" class="form-control" placeholder="Search by Topic" name="search_term" id="search_term_id" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+            <button class="btn btn-outline-danger" type="submit" id="button-addon2">Search</button>
+            {% if search_term %}
+            <div class="d-flex"><a href="{% url 'user_topic_list' %}" class="ms-3  btn btn-outline-primary">Clear Search</a></div>
+            {% endif %}
+          </div>
+        </form>
+      </div>
+    </div>
+    {% if all_topics %}
+    {% for topic in all_topics %}
+      <div class="card my-2">
+        <div class="card-body">
+          <h5 class="card-title">
+            {% comment %} <span class="fw-bold">Topic {{forloop.counter}} : </span> {% endcomment %}
+            <a class="text-decoration-none text-primary fw-bold" href="{% url 'view_topic_discussion' topic.topic_slug %}">{{topic.topic_name|capfirst}}</a>
+          </h5>
+          <div> 
+            <span class="fw-bold text-secondary">Posted By : </span> <small class="fw-bold text-danger"> {{user_profile.UserProfile_name|title}}</small>,
+            <span class="fw-bold text-secondary">Posted On : </span> <small class="fw-bold text-danger"> {{topic.creation_date|date:'d M Y'}}</small>, 
+            <span class="fw-bold text-secondary">Related Category : </span> <small class="fw-bold text-danger"> {{topic.topic_categories.category_name}}</small> </div>
+        </div>
+      </div>
+    {% endfor %}
+    
+    {% else %}
+    <h2 class="text-left fw-bold text-danger mt-4 mb-5">No Topics Found!</h2>
+    {% endif %}
+    <!-- List of topics ends here -->
+    <!-- start of pagination -->
+    <div class="text-center mt-4 my-4">
+      <span class="step-links">
+          {% if all_topics.has_previous %}
+              <a class="btn btn-warning" href='?search_term={{search_term}}&page=1'>&laquo; First</a>
+              <a class="btn btn-warning" href='?search_term={{search_term}}&page={{all_topics.previous_page_number}}'>Prev</a>
+          {% endif %}
+
+          {% if all_topics %}
+          <span class="">
+              Page {{ all_topics.number }} of {{ all_topics.paginator.num_pages }}.
+          </span>
+          {% endif %}
+
+          {% if all_topics.has_next %}
+              <a class="btn btn-warning" href='?search_term={{search_term}}&page={{all_topics.next_page_number}}'>Next</a>
+              <a class="btn btn-warning" href='?search_term={{search_term}}&page={{all_topics.paginator.num_pages}}'>Last &raquo;</a>
+          {% endif %}
+      </span>
+    </div><!-- End of Pagination -->
+  </div>
+</div>
+
+
+<script>
+  $(document).ready(function (){
+    console.log("Document is ready ... {{search_term}}");
+
+    $("#search_term_id").val("{{search_term}}")
+  })
+</script>
+
+{% endblock %}

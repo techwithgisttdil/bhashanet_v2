@@ -1,0 +1,233 @@
+{% extends 'core_app/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block view_topic_discussion %}
+
+<div>
+  <div class="card-box ua-card-header--bg-blk" id="main-content">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-12">
+             <div class="ua-small-info-box">
+                <div class="horizontal-rule">
+                   <h1 class=" h2 heading4">View Discussion</h1>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-12 col-12">
+            <div class="breadcrumb-list">
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a onclick="renderPathFunction('home'); return false;">Home</a></li>
+                    <li class="breadcrumb-item" aria-current="page">View Discussion</li>
+                  </ol>
+                </nav>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-100 mt-60">
+    <div class="">
+      {% if request.user.is_authenticated %}
+        <div class="row mb-4">
+          <div class="col-6">
+            <h5 class="text-start mb-4">
+              <a
+                class="text-white btn btn-info"
+                href="{% url 'topic_list' %}"
+                style="background-color: #1D3461; border-radius: 10px"
+                >Back To Topic List</a
+              >
+            </h5>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if messages %} 
+        {% for message in messages %}
+        <div
+          class="my-2 p-2 ps-3 fs-6 fw-semibold alert alert-{{message.extra_tags}}"
+        >
+          {{message}}
+        </div>
+        {% endfor %} 
+      {% endif %}
+    </div>
+
+    <!-- Topic Discussion Starts Here -->
+    <div class="card shadow px-lg-4 px-sm-2 py-3 mb-5 bg-body-tertiary rounded">
+      <div class="mb-4">
+        <span class='h5 fw-bold'>Topic : </span><span class="h5">{{topic_data.topic_name|capfirst}}</span>
+        <div class="h6 fw-bold text-secondary mt-2">
+          Posted by - <span class="text-danger">{{user_profile.UserProfile_name|title}}</span> 
+          on  <span class="text-danger"> {{topic_data.creation_date|date:'d M Y'}}</span>  
+        </div>
+        <div class="h6 fw-bold text-secondary mt-2">
+          Topic Realted To - <span class="text-primary">{{topic_data.topic_categories.category_name}}</span> 
+        </div>
+      </div>
+
+      <!-- Answer to topic section Starts Here -->
+      <form method='POST' class="mb-3" action={% url 'submit_answer' topic_data.topic_slug %}>
+        {% csrf_token %}
+        <div class="form-floating">
+          <textarea {% if not profile_updated %} disabled {% endif %} class="form-control" placeholder="Leave a comment here" id="floatingTextareaQuestion" name='answer'  style="height: 70px" required></textarea>
+          <label for="floatingTextarea2">Give Answer </label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3 custom-button1">Submit</button>
+      </form>
+      <!-- Answer to topic section Ends Here -->
+
+      <!-- all replies section Starts Here -->
+     <div class="fs-5 fw-semibold mb-2">Comments :-</div>
+     {% if not profile_updated %}
+     <div class="fw-bold h4 text-danger">** Please update your profile details to view the conversation.. **</div>
+     <div style="display: none">
+     {% else %}
+     <div>
+      {% endif %}
+     {% if answers %}
+        {% for ans in answers %}
+        {% with outer_counter=forloop.counter %}
+          <div class="mb-3">
+            <div class="shadow-none rounded py-2 ps-3" style="background-color: #ebefe8">
+              <span class="fw-bold text-primary">
+                {% if ans.answer.user_id == request.user %}
+                  <span class="text-danger">You</span>
+                {% else %}
+                  {{ans.answer.user_id.username}}
+                {% endif %}
+              </span>
+              <span class="fw-bold text-secondary"><small>, {{ans.answer.reply_date|date:'d-M-Y'}}</small></span>
+              <div class="fw-semibold">{{ans.answer.answer}}</div>
+            </div>
+            <div class="ms-3" id="divToReload{{forloop.counter}}">
+              <strong id='statusElement1'>
+                <i class="text-primary {% if ans.vote_status.status == 'UPVOTE' %}fa-solid {% else %}fa-regular {% endif %} fa-thumbs-up" onclick="handleLike('{{ans.answer.id}}', 'UPVOTE', {{forloop.counter}})"></i>
+                <span class='text-primary'>- {{ans.upvote}}</span> , 
+                <i class="text-danger {% if ans.vote_status.status == 'DOWNVOTE' %}fa-solid {% else %}fa-regular {% endif %} fa-thumbs-up fa-rotate-180"  onclick="handleLike('{{ans.answer.id}}', 'DOWNVOTE', {{forloop.counter}})"></i> 
+                <span class='text-danger'>- {{ans.downvote}}</span>
+              </strong>
+              <a class="fw-bold" onclick="handleClick({{forloop.counter}})" style="cursor: pointer">Reply</a>
+            </div>
+
+            <div class="ms-1 mt-1">
+              <form style="display: none" id="reply_answer{{forloop.counter}}" method='POST' action={% url 'submit_reply_to_answer' topic_slug=topic_data.topic_slug answer_id=ans.answer.id %}>
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-6">
+                    <input class="form-control" placeholder="Leave a comment here" id="floatingTextareaAnswer{{forloop.counter}}" name='answer' required />
+                  </div>
+                  <div class="col-4">
+                    <button type="submit" class="btn btn-primary custom-button1">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- internal reply starts Here -->
+            <div class="ms-3 ps-lg-3 my-2">
+              {% for rep in ans.reply %}
+                <div id="reply_more{{outer_counter}}{{forloop.counter}}">
+                  {% if rep.replied_to %}
+                      <div class="ms-3 ps-2 small shadow-none rounded" style="background-color: #fff3d4; width: fit-content; padding: 5px 20px;">
+                        <span class="fw-bold text-primary">{% if rep.user_id == request.user %} <span class="text-danger">You</span> {% else %}{{rep.user_id.username}}{% endif %}</span>
+                        <span class="fw-bold text-secondary"><small>{{rep.replied_to.reply_date|date:'d-M-Y'}}</small></span>
+                        <div class="fw-semibold">
+                          {{rep.replied_to.reply}}
+                        </div>
+                      </div>
+                  {% endif %}
+                  <div class="shadow-none rounded py-1 ps-2 mb-2" style="background-color: #ebefe8">
+                    <span class="fw-bold text-primary">{% if rep.user_id == request.user %}<span class="text-danger">You</span>{% else %}{{rep.user_id.username}}{% endif %}</span>
+                    <span class="fw-bold text-secondary"><small>{{rep.reply_date|date:'d-M-Y'}}</small></span>
+                    <p class="fw-semibold">
+                      {{rep.reply}}
+                      <a class="fw-bold" onclick="handleClick2({{outer_counter}}{{forloop.counter}},'{{rep.user_id.username}}')"c style="cursor: pointer">Reply</a>
+                    </p>
+                  </div>
+
+                  <div class="">
+                    <form style="display: none" id="reply_to_reply{{outer_counter}}{{forloop.counter}}" method='POST' action={% url 'submit_reply_to_answer_2' topic_slug=topic_data.topic_slug answer_id=ans.answer.id reply_id=rep.id %}>
+                      {% csrf_token %}
+                      <div class="row">
+                        <div class="col-6">
+                          <input class="form-control" placeholder="Leave a comment here" id="floatingTextareaReply{{outer_counter}}{{forloop.counter}}" name='answer' required />
+                        </div>
+                        <div class="col-4">
+                          <button type="submit" class="btn btn-primary custom-button1">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <!-- internal reply ends Here -->
+          </div>
+        {% endwith %}
+        {% endfor %}
+        {% else %}
+          <div class="fs-4 text-center fw-bold text-secondary">No comments yet, be the first to comment</div>
+        {% endif %}
+      </div>
+      <!-- all replies section Ends Here -->
+    <!-- Topic Discussion Ends Here -->
+    </div>
+  </div>
+</div>
+
+<script>
+  // To Show answer input field
+  function handleClick(id){
+    console.log(id)
+    $(`#reply_answer${id}`).toggle()
+    $(`#floatingTextareaAnswer${id}`).focus();
+  }
+
+  // To show reply_answer input field
+  function handleClick2(id, user){
+    console.log(id, user)
+
+    $(`#reply_to_reply${id}`).toggle();
+    $(`#floatingTextareaReply${id}`).focus();
+  }
+
+  // handle like/upvote or dislike/downvote of answer
+  function handleLike(answer_id, status, loop){
+    console.log("In Like function", answer_id)
+    
+    $.ajax({
+      type: 'POST',
+      url: "{% url 'upvote_answer_view' %}", 
+      datatype: 'json',
+      data: {'answer_id': answer_id, 'status': status},
+      success: function(result){
+        console.log("hiiii")
+        console.log(result)
+        $("#divToReload"+loop).load(location.href+" #divToReload"+loop);
+      },
+      error: function(error){
+        console.log("Error  ", error)
+      }
+    });
+  }
+
+  {% comment %} $(document).ready(function(){
+    // Show some replies
+
+
+  }) {% endcomment %}
+
+
+</script>
+
+{% endblock %}

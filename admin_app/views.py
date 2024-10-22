@@ -915,7 +915,7 @@ def refresh_domain_parameters(request,id):
         }
     URL_dashboard_obj = URL_dashboard.objects.get(id=id)
     unicode_domain = URL_dashboard_obj.IDN_domain
-    logs(f" Calling Refresh Function For {unicode_domain}")
+    logs(f"Calling Refresh Function For {unicode_domain}")
     update_domain_parameters.delay(unicode_domain)
     messages.success(request,"Parameters are being updated. Please wait and refresh after 60 seconds.")
     return redirect('admin_app:dashboard2')

@@ -1,67 +1,74 @@
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1204 ] -->POST Method Called
-views.py [ 1207 ] -->Form is Valid 
-views.py [ 1212 ] -->user is not None and user is_staff
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1204 ] -->POST Method Called
-views.py [ 1207 ] -->Form is Valid 
-views.py [ 1212 ] -->user is not None and user is_staff
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1224 ] -->GET Method Called
-views.py [ 1199 ] -->admin_login view called 
-views.py [ 1204 ] -->POST Method Called
-views.py [ 1207 ] -->Form is Valid 
-views.py [ 1212 ] -->user is not None and user is_staff
-views.py [ 685 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 693 ] --> SSL Statistics are [0, 0]
-views.py [ 685 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 693 ] --> SSL Statistics are [0, 0]
-views.py [ 685 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 693 ] --> SSL Statistics are [0, 0]
+views.py [ 918 ] -->Calling Refresh Function For http://भाषानेट.भारत
+tasks.py [ 17 ] -->Checking and Updating Parameters for IDN Domain http://भाषानेट.भारत
+helper.py [ 21 ] -->Checking and Updating Parameters for IDN Domain in instance http://भाषानेट.भारत
+helper.py [ 28 ] -->current Remark in dictionary format is {'General': '', 'Domain': 'Connection Error', 'SSL': 'SSL Exception', 'Content': 'Connection Error'}
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 693 ] --> SSL Statistics are [11, 43]
 views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
-views.py [ 724 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-views.py [ 763 ] -->Records are --->[][]
-views.py [ 685 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 693 ] --> SSL Statistics are [0, 0]
-views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
-views.py [ 724 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-views.py [ 763 ] -->Records are --->[][]
-views.py [ 685 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 693 ] --> SSL Statistics are [0, 0]
-views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
-views.py [ 724 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-views.py [ 763 ] -->Records are --->[][]
+views.py [ 724 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 763 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+helper.py [ 56 ] -->Exception Connection error Occurred: HTTPConnectionPool(host='xn--c2bro4b8ab8d.xn--h2brj9c', port=80): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000154902FC830>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+helper.py [ 71 ] -->Current Remark After Domain operation is {'General': '', 'Domain': 'Connection Error', 'SSL': 'SSL Exception', 'Content': 'Connection Error'}
+helper.py [ 97 ] -->helper.py file --> SSL running Exception: HTTPConnectionPool(host='xn--c2bro4b8ab8d.xn--h2brj9c', port=80): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000154909E4C20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+helper.py [ 98 ] -->IDN Domain http://भाषानेट.भारत Exception for SSL
+helper.py [ 101 ] -->SSL Exception has been set  {'General': '', 'Domain': 'Connection Error', 'SSL': 'SSL Exception', 'Content': 'Connection Error'}
+helper.py [ 103 ] -->Current Remark After SSL operation is {'General': '', 'Domain': 'Connection Error', 'SSL': 'SSL Exception', 'Content': 'Connection Error'}
+helper.py [ 115 ] -->unicode url and and verify ssl value are ---http://भाषानेट.भारत -- False
+helper.py [ 156 ] -->Exception Connection error Occurred: HTTPConnectionPool(host='xn--c2bro4b8ab8d.xn--h2brj9c', port=80): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000154909E5280>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+helper.py [ 172 ] -->Current Remark After Content Langauge operation is {'General': '', 'Domain': 'Connection Error', 'SSL': 'SSL Exception', 'Content': 'Connection Error'}
+helper.py [ 178 ] -->--> Updated Remark in dictionary format is {"General": "", "Domain": "Connection Error", "SSL": "SSL Exception", "Content": "Connection Error"}
+helper.py [ 181 ] -->--> Remark Has been updated for instance as {"General": "", "Domain": "Connection Error", "SSL": "SSL Exception", "Content": "Connection Error"}

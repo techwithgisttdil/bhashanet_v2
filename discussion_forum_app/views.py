@@ -49,7 +49,7 @@ def topic_list(request):
   page_obj = paginator.get_page(page_number)
   
     
-  return render(request, 'discussion_forum/topic_list.html', {'all_topics': page_obj, 'search_term': search_term})
+  return render(request, 'discussion_forum_app/topic_list.html', {'all_topics': page_obj, 'search_term': search_term})
 
 '''
 User Topic List Function :: ADDED BY SHHIVAM SHARMA
@@ -82,7 +82,7 @@ def user_topic_list(request):
   page_obj = paginator.get_page(page_number)
   
     
-  return render(request, 'discussion_forum/user_topic_list.html', {'all_topics': page_obj, 'search_term': search_term, "user_profile": user_profile_obj})
+  return render(request, 'discussion_forum_app/user_topic_list.html', {'all_topics': page_obj, 'search_term': search_term, "user_profile": user_profile_obj})
 
 
 ################################################################################
@@ -124,7 +124,7 @@ def add_topic(request):
       print("Form invalid")
   else:
     form = TopicForm()
-  return render(request, 'discussion_forum/add_topic.html', {'form': form})
+  return render(request, 'discussion_forum_app/add_topic.html', {'form': form})
 
 
 ################################################################################
@@ -167,7 +167,7 @@ def view_topic_discussion(request, topic_slug):
     else:
       answers.append({'answer':data, 'reply': reply, 'upvote': total_up_vote, 'downvote': total_down_vote})
 
-  return render(request, 'discussion_forum/view_topic_discussion.html', {"topic_data": topic_data, 'answers': answers, "user_profile": user_profile, "profile_updated": profile_updated})
+  return render(request, 'discussion_forum_app/view_topic_discussion.html', {"topic_data": topic_data, 'answers': answers, "user_profile": user_profile, "profile_updated": profile_updated})
 
 
 @login_required()

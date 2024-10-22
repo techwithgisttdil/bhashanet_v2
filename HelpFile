@@ -27,6 +27,11 @@ copy admin.py from dashboard to admin_app
 copy models.py file from discussion_forum to discussion_forum_app
 copy admin.py files from discussion_forum to discussion_forum_app
 
+Changed Page object to page in IDN Ready Website page 
+
+Removed using dashboard in queries in admin_app 
+
+
 
 Data Inserted 
 UA INDIA PROGRAMME
@@ -50,3 +55,11 @@ Best Practice
 Gallery Videos
 Gallery Video Heading
 
+
+# Celery Command to run 
+celery -A bhashanet_v2.celery worker --pool=solo -l info
+celery -A bhashanet_admin_dashboard.celery worker --pool=solo -l info
+
+
+# Celery Command to flush old threads in pool
+celery -A bhashanet_admin_dashboard purge

@@ -5,9 +5,9 @@ from celery import Celery
 from django.conf import settings
 from celery.schedules import crontab
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE','BHASHANET_PROD.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE','bhashanet_v2.settings')
 
-app = Celery('BHASHANET_PROD')
+app = Celery('bhashanet_v2')
 app.conf.enable_utc = False
 
 app.conf.update(timezone = 'Asia/Kolkata')

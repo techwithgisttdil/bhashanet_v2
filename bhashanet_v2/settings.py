@@ -72,7 +72,7 @@ APPLICATION_APPS = [
     'discussion_forum_app'
     ]
 
-THIRD_PARTY_APPS = ['ckeditor']
+THIRD_PARTY_APPS = ['ckeditor','django_celery_results']
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 INSTALLED_APPS = SYSTEM_APPS + APPLICATION_APPS + THIRD_PARTY_APPS
