@@ -35,12 +35,23 @@
       </li>
       {% if user.is_authenticated %}
 
+
+      {% if request.user.is_superuser %}
       <li>
-        <a href="{% url 'admin_blog_datatable' %}" aria-expanded="false">
-          <i class="fas fa-blog"></i>
-          <span class="nav-text">My Blogs</span>
+        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+          <i class="fa fa-comments-o menu-icon"></i>
+          <span class="nav-text">Blogs</span>
         </a>
+        <ul>
+          <li>
+            <a href="{% url 'admin_blog_datatable' %}" aria-expanded="false">My Blog</a>
+          </li>
+          <li>
+            <a href="{% url 'add_blog' %}" aria-expanded="false">Add Blog</a>
+          </li>
+        </ul>
       </li>
+      {% endif %}
       {% comment %} {% if request.user.is_superuser %}
       <li>
         <a href="{% url 'admindashboard' %}" aria-expanded="false">

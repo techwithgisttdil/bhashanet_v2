@@ -63,3 +63,17 @@ celery -A bhashanet_admin_dashboard.celery worker --pool=solo -l info
 
 # Celery Command to flush old threads in pool
 celery -A bhashanet_admin_dashboard purge
+
+
+---------------------------------------------------------------------------
+
+for Feedback Page - (to solve textsize error)
+## venv\Lib\site-packages\PIL\Image.py
+
+    # w, h = draw.textsize(c, font=font)
+    _, _, w, h = draw.textbbox((0, 0), c, font=font)
+    # w = bbox[2] - bbox[0]  # width
+    # h = bbox[3] - bbox[1]  # height
+
+
+-----------------------------------------------------------------------------

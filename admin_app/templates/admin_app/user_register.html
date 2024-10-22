@@ -1,4 +1,4 @@
-{% extends 'dashboard/base.html' %} {% load static %} {% load i18n %}
+{% extends 'admin_app/base.html' %} {% load static %}
 
 {% block user_register %}
 
@@ -105,8 +105,8 @@
               <button class="btn btn-primary btn-lg">Register</button>
             </div>
           </form>
-        <div class="text-center fw-bold fs-6 mt-2">Already Registered User | <a class="text-primary" href="{% url 'login_view' %}">Login</a></div>
-        </div>
+        {% comment %} <div class="text-center fw-bold fs-6 mt-2">Already Registered User | <a class="text-primary" href="{% url 'login_view' %}">Login</a></div>
+        </div> {% endcomment %}
   </div>
 </div>
 </div>

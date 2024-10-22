@@ -64,7 +64,22 @@ def login_view(request):
                 else:
                     # authenticate username and password 
                     user = authenticate(username=username, password=password)
-                    if user is not None:
+                    user_obj=User.objects.get(username=username)
+                    user_role_obj = UserRoleMapping.objects.get(User_Id=user)
+                    if user_role_obj.Role_Id.Role_Name != 'DjangoSuperAdmin' :   
+                        try:
+                            otp_obj = OTP_For_UserRegistration.objects.get(OTP_Email=user_obj)
+                            if otp_obj.OTP_Status==False:
+                                messages.error(request, 'Account Not Yet Verified with OTP', extra_tags="danger")
+                                form = LoginForm()
+                                captcha_value = random_captcha_generator()
+                                captcha_img_generator(captcha_value)
+                                print("captcha value ", captcha_value)
+                                form.fields['captcha_hidden'].initial = make_password(captcha_value)
+                                return render(request, 'admin_app/user_login.html', {"form": form})
+                        except:
+                            messages.error(request, 'Account Not Yet Verified with OTP', extra_tags="danger") 
+                    if user is not None :
                         login(request, user)
                         # User authenticated successful
                         try:
@@ -103,73 +118,74 @@ def login_view(request):
         captcha_img_generator(captcha_value)
         print("captcha value ", captcha_value)
         form.fields['captcha_hidden'].initial = make_password(captcha_value)
-    return render(request, 'core_app/user/user_login.html', {"form": form})
+    return render(request, 'admin_app/user_login.html', {"form": form})
 
 
 ## ------ user  registration view -------
 def register_view(request):
-    if request.user.is_superuser :
+    if request.user.is_superuser:
     #     logout(request)
         if request.method == 'POST':
             form = RegistrationForm(request.POST.copy())
             email = request.POST.get("email")
 
             if form.is_valid():
-                    email = request.POST.get("email")
-                    password = request.POST.get("password1")
-                    password_confirm  = request.POST.get("password2")
-                    role  = request.POST.get("role")
-                    
-                    print("email : ", email, " password1 : ", password ," password_confirm : ", password_confirm,role)
-                    
-                    if not User.objects.filter(username=email).exists():
-                        user = User.objects.create(email=email, username=email)       
-                        user.set_password(password)     
-                        user.is_active = True
-                        user.save()
+                email = request.POST.get("email")
+                password = request.POST.get("password1")
+                password_confirm  = request.POST.get("password2")
+                role  = request.POST.get("role")
+                
+                print("email : ", email, " password1 : ", password ," password_confirm : ", password_confirm,role)
+                
+                if not User.objects.filter(username=email).exists():
+                    user = User.objects.create(email=email, username=email)       
+                    user.set_password(password)     
+                    user.is_active = True
+                    user.save()
 
-                        role_id=UserRole.objects.get(id=role)
-                        UserRoleMapping.objects.create(User_Id=user,Role_Id=role_id)
-                        
-                        resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
-                        if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
-                            User_Registration_With_OTP.apply_async((email,), countdown=300)
-                            # User_Registration_With_OTP(email)
-                            messages.success(request, "OTP is sent to " + email, extra_tags="success")
-                            return redirect("verify_user_otp",email=email)
-                        
-                        elif resp_data['Email_status'] == 'error':
-                            messages.success(request, resp_data['message'], extra_tags="danger")
-
-                        elif resp_data['status'] == 'error':
-                            messages.success(request, resp_data['message'], extra_tags="danger")
-                        
-                    else:
-                        user = User.objects.get(username=email)
-                        try:
-                            otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=email)
-                        except:
-                            otp_user_obj=''
-                        if otp_user_obj:
-                            if otp_user_obj.OTP_Status:
-                                messages.error(request, 'Email address already exists', extra_tags="danger")
-                                captcha_value = random_captcha_generator()
-                                captcha_img_generator(captcha_value)
-                                print("captcha value ", captcha_value)
-                                form.fields['captcha_hidden'].initial = make_password(captcha_value)
-                                return render(request, "core_app/user/user_register.html", {'form': form})  
+                    role_id=UserRole.objects.get(id=role)
+                    UserRoleMapping.objects.create(User_Id=user,Role_Id=role_id)
                     
-                        resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
-                        if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
-                            User_Registration_With_OTP.apply_async((email,), countdown=300)
-                            messages.success(request, "OTP is sent to" + email, extra_tags="success")
-                            return redirect("verify_user_otp",email=email)
-                        
-                        elif resp_data['Email_status'] == 'error':
-                            messages.success(request, resp_data['message'], extra_tags="danger")
+                    resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
+                    if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
+                        User_Registration_With_OTP.apply_async((email,), countdown=300)
+                        # User_Registration_With_OTP(email)
+                        messages.success(request, "OTP is sent to " + email, extra_tags="success")
+                        return redirect("verify_user_otp",email=email)
+                    
+                    elif resp_data['Email_status'] == 'error':
+                        messages.success(request, resp_data['message'], extra_tags="danger")
 
-                        elif resp_data['status'] == 'error':
-                            messages.success(request, resp_data['message'], extra_tags="danger")
+                    elif resp_data['status'] == 'error':
+                        messages.success(request, resp_data['message'], extra_tags="danger")
+                    
+                else:
+                    user = User.objects.get(username=email)
+                    try:
+                        user_obj=User.objects.get(username=email)
+                        otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=user_obj)
+                    except:
+                        otp_user_obj=''
+                    if otp_user_obj:
+                        if otp_user_obj.OTP_Status:
+                            messages.error(request, 'Email address already exists', extra_tags="danger")
+                            captcha_value = random_captcha_generator()
+                            captcha_img_generator(captcha_value)
+                            print("captcha value ", captcha_value)
+                            form.fields['captcha_hidden'].initial = make_password(captcha_value)
+                            return render(request, "admin_app/user_register.html", {'form': form})  
+                
+                    resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
+                    if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
+                        User_Registration_With_OTP.apply_async((email,), countdown=300)
+                        messages.success(request, "OTP is sent to" + email, extra_tags="success")
+                        return redirect("verify_user_otp",email=email)
+                    
+                    elif resp_data['Email_status'] == 'error':
+                        messages.success(request, resp_data['message'], extra_tags="danger")
+
+                    elif resp_data['status'] == 'error':
+                        messages.success(request, resp_data['message'], extra_tags="danger")
 
             else:
                 print("Unsuccessful registration. Invalid information.")
@@ -178,7 +194,7 @@ def register_view(request):
             captcha_img_generator(captcha_value)
             form.data['captcha_input'] = ''
             form.data['captcha_hidden'] = make_password(captcha_value)
-            return render(request, template_name="core_app/user/user_register.html", context={"form": form})
+            return render(request, template_name="admin_app/user_register.html", context={"form": form})
         else:
             form = RegistrationForm()
             captcha_value = random_captcha_generator()
@@ -187,7 +203,7 @@ def register_view(request):
             captcha_img_generator(captcha_value)
             print("captcha value ", captcha_value)
             form.fields['captcha_hidden'].initial = make_password(captcha_value)
-            return render(request, "core_app/user/user_register.html", {'form': form})
+            return render(request, "admin_app/user_register.html", {'form': form})
     else:
         return redirect('home')
 
@@ -207,13 +223,14 @@ def verify_user_otp(request,email):
             status=validate_otp_for_user_registration(email, otp_value, OTP_For_UserRegistration)
             print("Status==============",status)
             if status:
-                otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=email)
+                user_obj=User.objects.get(username=email)
+                otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=user_obj)
                 otp_user_obj.OTP_Status=True
                 messages.success(request, "OTP Verified, Now user can login ", extra_tags="success")
                 return redirect("admin_app:dashboard2")
             else:
                 messages.error(request, "Failed OTP Verification", extra_tags='danger')
-                return render(request, "core_app/user/otp_form.html", {'form': otp_form})
+                return render(request, "admin_app/otp_form.html", {'form': otp_form})
     if request.method == 'POST' and 'resent' in request.POST:
         otp_form=OTPForRegistrationForm()
         try: 
@@ -228,11 +245,11 @@ def verify_user_otp(request,email):
 
             elif resp_data['status'] == 'error':
                 messages.success(request, resp_data['message'], extra_tags="danger")
-            return render(request, "core_app/user/otp_form.html", {'form': otp_form})
+            return render(request, "admin_app/otp_form.html", {'form': otp_form})
         except:
             messages.success(request, 'OTP generate limit exceeded, Register Again!', extra_tags="danger")
             return redirect('register_view')
-    return render(request, "core_app/user/otp_form.html", {'form': otp_form})
+    return render(request, "admin_app/otp_form.html", {'form': otp_form})
 
 
 
@@ -488,7 +505,7 @@ def user_profile_view(request):
         else:
             print("Invalid User profile", form.errors)
         
-    return render(request, 'core_app/user/user_profile.html', {'form' : form}) 
+    return render(request, 'admin_app/user_profile.html', {'form' : form}) 
 
 
 
@@ -1246,3 +1263,217 @@ def update_all_domains(request):
         logs(f"Updating parameters for -- {domain}")
         update_domain_parameters.delay(domain)
     pass
+
+
+
+def add_blog(request):
+    if request.user.is_authenticated:
+        user_obj=User.objects.get(id=request.user.id)
+        UserProfile_obj=''
+        try:
+            UserProfile_obj=UserProfile.objects.get(UserProfile_user=user_obj)
+        except:
+            pass
+        if UserProfile_obj:
+            Blog_form_obj=Blog_form()
+            if request.method == 'POST':
+                    user_obj=User.objects.get(id=request.user.id)
+                    Blog_form_obj = Blog_form(request.POST, request.FILES)
+                    if Blog_form_obj.is_valid():
+                        temp_obj = Blog_form_obj.save(commit=False)
+                        temp_obj.Blog_Author = user_obj
+                        temp_obj.save()
+                        try:
+                            RecipentMessage = """
+                                Dear Sir/Ma'am,
+                                We wanted to inform you that your blog has been successfully submitted for verification.
+                                Our team will now review it to ensure compliance with our guidelines. Once verified by our admin panel, 
+                                your blog will be promptly published on our website.
+
+                                Best regards,
+                                Bhashanet Team
+                                """
+                            send_mail("Submission: Blog Verification Request", RecipentMessage, env('SERVER_EMAIL'), [user_obj.email])
+                            blog_link = 'http://bhashanet.in/admin/core_app/blog/' + str(temp_obj.id) + '/change/'
+                            AdminMessage = f"""
+                                        Please verify the following blog and update its status:
+                                        Blog Link: {blog_link}
+                                    """
+                            email_sent_to_admin = send_mail("Action Required: New Blog for Verification", AdminMessage, env('SERVER_EMAIL'), ['pshweta@cdac.in'])
+                        except:
+                            print("error while sending email")
+                        return redirect('admin_blog_datatable')
+                    else:
+                        #  #  print("Error")
+                        context={
+                            'Blog_form_obj':Blog_form_obj,
+                            'flag_blog':'Add'
+                        }
+                        return render(request,'admin_app/add_blog.html',context)
+            else:
+                context={
+                    'Blog_form_obj':Blog_form_obj,
+                    'flag_blog':'Add'
+                }
+                return render(request,'admin_app/add_blog.html',context)
+        else:
+            messages.error(request, "To add a blog, please update your profile details first", extra_tags="danger")
+            return redirect('user_profile')
+    else:
+        return redirect('login_view')
+
+
+
+def edit_blog(request,id):
+    #  print("id for blog edit",id)
+    if request.user.is_authenticated:
+        Blog_obj = Blog.objects.get(id=id)
+        #  print("blog edit",Blog_obj)
+        if request.method == 'POST':
+            #  print("Inside post method of edit")
+            user_obj=User.objects.get(id=request.user.id)
+            Blog_form_obj = Blog_form(request.POST,request.FILES, instance=Blog_obj)
+            #  print("Blog obj",Blog_form_obj)
+            if Blog_form_obj.is_valid():
+                temp_obj = Blog_form_obj.save(commit=False)
+                if temp_obj.Blog_Author == user_obj:
+                    temp_obj.save()
+                    return redirect('admin_blog_datatable')
+                else:
+                    messages.error(request, "Invalid user for this blog", extra_tags="danger")
+                    Blog_form_obj = Blog_form(request.POST,request.FILES,instance=Blog_obj)
+                    return render(request, 'admin_app/add_blog.html', {'Blog_form_obj': Blog_form_obj,'flag_blog':'Edit'})
+            else:
+                Blog_form_obj = Blog_form(request.POST,request.FILES,instance=Blog_obj)
+                return render(request, 'admin_app/add_blog.html', {'Blog_form_obj': Blog_form_obj,'flag_blog':'Edit'})
+        else:
+            Blog_form_obj = Blog_form(instance=Blog_obj)
+            return render(request, 'admin_app/add_blog.html', {'Blog_form_obj': Blog_form_obj,'flag_blog':'Edit'})
+    else:
+        return redirect('blogs')
+
+
+
+def delete_blog(request,id):
+    if request.user.is_authenticated:
+        user_obj=User.objects.get(id=request.user.id)
+        try:
+            Blog.objects.filter(id=id,Blog_Author=user_obj).delete()
+        except:
+            pass
+        blog_data=Blog.objects.filter(Blog_Author=user_obj)
+        context={
+            'blog_data':blog_data
+        }
+        return render(request, 'admin_app/admin_blog_datatable.html',context)
+    else:
+        return redirect('blogs')
+
+
+
+def admin_blog_datatable(request):
+    if request.user.is_authenticated:
+        user_obj=User.objects.get(id=request.user.id)
+        blog_data=Blog.objects.filter(Blog_Author=user_obj)
+        context={
+            'blog_data':blog_data
+        }
+        return render(request, 'admin_app/admin_blog_datatable.html',context)
+    else:
+        return redirect('blogs')
+
+
+
+
+
+def search_blog(request,id):
+    blogname=id
+    request.session['search_blog_string'] = blogname
+    blog_cat=[]
+    pagination=False
+    Blog_Category_with_satus_true=BlogCategory.objects.filter(BlogCategory_Status=True)
+    if Blog_Category_with_satus_true:
+            for category in Blog_Category_with_satus_true:
+                blog_cat.append(category.id)
+            cat_id=blog_cat[0]
+            pagination= True
+    BlogCategory_data=BlogCategory.objects.all()
+    if request.method == 'POST':
+        try:
+            blogname = request.POST.get('blogname')
+        except:
+            blogname=''
+            return redirect('blogs')
+        #  print("blogname==========",blogname)
+        request.session['search_blog_string'] = blogname
+        blog_cat=[]
+        Blog_Category_with_satus_true=BlogCategory.objects.filter(BlogCategory_Status=True)
+        if Blog_Category_with_satus_true and blogname != 'none':
+            for category in Blog_Category_with_satus_true:
+                blog_cat.append(category.id)
+            cat_id=blog_cat[0]
+            blogs_data=Blog.objects.none()
+            status=True
+            for cat_id in blog_cat:
+                blog_cat_obj=BlogCategory.objects.get(id=cat_id)
+                blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname,Blog_CategoryType=blog_cat_obj)
+        else:
+            cat_id=None
+            status=False
+            blogs_data=Blog.objects.none()
+            blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname)
+        #  print("blogs_data",blogs_data)
+        BlogCategory_data=BlogCategory.objects.all()
+        page = Paginator(blogs_data, 2)
+        page_list = request.GET.get('page')
+        page = page.get_page(page_list)
+        count = blogs_data.count()
+        context={
+        'blogs_data':blogs_data,
+        'BlogCategory_data':BlogCategory_data,
+        'Status':status,
+        'page':page,
+        'selected_id':cat_id,
+        'all_data': 'Search',
+        'blog_title' : blogname,
+        }
+        return render(request,'core_app/blog_list.html',context)
+    if pagination:
+        status=True
+        blogs_data=Blog.objects.none()
+        for cat_id in blog_cat:
+            blog_cat_obj=BlogCategory.objects.get(id=cat_id)
+            blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname,Blog_CategoryType=blog_cat_obj)
+        page = Paginator(blogs_data, 2)
+        page_list = request.GET.get('page')
+        page = page.get_page(page_list)
+        count = blogs_data.count()
+        context={
+        'blogs_data':blogs_data,
+        'BlogCategory_data':BlogCategory_data,
+        'Status':status,
+        'page':page,
+        'selected_id':cat_id,
+        'all_data': 'Search',
+        'blog_title' : blogname,
+        }
+    else:
+        status=False
+        cat_id=None
+        blogs_data=Blog.objects.none()
+        blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname)
+        page = Paginator(blogs_data, 2)
+        page_list = request.GET.get('page')
+        page = page.get_page(page_list)
+        count = blogs_data.count()
+        context={
+        'blogs_data':blogs_data,
+        'BlogCategory_data':BlogCategory_data,
+        'Status':status,
+        'page':page,
+        'selected_id':cat_id,
+        'all_data': 'Search',
+        'blog_title' : blogname,
+        }
+    return render(request,'core_app/blog_list.html',context)
+

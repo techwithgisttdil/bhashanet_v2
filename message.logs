@@ -72,3 +72,2072 @@ helper.py [ 156 ] -->Exception Connection error Occurred: HTTPConnectionPool(hos
 helper.py [ 172 ] -->Current Remark After Content Langauge operation is {'General': '', 'Domain': 'Connection Error', 'SSL': 'SSL Exception', 'Content': 'Connection Error'}
 helper.py [ 178 ] -->--> Updated Remark in dictionary format is {"General": "", "Domain": "Connection Error", "SSL": "SSL Exception", "Content": "Connection Error"}
 helper.py [ 181 ] -->--> Remark Has been updated for instance as {"General": "", "Domain": "Connection Error", "SSL": "SSL Exception", "Content": "Connection Error"}
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 693 ] --> SSL Statistics are [11, 43]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 763 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 1199 ] -->admin_login view called 
+views.py [ 1201 ] -->Admin is already login
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 693 ] --> SSL Statistics are [11, 43]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 763 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 693 ] --> SSL Statistics are [11, 43]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 763 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 1199 ] -->admin_login view called 
+views.py [ 1224 ] -->GET Method Called
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 693 ] --> SSL Statistics are [11, 43]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 763 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 693 ] --> SSL Statistics are [11, 43]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 763 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 693 ] --> SSL Statistics are [11, 43]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 763 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 693 ] --> SSL Statistics are [11, 43]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 763 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 685 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 693 ] --> SSL Statistics are [11, 43]
+views.py [ 723 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 724 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Success
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 753 ] -->Content Langauges are ---- > Connection Error
+views.py [ 763 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 687 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 695 ] --> SSL Statistics are [11, 43]
+views.py [ 725 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 726 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 765 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 687 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 695 ] --> SSL Statistics are [11, 43]
+views.py [ 725 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 726 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 765 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 687 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 695 ] --> SSL Statistics are [11, 43]
+views.py [ 725 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 726 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 765 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 687 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 695 ] --> SSL Statistics are [11, 43]
+views.py [ 725 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 726 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 765 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 687 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 695 ] --> SSL Statistics are [11, 43]
+views.py [ 725 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 726 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 765 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 687 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 695 ] --> SSL Statistics are [11, 43]
+views.py [ 725 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 726 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 765 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 687 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 695 ] --> SSL Statistics are [11, 43]
+views.py [ 725 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 726 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 765 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 687 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 695 ] --> SSL Statistics are [11, 43]
+views.py [ 725 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 726 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 765 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 687 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 695 ] --> SSL Statistics are [11, 43]
+views.py [ 725 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 726 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Success
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 755 ] -->Content Langauges are ---- > Connection Error
+views.py [ 765 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 694 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 702 ] --> SSL Statistics are [11, 43]
+views.py [ 732 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 733 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 772 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 694 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 702 ] --> SSL Statistics are [11, 43]
+views.py [ 732 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 733 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Success
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 762 ] -->Content Langauges are ---- > Connection Error
+views.py [ 772 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 696 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 704 ] --> SSL Statistics are [11, 43]
+views.py [ 734 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 735 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 774 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 696 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 704 ] --> SSL Statistics are [11, 43]
+views.py [ 734 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 735 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Success
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 764 ] -->Content Langauges are ---- > Connection Error
+views.py [ 774 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]
+views.py [ 702 ] --> Running Counts Statistics are  <QuerySet ['False', 'False', 'True', 'True', 'True', 'True', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'True', '...(remaining elements truncated)...']>
+views.py [ 710 ] --> SSL Statistics are [11, 43]
+views.py [ 740 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 741 ] --> Languages Count are [53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > TooManyRedirects Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Success
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 770 ] -->Content Langauges are ---- > Connection Error
+views.py [ 780 ] -->Records are --->['Success', 'Connection Error', 'Timeout Error', 'TooManyRedirects Error'][31, 19, 3, 1]

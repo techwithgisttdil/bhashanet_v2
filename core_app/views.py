@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
+from admin_app.models import *
 import requests
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -1281,34 +1282,31 @@ def cat_selected(request):
 def blogs(request,id=None):
     if id:
         blogname = request.session.get('search_blog_string')
-        print("blogname==========",blogname)
         if blogname:
-            #  print("blogname==========",blogname)
             blog_title=blogname
         else:
-            #  print("blogname++++++++++++++",blogname)
             blog_title='none'
+            request.session['search_blog_string']='none'
         BlogCategory.objects.update(BlogCategory_Status=False)
         BlogCategory_obj=BlogCategory.objects.get(id=id)
         BlogCategory_obj.BlogCategory_Status=True
         BlogCategory_obj.save()
         BlogCategory_obj=BlogCategory.objects.get(id=id)
-        #  print("cat object=================",BlogCategory_obj.BlogCategory_Name)
         BlogCategory_data=BlogCategory.objects.all()
-        # #  print("======================")
-       # blogs_data=Blog.objects.filter(Blog_CategoryType__BlogCategory_Name__contains=BlogCategory_obj.BlogCategory_Name)
-        # if blog_title=='none':
-        blogs_data=Blog.objects.filter(Blog_CategoryType__BlogCategory_Name=BlogCategory_obj.BlogCategory_Name)
-        # else:
-        #     blogs_data=Blog.objects.filter(Q(Blog_CategoryType__BlogCategory_Name__icontains=BlogCategory_obj.BlogCategory_Name) | Q(Blog_Title__icontains = blogname))
-        
-        #  print("objects of data",blogs_data)
 
         if request.method == 'POST' and 'Search-button' in request.POST:
+            blogname = request.POST.get('blogname')
+            if blogname:
+                blog_title=blogname
+            else:
+                blog_title='none'
+            request.session['search_blog_string'] = blogname
+            print("Inside cate post search",blogname)
 
+        if blog_title=='none' or blog_title=='':
             blogs_data=Blog.objects.filter(Blog_CategoryType__BlogCategory_Name=BlogCategory_obj.BlogCategory_Name)
-
-
+        else:
+            blogs_data=Blog.objects.filter(Q(Blog_CategoryType__BlogCategory_Name__icontains=BlogCategory_obj.BlogCategory_Name) | Q(Blog_Title__icontains = blogname))
         page = Paginator(blogs_data, 2)
         page_list = request.GET.get('page')
         page = page.get_page(page_list)
@@ -1320,17 +1318,15 @@ def blogs(request,id=None):
             'page':page,
             'all_data': 'cat_data',
             'selected_id':id,
-            'blog_title' : ''
+            'blog_title' : blog_title
         }
         return render(request,'core_app/blog_list.html',context)
     elif request.method == 'POST' and 'Search-button' in request.POST:
-        #  print("inside post method---------------------")
         try:
             blogname = request.POST.get('blogname')
         except:
             blogname=''
             return redirect('blogs')
-        #  print("blogname==========",blogname)
         request.session['search_blog_string'] = blogname
         blog_cat=[]
         Blog_Category_with_satus_true=BlogCategory.objects.filter(BlogCategory_Status=True)
@@ -1365,6 +1361,7 @@ def blogs(request,id=None):
         }
         return render(request,'core_app/blog_list.html',context)  
     else:
+        request.session['search_blog_string']='none'
         blogs_data=Blog.objects.all()
         BlogCategory.objects.update(BlogCategory_Status=False)
         BlogCategory_data=BlogCategory.objects.all()
@@ -1385,99 +1382,6 @@ def blogs(request,id=None):
 
     
 
-def search_blog(request,id):
-    blogname=id
-    request.session['search_blog_string'] = blogname
-    blog_cat=[]
-    pagination=False
-    Blog_Category_with_satus_true=BlogCategory.objects.filter(BlogCategory_Status=True)
-    if Blog_Category_with_satus_true:
-            for category in Blog_Category_with_satus_true:
-                blog_cat.append(category.id)
-            cat_id=blog_cat[0]
-            pagination= True
-    BlogCategory_data=BlogCategory.objects.all()
-    if request.method == 'POST':
-        try:
-            blogname = request.POST.get('blogname')
-        except:
-            blogname=''
-            return redirect('blogs')
-        #  print("blogname==========",blogname)
-        request.session['search_blog_string'] = blogname
-        blog_cat=[]
-        Blog_Category_with_satus_true=BlogCategory.objects.filter(BlogCategory_Status=True)
-        if Blog_Category_with_satus_true and blogname != 'none':
-            for category in Blog_Category_with_satus_true:
-                blog_cat.append(category.id)
-            cat_id=blog_cat[0]
-            blogs_data=Blog.objects.none()
-            status=True
-            for cat_id in blog_cat:
-                blog_cat_obj=BlogCategory.objects.get(id=cat_id)
-                blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname,Blog_CategoryType=blog_cat_obj)
-        else:
-            cat_id=None
-            status=False
-            blogs_data=Blog.objects.none()
-            blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname)
-        #  print("blogs_data",blogs_data)
-        BlogCategory_data=BlogCategory.objects.all()
-        page = Paginator(blogs_data, 2)
-        page_list = request.GET.get('page')
-        page = page.get_page(page_list)
-        count = blogs_data.count()
-        context={
-        'blogs_data':blogs_data,
-        'BlogCategory_data':BlogCategory_data,
-        'Status':status,
-        'page':page,
-        'selected_id':cat_id,
-        'all_data': 'Search',
-        'blog_title' : blogname,
-        }
-        return render(request,'core_app/blog_list.html',context)
-    if pagination:
-        status=True
-        blogs_data=Blog.objects.none()
-        for cat_id in blog_cat:
-            blog_cat_obj=BlogCategory.objects.get(id=cat_id)
-            blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname,Blog_CategoryType=blog_cat_obj)
-        page = Paginator(blogs_data, 2)
-        page_list = request.GET.get('page')
-        page = page.get_page(page_list)
-        count = blogs_data.count()
-        context={
-        'blogs_data':blogs_data,
-        'BlogCategory_data':BlogCategory_data,
-        'Status':status,
-        'page':page,
-        'selected_id':cat_id,
-        'all_data': 'Search',
-        'blog_title' : blogname,
-        }
-    else:
-        status=False
-        cat_id=None
-        blogs_data=Blog.objects.none()
-        blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname)
-        page = Paginator(blogs_data, 2)
-        page_list = request.GET.get('page')
-        page = page.get_page(page_list)
-        count = blogs_data.count()
-        context={
-        'blogs_data':blogs_data,
-        'BlogCategory_data':BlogCategory_data,
-        'Status':status,
-        'page':page,
-        'selected_id':cat_id,
-        'all_data': 'Search',
-        'blog_title' : blogname,
-        }
-    return render(request,'core_app/blog_list.html',context)
-
-
-
 def blog(request,id):
     try:
         blog_data=Blog.objects.get(id=id)
@@ -1493,122 +1397,6 @@ def blog(request,id):
     except:
         return redirect('blogs')
 
-
-def add_blog(request):
-    if request.user.is_authenticated:
-        user_obj=User.objects.get(id=request.user.id)
-        UserProfile_obj=''
-        try:
-            UserProfile_obj=UserProfile.objects.get(UserProfile_user=user_obj)
-        except:
-            pass
-        if UserProfile_obj:
-            Blog_form_obj=Blog_form()
-            if request.method == 'POST':
-                    user_obj=User.objects.get(id=request.user.id)
-                    Blog_form_obj = Blog_form(request.POST, request.FILES)
-                    if Blog_form_obj.is_valid():
-                        temp_obj = Blog_form_obj.save(commit=False)
-                        temp_obj.Blog_Author = user_obj
-                        temp_obj.save()
-                        try:
-                            RecipentMessage = """
-                                Dear Sir/Ma'am,
-                                We wanted to inform you that your blog has been successfully submitted for verification.
-                                Our team will now review it to ensure compliance with our guidelines. Once verified by our admin panel, 
-                                your blog will be promptly published on our website.
-
-                                Best regards,
-                                Bhashanet Team
-                                """
-                            send_mail("Submission: Blog Verification Request", RecipentMessage, env('SERVER_EMAIL'), [user_obj.email])
-                            blog_link = 'http://bhashanet.in/admin/core_app/blog/' + str(temp_obj.id) + '/change/'
-                            AdminMessage = f"""
-                                        Please verify the following blog and update its status:
-                                        Blog Link: {blog_link}
-                                    """
-                            email_sent_to_admin = send_mail("Action Required: New Blog for Verification", AdminMessage, env('SERVER_EMAIL'), ['pshweta@cdac.in'])
-                        except:
-                            print("error while sending email")
-                        return redirect('admin_blog_datatable')
-                    else:
-                        #  #  print("Error")
-                        context={
-                            'Blog_form_obj':Blog_form_obj,
-                            'flag_blog':'Add'
-                        }
-                        return render(request,'core_app/add_blog.html',context)
-            else:
-                context={
-                    'Blog_form_obj':Blog_form_obj,
-                    'flag_blog':'Add'
-                }
-                return render(request,'core_app/add_blog.html',context)
-        else:
-            messages.error(request, "To add a blog, please update your profile details first", extra_tags="danger")
-            return redirect('user_profile')
-    else:
-        return redirect('login_view')
-
-
-
-def edit_blog(request,id):
-    #  print("id for blog edit",id)
-    if request.user.is_authenticated:
-        Blog_obj = Blog.objects.get(id=id)
-        #  print("blog edit",Blog_obj)
-        if request.method == 'POST':
-            #  print("Inside post method of edit")
-            user_obj=User.objects.get(id=request.user.id)
-            Blog_form_obj = Blog_form(request.POST,request.FILES, instance=Blog_obj)
-            #  print("Blog obj",Blog_form_obj)
-            if Blog_form_obj.is_valid():
-                temp_obj = Blog_form_obj.save(commit=False)
-                if temp_obj.Blog_Author == user_obj:
-                    temp_obj.save()
-                    return redirect('admin_blog_datatable')
-                else:
-                    messages.error(request, "Invalid user for this blog", extra_tags="danger")
-                    Blog_form_obj = Blog_form(request.POST,request.FILES,instance=Blog_obj)
-                    return render(request, 'core_app/add_blog.html', {'Blog_form_obj': Blog_form_obj,'flag_blog':'Edit'})
-            else:
-                Blog_form_obj = Blog_form(request.POST,request.FILES,instance=Blog_obj)
-                return render(request, 'core_app/add_blog.html', {'Blog_form_obj': Blog_form_obj,'flag_blog':'Edit'})
-        else:
-            Blog_form_obj = Blog_form(instance=Blog_obj)
-            return render(request, 'core_app/add_blog.html', {'Blog_form_obj': Blog_form_obj,'flag_blog':'Edit'})
-    else:
-        return redirect('blogs')
-
-
-
-def delete_blog(request,id):
-    if request.user.is_authenticated:
-        user_obj=User.objects.get(id=request.user.id)
-        try:
-            Blog.objects.filter(id=id,Blog_Author=user_obj).delete()
-        except:
-            pass
-        blog_data=Blog.objects.filter(Blog_Author=user_obj)
-        context={
-            'blog_data':blog_data
-        }
-        return render(request, 'core_app/admin_blog_datatable.html',context)
-    else:
-        return redirect('blogs')
-
-
-
-def admin_blog_datatable(request):
-    if request.user.is_authenticated:
-        user_obj=User.objects.get(id=request.user.id)
-        blog_data=Blog.objects.filter(Blog_Author=user_obj)
-        context={
-            'blog_data':blog_data
-        }
-        return render(request, 'core_app/admin_blog_datatable.html',context)
-    else:
-        return redirect('blogs')
 
 
     

@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 app_name = 'admin_app'
 
 urlpatterns = [
-    path('', views.admin_login, name="admin_login"),
+    path('', views.login_view, name="login_view"),
     path('idn_domain_forms', views.idn_domain_forms, name="idn_domain_forms"),
     path('dashboard', views.dashboard, name="dashboard"),
     path('email_compose', views.email_compose, name="email_compose"),
@@ -25,5 +25,6 @@ urlpatterns = [
     path('english_domain_list',views.english_domain_list,name='english_domain_list'),
     path('update_all_domains',views.update_all_domains,name='update_all_domains'),
     path('tinymce/', include('tinymce.urls')),
+    path('logout', views.logout_view, name='logout_view'),
 ]
 

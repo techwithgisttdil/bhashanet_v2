@@ -267,7 +267,8 @@ def generate_otp_for_user_registration(email,OTP_For_UserRegistration):
     print("Inside generate_otp_for_user_registration")
     fixed_digits = 6 
     otp_value = random.randrange(111111, 999999, fixed_digits)
-    otp_already_exists = OTP_For_UserRegistration.objects.filter(OTP_Email=email)
+    user_obj=User.objects.get(username=email)
+    otp_already_exists = OTP_For_UserRegistration.objects.filter(OTP_Email=user_obj)
     
     if otp_already_exists:
         if otp_already_exists[0].OTP_Entered_Count < 10:
@@ -283,20 +284,23 @@ def generate_otp_for_user_registration(email,OTP_For_UserRegistration):
         else:
             print("OTP count limit exceeded")
             expiry_time = otp_already_exists[0].OTP_Created_Date + timedelta(minutes=5) ## timedelta is of 2 hours
-            current_time = timezone.now()
+            current_time = datetime.now(timezone.utc)
             print("OTP count limit expiry_time",expiry_time,current_time,current_time-expiry_time)
             if expiry_time < current_time:
+                print("True")
                 #  print("OTP count limit exceeded and offset time still not reached")
                 data={'status': 'error', 'message': "OTP generate limit exceeded"} 
             else:
+                print("False")
                 otp_already_exists[0].OTP_Value = otp_value
                 otp_already_exists[0].OTP_Entered_Count = 1
                 otp_already_exists[0].save()
                 data={'status': 'success', 'message': "OTP generated"}
     else:
         #  print("email not exists")
+        user_obj=User.objects.get(username=email)
         otp_obj = OTP_For_UserRegistration.objects.create(
-            OTP_Email = email,
+            OTP_Email = user_obj,
             OTP_Value = otp_value,
             OTP_Entered_Count = 1
         )
@@ -324,17 +328,20 @@ def generate_otp_for_user_registration(email,OTP_For_UserRegistration):
 def validate_otp_for_user_registration(email, otp_value,OTP_For_UserRegistration):
     print("Inside validate_otp_for_user_registration")
     # check email exists
-    otp_obj = OTP_For_UserRegistration.objects.filter(OTP_Email=email)
+    user_obj=User.objects.get(username=email)
+    otp_obj = OTP_For_UserRegistration.objects.get(OTP_Email=user_obj)
     print("otp obj",otp_obj)
     if otp_obj:
-        otp = otp_obj[0].OTP_Value
-        otp_status = otp_obj[0].OTP_Status
-        otp_generation_date = otp_obj[0].OTP_Created_Date
+        otp = otp_obj.OTP_Value
+        otp_status = otp_obj.OTP_Status
+        otp_generation_date = otp_obj.OTP_Created_Date
         
         # check otp is expired
-        current_time = timezone.now()
+        current_time = datetime.now(timezone.utc)
+        print("current time============",current_time)
         expiry_time = otp_generation_date + timedelta(minutes=5) ## otp expiry time is 5 minutes
-        print("otp expiry_time",expiry_time - current_time)
+        print("expiry_time time============",expiry_time)
+        # print("otp expiry_time",expiry_time - current_time)
         if expiry_time > current_time:
             print("otp_value",otp_value,otp)
             if str(otp_value) == str(otp):
@@ -343,6 +350,8 @@ def validate_otp_for_user_registration(email, otp_value,OTP_For_UserRegistration
                     #  print("OTP expired: Already verified")
                     return False
                 else:
+                    otp_obj.OTP_Status=True
+                    otp_obj.save()
                     print("OTP verified")
                     return True
             else:

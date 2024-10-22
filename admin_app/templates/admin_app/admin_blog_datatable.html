@@ -1,4 +1,4 @@
-{% extends 'core_app/base.html' %}
+{% extends 'admin_app/base.html' %}
 {% load static %}
 
 {% block blog_datatable %}
@@ -22,13 +22,13 @@
         <div class="row">
             <div class="col-md-12 col-12">
                 <div class="breadcrumb-list">
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    {% comment %} <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                             <li class="breadcrumb-item"><a href="{% url 'blogs' %}">Blogs</a></li>
                             <li class="breadcrumb-item">Blog List Table</li>
                         </ol>
-                    </nav>
+                    </nav> {% endcomment %}
                 </div>
             </div>
         </div>
@@ -42,11 +42,11 @@
             <a class="btn btn-primary rounded-3" href="{% url 'blogs' %}">Blog List</a>
           </h5> -->
         </div>
-        <div class="col-6">
+        {% comment %} <div class="col-6">
           <h5 class="text-end mb-4">
             <a class="btn btn-primary rounded-3" href="{% url 'add_blog' %}">Add New Blog</a>
           </h5>
-        </div>
+        </div> {% endcomment %}
       </div>
    
 
@@ -67,7 +67,7 @@
                 <th>Last Updated Date</th>
                 <th>Author</th>
                 <th>Publish Status</th>
-                <th>View Details</th>
+                {% comment %} <th>View Details</th> {% endcomment %}
                 <th>Edit</th>
                 {% comment %} <th>Delete</th> {% endcomment %}
 
@@ -83,7 +83,7 @@
                 <td>{{data.Blog_LastUpdatedDate}}</td>
                 <td>{{data.Blog_Author}}</td>
                 <td>{{data.Blog_PublishedStatus}}</td>
-                <td><a class="btn btn-primary rounded-3" href="#" onclick="renderPathForBlogCategoryFunction('blog','{{ data.id }}'); return false;">View Details</a></td>
+                {% comment %} <td><a target="_blank" class="btn btn-primary rounded-3" href="#" onclick="renderPathForBlogCategoryFunction('blog','{{ data.id }}'); return false;">View Details</a></td> {% endcomment %}
                 <td><a class="btn btn-primary rounded-3" href="#" onclick="renderPathForBlogCategoryFunction('edit_blog','{{ data.id }}'); return false;">Edit</a></td>
                 {% comment %} <td><a class="btn btn-primary rounded-3 confirm-delete" href="{% url 'delete_blog' data.id %}">Delete</a></td> {% endcomment %}
             </tr>

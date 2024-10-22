@@ -257,4 +257,4 @@ class OTP_For_UserRegistration(models.Model):
         verbose_name_plural = "OTP FOR User Registration"
 
     def __str__(self):
-        return self.OTP_Email+'For User'
+        return str(self.OTP_Email)+'For User'

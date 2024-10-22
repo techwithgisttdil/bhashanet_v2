@@ -1,4 +1,4 @@
-{% extends 'core_app/base.html' %}
+{% extends 'admin_app/base.html' %}
 {% load static %}
 {% load i18n %}
 {% block user_profile %}
@@ -22,12 +22,12 @@
       <div class="row">
           <div class="col-md-12 col-12">
             <div class="breadcrumb-list">
-                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                {% comment %} <nav aria-label="breadcrumb" class="page-breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                     <li class="breadcrumb-item" aria-current="page">User Profile</li>
                   </ol>
-                </nav>
+                </nav> {% endcomment %}
             </div>
           </div>
       </div>

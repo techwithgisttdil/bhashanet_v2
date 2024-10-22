@@ -26,9 +26,9 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                             <li class="breadcrumb-item"><a href="{% url 'blogs' %}">Blogs</a></li>
-                            {% if request.user.is_authenticated %}
+                            {% comment %} {% if request.user.is_authenticated %}
                             <li class="breadcrumb-item"><a href="{% url 'admin_blog_datatable' %}">Blog List Table</a></li>
-                            {% endif %}
+                            {% endif %} {% endcomment %}
                             <li class="breadcrumb-item">Blog Details</li>
                         </ol>
                     </nav>

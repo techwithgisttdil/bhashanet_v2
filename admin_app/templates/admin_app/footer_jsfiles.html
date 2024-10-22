@@ -17,4 +17,91 @@
 
 
 
+
+<script type="text/javascript" src="https://gistlangserver.in/Content/WSLToolbar/Scripts/GoTranslateWebLocalizer/latest/static/gotwl.min.js" defer></script> 
+
+<script>
+    window.onload = () => {
+        console.log("value",document.getElementById('dropdownMenuLink').innerText)
+        console.log("requested path",location.hostname)
+        if (location.hostname === 'bhashanet.in'){ 
+            document.getElementById('dropdownMenuLink').innerText='Select language'     
+                setLanguageForTranslation('None');
+        }else if (location.hostname === 'xn--c2bro4b8ab8d.xn--h2brj9c'){
+            document.getElementById('dropdownMenuLink').innerText='Hindi-हिंदी'
+                setLanguageForTranslation('Hindi',true);
+        }else if (location.hostname === 'xn--d2b1ag0dl.xn--c2bro4b8ab8d.xn--h2brj9c'){
+            document.getElementById('dropdownMenuLink').innerText='Marathi-मराठी'
+                setLanguageForTranslation('Marathi',true);
+        }else if (location.hostname === 'xn--xscro4b8ab1dzc.xn--2scrj9c'){
+            console.log("inside kannada")
+            document.getElementById('dropdownMenuLink').innerText='Kannada-ಕನ್ನಡ'
+                setLanguageForTranslation('Kannada',true);
+        }else if (location.hostname === 'xn--uwcjna1a5bb9d4cb.xn--rvc1e0am3e'){
+            document.getElementById('dropdownMenuLink').innerText='Malayalam-മലയാളം'
+                setLanguageForTranslation('Malayalam',true);
+        }else if (location.hostname === 'xn--z5bro4b8ab8d.xn--45brj9c'){
+            document.getElementById('dropdownMenuLink').innerText='Bengali-বাংলা'
+                setLanguageForTranslation('Bengali',true);
+        }else if (location.hostname === 'xn--35bokk7eif.xn--z5bro4b8ab8d.xn--45brj9c'){
+            document.getElementById('dropdownMenuLink').innerText='Manipuri-মণিপুরী'
+                setLanguageForTranslation('Manipuri',true);
+        }else if (location.hostname === 'xn--becro4b8ab8d.xn--gecrj9c'){
+            document.getElementById('dropdownMenuLink').innerText='Gujarati-ગુજરાતી'
+                setLanguageForTranslation('Gujarati',true);
+        }else if (location.hostname === 'xn-----btdbc3d4hd37blpqm.xn--mgbbh1a71e'){
+            document.getElementById('dropdownMenuLink').innerText='Urdu-اردو '
+                setLanguageForTranslation('Urdu',true);
+        }else if (location.hostname === 'xn--n9bro8bukc7e.xn--s9brj9c'){
+            document.getElementById('dropdownMenuLink').innerText='Punjabi-ਪੰਜਾਬੀ'
+                setLanguageForTranslation('Punjabi',true);  
+        }else if (location.hostname === 'xn--9ocro4b8ab1dzc.xn--fpcrj9c3d'){
+            document.getElementById('dropdownMenuLink').innerText='Telugu-தமிழ்'
+                setLanguageForTranslation('Telugu',true);
+        }else if (location.hostname === 'xn--mlcrf6c8ab1dzc.xn--xkc2dl3a5ee0h'){
+                document.getElementById('dropdownMenuLink').innerText='Tamil-తెలుగు'
+                    setLanguageForTranslation('Tamil',true);
+        }else if (location.hostname === 'xn--z5bro4b8ab8d.xn--45br5cyl'){
+                document.getElementById('dropdownMenuLink').innerText='Assamese-অসমীয়া'
+                    setLanguageForTranslation('Assamese',true);
+        }else if (location.hostname === 'xn--i1b1bb0d0hoc.xn--c2bro4b8ab8d.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Konkani-कोंकणी'
+                    setLanguageForTranslation('Konkani',true);
+        }else if (location.hostname === 'xn--yhcro4b8ab8d.xn--3hcrj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Odia-ଓଡିଆ' //Odia-ଓଡିଆ
+                    setLanguageForTranslation('Oriya',true);
+        }else if (location.hostname === 'xn--c2brfy4bwnt8d.xn--h2brj9c8c'){
+                document.getElementById('dropdownMenuLink').innerText='Santali-संथाली' //Santali-संथाली
+                    setLanguageForTranslation('Santali',true);
+        }else if (location.hostname === 'xn--l2bey1cl2b.xn--c2bro4b8ab8d.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Nepali-नेपाली' //Nepali-नेपाली
+                    setLanguageForTranslation('Nepali',true);
+        }else if (location.hostname === 'xn--c2bazt9b7bb5f1b.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Dogri-डोगरी' //Dogri-डोगरी
+                    setLanguageForTranslation('Dogri',true);
+        }else if (location.hostname === 'xn--c2brxay7cbj7e.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Boro-Boro' //Boro-Boro
+                    setLanguageForTranslation('Boro',true);
+        }else if (location.hostname === 'xn----ymcac5dzf1p7v.xn--mgbbh1a'){
+                document.getElementById('dropdownMenuLink').innerText='Kashmiri-Kashmiri' //Kashmiri-Kashmiri
+                    setLanguageForTranslation('Kashmiri',true);
+        }else if (location.hostname === 'xn--i1b8e2b2ah.xn--c2bro4b8ab8d.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Sindhi-सिंधी' //Sindhi-सिंधी
+                    setLanguageForTranslation('Sindhi',true);
+        }else if (location.hostname === 'xn--i2brn5cg8b.xn--c2bro4b8ab8d.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Maithili-मैथिली' //Maithili-मैथिली
+                    setLanguageForTranslation('Maithili',true);
+        }else if (location.hostname === 'xn--c2bro4b8ab8d.xn--h2breg3eve'){
+                document.getElementById('dropdownMenuLink').innerText='Sanskrit-संस्कृत' //Sanskrit-संस्कृत
+                    setLanguageForTranslation('Sanskrit',true);
+        }else{
+            console.log("Inside else loop for localhost loop")
+            document.getElementById('dropdownMenuLink').innerText='Select language'
+                setLanguageForTranslation('Hindi',true);
+         }            
+    }
+</script>
+
+
+
  
