@@ -9,7 +9,6 @@ bhashanet_v2_env/
 
 # Ignore Django-specific files
 db.sqlite3
-media/
 staticfiles/
 
 # Ignore environment variables
