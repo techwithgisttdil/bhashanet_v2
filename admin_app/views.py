@@ -43,10 +43,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
 
 
-
-##----------   login view -----------
 def login_view(request,flag=None):
-    print("id=====",flag)
     if flag == "for_user_login":
         base_template = 'core_app/base.html' 
     else:
@@ -54,21 +51,14 @@ def login_view(request,flag=None):
     if request.user.is_authenticated:
         logout(request)
     if request.method == 'POST':
-        print("id=====",flag)
         form = LoginForm(request.POST.copy())
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-        
-            print("username= ", username + " password= " + password)
-            
             try:
-                # check user status is active or not
                 if User.objects.filter(username=username, is_active=False):
-                    print("User is not active")
                     messages.info(request, "User is not Active, Please Activate or Register again", extra_tags="danger")
                 else:
-                    # authenticate username and password 
                     user = authenticate(username=username, password=password)
                     user_obj=User.objects.get(username=username)
                     user_role_obj = UserRoleMapping.objects.get(User_Id=user)
@@ -80,18 +70,14 @@ def login_view(request,flag=None):
                                 form = LoginForm()
                                 captcha_value = random_captcha_generator()
                                 captcha_img_generator(captcha_value)
-                                print("captcha value ", captcha_value)
                                 form.fields['captcha_hidden'].initial = make_password(captcha_value)
-                                return render(request, 'admin_app/user_login.html', {"form": form,"base_template":base_template})
+                                return render(request, 'admin_app/AccountManagement/user_login.html', {"form": form,"base_template":base_template})
                         except:
                             messages.error(request, 'Account Not Yet Verified with OTP', extra_tags="danger") 
                     if user is not None :
                         login(request, user)
-                        # User authenticated successful
                         try:
                             user_role_obj = UserRoleMapping.objects.get(User_Id=user)     
-                            print("user role obj", user_role_obj)
-                           
                             if user_role_obj.Role_Id.Role_Name == 'nixi_admin':
                                 print("Nixi admin")
                                 return redirect('admin_app:dashboard2')
@@ -105,7 +91,6 @@ def login_view(request,flag=None):
                                 return redirect('admin_app:dashboard2')
                             elif user_role_obj.Role_Id.Role_Name == 'Bhashanet_User':
                                 return redirect('home')
-
                             else:
                                 return redirect('home')
                         except:
@@ -115,8 +100,7 @@ def login_view(request,flag=None):
             except:
                 messages.error(request, "Something Went Wrong", extra_tags="danger")  
         else:
-            print("form is invalid")
-            
+            messages.error(request, "Something Went Wrong", extra_tags="danger") 
         captcha_value = random_captcha_generator()
         captcha_img_generator(captcha_value)
         form.data['captcha_input'] = ''
@@ -127,12 +111,10 @@ def login_view(request,flag=None):
         captcha_img_generator(captcha_value)
         print("captcha value ", captcha_value)
         form.fields['captcha_hidden'].initial = make_password(captcha_value)
-    return render(request, 'admin_app/user_login.html', {"form": form,"base_template":base_template})
+    return render(request, 'admin_app/AccountManagement/user_login.html', {"form": form,"base_template":base_template})
 
 
-## ------ user  registration view -------
 def register_view(request,flag=None):
-    print("id=====",flag)
     if flag == "for_user_register":
         base_template = 'core_app/base.html' 
     else:
@@ -141,15 +123,11 @@ def register_view(request,flag=None):
         if request.method == 'POST':
             form = RegistrationForm(request.POST.copy())
             email = request.POST.get("email")
-
             if form.is_valid():
                 email = request.POST.get("email")
                 password = request.POST.get("password1")
                 password_confirm  = request.POST.get("password2")
                 role  = request.POST.get("role")
-                
-                print("email : ", email, " password1 : ", password ," password_confirm : ", password_confirm,role)
-                
                 if not User.objects.filter(username=email).exists():
                     user = User.objects.create(email=email, username=email)       
                     user.set_password(password)     
@@ -162,16 +140,12 @@ def register_view(request,flag=None):
                     resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
                     if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
                         User_Registration_With_OTP.apply_async((email,), countdown=300)
-                        # User_Registration_With_OTP(email)
                         messages.success(request, "OTP is sent to " + email, extra_tags="success")
                         return redirect("verify_user_otp",email=email)
-                    
                     elif resp_data['Email_status'] == 'error':
                         messages.success(request, resp_data['message'], extra_tags="danger")
-
                     elif resp_data['status'] == 'error':
                         messages.success(request, resp_data['message'], extra_tags="danger")
-                    
                 else:
                     user = User.objects.get(username=email)
                     try:
@@ -184,9 +158,8 @@ def register_view(request,flag=None):
                             messages.error(request, 'Email address already exists', extra_tags="danger")
                             captcha_value = random_captcha_generator()
                             captcha_img_generator(captcha_value)
-                            print("captcha value ", captcha_value)
                             form.fields['captcha_hidden'].initial = make_password(captcha_value)
-                            return render(request, "admin_app/user_register.html", {'form': form,'base_template':base_template})  
+                            return render(request, "admin_app/AccountManagement/user_register.html", {'form': form,'base_template':base_template})  
                 
                     resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
                     if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
@@ -199,24 +172,21 @@ def register_view(request,flag=None):
 
                     elif resp_data['status'] == 'error':
                         messages.success(request, resp_data['message'], extra_tags="danger")
-
             else:
-                print("Unsuccessful registration. Invalid information.")
                 messages.error(request, "Unsuccessful Registration. Invalid Information.", extra_tags='danger')
             captcha_value = random_captcha_generator()
             captcha_img_generator(captcha_value)
             form.data['captcha_input'] = ''
             form.data['captcha_hidden'] = make_password(captcha_value)
-            return render(request, template_name="admin_app/user_register.html", context={"form": form,'base_template':base_template})
+            return render(request, template_name="admin_app/AccountManagement/user_register.html", context={"form": form,'base_template':base_template})
         else:
             form = RegistrationForm()
             captcha_value = random_captcha_generator()
             form.data['captcha_input'] = ''
             form.data['captcha_hidden'] = make_password(captcha_value)
             captcha_img_generator(captcha_value)
-            print("captcha value ", captcha_value)
             form.fields['captcha_hidden'].initial = make_password(captcha_value)
-            return render(request, "admin_app/user_register.html", {'form': form,'base_template':base_template})
+            return render(request, "admin_app/AccountManagement/user_register.html", {'form': form,'base_template':base_template})
     else:
         if request.method == 'POST':
             form = RegistrationForm(request.POST.copy())
@@ -226,8 +196,7 @@ def register_view(request,flag=None):
                 email = request.POST.get("email")
                 password = request.POST.get("password1")
                 password_confirm  = request.POST.get("password2")
-                print("====================email : ", email, " password1 : ", password ," password_confirm : ", password_confirm)
-                
+
                 if not User.objects.filter(username=email).exists():
                     user = User.objects.create(email=email, username=email)       
                     user.set_password(password)     
@@ -262,9 +231,8 @@ def register_view(request,flag=None):
                             messages.error(request, 'Email address already exists', extra_tags="danger")
                             captcha_value = random_captcha_generator()
                             captcha_img_generator(captcha_value)
-                            print("captcha value ", captcha_value)
                             form.fields['captcha_hidden'].initial = make_password(captcha_value)
-                            return render(request, "admin_app/user_register.html", {'form': form,'base_template':base_template})  
+                            return render(request, "admin_app/AccountManagement/user_register.html", {'form': form,'base_template':base_template})  
                 
                     resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
                     if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
@@ -279,13 +247,12 @@ def register_view(request,flag=None):
                         messages.success(request, resp_data['message'], extra_tags="danger")
 
             else:
-                print("Unsuccessful registration. Invalid information.")
                 messages.error(request, "Unsuccessful Registration. Invalid Information.", extra_tags='danger')
             captcha_value = random_captcha_generator()
             captcha_img_generator(captcha_value)
             form.data['captcha_input'] = ''
             form.data['captcha_hidden'] = make_password(captcha_value)
-            return render(request, template_name="admin_app/user_register.html", context={"form": form,'base_template':base_template})
+            return render(request, template_name="admin_app/AccountManagement/user_register.html", context={"form": form,'base_template':base_template})
         else:
             form = RegistrationForm()
             captcha_value = random_captcha_generator()
@@ -294,15 +261,10 @@ def register_view(request,flag=None):
             captcha_img_generator(captcha_value)
             print("captcha value ", captcha_value)
             form.fields['captcha_hidden'].initial = make_password(captcha_value)
-            return render(request, "admin_app/user_register.html", {'form': form,'base_template':base_template})
-
-        ## Verify OTP here 
-
+            return render(request, "admin_app/AccountManagement/user_register.html", {'form': form,'base_template':base_template})
 
 
 def verify_user_otp(request,email,flag=None):
-    print("inside verify_user_otp",email)
-    print("id=====",flag)
     if flag == "for_user_otp":
         base_template = 'core_app/base.html' 
     else:
@@ -310,27 +272,23 @@ def verify_user_otp(request,email,flag=None):
     otp_form=OTPForRegistrationForm()
     if request.method == 'POST' and 'submit' in request.POST:
         form = OTPForRegistrationForm(request.POST.copy())
-        print("form===============",form)
         if form.is_valid():
             otp_value = request.POST.get("otp")
             status=validate_otp_for_user_registration(email, otp_value, OTP_For_UserRegistration)
-            print("Status==============",status,flag)
             if status:
                 user_obj=User.objects.get(username=email)
                 otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=user_obj)
                 otp_user_obj.OTP_Status=True
                 messages.success(request, "OTP Verified, Now user can login ", extra_tags="success")
                 if flag == "for_user_otp":
-                    return redirect("admin_app:login_view",flag="for_user_login")
+                    return redirect("login_view",flag="for_user_login")
                 else:
-                    return redirect("admin_app:login_view")
-
+                    return redirect("login_view")
             else:
                 messages.error(request, "Failed OTP Verification", extra_tags='danger')
-                return render(request, "admin_app/otp_form.html", {'form': otp_form,'base_template':base_template})
+                return render(request, "admin_app/AccountManagement/otp_form.html", {'form': otp_form,'base_template':base_template})
     if request.method == 'POST' and 'resent' in request.POST:
         otp_form=OTPForRegistrationForm()
-        print("================flag")
         try: 
             user = User.objects.get(username=email)
             resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
@@ -343,25 +301,21 @@ def verify_user_otp(request,email,flag=None):
 
             elif resp_data['status'] == 'error':
                 messages.success(request, resp_data['message'], extra_tags="danger")
-            return render(request, "admin_app/otp_form.html", {'form': otp_form,'base_template':base_template})
+            return render(request, "admin_app/AccountManagement/otp_form.html", {'form': otp_form,'base_template':base_template})
         except:
             messages.success(request, 'OTP generate limit exceeded, Register Again!', extra_tags="danger")
             return redirect('register_view')
-    return render(request, "admin_app/otp_form.html", {'form': otp_form,'base_template':base_template})
-
-
+    return render(request, "admin_app/AccountManagement/otp_form.html", {'form': otp_form,'base_template':base_template})
 
 
 @login_required()
 def logout_view(request,flag=None):
     logout(request)
     messages.success(request, "You are successfully logged Out", extra_tags="success")
-    return redirect("admin_app:login_view",flag=flag)
+    return redirect("login_view",flag=flag)
 
 @login_required()
 def change_password_view(request,flag=None):
-    print("in change password view")
-    print("id=====",flag)
     if flag == "for_user_change_pass":
         base_template = 'core_app/base.html' 
     else:
@@ -369,78 +323,55 @@ def change_password_view(request,flag=None):
     form = ChangePasswordUserForm()
     try:
         user = User.objects.get(username=request.user)
-        print("user ", user)
         if request.method == 'POST':
             form = ChangePasswordUserForm(request.POST)
             if form.is_valid():
                 old_password = form.cleaned_data['old_password']
                 new_password = form.cleaned_data['new_password']
-                
-                print("old : ", old_password , " new : ", new_password)
                 if user.check_password(old_password):
                     user.set_password(new_password)
                     user.save()
                     messages.success(request, 'Password changed successfully', extra_tags='success')
                     logout(request)
                     if flag == "for_user_change_pass":
-                        return redirect('admin_app:login_view',flag='for_user_login')
+                        return redirect('login_view',flag='for_user_login')
                     else:
-                        return redirect('admin_app:login_view')
+                        return redirect('login_view')
                 else:
                     messages.error(request, "Incorrect Old Password", extra_tags='danger')                
             else:
-                print("invalid form")
+                messages.error(request, "Invalid Details", extra_tags='danger') 
     except:
         messages.error(request, "User Not Found", extra_tags='danger')
 
-    return render(request, 'admin_app/change_password.html', {'form':form,'base_template':base_template})
+    return render(request, 'admin_app/AccountManagement/change_password.html', {'form':form,'base_template':base_template})
 
 
-### --------- forgot pasword --------
 def forgot_password_view(request,flag=None):
-    print("in forgot password view")
-    print("id=====",flag)
     if flag == "for_user_forgot_password":
         base_template = 'core_app/base.html' 
     else:
         base_template = 'admin_app/base.html'
-    # check user is authenticated or NOT
     if request.user.is_authenticated:
         return redirect("home")
-    # form = ForgotPasswordForm()
-
     if request.method == 'POST':
         form = ForgotPasswordForm(request.POST.copy())
         if form.is_valid():
             email = form.cleaned_data['email']
-            print("Email ", email)
             user = User.objects.filter(email=email)
-
             if user:
-                print("User email : ", user[0].pk)
-
-                # generate token
                 domain = request.get_host()
                 uid = urlsafe_base64_encode(force_bytes(user[0].pk))
                 token = account_activation_token.make_token(user[0])
                 link = reverse('password_creation', kwargs={"uid": uid, "token": token,"flag":flag})
-                activate_link = "http://" + domain + link 
-                print(domain)
-                print("activate_link =================================", activate_link)
-
-                # add token in database 
+                activate_link = "http://" + domain + link  
                 try:
                     forgot_password_data = CustomForgotPassword.objects.filter(email=user[0])
                     if forgot_password_data:
-                        print("user data already exists")
-                        print(forgot_password_data[0].generation_time, forgot_password_data[0].counter)
-                        
                         prev_counter = forgot_password_data[0].counter
                         generated_date = forgot_password_data[0].generation_time.date()
                         current_date = datetime.now().date()
-                        
                         if generated_date == current_date:
-                            print("Same day request")
                             if prev_counter < 10:
                                 forgot_password_data[0].counter = prev_counter + 1
                             else:
@@ -449,30 +380,22 @@ def forgot_password_view(request,flag=None):
                                 form.data['captcha_input'] = ''
                                 form.data['captcha_hidden'] = make_password(captcha_value)
                                 messages.error(request, "Forgot password request daily limit exceeded, please try after some time.(max limit 10)", extra_tags="danger")
-                                return render(request, 'admin_app/forgot_password.html', {'form': form,'base_template':base_template})
+                                return render(request, 'admin_app/AccountManagement/forgot_password.html', {'form': form,'base_template':base_template})
                         else:
-                            print("Date is different from today")
                             forgot_password_data[0].counter = 1
-
                         forgot_password_data[0].forgot_password_token = token
                         forgot_password_data[0].generation_time = datetime.now(timezone.utc)
                         forgot_password_data[0].save()
                     else:
                         data = CustomForgotPassword(email=user[0], forgot_password_token=token, generation_time=datetime.now(timezone.utc), counter=1)
-                        print(data)
                         data.save()
                 except:
-                    print("Error in data insert in custom_forgot_password model(table)")
                     captcha_value = random_captcha_generator()
                     captcha_img_generator(captcha_value)
                     form.data['captcha_input'] = ''
                     form.data['captcha_hidden'] = make_password(captcha_value)
-                    
                     messages.error(request, "Something Went Wrong", extra_tags="danger")
-                    return render(request, 'admin_app/forgot_password.html', {'form': form,'base_template':base_template}) 
-
-                # send email
-                
+                    return render(request, 'admin_app/AccountManagement/forgot_password.html', {'form': form,'base_template':base_template}) 
                 try:
                     send_mail(
                     subject="Forgot Password",
@@ -481,120 +404,73 @@ def forgot_password_view(request,flag=None):
                     recipient_list=[email],
                     fail_silently=False,
                     html_message="<h4>Click <a href={0}>here</a> to reset your password. Link is valid for 2 hours.</h4>".format(activate_link)
-                )
-                    print("mail sent")
+                    )
                     messages.error(request, "Email sent to {}".format(email), extra_tags="success")
-
                 except:
-                    print("Error in email send")
-                    messages.error(request, "Email not send", extra_tags="danger")  # return render(request, 'core_app/user/forgot_password.html', {'form': form})
+                    messages.error(request, "Email not send", extra_tags="danger") 
             else:
-                print("Email not registered")
-                messages.error(request, "User does not exists", extra_tags="danger")  # return render(request, 'core_app/user/forgot_password.html', {'form': form})
+                messages.error(request, "User does not exists", extra_tags="danger")  
         else:
-            print("Form invalid")  # messages.error(request, "Please correct error")    # return render(request, 'core_app/user/forgot_password.html', {'form': form})
-            # messages.error(request, "Something Went Wrong")  
-            
+            messages.error(request, "Something Went Wrong")  
         captcha_value = random_captcha_generator()
         captcha_img_generator(captcha_value)
         form.data['captcha_input'] = ''
         form.data['captcha_hidden'] = make_password(captcha_value)
-        return render(request, 'admin_app/forgot_password.html', {'form': form,'base_template':base_template}) 
+        return render(request, 'admin_app/AccountManagement/forgot_password.html', {'form': form,'base_template':base_template}) 
     else:
         form = ForgotPasswordForm()
-        
+
     captcha_value = random_captcha_generator()
     captcha_img_generator(captcha_value)
-    print("captcha value ", captcha_value)
     form.fields['captcha_hidden'].initial = make_password(captcha_value)
-    
-    return render(request, 'admin_app/forgot_password.html', {'form': form,'base_template':base_template}) 
+    return render(request, 'admin_app/AccountManagement/forgot_password.html', {'form': form,'base_template':base_template}) 
 
 
-
-
-
-
-# Used for re creating new password after forgoting the password
 def password_creation_view(request, uid, token,flag=None):
     if flag == "for_user_forgot_password":
         base_template = 'core_app/base.html' 
     else:
         base_template = 'admin_app/base.html'
-
     if request.user.is_authenticated:
         return redirect("admin_app:dashboard2")
     form = PasswordCreationForm()
-    print(uid, token,"============================================")
-    # print(urlsafe_base64_decode(uid).decode())
-    # try:
     id = urlsafe_base64_decode(uid).decode()
     user = User.objects.filter(id=id)
-    print(user)
     if user:
         token_data = CustomForgotPassword.objects.filter(forgot_password_token=token)
-        print("Token ", token_data)
         if token_data:
             token_generation_time = token_data[0].generation_time
             current_time = datetime.now(timezone.utc)
-            print(token_generation_time)
-            print(current_time)
-            print(token_generation_time.tzinfo)
             time_threshold = current_time - timedelta(hours=2)  # change current time is 2 hour before
-            print(time_threshold)
-
-            # compare generation time is not before 2 hours 
             if token_generation_time < time_threshold:
-                print("Token expire")
-                # messages.info(request, "Token expired")
-                # token expired then redirect to error page
-                return render(request, 'admin_app/forgot_password_token_page.html', {'message': "Activation link Expired!", "link": "forgot_password",'base_template':base_template})
+                return render(request, 'admin_app/AccountManagement/forgot_password_token_page.html', {'message': "Activation link Expired!", "link": "forgot_password",'base_template':base_template})
             else:
-                # if token is not expired yet 
-                print("Token not expired yet")
-                # change password
                 if request.method == 'POST':
                     form = PasswordCreationForm(request.POST)
                     if form.is_valid():
                         password = form.cleaned_data['password']
                         confirm_password = form.cleaned_data['confirm_password']
-                        print("New Password : ", password, "\n Confirm Password: ", confirm_password)
                         if password != confirm_password:
-                            print("Passwords not matched")
                             messages.error(request, "Confirm Password must be same as New Password", extra_tags="danger")
-                            return render(request, "admin_app/password_creation.html", {'form': form,'base_template':base_template})
+                            return render(request, "admin_app/AccountManagement/password_creation.html", {'form': form,'base_template':base_template})
 
-                        # passwords are same
                         user[0].password = make_password(password)
                         user[0].save()
-                        # set token to None
                         token_data[0].forgot_password_token = "none"
                         token_data[0].save()
                         logout(request)
-                        return render(request, 'admin_app/password_change_success_page.html', {'message': "Password Reset Successful",'base_template':base_template})
+                        return render(request, 'admin_app/AccountManagement/password_change_success_page.html', {'message': "Password Reset Successful",'base_template':base_template})
                     else:
-                        # messages.error(request, "Please correct error")
-                        return render(request, "admin_app/password_creation.html", {'form': form,'base_template':base_template})
-
-                return render(request, "admin_app/password_creation.html", {'form': form,'base_template':base_template})
-
-
+                        return render(request, "admin_app/AccountManagement/password_creation.html", {'form': form,'base_template':base_template})
+                return render(request, "admin_app/AccountManagement/password_creation.html", {'form': form,'base_template':base_template})
         else:
-            print("Token is not exists")
-            return render(request, 'admin_app/forgot_password_token_page.html', {'message': "Activation link Expired!", "link": 'forgot_password','base_template':base_template})
+            return render(request, 'admin_app/AccountManagement/forgot_password_token_page.html', {'message': "Activation link Expired!", "link": 'forgot_password','base_template':base_template})
     else:
-        print("User does not exists")
-        return render(request, 'admin_app/forgot_password_token_page.html', {'message': "User not exists", "link": 'login','base_template':base_template})
+        return render(request, 'admin_app/AccountManagement/forgot_password_token_page.html', {'message': "User not exists", "link": 'login','base_template':base_template})
 
 
-
-
-
-# Used for user profile creation
 @login_required()
 def user_profile_view(request,flag=None):
-    print("User profile view")
-    print("id=====",flag)
     if flag == "for_user_profile":
         base_template = 'core_app/base.html' 
     else:
@@ -621,18 +497,14 @@ def user_profile_view(request,flag=None):
             else:
                 return redirect('home')
         else:
-            print("Invalid User profile", form.errors)
-        
-    return render(request, 'admin_app/user_profile.html', {'form' : form,'base_template':base_template}) 
-
-
-
+            messages.error(request, "Invalid Details", extra_tags="danger")
+    return render(request, 'admin_app/AccountManagement/user_profile.html', {'form' : form,'base_template':base_template}) 
 
 
 # Create your views here.
 @login_required
 def home(request):
-    return redirect('admin_app:admin_login')
+    return redirect('login_view')
 
 # -----ADDED BY SANJAYB -------
 
@@ -1329,46 +1201,46 @@ def english_domain_list(request):
 
 #-----Added By Sanjay Bhargava------
 
-def admin_login(request):
-    print("loging get called")
-    logs("admin_login view called ")
-    if request.user.is_authenticated and request.user.is_staff:
-        logs("Admin is already login")
-        return redirect('admin_app:dashboard2')
-    if request.method == 'POST':
-        logs("POST Method Called")
-        form = AdminLoginForm(request.POST)
-        if form.is_valid():
-            logs("Form is Valid ")
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=password)
-            if user is not None and user.is_staff:
-                logs("user is not None and user is_staff")
-                login(request, user)
-                return redirect('admin_app:dashboard2')  # Change this to your admin dashboard URL
-            else:
-                logs("user is  None and user is not staff")
-                messages.error(request, 'Invalid username or password.')
-                return render(request,'admin_app/admin_login.html', {'form': form})
-        else:
-            logs("Form is Not Valid ")
-            messages.error(request, 'Invalid username or password.')
-            return render(request,'admin_app/admin_login.html', {'form': form})
-    else:
-        logs("GET Method Called")
-        form = AdminLoginForm()
-        print("page will render")
-    return render(request,'admin_app/admin_login.html', {'form': form})
+# def admin_login(request):
+#     print("loging get called")
+#     logs("admin_login view called ")
+#     if request.user.is_authenticated and request.user.is_staff:
+#         logs("Admin is already login")
+#         return redirect('admin_app:dashboard2')
+#     if request.method == 'POST':
+#         logs("POST Method Called")
+#         form = AdminLoginForm(request.POST)
+#         if form.is_valid():
+#             logs("Form is Valid ")
+#             username = form.cleaned_data['username']
+#             password = form.cleaned_data['password']
+#             user = authenticate(request, username=username, password=password)
+#             if user is not None and user.is_staff:
+#                 logs("user is not None and user is_staff")
+#                 login(request, user)
+#                 return redirect('admin_app:dashboard2')  # Change this to your admin dashboard URL
+#             else:
+#                 logs("user is  None and user is not staff")
+#                 messages.error(request, 'Invalid username or password.')
+#                 return render(request,'admin_app/admin_login.html', {'form': form})
+#         else:
+#             logs("Form is Not Valid ")
+#             messages.error(request, 'Invalid username or password.')
+#             return render(request,'admin_app/admin_login.html', {'form': form})
+#     else:
+#         logs("GET Method Called")
+#         form = AdminLoginForm()
+#         print("page will render")
+#     return render(request,'admin_app/admin_login.html', {'form': form})
 
-#-----Added By Sanjay Bhargava------
-@login_required 
-def admin_logout(request):
-    if request.user.is_authenticated and request.user.is_staff:
-        logout(request)
-        return redirect('admin_app:admin_login')  # Redirect to the login page after logging out
-    else:
-        return redirect('admin_app:admin_login')
+# #-----Added By Sanjay Bhargava------
+# @login_required 
+# def admin_logout(request):
+#     if request.user.is_authenticated and request.user.is_staff:
+#         logout(request)
+#         return redirect('login_view')  # Redirect to the login page after logging out
+#     else:
+#         return redirect('login_view')
         
 
 #-------- Added By Sanjay Bhargava--------

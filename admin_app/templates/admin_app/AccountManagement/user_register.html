@@ -107,7 +107,7 @@
             </div>
           </form>
           {% if base_template == "core_app/base.html" %}
-        <div class="text-center fw-bold fs-6 mt-2">Already Registered User | <a class="text-primary" href="{% url 'admin_app:login_view' 'for_user_login' %}">Login</a></div>
+        <div class="text-center fw-bold fs-6 mt-2">Already Registered User | <a class="text-primary" href="{% url 'login_view' 'for_user_login' %}">Login</a></div>
         </div>
         {% endif %}
   </div>

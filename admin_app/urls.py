@@ -6,9 +6,6 @@ from django.conf.urls.static import static
 app_name = 'admin_app'
 
 urlpatterns = [
-    path('', views.login_view, name="login_view"),
-    path('<str:flag>', views.login_view, name="login_view"),
-
     
     path('idn_domain_forms', views.idn_domain_forms, name="idn_domain_forms"),
     path('dashboard', views.dashboard, name="dashboard"),
@@ -22,8 +19,6 @@ urlpatterns = [
     path('show_logs_last',views.show_logs_last,name="show_logs_last"),
     path('upload_excel',views.upload_excel,name="upload_excel"),
     path('dashboard2', views.dashboard2, name="dashboard2"),
-    # path('admin_login', views.admin_login, name="admin_login"),
-    path('admin_logout', views.admin_logout, name='admin_logout'), 
     path('idn_domain_list',views.idn_domain_list, name='idn_domain_list'),
     path('english_domain_list',views.english_domain_list,name='english_domain_list'),
     path('update_all_domains',views.update_all_domains,name='update_all_domains'),

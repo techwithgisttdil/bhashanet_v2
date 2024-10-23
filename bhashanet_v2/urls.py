@@ -109,25 +109,6 @@ Translation_urlpatterns = [
     path('blog_datatable', user_views.admin_blog_datatable, name='admin_blog_datatable'),
     path('search_blog/<str:id>', user_views.search_blog, name='search_blog'),
 
-    path('login', user_views.login_view, name='login_view'),
-
-    path('register', user_views.register_view, name='register_view'),
-    path('register/<str:flag>', user_views.register_view, name='register_view'),
-
-
-    # path('activate/<uid64>/<token>', user_views.user_activate_view, name='user_activate'),
-    path('logout', user_views.logout_view, name='logout_view'),
-    path('logout/<str:flag>', user_views.logout_view, name='logout_view'),
-
-    path('change_password', user_views.change_password_view, name='change_password'),
-    path('change_password/<str:flag>', user_views.change_password_view, name='change_password'),
-
-    path('forgot_password', user_views.forgot_password_view, name='forgot_password'),
-    path('forgot_password/<str:flag>', user_views.forgot_password_view, name='forgot_password'),
-
-    path('password_creation/<uid>/<token>', user_views.password_creation_view, name='password_creation'),
-    path('password_creation/<uid>/<token>/<str:flag>', user_views.password_creation_view, name='password_creation'),
-
     path('discussion_forum_topic_list', topic_list, name="topic_list"),
     path('discussion_forum_user_topic_list', user_topic_list, name="user_topic_list"),
     path('discussion_forum_add_topic', add_topic, name="add_topic"),
@@ -136,17 +117,30 @@ Translation_urlpatterns = [
     path('upvote_answer', upvote_answer_view, name='upvote_answer_view'),
     path('test_task', core_views.test_celery, name="test_task"),
 
-    path('user_profile', user_views.user_profile_view, name='user_profile'),
-    path('user_profile<str:flag>', user_views.user_profile_view, name='user_profile'),
-    # path("<path>", core_views.RenderPageWithPathAndLang, name="RenderPageWithPathAndLang"),
-    # path("<path>"+"/<uid>"+"/<token>", core_views.RenderPageWithPathAndLangIdToken, name='RenderPageWithPathAndLangIdToken'),
-    # path("<path>"+"/<str:id>", core_views.RenderPageWithPathAndLangId, name="RenderPageWithPathAndLangId"),
 
+#### 475
 
+    path('login', user_views.login_view, name="login_view"),
+    path('login/<str:flag>', user_views.login_view, name="login_view"),
+    path('register', user_views.register_view, name='register_view'),
+    path('register/<str:flag>', user_views.register_view, name='register_view'),
+    path('logout', user_views.logout_view, name='logout_view'),
+    path('logout/<str:flag>', user_views.logout_view, name='logout_view'),
+    path('change_password', user_views.change_password_view, name='change_password'),
+    path('change_password/<str:flag>', user_views.change_password_view, name='change_password'),
+    path('forgot_password', user_views.forgot_password_view, name='forgot_password'),
+    path('forgot_password/<str:flag>', user_views.forgot_password_view, name='forgot_password'),
+    path('password_creation/<uid>/<token>', user_views.password_creation_view, name='password_creation'),
+    path('password_creation/<uid>/<token>/<str:flag>', user_views.password_creation_view, name='password_creation'),
     path('verify_user_otp/<str:email>', user_views.verify_user_otp, name='verify_user_otp'),
     path('verify_user_otp/<str:email>/<str:flag>', user_views.verify_user_otp, name='verify_user_otp'),
+    path('user_profile', user_views.user_profile_view, name='user_profile'),
+    path('user_profile<str:flag>', user_views.user_profile_view, name='user_profile'),
       
 ]
+
+
+
 
 # ----ADDED BY SHWETA PATIL ----
 # urlpatterns = urlpatterns + Translation_urlpatterns + Translation_urlpatterns_hindi + Translation_urlpatterns_marathi + Translation_urlpatterns_kannada + Translation_urlpatterns_malayalam + Translation_urlpatterns_bengali + Translation_urlpatterns_manipuri + Translation_urlpatterns_gujarati + Translation_urlpatterns_punjabi + Translation_urlpatterns_telugu + Translation_urlpatterns_tamil + Translation_urlpatterns_assamese + Translation_urlpatterns_konkani + Translation_urlpatterns_nepali + Translation_urlpatterns_boro + Translation_urlpatterns_dogri + Translation_urlpatterns_oriya + Translation_urlpatterns_kashmiri +Translation_urlpatterns_maithili + Translation_urlpatterns_sanskrit + Translation_urlpatterns_santali + Translation_urlpatterns_sindhi + Translation_urlpatterns_urdu
