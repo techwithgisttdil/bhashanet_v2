@@ -190,7 +190,7 @@ class RegistrationForm(forms.Form):
     password2 = forms.CharField(required=True, strip=False, widget=forms.PasswordInput(
         attrs={'class': 'form-control', 'id': 'inputPassword1', 'placeholder': 'Confirm Password'}))
     
-    role = forms.ModelChoiceField(required=True, queryset=UserRole.objects.exclude(id=4),widget=forms.Select(attrs={'class': 'form-control',
+    role = forms.ModelChoiceField(required=False, queryset=UserRole.objects.exclude(id=4),widget=forms.Select(attrs={'class': 'form-control',
                                                                                                              'id': 'UserRole',}))
 
     captcha_hidden = forms.CharField(widget=forms.HiddenInput(), required="False")

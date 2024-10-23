@@ -45,10 +45,16 @@ from django.core.files.storage import FileSystemStorage
 
 
 ##----------   login view -----------
-def login_view(request):
+def login_view(request,flag=None):
+    print("id=====",flag)
+    if flag == "for_user_login":
+        base_template = 'core_app/base.html' 
+    else:
+        base_template = 'admin_app/base.html' 
     if request.user.is_authenticated:
         logout(request)
     if request.method == 'POST':
+        print("id=====",flag)
         form = LoginForm(request.POST.copy())
         if form.is_valid():
             username = form.cleaned_data['username']
@@ -76,7 +82,7 @@ def login_view(request):
                                 captcha_img_generator(captcha_value)
                                 print("captcha value ", captcha_value)
                                 form.fields['captcha_hidden'].initial = make_password(captcha_value)
-                                return render(request, 'admin_app/user_login.html', {"form": form})
+                                return render(request, 'admin_app/user_login.html', {"form": form,"base_template":base_template})
                         except:
                             messages.error(request, 'Account Not Yet Verified with OTP', extra_tags="danger") 
                     if user is not None :
@@ -97,6 +103,9 @@ def login_view(request):
                                 return redirect('admin_app:dashboard2')
                             elif user_role_obj.Role_Id.Role_Name == 'DjangoSuperAdmin':
                                 return redirect('admin_app:dashboard2')
+                            elif user_role_obj.Role_Id.Role_Name == 'Bhashanet_User':
+                                return redirect('home')
+
                             else:
                                 return redirect('home')
                         except:
@@ -118,13 +127,17 @@ def login_view(request):
         captcha_img_generator(captcha_value)
         print("captcha value ", captcha_value)
         form.fields['captcha_hidden'].initial = make_password(captcha_value)
-    return render(request, 'admin_app/user_login.html', {"form": form})
+    return render(request, 'admin_app/user_login.html', {"form": form,"base_template":base_template})
 
 
 ## ------ user  registration view -------
-def register_view(request):
+def register_view(request,flag=None):
+    print("id=====",flag)
+    if flag == "for_user_register":
+        base_template = 'core_app/base.html' 
+    else:
+        base_template = 'admin_app/base.html' 
     if request.user.is_superuser:
-    #     logout(request)
         if request.method == 'POST':
             form = RegistrationForm(request.POST.copy())
             email = request.POST.get("email")
@@ -173,7 +186,7 @@ def register_view(request):
                             captcha_img_generator(captcha_value)
                             print("captcha value ", captcha_value)
                             form.fields['captcha_hidden'].initial = make_password(captcha_value)
-                            return render(request, "admin_app/user_register.html", {'form': form})  
+                            return render(request, "admin_app/user_register.html", {'form': form,'base_template':base_template})  
                 
                     resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
                     if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
@@ -194,7 +207,7 @@ def register_view(request):
             captcha_img_generator(captcha_value)
             form.data['captcha_input'] = ''
             form.data['captcha_hidden'] = make_password(captcha_value)
-            return render(request, template_name="admin_app/user_register.html", context={"form": form})
+            return render(request, template_name="admin_app/user_register.html", context={"form": form,'base_template':base_template})
         else:
             form = RegistrationForm()
             captcha_value = random_captcha_generator()
@@ -203,66 +216,156 @@ def register_view(request):
             captcha_img_generator(captcha_value)
             print("captcha value ", captcha_value)
             form.fields['captcha_hidden'].initial = make_password(captcha_value)
-            return render(request, "admin_app/user_register.html", {'form': form})
+            return render(request, "admin_app/user_register.html", {'form': form,'base_template':base_template})
     else:
-        return redirect('home')
+        if request.method == 'POST':
+            form = RegistrationForm(request.POST.copy())
+            email = request.POST.get("email")
+
+            if form.is_valid():
+                email = request.POST.get("email")
+                password = request.POST.get("password1")
+                password_confirm  = request.POST.get("password2")
+                print("====================email : ", email, " password1 : ", password ," password_confirm : ", password_confirm)
+                
+                if not User.objects.filter(username=email).exists():
+                    user = User.objects.create(email=email, username=email)       
+                    user.set_password(password)     
+                    user.is_active = True
+                    user.save()
+
+                    role_id=UserRole.objects.get(Role_Name='Bhashanet_User')
+                    UserRoleMapping.objects.create(User_Id=user,Role_Id=role_id)
+                    
+                    resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
+                    if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
+                        User_Registration_With_OTP.apply_async((email,), countdown=300)
+                        # User_Registration_With_OTP(email)
+                        messages.success(request, "OTP is sent to " + email, extra_tags="success")
+                        return redirect("verify_user_otp",email=email,flag='for_user_otp')
+                    
+                    elif resp_data['Email_status'] == 'error':
+                        messages.success(request, resp_data['message'], extra_tags="danger")
+
+                    elif resp_data['status'] == 'error':
+                        messages.success(request, resp_data['message'], extra_tags="danger")
+                    
+                else:
+                    user = User.objects.get(username=email)
+                    try:
+                        user_obj=User.objects.get(username=email)
+                        otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=user_obj)
+                    except:
+                        otp_user_obj=''
+                    if otp_user_obj:
+                        if otp_user_obj.OTP_Status:
+                            messages.error(request, 'Email address already exists', extra_tags="danger")
+                            captcha_value = random_captcha_generator()
+                            captcha_img_generator(captcha_value)
+                            print("captcha value ", captcha_value)
+                            form.fields['captcha_hidden'].initial = make_password(captcha_value)
+                            return render(request, "admin_app/user_register.html", {'form': form,'base_template':base_template})  
+                
+                    resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
+                    if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
+                        User_Registration_With_OTP.apply_async((email,), countdown=300)
+                        messages.success(request, "OTP is sent to" + email, extra_tags="success")
+                        return redirect("verify_user_otp",email=email,flag='for_user_otp')
+                    
+                    elif resp_data['Email_status'] == 'error':
+                        messages.success(request, resp_data['message'], extra_tags="danger")
+
+                    elif resp_data['status'] == 'error':
+                        messages.success(request, resp_data['message'], extra_tags="danger")
+
+            else:
+                print("Unsuccessful registration. Invalid information.")
+                messages.error(request, "Unsuccessful Registration. Invalid Information.", extra_tags='danger')
+            captcha_value = random_captcha_generator()
+            captcha_img_generator(captcha_value)
+            form.data['captcha_input'] = ''
+            form.data['captcha_hidden'] = make_password(captcha_value)
+            return render(request, template_name="admin_app/user_register.html", context={"form": form,'base_template':base_template})
+        else:
+            form = RegistrationForm()
+            captcha_value = random_captcha_generator()
+            form.data['captcha_input'] = ''
+            form.data['captcha_hidden'] = make_password(captcha_value)
+            captcha_img_generator(captcha_value)
+            print("captcha value ", captcha_value)
+            form.fields['captcha_hidden'].initial = make_password(captcha_value)
+            return render(request, "admin_app/user_register.html", {'form': form,'base_template':base_template})
 
         ## Verify OTP here 
 
 
 
-def verify_user_otp(request,email):
+def verify_user_otp(request,email,flag=None):
     print("inside verify_user_otp",email)
+    print("id=====",flag)
+    if flag == "for_user_otp":
+        base_template = 'core_app/base.html' 
+    else:
+        base_template = 'admin_app/base.html' 
     otp_form=OTPForRegistrationForm()
     if request.method == 'POST' and 'submit' in request.POST:
         form = OTPForRegistrationForm(request.POST.copy())
         print("form===============",form)
         if form.is_valid():
-            
             otp_value = request.POST.get("otp")
             status=validate_otp_for_user_registration(email, otp_value, OTP_For_UserRegistration)
-            print("Status==============",status)
+            print("Status==============",status,flag)
             if status:
                 user_obj=User.objects.get(username=email)
                 otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=user_obj)
                 otp_user_obj.OTP_Status=True
                 messages.success(request, "OTP Verified, Now user can login ", extra_tags="success")
-                return redirect("admin_app:dashboard2")
+                if flag == "for_user_otp":
+                    return redirect("admin_app:login_view",flag="for_user_login")
+                else:
+                    return redirect("admin_app:login_view")
+
             else:
                 messages.error(request, "Failed OTP Verification", extra_tags='danger')
-                return render(request, "admin_app/otp_form.html", {'form': otp_form})
+                return render(request, "admin_app/otp_form.html", {'form': otp_form,'base_template':base_template})
     if request.method == 'POST' and 'resent' in request.POST:
         otp_form=OTPForRegistrationForm()
+        print("================flag")
         try: 
             user = User.objects.get(username=email)
             resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
             if resp_data['status'] == 'success':
-                messages.success(request, "OTP is sent to " + email, extra_tags="success")
-                return redirect("verify_user_otp",email=email)
+                messages.success(request, "OTP has been resent to " + email, extra_tags="success")
+                return redirect("verify_user_otp",email=email,flag=flag)
             
             # elif resp_data['Email_status'] == 'error':
             #     messages.success(request, resp_data['message'], extra_tags="danger")
 
             elif resp_data['status'] == 'error':
                 messages.success(request, resp_data['message'], extra_tags="danger")
-            return render(request, "admin_app/otp_form.html", {'form': otp_form})
+            return render(request, "admin_app/otp_form.html", {'form': otp_form,'base_template':base_template})
         except:
             messages.success(request, 'OTP generate limit exceeded, Register Again!', extra_tags="danger")
             return redirect('register_view')
-    return render(request, "admin_app/otp_form.html", {'form': otp_form})
+    return render(request, "admin_app/otp_form.html", {'form': otp_form,'base_template':base_template})
 
 
 
 
 @login_required()
-def logout_view(request):
+def logout_view(request,flag=None):
     logout(request)
     messages.success(request, "You are successfully logged Out", extra_tags="success")
-    return redirect("login_view")
+    return redirect("admin_app:login_view",flag=flag)
 
 @login_required()
-def change_password_view(request):
+def change_password_view(request,flag=None):
     print("in change password view")
+    print("id=====",flag)
+    if flag == "for_user_change_pass":
+        base_template = 'core_app/base.html' 
+    else:
+        base_template = 'admin_app/base.html'
     form = ChangePasswordUserForm()
     try:
         user = User.objects.get(username=request.user)
@@ -279,7 +382,10 @@ def change_password_view(request):
                     user.save()
                     messages.success(request, 'Password changed successfully', extra_tags='success')
                     logout(request)
-                    return redirect('login_view')
+                    if flag == "for_user_change_pass":
+                        return redirect('admin_app:login_view',flag='for_user_login')
+                    else:
+                        return redirect('admin_app:login_view')
                 else:
                     messages.error(request, "Incorrect Old Password", extra_tags='danger')                
             else:
@@ -287,12 +393,17 @@ def change_password_view(request):
     except:
         messages.error(request, "User Not Found", extra_tags='danger')
 
-    return render(request, 'core_app/user/change_password.html', {'form':form})
+    return render(request, 'admin_app/change_password.html', {'form':form,'base_template':base_template})
 
 
 ### --------- forgot pasword --------
-def forgot_password_view(request):
+def forgot_password_view(request,flag=None):
     print("in forgot password view")
+    print("id=====",flag)
+    if flag == "for_user_forgot_password":
+        base_template = 'core_app/base.html' 
+    else:
+        base_template = 'admin_app/base.html'
     # check user is authenticated or NOT
     if request.user.is_authenticated:
         return redirect("home")
@@ -312,8 +423,8 @@ def forgot_password_view(request):
                 domain = request.get_host()
                 uid = urlsafe_base64_encode(force_bytes(user[0].pk))
                 token = account_activation_token.make_token(user[0])
-                link = reverse('password_creation', kwargs={"uid": uid, "token": token})
-                activate_link = "http://" + domain + link
+                link = reverse('password_creation', kwargs={"uid": uid, "token": token,"flag":flag})
+                activate_link = "http://" + domain + link 
                 print(domain)
                 print("activate_link =================================", activate_link)
 
@@ -338,7 +449,7 @@ def forgot_password_view(request):
                                 form.data['captcha_input'] = ''
                                 form.data['captcha_hidden'] = make_password(captcha_value)
                                 messages.error(request, "Forgot password request daily limit exceeded, please try after some time.(max limit 10)", extra_tags="danger")
-                                return render(request, 'core_app/user/forgot_password.html', {'form': form})
+                                return render(request, 'admin_app/forgot_password.html', {'form': form,'base_template':base_template})
                         else:
                             print("Date is different from today")
                             forgot_password_data[0].counter = 1
@@ -358,7 +469,7 @@ def forgot_password_view(request):
                     form.data['captcha_hidden'] = make_password(captcha_value)
                     
                     messages.error(request, "Something Went Wrong", extra_tags="danger")
-                    return render(request, 'core_app/user/forgot_password.html', {'form': form}) 
+                    return render(request, 'admin_app/forgot_password.html', {'form': form,'base_template':base_template}) 
 
                 # send email
                 
@@ -388,7 +499,7 @@ def forgot_password_view(request):
         captcha_img_generator(captcha_value)
         form.data['captcha_input'] = ''
         form.data['captcha_hidden'] = make_password(captcha_value)
-        return render(request, 'core_app/user/forgot_password.html', {'form': form}) 
+        return render(request, 'admin_app/forgot_password.html', {'form': form,'base_template':base_template}) 
     else:
         form = ForgotPasswordForm()
         
@@ -397,11 +508,20 @@ def forgot_password_view(request):
     print("captcha value ", captcha_value)
     form.fields['captcha_hidden'].initial = make_password(captcha_value)
     
-    return render(request, 'core_app/user/forgot_password.html', {'form': form}) 
+    return render(request, 'admin_app/forgot_password.html', {'form': form,'base_template':base_template}) 
+
+
+
+
 
 
 # Used for re creating new password after forgoting the password
-def password_creation_view(request, uid, token):
+def password_creation_view(request, uid, token,flag=None):
+    if flag == "for_user_forgot_password":
+        base_template = 'core_app/base.html' 
+    else:
+        base_template = 'admin_app/base.html'
+
     if request.user.is_authenticated:
         return redirect("admin_app:dashboard2")
     form = PasswordCreationForm()
@@ -428,7 +548,7 @@ def password_creation_view(request, uid, token):
                 print("Token expire")
                 # messages.info(request, "Token expired")
                 # token expired then redirect to error page
-                return render(request, 'core_app/user/forgot_password_token_page.html', {'message': "Activation link Expired!", "link": "forgot_password"})
+                return render(request, 'admin_app/forgot_password_token_page.html', {'message': "Activation link Expired!", "link": "forgot_password",'base_template':base_template})
             else:
                 # if token is not expired yet 
                 print("Token not expired yet")
@@ -442,7 +562,7 @@ def password_creation_view(request, uid, token):
                         if password != confirm_password:
                             print("Passwords not matched")
                             messages.error(request, "Confirm Password must be same as New Password", extra_tags="danger")
-                            return render(request, "core_app/user/password_creation.html", {'form': form})
+                            return render(request, "admin_app/password_creation.html", {'form': form,'base_template':base_template})
 
                         # passwords are same
                         user[0].password = make_password(password)
@@ -451,39 +571,34 @@ def password_creation_view(request, uid, token):
                         token_data[0].forgot_password_token = "none"
                         token_data[0].save()
                         logout(request)
-                        return render(request, 'core_app/user/password_change_success_page.html', {'message': "Password Reset Successful"})
+                        return render(request, 'admin_app/password_change_success_page.html', {'message': "Password Reset Successful",'base_template':base_template})
                     else:
                         # messages.error(request, "Please correct error")
-                        return render(request, "core_app/user/password_creation.html", {'form': form})
+                        return render(request, "admin_app/password_creation.html", {'form': form,'base_template':base_template})
 
-                return render(request, "core_app/user/password_creation.html", {'form': form})
+                return render(request, "admin_app/password_creation.html", {'form': form,'base_template':base_template})
 
 
         else:
             print("Token is not exists")
-            return render(request, 'core_app/user/forgot_password_token_page.html', {'message': "Activation link Expired!", "link": 'forgot_password'})
+            return render(request, 'admin_app/forgot_password_token_page.html', {'message': "Activation link Expired!", "link": 'forgot_password','base_template':base_template})
     else:
         print("User does not exists")
-        return render(request, 'core_app/user/forgot_password_token_page.html', {'message': "User not exists", "link": 'login'})
+        return render(request, 'admin_app/forgot_password_token_page.html', {'message': "User not exists", "link": 'login','base_template':base_template})
 
 
-    # except User.DoesNotExist:
-    #     print("User does not exists")
-    # except UnicodeDecodeError:
-    #     print("uid error")
-    #     return render(request, 'core_app/user/forgot_password_token_page.html', {'message': "Invalid URL", "link": 'forgot_password'})
-    # except:
-    #     print("Error in id decode")
-    #     return render(request, 'core_app/user/forgot_password_token_page.html', {'message': "Something went wrong", "link": 'forgot_password'})
-
-    return render(request, 'core_app/user/password_creation.html', {'form': form})
 
 
 
 # Used for user profile creation
 @login_required()
-def user_profile_view(request):
+def user_profile_view(request,flag=None):
     print("User profile view")
+    print("id=====",flag)
+    if flag == "for_user_profile":
+        base_template = 'core_app/base.html' 
+    else:
+        base_template = 'admin_app/base.html'
     
     user_profile_obj = UserProfile.objects.filter(UserProfile_user=request.user)
     if user_profile_obj:
@@ -501,11 +616,14 @@ def user_profile_view(request):
             form.instance.UserProfile_user = user_obj
             form.save()
             messages.success(request, "Profile Updated Successfully", extra_tags="success")
-            return redirect('admin_app:dashboard2')
+            if flag != "for_user_profile":
+                return redirect('admin_app:dashboard2')
+            else:
+                return redirect('home')
         else:
             print("Invalid User profile", form.errors)
         
-    return render(request, 'admin_app/user_profile.html', {'form' : form}) 
+    return render(request, 'admin_app/user_profile.html', {'form' : form,'base_template':base_template}) 
 
 
 

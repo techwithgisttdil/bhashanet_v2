@@ -1,0 +1,45 @@
+.badge-lg {
+    padding: 0.5rem 1rem;
+    /* font-size: 1.0rem; */
+    line-height: 1.5;
+}
+.badge-english {
+    background-color: #e6eef8;
+    color: #3a3636 !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.stpi-heading {
+    color: #5a6067;
+    text-align: left;
+    font-size: 1.0rem;
+    font-weight: 600;
+}
+
+.h5.text-white.p-1.pt-2 {
+    font-size: 1rem;
+  }
+/* .horizontal-rule {
+    border-top: 3px solid #007bff;
+} */
+.box-shadow-card{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.badge-width {
+    width: 48% ;
+}
+.current {
+    background-color: #0b62e4  !important;
+}
+button#languageDropdown {
+    width: 100%;
+    color:rgb(34, 25, 25);
+}
+.small-font {
+    font-size:10px; 
+    font-weight:600;
+}
+@media screen and (max-width:700px){
+    .badge-width {
+    width: 100% ;
+    }
+}

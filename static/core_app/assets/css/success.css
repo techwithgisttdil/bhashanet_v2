@@ -1,0 +1,32 @@
+.website-name{
+    text-align: center;
+    font-size: 24px;
+    color:black;
+    font-weight: 600;
+}
+.visit-link{
+    text-align: center;
+    /* background-color: rgb(255, 225, 142); */
+    border-color: #ecb471;
+    border-style: solid;
+    margin-top:10px;
+    padding: 10px;
+    border-radius: 8px;
+    color: #333333;
+}
+
+a:link { text-decoration: none; }
+
+.success-story-card {
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 60px 0px rgba(59, 78, 83, 0.2);
+    -moz-box-shadow: 0px 0px 60px 0px rgba(59, 78, 83, 0.2);
+    box-shadow: 0px 0px 60px 0px rgba(59, 78, 83, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* margin-bottom: 10px; */
+    min-height: 350px;
+    /* margin-right:20px; */
+    /* border:3px solid #219EBC; */
+  }

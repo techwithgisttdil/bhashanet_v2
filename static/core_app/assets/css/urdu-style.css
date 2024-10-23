@@ -1,0 +1,254 @@
+/* Set text direction to right-to-left for .home-slide */
+.home-slide {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for section with specific classes */
+section.section.py-3 {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for .row.g-3.align-items-center */
+.row.g-3.align-items-center {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for div with ID #Faqs1 */
+div#Faqs1 {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for elements with multiple classes */
+.footer-top.aos.d-flex.justify-content-center.aos-animate.aos-init {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for nav with specific classes */
+nav.navbar.navbar-expand-lg.header-nav.scroll-sticky.bg-top-bar {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for header with class .header */
+header.header {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left and add margin for ul with specific classes */
+ul.ua-list.py-1.listitems.text-indent {
+    direction: rtl;
+    margin-right: 30px;
+}
+
+/* Adjust margin for specific elements with class .footer-menu ul li a i */
+.footer-menu ul li a i {
+    margin-left: 7px;
+}
+
+/* Adjust margin for elements with class .me-3 */
+.me-3 {
+    margin-left: 1rem!important;
+}
+
+/* Adjust position for specific element with ID #go-to-top */
+a#go-to-top {
+    left: -150px !important;
+    right: unset;
+}
+
+/* Set text direction to right-to-left for elements with class .breadcrumb-bar */
+.breadcrumb-bar {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for elements with class .card-sub-section-sec */
+.card.card-sub-section-sec {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for div with ID #main-content */
+div#main-content {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for section with ID #main-content */
+section#main-content {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for div with ID #search-head-div */
+div#search-head-div {
+    direction: rtl;
+}
+
+/* Set text alignment to right for elements with class .dropdown-item */
+.dropdown-item {
+    text-align: right !important;
+}
+
+/* Set text direction to right-to-left for specific element with classes */
+.address-block-two.text-center.mb-40.p-2.shadow.height-contact.p-5 {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for specific element with classes */
+.address-block-two.text-start.p-5.shadow.height-contact {
+    direction: rtl;
+}
+
+/* Set text direction to right-to-left for elements with class .accordion-body */
+.accordion-body {
+    direction: rtl;
+}
+
+/* Adjust styling for specific elements with class .card-sub-section-sec ul li */
+.card-sub-section-sec ul li {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    margin-right: 66px;
+    direction: rtl;
+    text-align: right;
+}
+
+/* Style for breadcrumb item separator */
+.page-breadcrumb .breadcrumb-item+.breadcrumb-item:before {
+    line-height: 2.9;
+    transform: rotateY(180deg);
+    margin-right: 10px;
+    position: relative;
+    left: auto;
+}
+
+/* Rotate icon for specific element with class .fa-long-arrow-right */
+i.fa.fa-long-arrow-right {
+    transform: rotateY(180deg);
+}
+
+/* Set text direction to right-to-left for elements with class .container.pb-5 */
+.container.pb-5 {
+    direction: rtl;
+}
+
+/* Adjust margin and set text direction to right-to-left for specific elements */
+.owl-theme .owl-dots, .owl-theme .owl-nav {
+    margin-top: 26px;
+    direction: rtl;
+}
+
+/* Rotate icon for specific element with class .fa-angle-right */
+i.fa.fa-angle-right{
+    transform: rotateY(180deg);
+    margin-left: 10px;
+}
+
+/* Rotate icon and adjust margin for specific element with class .fa-arrow-circle-right */
+i.fa.fa-arrow-circle-right.fa-1x.me-3{
+    transform: rotateY(180deg);
+    margin-right: 10px; 
+}
+
+/* Rotate image for specific element with class .img-fluid.logo-width */
+img.img-fluid.logo-width {
+    transform: rotateY(180deg);
+}
+
+/* Adjust float and text direction for elements with class .owl-item */
+.owl-item {
+    float: left;
+    direction: unset;
+}
+
+/* Style for header navigation */
+.header-nav {
+    padding: 0;
+}
+
+/* Adjust line height and padding for elements with class .main-nav>li>a */
+.main-nav>li>a {
+    line-height: 32px;
+    padding: 0!important;
+}
+
+/* Adjust float and text direction for elements with class .owl-carousel .owl-item */
+.owl-carousel .owl-item {
+    float: left;
+    direction: unset;
+}
+
+/* Adjust text direction for elements with class .owl-carousel .owl-stage-outer */
+.owl-carousel .owl-stage-outer {
+    direction: unset;
+}
+
+/* Media query for screen width up to 1400px */
+@media(max-width:1400px) {
+    /* Adjust margin for elements with class .gallery-item-img */
+    .gallery-item-img {
+        margin-right: 50px;
+    }
+
+    /* Set width to 100% for paragraphs with specific classes */
+    p.title.ua-card--text.text-center.fw-blod{
+        width: 100%;
+    }
+}
+
+/* Adjust text direction for elements with class .row.bg-white.box-shaodw-vision.py-3.px-5 */
+.row.bg-white.box-shaodw-vision.py-3.px-5 {
+    direction: rtl;
+}
+
+/* Adjust text direction for elements with class .container.ps-4 */
+.container.ps-4 {
+    direction: rtl;
+}
+
+/* Adjust font size for heading elements */
+h2.my-3 {
+    font-size: 1.4rem;
+}
+
+h3.mb-2 {
+    font-size: 1.4rem;
+}
+
+/* Adjust margin for specific element with class .fa-info-circle */
+i.fa.fa-info-circle.fa-1x.me-2 {
+    margin-left: 10px;
+}
+
+/* Adjust margin for specific element with class .footer-contact-info img */
+.footer-contact-info img {
+    margin-left: 12px;
+}
+
+/* Adjust styling for elements with class .badge.me-2.badge-lg.badge-english.mb-2.badge-width */
+span.badge.me-2.badge-lg.badge-english.mb-2.badge-width {
+    direction: rtl !important;
+    display: flex;
+}
+
+/* Style for specific heading element with class .stpi-heading */
+.stpi-heading {
+    color: #4d5054 !important;
+    text-align: right !important;
+    font-size: 1.0rem !important;
+    font-weight: 600;
+    line-height: normal;
+}
+
+/* Style for specific heading element */
+h2.h5.text-white.p-1.pt-2 {
+    font-size: 1.1rem;
+}
+
+/* Style for navigation links */
+.nav-link {
+    color: #0675b8;
+}
+.features-carsd.style-5{
+    height: 100%;
+}
+
+.main-nav.d-flex.justify-content-start {
+    direction: rtl;
+  }

@@ -9517,7 +9517,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 .login-form__btn {
   background: #455F98;
-  color: #fff;
+  color: white;
   padding: 13px 40px;
   font-size: 14px; }
   .login-form__btn i, .login-form__btn span {

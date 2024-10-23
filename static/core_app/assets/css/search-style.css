@@ -1,0 +1,31 @@
+
+.searchresult > .search-title {
+    /* margin-bottom: 0px ; */
+}
+.searchresult > .search-title a {
+    font-size: 1.2em ;
+    color: #4007A2 ;
+    text-transform: capitalize;
+}
+
+.search-link {
+    color: #006D21;
+}
+
+.search-desc {
+    margin-bottom: 20px;
+}
+
+#myPagination button {
+    border: 0px !important;
+    position: relative;
+    /* display: block; */
+    color: #0b62e4;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6 !important;
+    padding: 5px 10px;
+    margin: 3px 0px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+

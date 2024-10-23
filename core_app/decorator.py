@@ -20,6 +20,12 @@ def preprocesslangset(view_func):
             parameter2=request.build_absolute_uri().split('/')[5]
         except:
             parameter2=''
+
+        try:
+            parameter3=request.build_absolute_uri().split('/')[6]
+        except:
+            parameter3=''
+        
         requested_domain_withoutport=maindomain.split(':')[0]
         finalpath='/'+request.build_absolute_uri().split('/')[3].split('?')[0]
         pathdecode=urllib.parse.unquote(finalpath)
@@ -53,7 +59,10 @@ def preprocesslangset(view_func):
         else:
             if parameter1:
                 if parameter2:
-                    response = HttpResponseRedirect(return_domain+return_path+'/'+parameter1+'/'+parameter2)
+                    if parameter3:
+                        response = HttpResponseRedirect(return_domain+return_path+'/'+parameter1+'/'+parameter2+'/'+parameter3)
+                    else:
+                        response = HttpResponseRedirect(return_domain+return_path+'/'+parameter1+'/'+parameter2)
                 else:
                     print("insidse",return_domain+return_path+'/'+parameter1)
                     response = HttpResponseRedirect(return_domain+return_path+'/'+parameter1)
