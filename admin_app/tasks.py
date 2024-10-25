@@ -58,8 +58,9 @@ def Send_Bulk_Email(self,id):
     else:
         logs(f"Email has Not been sent to all users")
         return "---- Email has Not been sent to all users  ----"
+    
 
-
+# -----ADDED BY SHWETA PATIL -------
 @shared_task
 def User_Registration_With_OTP(email):
     print("Inside celery with otp function",email)

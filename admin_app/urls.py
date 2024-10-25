@@ -6,7 +6,6 @@ from django.conf.urls.static import static
 app_name = 'admin_app'
 
 urlpatterns = [
-    
     path('idn_domain_forms', views.idn_domain_forms, name="idn_domain_forms"),
     path('dashboard', views.dashboard, name="dashboard"),
     path('email_compose', views.email_compose, name="email_compose"),

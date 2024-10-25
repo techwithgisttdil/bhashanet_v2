@@ -1,15 +1,11 @@
 # Image size validation
 from django.core.exceptions import ValidationError
-from django.utils.html import escape
 from django import forms
-from email_validator import validate_email, EmailNotValidError
 import re
 from datetime import *
 import idna
 from django.contrib.auth.hashers import check_password
-from .utility import validateFile
 import requests
-from django.http import JsonResponse
 
 def validate_image(fieldfile_obj):
     if fieldfile_obj:
@@ -19,6 +15,7 @@ def validate_image(fieldfile_obj):
         if filesize > megabyte_limit * 1024 * 1024:
             raise ValidationError("File size exceeds %sMB" % str(megabyte_limit))
 
+# ---------------------------------------------------------------------------------------------------
 
 def validate_feedbackform(self):
     print("VALIDATE.PY FILE: in validate_feedbackform function")
@@ -97,6 +94,7 @@ def validate_feedbackform(self):
         print("VALIDATE.PY FILE : FEEDBACK FORM VALIDATION PASSEDD : RETURNING CLEAN DATA  ")
         return self.cleaned_data
 
+# ---------------------------------------------------------------------------------------------------
 
 def validate_domain(self):
     print("Indise validate function")
@@ -163,7 +161,7 @@ def validate_domain(self):
             
                 #return self.data
         
-  
+# ---------------------------------------------------------------------------------------------------
 
 def validate_email(self):
     print("Indise validate function")
@@ -177,8 +175,8 @@ def validate_email(self):
     
     return self.data
 
+# ---------------------------------------------------------------------------------------------------
 
-# PASSWORD CREATION FORM VALIDATION
 def validate_IDNRequestForUserWebsitesForm(self):
     print("VALIDATE.PY FILE: in validate_IDN_request_for_user_websites_form function")
     IDN_Email = self.cleaned_data.get('IDN_Email')
@@ -244,8 +242,8 @@ def validate_IDNRequestForUserWebsitesForm(self):
         print("VALIDATE.PY FILE : LOGIN FORM captcha_hidden VALIDATION FAILED ERROR RAISED ")
         raise forms.ValidationError("Invalid Captcha")
 
+# ---------------------------------------------------------------------------------------------------
 
-# PASSWORD CREATION FORM VALIDATION
 def validate_IDNRequestForUserWebsitesAJAXForm(org_name, email, category, IDN_English_Domain, captcha_value, captcha_hidden, assistance, assistLang, remark):
     print("In Validate.py : validate_IDNRequestForUserWebsitesAJAXForm function")
     print("organisation name : ", org_name)
@@ -345,6 +343,8 @@ def validate_IDNRequestForUserWebsitesAJAXForm(org_name, email, category, IDN_En
     
     return {'status': 'success'}
     
+# ---------------------------------------------------------------------------------------------------
+
 def clean_URL(url):
     
     url = url.replace("http://www.","")
@@ -355,8 +355,8 @@ def clean_URL(url):
     print("url = ", url)
     
     return url
-
-    
+ 
+# ---------------------------------------------------------------------------------------------------
     
 def language_detection(input_text):
     api_url  ="https://meity-auth.ulcacontrib.org/ulca/apis/v0/model/compute"

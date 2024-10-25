@@ -1,55 +1,33 @@
 from django.shortcuts import render, redirect
 from .models import *
 from admin_app.models import *
+from .forms import *
+from json2html import *
+import json
 import requests
 from django.contrib import messages
 from django.core.mail import send_mail
-from .forms import *
 from django.http import HttpResponseRedirect
-from django.conf import settings
 from django.urls import reverse
 from django.core.paginator import Paginator
 from .custom_captcha import captcha_img_generator, random_captcha_generator
 from django.http import JsonResponse
-import json
-from django.utils import translation
 from email_validator import validate_email, EmailNotValidError
-import validators
-import idna
-import unicodedata
-from typing import TypedDict
 import environ
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth import login, authenticate, logout
-from django.apps import apps
-# from Wappalyzer import Wappalyzer, WebPage
-from json2html import *
-# import whois
 from collections import Counter
 from tld import get_tld
-# from collections import Counter
-# import subprocess
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from .token import account_activation_token
-from django.utils.encoding import force_bytes, force_str
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.core.paginator import Paginator
-from .decorator import preprocesslangset
-# import xmltojson
 from django.urls import resolve
 import mysql.connector
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
-import random
 from bson import json_util
 env = environ.Env()
 environ.Env.read_env()
 from django.http import JsonResponse
 from .utility import *
-from .tasks import test_func 
-
-
 import ssl
 from bs4 import BeautifulSoup
 import certifi
@@ -58,11 +36,11 @@ import certifi
 
 # -------------HOME PAGE STARTS-----------------------
 
+# ----ADDED BY SHWETA PATIL ----
 def landingfunction(request):
     domain=''
     maindomain = request.build_absolute_uri().split('/')[2]
     requesteddomainwithoutport=maindomain.split(':')[0]
-    #  print("requested domain",requesteddomainwithoutport)
     with open(env('LANGUAGE_DOMAINS'), 'r',encoding="utf8") as j:
             dom = json.loads(j.read())
     for data in range(len(dom)):
@@ -70,11 +48,7 @@ def landingfunction(request):
             filterdomain1=value.split('/')[2]
             filterdomain2=filterdomain1.split(':')[0]
             if requesteddomainwithoutport == filterdomain2 :
-                lang=key
                 domain=value
-                #  print("requested domain ijnside for loop",value,key)
-                status=True
-    returndomain='https://'+ maindomain.split(':')[0]
     requesteddomainwithoutport=maindomain.split(':')[0]
     if requesteddomainwithoutport =='xn--c2bro4b8ab8d.xn--h2brj9c': #Hindi
         response = HttpResponseRedirect(domain+'/होम')
@@ -137,7 +111,7 @@ def landingfunction(request):
         return response
 
 
-
+# -------------  STARTS-----------------------
 def home(request):
     obj_testimonialsMessages=TestimonialsMessages.objects.all().filter(TestimonialsMessages_PublishStatus='Published').order_by('id').reverse()
     obj_announcements=Announcements.objects.all().filter(Announcement_PublishStatus='Published').order_by('id').reverse()
@@ -152,10 +126,7 @@ def home(request):
     return response
     
 
-    
-
 # -------------PRIVACY POLICY STARTS-----------------------
-
 def privacypolicy(request):
     obj_data = PrivacyPolicy.objects.get(id=1)
     print(obj_data)
@@ -163,7 +134,6 @@ def privacypolicy(request):
 
 
 # -------------TERMS AND CONDITION  STARTS-----------------------
-
 def termsandconditions(request):
     obj_data = TermsAndConditions.objects.get(id=1)
     print(obj_data)
@@ -171,7 +141,6 @@ def termsandconditions(request):
 
 
 # -------------  STARTS-----------------------
-
 def uaindiaprogramme(request):
     print("inside uaindiaprogrammeor")
     obj_data = UAIndiaProgramme.objects.get(id=1)
@@ -179,7 +148,6 @@ def uaindiaprogramme(request):
 
 
 # -------------  STARTS-----------------------
-
 def IDNCCTLD(request):
     obj_data = IDNccTLDs.objects.get(id=1)
     obj_data_2 = IDNLanguages.objects.filter(IDNLanguages_PublishStatus='Published')
@@ -188,14 +156,12 @@ def IDNCCTLD(request):
 
 
 # -------------  STARTS-----------------------
-
 def bestpractices(request):
     obj_data = BestPractices.objects.filter(BestPractices_PublishStatus='Published')
     return render(request, 'core_app/best_practices.html', {'obj_data': obj_data})
 
 
 # -------------  STARTS-----------------------
-
 def EAI(request):
     obj_data = EmailAddressInternationalization.objects.get(id=1)
     return render(request, 'core_app/EAI.html', {'obj_data': obj_data})
@@ -209,14 +175,12 @@ def UA(request):
 
 
 # -------------  STARTS-----------------------
-
 def tools(request):
     tool_detail = Tools.objects.filter(Tools_PublishStatus='Published')
     return render(request, 'core_app/tools.html', {'tool_detail': tool_detail})
 
 
 # -------------  STARTS-----------------------
-
 def unicode_punycode_generator(request):
     if request.method == "POST":
         if 'punycode_convert' in request.POST:
@@ -248,37 +212,31 @@ def unicode_punycode_generator(request):
 
 
 # -------------  STARTS-----------------------
-
 def transliteration(request):
     return render(request, 'core_app/transliteration.html')
 
 
 # -------------  STARTS-----------------------
-
 def unicode_fonts(request):
     return render(request, 'core_app/unicode_fonts.html')
 
 
 # -------------  STARTS-----------------------
-
 def script_detection(request):
     return render(request, 'core_app/script_detection.html')
 
 
 # -------------  STARTS-----------------------
-
 def language_detection(request):
     return render(request, 'core_app/language_detection.html')
 
 
 # -------------  STARTS-----------------------
-
 def cdac_keyboard(request):
     return render(request, 'core_app/cdac_keyboard.html')
 
 
 # -------------  STARTS-----------------------
-
 def email_validator(request):
     email_form_obj = Email_Syntax_Check_form(request.POST)
 
@@ -310,6 +268,7 @@ def success_stories(request):
     return render(request, 'core_app/idn_ready_websites.html')
 
 
+# -------------  STARTS-----------------------
 def idn_websites(request, id):
     id=int(id)
     form = IDN_Ready_Websites()
@@ -467,6 +426,7 @@ def idn_websites(request, id):
     #     return redirect(path)
 
 
+# -------------  STARTS-----------------------
 def domain_validator(request):
     domain_form_obj = Domain_Syntax_Check_form()
     #domain_name = domain_form_obj.data['Domain_Name']
@@ -489,9 +449,8 @@ def domain_validator(request):
         messages.error(request, "Domain is invlaid", extra_tags="danger")
     return render(request, 'core_app/domain_validator.html',{'domain_form_obj': domain_form_obj})
     
-# -------------  STARTS-----------------------
 
-# captcha refresh 
+# -------------  STARTS-----------------------
 def captcha_refresh(request):
     print("In captcha refresh method")
 
@@ -504,7 +463,6 @@ def captcha_refresh(request):
 
 # -------------  STARTS-----------------------
 # @throttle(zone='default')
-
 def rateLimitEmails(throttle_email):
     
     current_date = datetime.now().date()
@@ -543,8 +501,7 @@ def rateLimitEmails(throttle_email):
             return True
 
 
-
-
+# -------------  STARTS-----------------------
 def feedback(request):
     feedback_form_obj = Feedback_form(request.POST or None)
 
@@ -601,7 +558,6 @@ def feedback(request):
 
 
 # -------------  STARTS-----------------------
-
 def becomeuaready(request):
     obj_data = Article.objects.get(id=1)
     list_data = GenericList.objects.get(id=2)
@@ -609,7 +565,6 @@ def becomeuaready(request):
 
 
 # -------------  STARTS-----------------------
-
 def FAQs(request):
     faq_categories = FaqCategory.objects.filter(FaqCategory_PublishStatus='Published')
 
@@ -644,107 +599,17 @@ def FAQs(request):
 
 
 # -------------  STARTS-----------------------
-
 def search_results(request):
     return render(request, 'core_app/search_results.html')
 
 
-def home1(request):
-    return render(request, 'core_app/home1.html')
-
-
 # -------------  STARTS-----------------------
-
-# def set_language(request):
-#     domain = request.build_absolute_uri().split('/')[2]
-#     if domain == 'xn--c2bro4b8ab8d.xn--h2brj9c:8001':
-#         request.session[settings.LANGUAGE_SESSION_KEY] = 'hi'
-#         response = HttpResponseRedirect(request.META.get('HTTP_REFERER', 'घर/'))
-#         response.set_cookie(settings.LANGUAGE_COOKIE_NAME, 'hi')
-#         return response
-#     else:
-#         request.session[settings.LANGUAGE_SESSION_KEY] = 'en'
-#         response = HttpResponseRedirect(request.META.get('HTTP_REFERER', 'home'))
-#         response.set_cookie(settings.LANGUAGE_COOKIE_NAME, 'en')
-#         return response
-
-
-# def HindiRenderPageWithPathAndLang(request, path):
-#     requestcode=request.path.split('/')[2]
-#     if requestcode == 'hi':
-#         translation.activate('hi')
-#         request.session[settings.LANGUAGE_SESSION_KEY] ='hi'
-#         domain = request.build_absolute_uri().split('/')[2]
-#         langhi=None
-#         if domain == 'xn--c2bro4b8ab8d.xn--h2brj9c:8001':
-#             print("hindi and marathi")
-#             with open('core\paths.json', 'r',encoding="utf8") as j:
-#                 contents = json.loads(j.read())
-#             pathrender='/'
-#             print("request session code",request.session.get(settings.LANGUAGE_SESSION_KEY))
-#             for content in range(len(contents)):
-#                 for cont in range(len(contents[content])):
-#                     for key, value in contents[content]['mainpath'].items():
-#                         if value == '/'+request.path.split('/')[1]:
-#                             pathrender=contents[content]['mainpath']['hi']
-#                             langhi='hi'
-#             print("final path render and lang9099090909090900",pathrender,langhi)
-#             request.session[settings.LANGUAGE_SESSION_KEY] = langhi
-#             response = HttpResponseRedirect('http://xn--c2bro4b8ab8d.xn--h2brj9c:8001'+pathrender)
-#             response.set_cookie(settings.LANGUAGE_COOKIE_NAME, langhi)
-#             return response
-#     else:
-#         response = render(request, 'core_app/errors/404.html')
-#         response.status_code = 404
-#         return response
-
-
-
-
-
-# def MrRenderPageWithPathAndLang(request, path):
-#     requestcode=request.path.split('/')[2]
-#     if requestcode == 'mr':
-#         translation.activate('mr')
-#         request.session[settings.LANGUAGE_SESSION_KEY] ='mr'
-#         domain = request.build_absolute_uri().split('/')[2]
-#         print("domain", domain)
-#         lang=None
-#         if domain == 'xn--c2bro4b8ab8d.xn--h2brj9c:8001':
-#             print("hindi and marathi")
-#             with open('core\paths.json', 'r',encoding="utf8") as j:
-#                 contents = json.loads(j.read())
-#             pathrendermr='/'
-#             print("request session code",request.session.get(settings.LANGUAGE_SESSION_KEY))
-#             for content in range(len(contents)):
-#                 for cont in range(len(contents[content])):
-#                     for key, value in contents[content]['mainpath'].items():
-#                         if value == '/'+request.path.split('/')[1]:
-#                             print("valueeee",value,'/'+request.path.split('/')[1])
-#                             pathrendermr=contents[content]['mainpath']['mr']
-#                             lang='mr'
-#             print("final path render and lang9099090909090900",pathrendermr,lang)
-#             request.session[settings.LANGUAGE_SESSION_KEY] = lang
-#             response = HttpResponseRedirect('http://xn--c2bro4b8ab8d.xn--h2brj9c:8001'+pathrendermr)
-#             response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-#             return response
-#     else:
-#         response = render(request, 'core_app/errors/404.html')
-#         response.status_code = 404
-#         return response
-
-
-
-
-
-
 def bad_request(request, exception):
     print("inside page not found")
     return redirect(reverse('set_language'))
 
 
-
-
+# -------------  STARTS-----------------------
 def documentPage(request):
     DocumentCategory.objects.update(DocumentCategory_Status=False)
     documentData=Document.objects.all()
@@ -762,11 +627,9 @@ def documentPage(request):
     return render(request, 'core_app/uadocument.html', context)
 
 
+# -------------  STARTS-----------------------
 def documentData(request):
-    print("==============================",len(request.get_full_path().split('?')))
-   # DocumentCategory.objects.update(DocumentCategory_Status=False)
     if len(request.get_full_path().split('?')) == 1:
-        print("inside ===================")
         DocumentCategory.objects.update(DocumentCategory_Status=False)
         categoryData=DocumentCategory.objects.all()
         documentData = Document.objects.all()
@@ -779,8 +642,6 @@ def documentData(request):
             if cat.DocumentCategory_Status == True:
                 pagestatus = True
     if request.method == 'POST' and 'filter-button' in request.POST:
-        print("==============================",request)
-        print("Inside filter button called")
         DocumentCategory.objects.update(DocumentCategory_Status=False)
         filtered_DocumentDataWithCategory = Document.objects.none()
         checklist = request.POST.getlist('select_specialist')
@@ -861,61 +722,60 @@ def documentData(request):
     return render(request, 'core_app/uadocument.html', context)
 
 
+# -------------  STARTS-----------------------
 def support(request):
     return render(request, 'core_app/support.html')
 
 
 # -------------  STARTS-----------------------
-
 def custom_page_not_found_view(request, exception=None):
     print("inside 404")
     return render(request, "core_app/errors/404.html", {})
 
 
+# -------------  STARTS-----------------------
 def custom_error_view(request, exception=None):
     print("inside 500")
     return render(request, "core_app/errors/500.html", {})
 
 
+# -------------  STARTS-----------------------
 def custom_permission_denied_view(request, exception=None):
     print("inside 403")
     return render(request, "core_app/errors/403.html", {})
 
 
+# -------------  STARTS-----------------------
 def custom_bad_request_view(request, exception=None):
     print("inside 400")
     return render(request, "core_app/errors/400.html", {})
 
 
-
-
+# -------------  STARTS-----------------------
 def testimonial(request):
     obj_testimonialsMessages = TestimonialsMessages.objects.filter(
         TestimonialsMessages_PublishStatus='Published')
     return render(request, "core_app/testimonials.html", {'obj_testimonialsMessages':obj_testimonialsMessages})
 
 
-# def check():
-#     print("pass")
-#     pass
 # -------------  STARTS-----------------------
-
 def testimonials(request):
      return render(request, 'core_app/testimonials.html')
-# -------------  STARTS-----------------------
 
+
+# -------------  STARTS-----------------------
 def event(request):
      return render(request, 'core_app/event.html')
-# -------------  STARTS-----------------------
 
+
+# -------------  STARTS-----------------------
 def gallery(request):
     gallery_video_headings = GalleryHeadings.objects.all()
     gallery_videos = GalleryVideos.objects.all()
     return render(request, 'core_app/gallery.html', {'gallery_videos': gallery_videos, 'gallery_video_headings': gallery_video_headings})
+
+
 # -------------  STARTS-----------------------
-
-
-
 def SOPTechnalogyPage(request):
     SOPArticle = Article.objects.get(id=2)
     SOPTechnologyDocumentData = SOPTechnologyDocument.objects.all()
@@ -927,6 +787,7 @@ def SOPTechnalogyPage(request):
     return render(request, 'core_app/sop_tech_document.html', context)
 
 
+# -------------  STARTS-----------------------
 def sop_document_page(request, id=None):
         SOPTechnologyDocumentData = SOPTechnologyDocument.objects.all()
         SOPTechnologyCategory.objects.all().update(SOPTechnologyCategory_Status=False)
@@ -946,6 +807,7 @@ def sop_document_page(request, id=None):
         return render(request, 'core_app/sop_docuemnts_page.html', context)
 
 
+# -------------  STARTS-----------------------
 def sop_document(request):
     if len(request.get_full_path().split('?')) == 1:
         print("inside ===================")
@@ -1064,16 +926,8 @@ def sop_document(request):
     return render(request, 'core_app/sop_docuemnts_page.html', context)
 
 
-
-
-
-
+# -------------  STARTS-----------------------
 def SopDownloadCounter(request,id):
-    # url = resolve(request.path_info).url_name
-    # x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    # print("SopDownloadCounter==================",url, x_forwarded_for,request.META.get('REMOTE_ADDR'))
-    # return redirect('sop_tech_page')
-  
     url = resolve(request.path_info).url_name
     request.session['requested_url'] = url
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -1146,12 +1000,7 @@ def SopDownloadCounter(request,id):
         return redirect('sop_document')
    
 
-
-
-
-
-
-###DASHBOARD
+# -------------  STARTS-----------------------
 def RegistryIDNDomainAPIEndpoint():
     response = requests.post("https://registry.gov.in/getidndomaininfo_public_process.php", 
         data="region=&filterform=filterform&current_page=",
@@ -1160,6 +1009,8 @@ def RegistryIDNDomainAPIEndpoint():
     response_data =  response.json()
     return response_data['message']
 
+
+# -------------  STARTS-----------------------
 def passHTMLData():
     html_file_path = './output_table.html'
     # Read the HTML content from the file
@@ -1167,6 +1018,8 @@ def passHTMLData():
         html_content = html_file.read()   
     return html_content
 
+
+# -------------  STARTS-----------------------
 def dashboard(request):
   
     # Dashboad Count Section Data
@@ -1253,11 +1106,12 @@ def dashboard(request):
     return render(request,'core_app/dashboard.html',context)
 
 
-##-----------------------------------------TLD VALIDATOR--------------------------------------------------##
+# -------------  STARTS-----------------------
 def tld_validator(request):
     return render(request, 'core_app/tld_validator.html')
 
 
+# -------------  STARTS-----------------------
 def cat_selected(request):
     blogs_data=Blog.objects.all()
     BlogCategory.objects.update(BlogCategory_Status=False)
@@ -1278,7 +1132,7 @@ def cat_selected(request):
     return render(request,'core_app/blog_list.html',context)
 
 
-
+# -------------  STARTS-----------------------
 def blogs(request,id=None):
     if id:
         blogname = request.session.get('search_blog_string')
@@ -1381,7 +1235,7 @@ def blogs(request,id=None):
         return render(request,'core_app/blog_list.html',context)
 
     
-
+# -------------  STARTS-----------------------
 def blog(request,id):
     try:
         blog_data=Blog.objects.get(id=id)
@@ -1397,107 +1251,8 @@ def blog(request,id):
     except:
         return redirect('blogs')
 
-
-
     
-
-def generate_otp(email):
-    #  print("In generate otp")
-    
-    ## Generate OTP for 
-    fixed_digits = 6 
-    otp_value = random.randrange(111111, 999999, fixed_digits)
-    ## Save OTP Value
-    otp_already_exists = OTP_For_IDNRequestForUserWebsites.objects.filter(OTP_Email=email)
-    
-    if otp_already_exists:
-        #  print("email already exists")
-        # check OTP count 
-        if otp_already_exists[0].OTP_Entered_Count < 10:
-            # check time difference between current otp and last otp
-            
-                #  print("OTP count for this email is less than max count")
-                otp_already_exists[0].OTP_Value = otp_value
-                otp_already_exists[0].OTP_Entered_Count+=1
-                otp_already_exists[0].save()
-                
-                data={'status': 'success', 'message': "OTP generated"}
-                
-        else:
-            #  print("OTP count limit exceeded")
-            expiry_time = otp_already_exists[0].OTP_Created_Date + timedelta(minutes=120) ## timedelta is of 2 hours
-            current_time = datetime.now(timezone.utc)
-            
-            #  print("expiry_time : ", expiry_time)
-            #  print("current_time : ", current_time)
-            
-            time_diff = current_time - expiry_time 
-            #  print("Time difference : ", time_diff)
-            
-            if expiry_time > current_time:
-                #  print("OTP count limit exceeded and offset time still not reached")
-                data={'status': 'error', 'message': "OTP generate limit exceeded"}
-            else:
-                otp_already_exists[0].OTP_Value = otp_value
-                otp_already_exists[0].OTP_Entered_Count = 1
-                otp_already_exists[0].save()
-                data={'status': 'success', 'message': "OTP generated"}
-    else:
-        #  print("email not exists")
-        otp_obj = OTP_For_IDNRequestForUserWebsites.objects.create(
-            OTP_Email = email,
-            OTP_Value = otp_value,
-            OTP_Entered_Count = 1
-        )
-        otp_obj.save()
-        data={'status': 'success', 'message': "OTP generated"}
-        
-        
-    # send mail to email address
-    RecipentMessage = "OTP for IDN websites request is " + str(otp_value); 
-    try:
-        email_sent_status = send_mail("OTP for IDN wesbites request", RecipentMessage, env('SERVER_EMAIL'), [email])
-        #  print("email status : ", email_sent_status)
-    except:
-        print("error while sending email")
-
-    return data
-        
-
-def validate_otp(email, otp_value):
-    #  print("in validate OTP for IDN website request")
-    #  print("Email : ", email)
-    #  print("OTP value : ", otp_value)
-    
-    # check email exists
-    otp_obj = OTP_For_IDNRequestForUserWebsites.objects.filter(OTP_Email=email)
-    
-    if otp_obj:
-        otp = otp_obj[0].OTP_Value
-        otp_status = otp_obj[0].OTP_Status
-        otp_generation_date = otp_obj[0].OTP_Created_Date
-        
-        # check otp is expired
-        current_time = datetime.now(timezone.utc)
-        expiry_time = otp_generation_date + timedelta(minutes=5) ## otp expiry time is 5 minutes
-        
-        if expiry_time > current_time:
-            #  print("OTP not expired")
-            if otp_value == otp:
-                if otp_status == True:
-                    #  print("OTP expired: Already verified")
-                    return False
-                else:
-                    #  print("OTP verified")
-                    return True
-            else:
-                #  print("wrong OTP")
-                return False
-        else:
-            #  print("OTP expired")
-            return False 
-    
-# # not in use
+# -------------  STARTS-----------------------
 def idn_websites_request1(request):
     if request.method == 'POST':
         #  print("In POST Request")
@@ -1554,6 +1309,7 @@ def idn_websites_request1(request):
     return render(request, 'core_app/idn_websites_request.html', {'form': form})
 
 
+# -------------  STARTS-----------------------
 @csrf_exempt
 def idn_websites_request_AJAX(request):
     categories = IDNRequestForUserWebsitesCategories.objects.filter(website_status="Active")
@@ -1632,13 +1388,12 @@ def idn_websites_request_AJAX(request):
     return render(request, 'core_app/idn_websites_request_AJAX.html', {'categories': categories, 'captcha_value' : captcha_value, 'captcha_hidden': captcha_hidden})
 
 
-
-#----------------------------------------TEST_SUPPORT PAGE --------------------- #
-
+# -------------  STARTS-----------------------
 def test_support(request):
-    
     return render(request, 'core_app/support_new.html')
 
+
+# -------------  STARTS-----------------------
 @login_required(login_url="login_view")
 def admindashboard(request):
     
@@ -1695,22 +1450,8 @@ def admindashboard(request):
   
     return render(request, 'core_app/Admin_Dashboard.html',context)
 
-
-
-
-# CELERY TASKS
-
-def test_celery(request):
-    data = test_func.delay()
-    response = data.get()
-    #  print("Return Data : ", response)
-    return HttpResponse("Done")
-
-
     
-    
-# IDN READINESS VIEWS
-
+# -------------  STARTS-----------------------
 def update_json(request):
     new_url = request.POST.get('url')
     new_lang = request.POST.get('language')
@@ -1737,12 +1478,15 @@ def update_json(request):
     messages.info(request,"Your data would be populated in IDN Readiness Index List within 24 Hours ")
     return redirect('display_table2')
 
+
+# -------------  STARTS-----------------------
 def display_table2(request):
     with open('updated_file.json') as f:
         Tabledata = json.load(f) 
     return render(request, 'core_app/Admin_Dashboard.html', {'Tabledata': Tabledata})
 
 
+# -------------  STARTS-----------------------
 def idn_rediness_dashboard(request):
     # Read the JSON file
     with open('file.json', encoding='utf-8' ) as f:
@@ -1818,138 +1562,6 @@ def idn_rediness_dashboard(request):
     #  print(updated_json_data)
     return render(request,'core_app/home.html',{'updated_json_data':updated_json_data})
 
-
-
-
-
-def RenderPageWithPathAndLang(request, path):
-    lang=''
-    domain=''
-    status1=False
-    status2=False
-    maindomain = request.build_absolute_uri().split('/')[2]
-    requesteddomainwithoutport=maindomain.split(':')[0]
-    with open(env('LANGUAGE_DOMAINS'), 'r',encoding="utf8") as j:
-            dom = json.loads(j.read())
-    for data in range(len(dom)):
-        for key,value in dom[data].items():
-            filterdomain1=value.split('/')[2]
-            filterdomain2=filterdomain1.split(':')[0]
-            # print("domain from file",filterdomain2)
-            if requesteddomainwithoutport == filterdomain2 :
-                domain=value
-                lang=key
-                status1=True
-    
-    with open(env('LANGUAGE_PATHS'), 'r',encoding="utf8") as j:
-        contents = json.loads(j.read())
-    pathrender='/'
-    for content in range(len(contents)):
-        for cont in range(len(contents[content])):
-            for key, value in contents[content]['mainpath'].items():
-                if value == request.path:
-                    #  print("valueeee",value,request.path)
-                    pathrender=value
-                    lang=key
-                    status2=True
-                    #  print("pathhgcffgjgjhfhgffcjv",pathrender,lang)
-    if status1 and status2:
-        #  print("final path render and lang9099090909090900",domain+pathrender)
-        response = HttpResponseRedirect(domain+pathrender)
-        return response
-    else:
-        response = render(request, 'core_app/errors/404.html')
-        response.status_code = 404
-        return response
-
-
-
-def RenderPageWithPathAndLangId(request, path,id):
-    lang=''
-    domain=''
-    status1=False
-    status2=False
-    maindomain = request.build_absolute_uri().split('/')[2]
-    requesteddomainwithoutport=maindomain.split(':')[0]
-    with open(env('LANGUAGE_DOMAINS'), 'r',encoding="utf8") as j:
-            dom = json.loads(j.read())
-    for data in range(len(dom)):
-        for key,value in dom[data].items():
-            filterdomain1=value.split('/')[2]
-            filterdomain2=filterdomain1.split(':')[0]
-            # print("domain from file",filterdomain2)
-            if requesteddomainwithoutport == filterdomain2 :
-                domain=value
-                lang=key
-                status1=True
-    
-    with open(env('LANGUAGE_PATHS'), 'r',encoding="utf8") as j:
-        contents = json.loads(j.read())
-    pathrender='/'
-    for content in range(len(contents)):
-        for cont in range(len(contents[content])):
-            for key, value in contents[content]['mainpath'].items():
-                if value == '/'+request.path.split('/')[1]:
-                    #  print("valueeee",value,request.path)
-                    pathrender=value
-                    lang=key
-                    status2=True
-                    #  print("pathhgcffgjgjhfhgffcjv",pathrender,lang)
-
-    if status1 and status2:
-        #  print("final path render and lang9099090909090900",domain+pathrender+'/'+id)
-        response = HttpResponseRedirect(domain+pathrender+'/'+id)
-        return response
-    else:
-        response = render(request, 'core_app/errors/404.html')
-        response.status_code = 404
-        return response
-
-
-
-def RenderPageWithPathAndLangIdToken(request,path,uid,token):
-    # print("+++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    lang=''
-    domain=''
-    status1=False
-    status2=False
-    maindomain = request.build_absolute_uri().split('/')[2]
-    requesteddomainwithoutport=maindomain.split(':')[0]
-    with open(env('LANGUAGE_DOMAINS'), 'r',encoding="utf8") as j:
-            dom = json.loads(j.read())
-    for data in range(len(dom)):
-        for key,value in dom[data].items():
-            filterdomain1=value.split('/')[2]
-            filterdomain2=filterdomain1.split(':')[0]
-            # print("domain from file",filterdomain2)
-            if requesteddomainwithoutport == filterdomain2 :
-                domain=value
-                lang=key
-                status1=True
-    
-    with open(env('LANGUAGE_PATHS'), 'r',encoding="utf8") as j:
-        contents = json.loads(j.read())
-    pathrender='/'
-    for content in range(len(contents)):
-        for cont in range(len(contents[content])):
-            for key, value in contents[content]['mainpath'].items():
-                if value == '/'+request.path.split('/')[1]:
-                    # print("valueeee",value,request.path)
-                    pathrender=value
-                    lang=key
-                    status2=True
-                    # print("pathhgcffgjgjhfhgffcjv",pathrender,lang)
-
-    if status1 and status2:
-        # print("final path render and lang9099090909090900",domain+pathrender+'/'+uid +'/'+token)
-        response = HttpResponseRedirect(domain+pathrender+'/'+uid+'/'+token)
-        return response
-    else:
-        response = render(request, 'core_app/errors/404.html')
-        response.status_code = 404
-        return response
-    
-    
 
 
     

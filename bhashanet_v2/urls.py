@@ -40,7 +40,7 @@ sitemaps = {
     'bhashanet_static': StaticSitemap,
 }
 
-# ----ADDED BY SHWETA PATIL ----
+# -----ADDED BY SHWETA PATIL -------
 urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
@@ -100,46 +100,41 @@ Translation_urlpatterns = [
     # path('cat_selected', core_views.cat_selected, name='cat_selected'),
     path('blogs/<str:id>', preprocesslangset(preprocesslangset(core_views.blogs)), name='blogs'),
     path('blog/<str:id>', preprocesslangset(core_views.blog), name='blog'),
-    path('test_support', core_views.test_support, name='test_support'),
-    path('idn_websites_request', core_views.idn_websites_request_AJAX, name='idn_websites_request_AJAX'),
-    path('idn_websites_request1', core_views.idn_websites_request1, name='idn_websites_request1'),
-    path('add_blog', user_views.add_blog, name='add_blog'),
-    path('edit_blog/<str:id>', user_views.edit_blog, name='edit_blog'),
-    path('delete_blog/<str:id>', user_views.delete_blog, name='delete_blog'),
-    path('blog_datatable', user_views.admin_blog_datatable, name='admin_blog_datatable'),
-    path('search_blog/<str:id>', user_views.search_blog, name='search_blog'),
+    path('test_support', preprocesslangset(core_views.test_support), name='test_support'),
+    path('idn_websites_request', preprocesslangset(core_views.idn_websites_request_AJAX), name='idn_websites_request_AJAX'),
+    path('idn_websites_request1', preprocesslangset(core_views.idn_websites_request1), name='idn_websites_request1'),
+    path('search_blog/<str:id>', preprocesslangset(user_views.search_blog), name='search_blog'),
 
-    path('discussion_forum_topic_list', topic_list, name="topic_list"),
-    path('discussion_forum_user_topic_list', user_topic_list, name="user_topic_list"),
-    path('discussion_forum_add_topic', add_topic, name="add_topic"),
-    path('discussion_forum_view_topic_discussion/<slug:topic_slug>', view_topic_discussion, name="view_topic_discussion"),
-    path('submit_answer/<slug:topic_slug>', submit_answer, name='submit_answer'),
-    path('upvote_answer', upvote_answer_view, name='upvote_answer_view'),
-    path('test_task', core_views.test_celery, name="test_task"),
-
-
-#### 475
-
-    path('login', user_views.login_view, name="login_view"),
+    path('add_blog', preprocesslangset(user_views.add_blog), name='add_blog'),
+    path('edit_blog/<str:id>', preprocesslangset(user_views.edit_blog), name='edit_blog'),
+    path('delete_blog/<str:id>', preprocesslangset(user_views.delete_blog), name='delete_blog'),
+    path('blog_datatable', preprocesslangset(user_views.admin_blog_datatable), name='admin_blog_datatable'),
+    path('discussion_forum_topic_list', preprocesslangset(topic_list), name="topic_list"),
+    path('discussion_forum_user_topic_list', preprocesslangset(user_topic_list), name="user_topic_list"),
+    path('discussion_forum_add_topic', preprocesslangset(add_topic), name="add_topic"),
+    path('discussion_forum_view_topic_discussion/<slug:topic_slug>', preprocesslangset(view_topic_discussion), name="view_topic_discussion"),
+    path('submit_answer/<slug:topic_slug>', preprocesslangset(submit_answer), name='submit_answer'),
+    path('upvote_answer', preprocesslangset(upvote_answer_view), name='upvote_answer_view'),
+    #path('test_task', preprocesslangset(core_views.test_celery), name="test_task"),
+    path('login',user_views.login_view, name="login_view"),
     path('login/<str:flag>', user_views.login_view, name="login_view"),
-    path('register', user_views.register_view, name='register_view'),
-    path('register/<str:flag>', user_views.register_view, name='register_view'),
-    path('logout', user_views.logout_view, name='logout_view'),
-    path('logout/<str:flag>', user_views.logout_view, name='logout_view'),
-    path('change_password', user_views.change_password_view, name='change_password'),
-    path('change_password/<str:flag>', user_views.change_password_view, name='change_password'),
-    path('forgot_password', user_views.forgot_password_view, name='forgot_password'),
-    path('forgot_password/<str:flag>', user_views.forgot_password_view, name='forgot_password'),
-    path('password_creation/<uid>/<token>', user_views.password_creation_view, name='password_creation'),
-    path('password_creation/<uid>/<token>/<str:flag>', user_views.password_creation_view, name='password_creation'),
-    path('verify_user_otp/<str:email>', user_views.verify_user_otp, name='verify_user_otp'),
-    path('verify_user_otp/<str:email>/<str:flag>', user_views.verify_user_otp, name='verify_user_otp'),
-    path('user_profile', user_views.user_profile_view, name='user_profile'),
-    path('user_profile<str:flag>', user_views.user_profile_view, name='user_profile'),
-      
+    path('register', preprocesslangset(user_views.register_view), name='register_view'),
+    path('register/<str:flag>', preprocesslangset(user_views.register_view), name='register_view'),
+    path('logout', preprocesslangset(user_views.logout_view), name='logout_view'),
+    path('logout/<str:flag>', preprocesslangset(user_views.logout_view), name='logout_view'),
+    path('change_password', preprocesslangset(user_views.change_password_view), name='change_password'),
+    path('change_password/<str:flag>', preprocesslangset(user_views.change_password_view), name='change_password'),
+    path('forgot_password', preprocesslangset(user_views.forgot_password_view), name='forgot_password'),
+    path('forgot_password/<str:flag>', preprocesslangset(user_views.forgot_password_view), name='forgot_password'),
+    path('password_creation/<uid>/<token>', preprocesslangset(user_views.password_creation_view), name='password_creation'),
+    path('password_creation/<uid>/<token>/<str:flag>', preprocesslangset(user_views.password_creation_view), name='password_creation'),
+    path('verify_user_otp/<str:email>', user_views.verify_user_otp, name='verify_user_otp'), ###Need to add in path.json and in all urls
+    path('verify_user_otp/<str:email>/<str:flag>', user_views.verify_user_otp, name='verify_user_otp'), ###Need to add in path.json and in all urls
+    path('user_profile', user_views.user_profile_view, name='user_profile'), ###Need to add in path.json and in all urls
+    path('user_profile<str:flag>', user_views.user_profile_view, name='user_profile'), ###Need to add in path.json and in all urls
 ]
 
-
+#### 475
 
 
 # ----ADDED BY SHWETA PATIL ----
@@ -152,6 +147,7 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
+# ----ADDED BY SHWETA PATIL ----
 handler404 = 'core_app.views.custom_page_not_found_view'
 handler500 = 'core_app.views.custom_error_view'
 handler403 = 'core_app.views.custom_permission_denied_view'

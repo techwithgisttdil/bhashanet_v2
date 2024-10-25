@@ -33,6 +33,7 @@ SECRET_KEY = 'django-insecure-+t+g9y0_8m_o7r77s3kjizwiu04alx@m(!tuzcc6f31)xk%hmr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# -----ADDED BY SHWETA PATIL -------
 ALLOWED_HOSTS = [ '127.0.0.1','localhost','भाषानेट.कॉम','भाषानेट.भारत','मराठी.भाषानेट.भारत',
                  'xn--d2b1ag0dl.xn--c2bro4b8ab8d.xn--h2brj9c','xn--c2bro4b8ab8d.xn--11b4c3d',
                  'bhashanet.in','bhashanet.com', 'xn--c2bro4b8ab8d.xn--h2brj9c',
@@ -53,7 +54,6 @@ ALLOWED_HOSTS = [ '127.0.0.1','localhost','भाषानेट.कॉम','भ
                  'xn----ymcac5dzf1p7v.xn--mgbbh1a','xn--i1b8e2b2ah.xn--c2bro4b8ab8d.xn--h2brj9c',
                  'xn--i2brn5cg8b.xn--c2bro4b8ab8d.xn--h2brj9c','मैथिली.भाषानेट.भारत',
                  'xn--c2bro4b8ab8d.xn--h2breg3eve','भाषानेट.भारतम्','xn--mgba2b5dua02apa.xn--mgbgu82a']
-
 
 # Application definition
 
@@ -106,7 +106,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bhashanet_v2.wsgi.application'
-
 
 
 DATABASES = {
@@ -203,8 +202,7 @@ CELERY_RESULT_BACKEND = 'django-db'
 CELERY_CACHE_BACKEND = 'default'
 
 
-
-
+# -----ADDED BY SHWETA PATIL -------
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = 587
@@ -213,3 +211,6 @@ SERVER_EMAIL = env('SERVER_EMAIL')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # please enter password
 EMAIL_HOST_USER = SERVER_EMAIL
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+LOGIN_URL = '/login'

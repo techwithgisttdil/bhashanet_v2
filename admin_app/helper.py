@@ -15,7 +15,8 @@ from django.core.mail import send_mail
 # from django.conf import settings
 from bhashanet_v2.settings import *
 from django.core.mail import EmailMessage
-#############################################################################
+
+# ---------------------------------------------------------------------------------------------------
 
 def update_status(instance):
     logs(f"Checking and Updating Parameters for IDN Domain in instance {instance}")
@@ -183,7 +184,7 @@ def update_status(instance):
     instance.save()
      
 
-#############################################################################
+# ---------------------------------------------------------------------------------------------------
 
 def create_file(content, filename):
     logs(f"--->File is being created for content to be written")
@@ -216,7 +217,7 @@ def create_file(content, filename):
         file.write(cleaned_content)
         logs(f"File Created Successfully with content written")
         
-#############################################################################
+# ---------------------------------------------------------------------------------------------------
 
 def Process_Excel_Receipient_list(email_receipient_list):
     logs(f"Function Process_Excel_Receipient_list called ")
@@ -240,7 +241,7 @@ def Process_Excel_Receipient_list(email_receipient_list):
         logs(f"An error occurred: {str(e)}")
         return []
 
-#############################################################################
+# ---------------------------------------------------------------------------------------------------
 
 def Process_Email_Sending(user_email_subject, user_email_message, recipients, email_attatchments):
     logs("helper.py file --> Function Process_Email_Sending called")
@@ -290,5 +291,5 @@ def Process_Email_Sending(user_email_subject, user_email_message, recipients, em
         logs(f"An error occurred while sending emails: {str(e)}")
         return False       
    
-############################################################################# 
+# --------------------------------------------------------------------------------------------------- 
     

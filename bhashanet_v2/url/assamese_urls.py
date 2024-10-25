@@ -5,7 +5,7 @@ from admin_app import views as user_views
 from discussion_forum_app.views import *
 from core_app.decorator import preprocesslangset
 
-
+# -----ADDED BY SHWETA PATIL -------
 Translation_urlpatterns_assamese = [
     path('গৃহ', preprocesslangset(core_views.home), name='home'),
     path('privacypolicyas', preprocesslangset(core_views.privacypolicy), name='privacypolicy'),
@@ -63,7 +63,6 @@ Translation_urlpatterns_assamese = [
     path('discussion_forum_view_topic_discussionas/<slug:topic_slug>', preprocesslangset(view_topic_discussion), name="view_topic_discussion"),
     path('submit_answeras/<slug:topic_slug>', preprocesslangset(submit_answer), name='submit_answer'),
     path('upvote_answeras', preprocesslangset(upvote_answer_view), name='upvote_answer_view'),
-    path('test_taskas', preprocesslangset(core_views.test_celery), name="test_task"),
     path('user_profile', preprocesslangset(user_views.user_profile_view), name='user_profile'), # Pending in json file
     
 ]   

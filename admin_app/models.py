@@ -8,7 +8,7 @@ from django.utils.timezone import now
 from core_app.validate import *
 
 # Create your models here.
-#########################################################################################
+# ---------------------------------------------------------------------------------------------------
 
 class category_list(models.Model):
     category_name = models.CharField(max_length=100)
@@ -21,7 +21,7 @@ class category_list(models.Model):
     class Meta:
         verbose_name_plural = "category_list"
 
-#########################################################################################
+# ---------------------------------------------------------------------------------------------------
 
 class English_Domain(models.Model):
     department_name = models.TextField()
@@ -36,7 +36,7 @@ class English_Domain(models.Model):
     class Meta:
         verbose_name_plural = "English_Domain"
 
-#########################################################################################
+# ---------------------------------------------------------------------------------------------------
 
 class language_list(models.Model):
     language_name = models.CharField(max_length=25)
@@ -49,7 +49,7 @@ class language_list(models.Model):
     class Meta:
         verbose_name_plural = "language_list"
 
-#########################################################################################
+# ---------------------------------------------------------------------------------------------------
 # FOR instant display in status table 
 class URL_dashboard(models.Model):
     English_domain = models.ForeignKey(English_Domain, on_delete=models.CASCADE)
@@ -68,7 +68,7 @@ class URL_dashboard(models.Model):
     class Meta:
         verbose_name_plural = "URL_dashboard"
         
-#########################################################################################
+# ---------------------------------------------------------------------------------------------------
 
 class BulkEmail(models.Model):
     email_receipient_list = models.FileField(upload_to="receipient_list")
@@ -85,7 +85,7 @@ class BulkEmail(models.Model):
     class Meta:
         verbose_name_plural = "Bulk Email"
 
-#########################################################################################
+# ---------------------------------------------------------------------------------------------------
 
 class BulkEmailAttachments(models.Model):
     email_attachment = models.FileField(upload_to="email_attachment", null=True,blank=True)
@@ -98,9 +98,8 @@ class BulkEmailAttachments(models.Model):
         verbose_name_plural = "Bulk Email Attachment"
 
 
-
 # ---------------------------------------------------------------------------------------------------
-
+# -----ADDED BY SHWETA PATIL -------
 class BlogCategory(models.Model):
     BlogCategory_Name = models.CharField(max_length=500)
     BlogCategory_Status = models.BooleanField(default=False)
@@ -125,7 +124,7 @@ class BlogCategory(models.Model):
         return self.BlogCategory_Name
     
 # ---------------------------------------------------------------------------------------------------
-
+# -----ADDED BY SHWETA PATIL -------
 class Blog(models.Model):
     Blog_Title = models.CharField(max_length=800)
     Blog_Slug = models.SlugField(max_length=255, blank=True, null=True)
@@ -169,7 +168,7 @@ class Blog(models.Model):
         return self.Blog_Title
     
 # ---------------------------------------------------------------------------------------------------
-
+# -----ADDED BY SHWETA PATIL -------
 class UserProfile(models.Model):
     UserProfile_user = models.ForeignKey(User, on_delete=models.CASCADE)
     UserProfile_name = models.CharField(max_length=100)
@@ -189,7 +188,7 @@ class UserProfile(models.Model):
         return self.UserProfile_user.username
         
 # ---------------------------------------------------------------------------------------------------
-
+# -----ADDED BY SHWETA PATIL -------
 class UserRole(models.Model):
     Role_Name = models.CharField(max_length=20)
     Role_Status_Choices = (
@@ -206,7 +205,7 @@ class UserRole(models.Model):
         return self.Role_Name
     
 # ---------------------------------------------------------------------------------------------------
-
+# -----ADDED BY SHWETA PATIL -------
 class UserRoleMapping(models.Model):
     User_Id = models.ForeignKey(User, on_delete=models.CASCADE)
     Role_Id = models.ForeignKey(UserRole, on_delete=models.CASCADE)
@@ -227,8 +226,7 @@ class UserRoleMapping(models.Model):
     
 # ---------------------------------------------------------------------------------------------------
 
-
-    
+# -----ADDED BY SHWETA PATIL -------
 class CustomForgotPassword(models.Model):
     email = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     forgot_password_token = models.CharField(max_length=100, blank=False)
@@ -244,7 +242,7 @@ class CustomForgotPassword(models.Model):
     
 # ---------------------------------------------------------------------------------------------------
 
-
+# -----ADDED BY SHWETA PATIL -------
 class OTP_For_UserRegistration(models.Model):
     OTP_Email = models.ForeignKey(User,on_delete=models.CASCADE)
     OTP_Value = models.IntegerField()
@@ -257,4 +255,4 @@ class OTP_For_UserRegistration(models.Model):
         verbose_name_plural = "OTP FOR User Registration"
 
     def __str__(self):
-        return str(self.OTP_Email)+'For User'
+        return str(self.OTP_Email)

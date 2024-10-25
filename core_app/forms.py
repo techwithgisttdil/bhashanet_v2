@@ -43,6 +43,7 @@ class Feedback_form(ModelForm):
         super(Feedback_form, self).clean()
         validate_feedbackform(self)
 
+# ---------------------------------------------------------------------------------------------------
 
 class Domain_Syntax_Check_form(ModelForm):
     Domain_Name = forms.CharField(label="Domain", max_length=30, widget=forms.TextInput(
@@ -61,6 +62,7 @@ class Domain_Syntax_Check_form(ModelForm):
         super(Domain_Syntax_Check_form, self).clean()
         validate_domain(self)
 
+# ---------------------------------------------------------------------------------------------------
 
 class Email_Syntax_Check_form(ModelForm):
     Email_Address = forms.CharField(label="Email", max_length=30, widget=forms.TextInput(
@@ -79,11 +81,13 @@ class Email_Syntax_Check_form(ModelForm):
         super(Email_Syntax_Check_form, self).clean()
         validate_email(self)
 
+# ---------------------------------------------------------------------------------------------------
+
 class IDN_Ready_Websites(Form):
     select_category = forms.ModelMultipleChoiceField(queryset=IDNReadyWebsitesCategory.objects.all(), widget=forms.CheckboxSelectMultiple)
     select_language = forms.ModelMultipleChoiceField(queryset=IDNReadyWebsitesLanguages.objects.all(), widget=forms.CheckboxSelectMultiple)
 
-
+# ---------------------------------------------------------------------------------------------------
 
 class IDNRequestForUserWebsitesForm(ModelForm):
     IDN_Email = forms.CharField(max_length=500, required=True, 

@@ -2,10 +2,6 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 from .validate import *
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.utils.timezone import now
-from ckeditor.fields import RichTextField
-from django.utils.text import slugify
-from django.contrib.auth.models import User
 
 # ---------------------------------------------------------------------------------------------------
 

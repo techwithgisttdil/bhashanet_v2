@@ -43,6 +43,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
 
 
+
+# -----ADDED BY SHWETA PATIL -------
 def login_view(request,flag=None):
     if flag == "for_user_login":
         base_template = 'core_app/base.html' 
@@ -113,7 +115,7 @@ def login_view(request,flag=None):
         form.fields['captcha_hidden'].initial = make_password(captcha_value)
     return render(request, 'admin_app/AccountManagement/user_login.html', {"form": form,"base_template":base_template})
 
-
+# -----ADDED BY SHWETA PATIL -------
 def register_view(request,flag=None):
     if flag == "for_user_register":
         base_template = 'core_app/base.html' 
@@ -150,9 +152,10 @@ def register_view(request,flag=None):
                     user = User.objects.get(username=email)
                     try:
                         user_obj=User.objects.get(username=email)
-                        otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=user_obj)
+                        otp_user_obj=OTP_For_UserRegistration.objects.get(OTP_Email=user_obj)
                     except:
                         otp_user_obj=''
+                    print("otp_user_objotp_user_obj",otp_user_obj)
                     if otp_user_obj:
                         if otp_user_obj.OTP_Status:
                             messages.error(request, 'Email address already exists', extra_tags="danger")
@@ -160,7 +163,7 @@ def register_view(request,flag=None):
                             captcha_img_generator(captcha_value)
                             form.fields['captcha_hidden'].initial = make_password(captcha_value)
                             return render(request, "admin_app/AccountManagement/user_register.html", {'form': form,'base_template':base_template})  
-                
+                        
                     resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
                     if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
                         User_Registration_With_OTP.apply_async((email,), countdown=300)
@@ -263,7 +266,7 @@ def register_view(request,flag=None):
             form.fields['captcha_hidden'].initial = make_password(captcha_value)
             return render(request, "admin_app/AccountManagement/user_register.html", {'form': form,'base_template':base_template})
 
-
+# -----ADDED BY SHWETA PATIL -------
 def verify_user_otp(request,email,flag=None):
     if flag == "for_user_otp":
         base_template = 'core_app/base.html' 
@@ -283,7 +286,7 @@ def verify_user_otp(request,email,flag=None):
                 if flag == "for_user_otp":
                     return redirect("login_view",flag="for_user_login")
                 else:
-                    return redirect("login_view")
+                    return redirect("admin_app:dashboard2")
             else:
                 messages.error(request, "Failed OTP Verification", extra_tags='danger')
                 return render(request, "admin_app/AccountManagement/otp_form.html", {'form': otp_form,'base_template':base_template})
@@ -307,13 +310,14 @@ def verify_user_otp(request,email,flag=None):
             return redirect('register_view')
     return render(request, "admin_app/AccountManagement/otp_form.html", {'form': otp_form,'base_template':base_template})
 
-
+# -----ADDED BY SHWETA PATIL -------
 @login_required()
 def logout_view(request,flag=None):
     logout(request)
     messages.success(request, "You are successfully logged Out", extra_tags="success")
     return redirect("login_view",flag=flag)
 
+# -----ADDED BY SHWETA PATIL -------
 @login_required()
 def change_password_view(request,flag=None):
     if flag == "for_user_change_pass":
@@ -346,7 +350,7 @@ def change_password_view(request,flag=None):
 
     return render(request, 'admin_app/AccountManagement/change_password.html', {'form':form,'base_template':base_template})
 
-
+# -----ADDED BY SHWETA PATIL -------
 def forgot_password_view(request,flag=None):
     if flag == "for_user_forgot_password":
         base_template = 'core_app/base.html' 
@@ -425,7 +429,7 @@ def forgot_password_view(request,flag=None):
     form.fields['captcha_hidden'].initial = make_password(captcha_value)
     return render(request, 'admin_app/AccountManagement/forgot_password.html', {'form': form,'base_template':base_template}) 
 
-
+# -----ADDED BY SHWETA PATIL -------
 def password_creation_view(request, uid, token,flag=None):
     if flag == "for_user_forgot_password":
         base_template = 'core_app/base.html' 
@@ -468,7 +472,7 @@ def password_creation_view(request, uid, token,flag=None):
     else:
         return render(request, 'admin_app/AccountManagement/forgot_password_token_page.html', {'message': "User not exists", "link": 'login','base_template':base_template})
 
-
+# -----ADDED BY SHWETA PATIL -------
 @login_required()
 def user_profile_view(request,flag=None):
     if flag == "for_user_profile":
@@ -1255,7 +1259,6 @@ def update_all_domains(request):
     pass
 
 
-
 def add_blog(request):
     if request.user.is_authenticated:
         user_obj=User.objects.get(id=request.user.id)
@@ -1313,7 +1316,6 @@ def add_blog(request):
         return redirect('login_view')
 
 
-
 def edit_blog(request,id):
     #  print("id for blog edit",id)
     if request.user.is_authenticated:
@@ -1343,7 +1345,6 @@ def edit_blog(request,id):
         return redirect('blogs')
 
 
-
 def delete_blog(request,id):
     if request.user.is_authenticated:
         user_obj=User.objects.get(id=request.user.id)
@@ -1360,7 +1361,6 @@ def delete_blog(request,id):
         return redirect('blogs')
 
 
-
 def admin_blog_datatable(request):
     if request.user.is_authenticated:
         user_obj=User.objects.get(id=request.user.id)
@@ -1371,9 +1371,6 @@ def admin_blog_datatable(request):
         return render(request, 'admin_app/admin_blog_datatable.html',context)
     else:
         return redirect('blogs')
-
-
-
 
 
 def search_blog(request,id):

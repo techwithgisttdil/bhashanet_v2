@@ -17,6 +17,8 @@ def captcha_img_generator(captcha_value):
   # audio.generate(captcha_value)
   # audio.write("6552", settings.BASE_DIR /'media/captcha_audio/CAPTCHA.wav')
   
+# ---------------------------------------------------------------------------------------------------
+
 # generate random captcha values (letters + digits)
 def random_captcha_generator():
   N = 5

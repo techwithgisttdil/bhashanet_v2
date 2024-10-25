@@ -1,17 +1,10 @@
 from django import forms
-from django.contrib import messages
-from django.shortcuts import render, redirect
 import re
 import whois
-import random
-from django.core.mail import send_mail
 import environ
-from datetime import datetime, timedelta
-from django.utils import timezone
-from django.contrib.auth.models import User
 env = environ.Env()
 environ.Env.read_env()
-import smtplib
+
 ############################################################################3
 
 # ADDED BY SANJAYB
@@ -27,6 +20,7 @@ def validateFile(file, extensions, maxSize):
       raise forms.ValidationError('File Size Limit Exceeded : Max Limit - {}MB'.format(maxSize/(1024*1024)))
     return False
 
+# ---------------------------------------------------------------------------------------------------
 
 def regex_check(input_field, regex_pattern):
   print("REGEX PATTERN : ",regex_pattern)
@@ -41,7 +35,8 @@ def regex_check(input_field, regex_pattern):
   else:
     return True 
   
-## validate domain name registered or not
+# ---------------------------------------------------------------------------------------------------
+
 def is_domain_registered(domain_name):
     try:
         whois_info = whois.whois(domain_name)

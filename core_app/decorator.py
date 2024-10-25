@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 import urllib.parse
 from django.conf import settings
 
-
+# -----ADDED BY SHWETA PATIL -------
 def preprocesslangset(view_func):
     def wrapper(request, *args, **kwargs):
         print("requested path ------------------",request.build_absolute_uri())
@@ -60,13 +60,16 @@ def preprocesslangset(view_func):
             if parameter1:
                 if parameter2:
                     if parameter3:
+                        print("insidse1",return_domain+return_path+'/'+parameter1+'/'+parameter2+'/'+parameter3)
                         response = HttpResponseRedirect(return_domain+return_path+'/'+parameter1+'/'+parameter2+'/'+parameter3)
                     else:
+                        print("insidse2",return_domain+return_path+'/'+parameter1+'/'+parameter2,pathdecode)
                         response = HttpResponseRedirect(return_domain+return_path+'/'+parameter1+'/'+parameter2)
                 else:
-                    print("insidse",return_domain+return_path+'/'+parameter1)
+                    print("insidse3",return_domain+return_path+'/'+parameter1)
                     response = HttpResponseRedirect(return_domain+return_path+'/'+parameter1)
             else:
+                print("insidse4",return_domain+return_path)
                 response = HttpResponseRedirect(return_domain+return_path)
             return response
     return wrapper

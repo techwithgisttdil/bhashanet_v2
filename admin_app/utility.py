@@ -30,7 +30,7 @@ environ.Env.read_env()
 English Domain Form VALIDATION
 
 '''
-#################################################
+# ---------------------------------------------------------------------------------------------------
 
 def is_valid_english_domain(domain):
     logs(f"Inside is_valid_english_domain function with received {domain}")
@@ -51,7 +51,7 @@ def is_valid_english_domain(domain):
         logs("utility.py file --- Error in Given English or IDN domain")
         return False
 
-#################################################
+# ---------------------------------------------------------------------------------------------------
 
 def validate_English_Domain_Form_Category(category):
     logs(f"Inside validate_English_Domain_Form_Category Function")
@@ -65,7 +65,7 @@ def validate_English_Domain_Form_Category(category):
         logs(f'utility.py file -- category selected by user is {category}')
         raise forms.ValidationError("Please Select Valid Category.")
 
-#################################################
+# ---------------------------------------------------------------------------------------------------
 
 def  validate_English_Domain_Form_Department(department_name):
     logs(f"Inside validate_English_Domain_Form_Department Function")
@@ -75,7 +75,7 @@ def  validate_English_Domain_Form_Department(department_name):
         logs("utility.py file -- User has not entered department name")
         raise forms.ValidationError("Please Enter Department Name") 
     
-#################################################
+# ---------------------------------------------------------------------------------------------------
 
 def validate_English_Domain_Form_Domain_Name(domain_name):
     logs(f"Inside validate_English_Domain_Form_Domain_Name Function")
@@ -112,12 +112,12 @@ def validate_English_Domain_Form_Domain_Name(domain_name):
         logs(f"{domain_name} Domain Already Exist")
         raise forms.ValidationError("Domain Already Exist")
     
-##################################################
+# ---------------------------------------------------------------------------------------------------
 
 '''
 IDN DASHBOARD Form VALIDATION
 '''
-#################################################
+# ---------------------------------------------------------------------------------------------------
 
 def check_valid_idn_domain(domain):
     logs(f"Inside check_valid_idn_domain function with received {domain}")
@@ -138,7 +138,7 @@ def check_valid_idn_domain(domain):
         logs("utility.py file --- Error in Given English or IDN domain")
         return False
     
-#################################################
+# ---------------------------------------------------------------------------------------------------
 
 def validate_idn_dashboard_form_English_domain(English_domain):
     
@@ -153,7 +153,7 @@ def validate_idn_dashboard_form_English_domain(English_domain):
         logs("utility.py file -- User has not selected English Domain From the List . Tempered Data Provided")
         raise forms.ValidationError("Please Select English Domain From Given List Only")  
 
-##################################################
+# ---------------------------------------------------------------------------------------------------
 
 def validate_idn_dashboard_form_Language(Language):
     
@@ -168,7 +168,7 @@ def validate_idn_dashboard_form_Language(Language):
         logs("utility.py file -- User has not selected Language From the List . Tempered Data Provided")
         raise forms.ValidationError("Please Select Language From Given List Only")
     
-##################################################
+# ---------------------------------------------------------------------------------------------------
 
 def validate_idn_dashboard_form_IDN_domain(self,IDN_domain):
     English_domain  = self.cleaned_data.get('English_domain')
@@ -215,7 +215,7 @@ def validate_idn_dashboard_form_IDN_domain(self,IDN_domain):
         logs("IDN Domain Already Exist")
         raise forms.ValidationError("IDN Domain Already Exist")
         
-###################################################################
+# ---------------------------------------------------------------------------------------------------
 
 def validate_english_domain_name(domain_name): 
     logs(f"Inside validate_english_domain_name Function") 
@@ -243,6 +243,8 @@ def validate_english_domain_name(domain_name):
         return False 
     return True 
 
+# ---------------------------------------------------------------------------------------------------
+
 def validate_IDN_domain_name(IDN_domain): 
     if not IDN_domain: 
         logs("utility.py file -- User has not entered any IDN Domain Name") 
@@ -259,10 +261,9 @@ def validate_IDN_domain_name(IDN_domain):
         logs(f"User Enter Correct IDN Domain {IDN_domain}") 
     return True 
 
+# ---------------------------------------------------------------------------------------------------
 
-
-
-
+# -----ADDED BY SHWETA PATIL -------
 def generate_otp_for_user_registration(email,OTP_For_UserRegistration):
     print("Inside generate_otp_for_user_registration")
     fixed_digits = 6 
@@ -322,9 +323,9 @@ def generate_otp_for_user_registration(email,OTP_For_UserRegistration):
 
     return data
 
+# ---------------------------------------------------------------------------------------------------
 
-
-
+# -----ADDED BY SHWETA PATIL -------
 def validate_otp_for_user_registration(email, otp_value,OTP_For_UserRegistration):
     print("Inside validate_otp_for_user_registration")
     # check email exists

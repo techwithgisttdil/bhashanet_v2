@@ -8,8 +8,7 @@ from django.contrib.auth.hashers import check_password
 from core_app.utility import validateFile
 
 
-
-
+# -----ADDED BY SHWETA PATIL -------
 def validate_Blog_form(self):
     print("VALIDATE.PY FILE: in validate_feedbackform function")
     Blog_Title = self.cleaned_data.get('Blog_Title')
@@ -70,8 +69,7 @@ def validate_Blog_form(self):
     return self.cleaned_data
 
 
-# REGISTRATION FORM VALIDATION
-
+# -----ADDED BY SHWETA PATIL -------
 def validate_registerform(self):
     print("VALIDATE.PY FILE: in validate_registerform function")
     register_user_name = self.cleaned_data.get('email')
@@ -132,7 +130,7 @@ def validate_registerform(self):
     return self.cleaned_data
 
 
-# LOGIN FORM VALIDATION
+# -----ADDED BY SHWETA PATIL -------
 def validate_login_form(self):
     print("VALIDATE.PY FILE: in validate_loginform function")
     email = self.data.get('username')
@@ -195,8 +193,7 @@ def validate_login_form(self):
     return self.cleaned_data
 
 
-
-# CHANGE PASSWORD FOR AGENT FROM VALIDATION
+# -----ADDED BY SHWETA PATIL -------
 def validate_change_password_agent_form(self):
     print("VALIDATE.PY FILE: in change_password_creation_form_for_agent function")
     new_password = self.cleaned_data.get('new_password')
@@ -226,10 +223,9 @@ def validate_change_password_agent_form(self):
     else:
         print("VALIDATE.PY FILE : CHANGE PASSWORD FORM VALIDATION PASSED : RETURNING CLEAN DATA  ")
         return self.cleaned_data
-    
 
 
-# CHANGE PASSWORD FOR USER
+# -----ADDED BY SHWETA PATIL -------
 def validate_change_password_user_form(self):
     print("VALIDATE.PY FILE: in change_password_creation_form function")
     old_password = self.cleaned_data.get('old_password')
@@ -270,10 +266,9 @@ def validate_change_password_user_form(self):
     else:
         print("VALIDATE.PY FILE : CHANGE PASSWORD FORM VALIDATION PASSED : RETURNING CLEAN DATA  ")
         return self.cleaned_data
-    
 
-    
-# FORGOT PASSWORD FORM VALIDATION
+
+# -----ADDED BY SHWETA PATIL -------
 def validate_forgot_password_form(self):
     print("VALIDATE.PY FILE: in validate_forgot_password_form function")
     email = self.cleaned_data.get('email')
@@ -311,7 +306,7 @@ def validate_forgot_password_form(self):
     return self.cleaned_data
 
 
-# PASSWORD CREATION FORM VALIDATION
+# -----ADDED BY SHWETA PATIL -------
 def validate_password_creation_form(self):
     print("VALIDATE.PY FILE: in validate_password_creation_form function")
     password = self.cleaned_data.get('password')
@@ -341,7 +336,7 @@ def validate_password_creation_form(self):
         return self.cleaned_data
 
 
-
+# -----ADDED BY SHWETA PATIL -------
 def validate_user_profile_form(self):
     print("User Profile Validation ")
     UserProfile_name = self.cleaned_data.get('UserProfile_name')

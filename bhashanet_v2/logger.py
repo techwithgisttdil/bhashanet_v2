@@ -5,7 +5,6 @@ import os
 # --------INFO LOG FUNCTION -----------##
 
 def logs(message):
-    
     # Get the frame of the caller
     caller_frame = inspect.currentframe().f_back
     # Get the line number from the frame

@@ -1399,7 +1399,32 @@
         "Sindhi":"/user_profilesdin",
         "Maithili":"/user_profilemai",
         "Sanskrit":"/user_profilesa"
-    }
+    },
+    {
+      "English": "/user_profile",
+      "Hindi": "/user_profilehi",
+      "Marathi": "/user_profilemr",
+      "Kannada":"/user_profilekn",
+      "Malayalam":"/user_profileml",
+      "Bengali":"/user_profilebn",
+      "Manipuri":"/user_profilemni",
+      "Gujarati":"/user_profilegu",
+      "Urdu":"/user_profileur",
+      "Telugu":"/user_profilete",
+      "Punjabi":"/user_profilepa",
+      "Tamil":"/user_profileta",
+      "Assamese":"/user_profileas",
+      "Konkani":"/user_profilekok",
+      "Oriya":"/user_profileor",
+      "Santali":"/user_profilesat",
+      "Nepali":"/user_profilene",
+      "Dogri":"/user_profiledoi",
+      "Boro":"/user_profilebrx",
+      "Kashmiri":"/user_profileks",
+      "Sindhi":"/user_profilesdin",
+      "Maithili":"/user_profilemai",
+      "Sanskrit":"/user_profilesa"
+  }
     
   ]
   
